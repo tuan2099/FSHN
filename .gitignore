@@ -1,0 +1,43 @@
+# WordPress Core
+wp-config.php
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache/
+wp-content/languages/
+
+# Node & Build Tools
+**/node_modules/
+**/npm-debug.log*
+**/.parcel-cache/
+**/.cache/
+
+# Theme Specific
+# If you want to commit compiled CSS, comment the next line
+# wp-content/themes/fohn/assets/css/main.css
+
+# IDEs & Editors
+.vscode/
+.idea/
+.project
+.settings/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+error_log

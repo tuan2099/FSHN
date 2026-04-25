@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'IvyMode';
+  src: url('../font/ivy-mode-6.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IvyMode';
+  src: url('../font/ivy-mode-8.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-full font-bold transition-all duration-300 active:scale-95;
+  }
+  .btn-primary {
+    @apply bg-brand-blue text-white hover:bg-brand-blue/90 shadow-md hover:shadow-brand-blue/20;
+  }
+  .btn-orange {
+    @apply bg-brand-orange text-white hover:bg-brand-orange/90 shadow-md hover:shadow-brand-orange/20;
+  }
+}

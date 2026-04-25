@@ -28,14 +28,14 @@ $acc_desc = get_field('acc_desc');
             alt="Flower Ornament">
     <?php endif; ?>
 
-    <div class="container mx-auto px-6 relative z-10">
+    <div class="container mx-auto relative z-10">
         <!-- Top Heritage Part -->
-        <div class="max-w-4xl mx-auto text-center mb-24">
+        <div class="mx-auto text-center mb-24">
             <h2
                 class="text-4xl lg:text-5xl font-bold text-brand-blue uppercase leading-tight tracking-tighter mb-8 font-serif">
                 <?php echo wp_kses_post($heritage_title); ?>
             </h2>
-            <div class="text-brand-black-700 text-sm md:text-base leading-relaxed mb-12 max-w-3xl mx-auto">
+            <div class="text-brand-black-700 text-sm md:text-base leading-relaxed mb-12 mx-auto">
                 <?php echo wp_kses_post($heritage_desc); ?>
             </div>
             <div class="flex flex-wrap justify-center gap-4">

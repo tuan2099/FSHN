@@ -7,19 +7,13 @@ get_header(); ?>
 
 <main id="primary" class="site-main">
 
-    <?php 
+    <?php
     // You can include other sections here, like hero, before the amenities
-    get_template_part('template-parts/sections/hero'); 
+    get_template_part('template-parts/sections/hero');
     ?>
 
     <?php get_template_part('template-parts/sections/hotel-amenities'); ?>
 
-    <?php
-    while (have_posts()):
-        the_post();
-        the_content();
-    endwhile;
-    ?>
 
 </main>
 

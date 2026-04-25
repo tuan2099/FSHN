@@ -9,17 +9,6 @@ get_header(); ?>
 
     <?php get_template_part('template-parts/sections/hero'); ?>
 
-    <?php
-    while (have_posts()):
-        the_post();
-
-        // This allows using Gutenberg blocks (like our Hero block) 
-        // to build the home page dynamically.
-        the_content();
-
-    endwhile;
-    ?>
-
     <!-- Flexible Content or Custom Sections could go here if not using blocks -->
     <?php if (have_rows('home_sections')): ?>
         <?php while (have_rows('home_sections')):
@@ -68,8 +57,8 @@ get_header(); ?>
     <?php endif; ?>
 
     <?php get_template_part('template-parts/sections/heritage'); ?>
-    <?php get_template_part('template-parts/sections/offers'); ?>
     <?php get_template_part('template-parts/sections/rooms-slider'); ?>
+    <?php get_template_part('template-parts/sections/offers'); ?>
     <?php get_template_part('template-parts/sections/faq'); ?>
     <?php get_template_part('template-parts/sections/map'); ?>
 

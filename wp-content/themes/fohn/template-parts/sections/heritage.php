@@ -19,12 +19,12 @@ $acc_desc = get_field('acc_desc');
     <!-- Background Flower Images -->
     <?php if ($heritage_flower_left): ?>
         <img src="<?php echo esc_url($heritage_flower_left); ?>"
-            class="absolute left-0 top-1/2 -translate-y-1/2 w-48 lg:w-72 opacity-20 pointer-events-none select-none"
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-48 lg:w-72 pointer-events-none select-none"
             alt="Flower Ornament">
     <?php endif; ?>
     <?php if ($heritage_flower_right): ?>
         <img src="<?php echo esc_url($heritage_flower_right); ?>"
-            class="absolute right-0 top-1/2 -translate-y-1/2 w-48 lg:w-72 opacity-20 pointer-events-none select-none"
+            class="absolute right-0 top-1/2 -translate-y-1/2 w-48 lg:w-72  pointer-events-none select-none"
             alt="Flower Ornament">
     <?php endif; ?>
 
@@ -53,7 +53,8 @@ $acc_desc = get_field('acc_desc');
         <!-- Bottom Accommodations Part -->
         <div class="max-w-5xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-center gap-6 mb-8 group">
-                <h3 class="text-xl md:text-2xl font-bold text-brand-blue uppercase tracking-tighter whitespace-nowrap">
+                <h3
+                    class="text-xl font-serif md:text-2xl font-bold text-brand-blue uppercase tracking-tighter whitespace-nowrap">
                     <?php echo esc_html($acc_title); ?>
                 </h3>
                 <div class="flex-grow h-0.5 bg-brand-orange/30 relative">

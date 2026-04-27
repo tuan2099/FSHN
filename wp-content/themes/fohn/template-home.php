@@ -58,9 +58,11 @@ get_header(); ?>
 
     <?php get_template_part('template-parts/sections/heritage'); ?>
     <?php get_template_part('template-parts/sections/rooms-slider'); ?>
-    <?php get_template_part('template-parts/sections/offers'); ?>
-    <?php get_template_part('template-parts/sections/faq'); ?>
+    <?php get_template_part('template-parts/sections/offers-carousel'); ?>
+    <?php get_template_part('template-parts/sections/offers-alternate'); ?>
+    <?php // get_template_part('template-parts/sections/offers'); ?>
     <?php get_template_part('template-parts/sections/map'); ?>
+    <?php get_template_part('template-parts/sections/faq'); ?>
 
 </main>
 

@@ -89,4 +89,8 @@
   .btn-orange {
     @apply bg-brand-orange text-white hover:bg-brand-orange/90 shadow-md hover:shadow-brand-orange/20;
   }
+
+  .site-header.scrolled {
+    @apply bg-brand-blue/80 backdrop-blur-lg py-4 lg:py-5 shadow-xl;
+  }
 }

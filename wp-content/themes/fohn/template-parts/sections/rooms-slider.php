@@ -11,8 +11,8 @@ $selected_rooms = get_field('home_rooms_list');
         <!-- Header -->
         <div class="mb-12">
             <h2 class="text-2xl font-bold flex items-center gap-2">
-                <span class="text-brand-blue uppercase tracking-widest">ROOM</span>
-                <span class="text-brand-black-400 font-normal italic lowercase font-serif">suites</span>
+                <span class="text-brand-blue font-serif uppercase tracking-widest">ROOM</span>
+                <span class="text-brand-black-400 font-normal italic lowercase font-serif">RESIDENCES</span>
             </h2>
         </div>
 

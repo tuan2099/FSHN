@@ -13,6 +13,7 @@ get_header(); ?>
     ?>
 
     <?php get_template_part('template-parts/sections/hotel-amenities'); ?>
+    <?php get_template_part('template-parts/sections/hotel-rooms'); ?>
 
 
 </main>

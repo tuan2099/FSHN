@@ -1,17 +1,39 @@
+<?php
+/**
+ * The template for displaying the footer
+ */
+
+// Footer Options
+$loyalty_title = get_field('footer_loyalty_title', 'option') ?: 'fusionlife';
+$loyalty_desc = get_field('footer_loyalty_desc', 'option') ?: 'Join our loyalty program and book direct to take advantage of all our rewards and benefits.';
+$loyalty_btn_text = get_field('footer_loyalty_btn_text', 'option') ?: 'Join Now';
+$loyalty_btn_link = get_field('footer_loyalty_btn_link', 'option') ?: '#';
+
+$footer_logo = get_field('footer_logo', 'option');
+$footer_desc = get_field('footer_description', 'option') ?: 'LÈGACY - A FUSION ORIGINAL HA NOI';
+$footer_address = get_field('footer_address', 'option') ?: '345 Doi Can, Ngoc Ha Ward, Ba Dinh, Hanoi City';
+$footer_phone = get_field('footer_phone', 'option') ?: '+84 283 9101 000';
+$footer_email = get_field('footer_email', 'option') ?: 'info@fusionhotelgroup.com';
+$footer_socials = get_field('footer_socials', 'option');
+$footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Group &copy; ' . date('Y');
+?>
+
 <footer id="colophon" class="site-footer bg-white pt-0">
     <!-- Top Dark Bar -->
     <div class="bg-brand-blue py-10 lg:py-15">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="text-white max-w-2xl">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-4 tracking-tighter">fusionlife</h2>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4 tracking-tighter">
+                    <?php echo esc_html($loyalty_title); ?>
+                </h2>
                 <p class="text-brand-black-100/80 text-sm md:text-base font-medium">
-                    Join our loyalty program and book direct to take advantage of all our rewards and benefits.
+                    <?php echo esc_html($loyalty_desc); ?>
                 </p>
             </div>
             <div>
-                <a href="#"
+                <a href="<?php echo esc_url($loyalty_btn_link); ?>"
                     class="bg-white text-brand-blue px-10 py-3 rounded-full font-bold text-sm uppercase tracking-wide hover:bg-brand-orange hover:text-white transition-all shadow-lg active:scale-95">
-                    Join Now
+                    <?php echo esc_html($loyalty_btn_text); ?>
                 </a>
             </div>
         </div>
@@ -22,13 +44,19 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-18">
             <!-- Group Info -->
             <div class="info-column">
-                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6">Fusion Hotel
-                    Group</h3>
+                <div class="mb-6">
+                    <?php if ($footer_logo): ?>
+                        <img src="<?php echo esc_url($footer_logo); ?>" alt="Footer Logo" class="h-12 w-auto mb-4">
+                    <?php endif; ?>
+                    <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em]">
+                        <?php echo esc_html($footer_desc); ?>
+                    </h3>
+                </div>
                 <div class="text-brand-black-700 text-sm leading-relaxed space-y-4">
-                    <p>Lodgis House, 14 Ngo Van Nam, Sai Gon Ward,<br>Ho Chi Minh City, Vietnam</p>
+                    <p><?php echo nl2br(esc_html($footer_address)); ?></p>
                     <p>
-                        T. +84 283 9101 000<br>
-                        E. info@fusionhotelgroup.com
+                        T. <?php echo esc_html($footer_phone); ?><br>
+                        E. <?php echo esc_html($footer_email); ?>
                     </p>
                 </div>
             </div>
@@ -56,42 +84,21 @@
             <div class="social-column">
                 <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6">Follow Us</h3>
                 <div class="flex gap-4">
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-brand-black-400 flex items-center justify-center text-white hover:bg-brand-blue transition-all">
-                        <span class="sr-only">Facebook</span>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-brand-black-400 flex items-center justify-center text-white hover:bg-brand-blue transition-all">
-                        <span class="sr-only">Instagram</span>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-brand-black-400 flex items-center justify-center text-white hover:bg-brand-blue transition-all">
-                        <span class="sr-only">YouTube</span>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path
-                                d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33 2.78 2.78 0 001.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z">
-                            </path>
-                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-10 h-10 rounded-full bg-brand-black-400 flex items-center justify-center text-white hover:bg-brand-blue transition-all">
-                        <span class="sr-only">LinkedIn</span>
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                            <path
-                                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
-                            </path>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
+                    <?php if ($footer_socials): ?>
+                        <?php foreach ($footer_socials as $social): ?>
+                            <a href="<?php echo esc_url($social['url']); ?>" target="_blank"
+                                class="w-10 h-10 rounded-full bg-brand-black-400 flex items-center justify-center text-white hover:bg-brand-blue transition-all">
+                                <span class="sr-only"><?php echo esc_html($social['platform']); ?></span>
+                                <?php
+                                $platform = $social['platform'];
+                                if ($platform == 'facebook') echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>';
+                                elseif ($platform == 'instagram') echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>';
+                                elseif ($platform == 'youtube') echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33 2.78 2.78 0 001.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>';
+                                elseif ($platform == 'linkedin') echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>';
+                                ?>
+                            </a>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -132,7 +139,7 @@
     <div class="py-8">
         <div class="container mx-auto px-6 text-center">
             <p class="text-[10px] font-bold uppercase tracking-widest text-brand-black-500">
-                Fusion Hotel Group &copy; 2025
+                <?php echo wp_kses_post($footer_copyright); ?>
             </p>
         </div>
     </div>

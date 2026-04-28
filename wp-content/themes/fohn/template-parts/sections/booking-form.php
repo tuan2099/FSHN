@@ -3,15 +3,33 @@
  * Section Component: Booking Form (Flatpickr Integration)
  */
 ?>
-<div class="booking-form-wrapper absolute bottom-12 left-0 w-full z-40 pb-4">
-    <div class="container mx-auto px-6">
-        <div class="bg-white shadow-2xl flex flex-col lg:flex-row items-stretch relative">
+<<!-- Mobile Sticky Trigger -->
+<button id="mobile-booking-trigger" class="fixed bottom-0 left-0 w-full z-[90] bg-brand-orange text-white py-4 text-sm font-bold uppercase tracking-widest lg:hidden shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
+    Check Availability
+</button>
+
+<div id="booking-form-wrapper" class="booking-form-wrapper fixed inset-0 bg-white z-[100] opacity-0 pointer-events-none invisible lg:visible lg:opacity-100 lg:pointer-events-auto lg:!block lg:absolute lg:inset-auto lg:bottom-12 lg:left-0 lg:w-full lg:z-40 lg:pb-4 lg:bg-transparent transition-all duration-300 ease-in-out">
+    
+    <!-- Mobile Close Button -->
+    <button id="mobile-booking-close" class="absolute top-6 right-6 lg:hidden text-brand-black-900 hover:text-brand-orange transition-colors z-50 p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+
+    <!-- Mobile Header -->
+    <div class="absolute top-8 left-6 lg:hidden text-brand-black-900 font-bold tracking-widest text-lg uppercase">
+        Book Your Stay
+    </div>
+
+    <div class="container mx-auto px-6 h-full flex flex-col justify-center lg:block pt-20 lg:pt-0">
+        <div class="bg-transparent lg:bg-white w-full max-w-lg mx-auto lg:max-w-none shadow-none lg:shadow-2xl flex flex-col lg:flex-row items-stretch relative rounded-none lg:overflow-hidden translate-y-8 lg:translate-y-0 transition-transform duration-500 ease-out gap-4 lg:gap-0" id="booking-form-inner">
             
             <!-- Arrival -->
-            <div id="arrival-trigger" class="flex-1 border-r border-brand-black-100 p-4 flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors">
+            <div id="arrival-trigger" class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors">
                 <div class="flex items-center justify-between pointer-events-none">
-                    <span class="text-[13px] font-medium text-brand-black-300 arrival-date-display">Arrival</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-black-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <span class="text-[14px] lg:text-[13px] font-medium text-brand-black-300 arrival-date-display">Arrival</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v12a2 2 0 00-2 2z" />
                     </svg>
                 </div>
@@ -19,46 +37,46 @@
             </div>
 
             <!-- Departure -->
-            <div id="departure-trigger" class="flex-1 border-r border-brand-black-100 p-4 flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors">
+            <div id="departure-trigger" class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors">
                 <div class="flex items-center justify-between pointer-events-none">
-                    <span class="text-[13px] font-medium text-brand-black-300 departure-date-display">Departure</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-black-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 00-2 2z" />
+                    <span class="text-[14px] lg:text-[13px] font-medium text-brand-black-300 departure-date-display">Departure</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v12a2 2 0 00-2 2z" />
                     </svg>
                 </div>
                 <input type="text" id="departure-input" class="opacity-0 pointer-events-none absolute">
             </div>
 
             <!-- Rooms -->
-            <div class="flex-1 border-r border-brand-black-100 p-4 flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors booking-field" data-target="dropdown-rooms">
+            <div class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors booking-field" data-target="dropdown-rooms">
                 <div class="flex items-center justify-between pointer-events-none">
-                    <span class="text-[13px] font-medium text-brand-black-300 rooms-display">Rooms</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-black-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <span class="text-[14px] lg:text-[13px] font-medium text-brand-black-300 rooms-display">Rooms</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </div>
             </div>
 
             <!-- Guests -->
-            <div class="flex-1 border-r border-brand-black-100 p-4 flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors booking-field" data-target="dropdown-guests">
+            <div class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors booking-field" data-target="dropdown-guests">
                 <div class="flex items-center justify-between pointer-events-none">
-                    <span class="text-[13px] font-medium text-brand-black-300 guests-display">Guests</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-brand-black-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <span class="text-[14px] lg:text-[13px] font-medium text-brand-black-300 guests-display">Guests</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </div>
             </div>
 
             <!-- Action -->
-            <div class="flex-1 lg:flex-none">
-                <button class="check-availability-btn w-full h-full bg-brand-orange text-white px-10 py-5 text-[13px] font-bold uppercase tracking-widest hover:bg-brand-blue transition-all">
+            <div class="flex-1 lg:flex-none mt-4 lg:mt-0">
+                <button class="check-availability-btn w-full h-full bg-brand-orange text-white px-10 py-5 text-[14px] lg:text-[13px] font-bold uppercase tracking-widest hover:bg-brand-blue transition-all rounded-xl lg:rounded-none">
                     Check availability
                 </button>
             </div>
 
             <!-- DROPDOWNS -->
             <!-- Rooms Dropdown -->
-            <div id="dropdown-rooms" class="booking-popup absolute top-full left-[40%] mt-4 bg-white shadow-2xl w-[200px] hidden animate-fade-in z-[100]">
+            <div id="dropdown-rooms" class="booking-popup fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:absolute lg:top-full lg:left-[40%] lg:translate-x-0 lg:translate-y-0 lg:mt-4 bg-white shadow-2xl w-[80%] lg:w-[200px] hidden animate-fade-in z-[110] rounded-xl lg:rounded-none overflow-hidden">
                 <div class="flex flex-col">
                     <?php for($i=1; $i<=3; $i++): ?>
                         <div class="px-8 py-4 border-b border-brand-black-100 last:border-0 hover:bg-brand-black-50 cursor-pointer transition-colors selector-item" data-value="<?php echo $i; ?> Room<?php echo $i>1?'s':''; ?>">
@@ -69,7 +87,7 @@
             </div>
 
             <!-- Guests Dropdown -->
-            <div id="dropdown-guests" class="booking-popup absolute top-full left-[60%] mt-4 bg-white shadow-2xl w-[200px] hidden animate-fade-in z-[100]">
+            <div id="dropdown-guests" class="booking-popup fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:absolute lg:top-full lg:left-[60%] lg:translate-x-0 lg:translate-y-0 lg:mt-4 bg-white shadow-2xl w-[80%] lg:w-[200px] hidden animate-fade-in z-[110] rounded-xl lg:rounded-none overflow-hidden">
                 <div class="flex flex-col">
                     <?php for($i=1; $i<=4; $i++): ?>
                         <div class="px-8 py-4 border-b border-brand-black-100 last:border-0 hover:bg-brand-black-50 cursor-pointer transition-colors selector-item" data-value="<?php echo $i; ?> Guest<?php echo $i>1?'s':''; ?>">
@@ -139,8 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const arrivalPicker = flatpickr("#arrival-input", {
         dateFormat: "d/m/Y",
         minDate: "today",
-        static: true,
-        monthSelectorType: "static",
+        disableMobile: true,
         onChange: function(selectedDates, dateStr) {
             bookingData.arrival = dateStr;
             const display = document.querySelector('.arrival-date-display');
@@ -154,8 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const departurePicker = flatpickr("#departure-input", {
         dateFormat: "d/m/Y",
         minDate: "today",
-        static: true,
-        monthSelectorType: "static",
+        disableMobile: true,
         onChange: function(selectedDates, dateStr) {
             bookingData.departure = dateStr;
             const display = document.querySelector('.departure-date-display');
@@ -219,5 +235,36 @@ document.addEventListener('DOMContentLoaded', function() {
             this.textContent = 'Check availability';
         }, 1000);
     });
+
+    // Mobile Popup Logic
+    const mobileTrigger = document.getElementById('mobile-booking-trigger');
+    const mobileClose = document.getElementById('mobile-booking-close');
+    const formWrapper = document.getElementById('booking-form-wrapper');
+    const formInner = document.getElementById('booking-form-inner');
+
+    if (mobileTrigger && formWrapper) {
+        mobileTrigger.addEventListener('click', () => {
+            formWrapper.classList.remove('opacity-0', 'pointer-events-none', 'invisible');
+            formInner.classList.remove('translate-y-8');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        mobileClose.addEventListener('click', () => {
+            formWrapper.classList.add('opacity-0', 'pointer-events-none', 'invisible');
+            formInner.classList.add('translate-y-8');
+            document.body.style.overflow = '';
+        });
+
+        // Close when clicking outside the form on mobile
+        formWrapper.addEventListener('click', (e) => {
+            if (window.innerWidth < 1024) { // lg breakpoint
+                if (!formInner.contains(e.target)) {
+                    formWrapper.classList.add('opacity-0', 'pointer-events-none', 'invisible');
+                    formInner.classList.add('translate-y-8');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    }
 });
 </script>

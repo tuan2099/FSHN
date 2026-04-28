@@ -40,7 +40,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     </div>
 
     <!-- Main Footer Info -->
-    <div class="container mx-auto px-6 py-15">
+    <div class="container mx-auto px-6 pt-15">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-18">
             <!-- Group Info -->
             <div class="info-column">
@@ -91,10 +91,14 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                                 <span class="sr-only"><?php echo esc_html($social['platform']); ?></span>
                                 <?php
                                 $platform = $social['platform'];
-                                if ($platform == 'facebook') echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>';
-                                elseif ($platform == 'instagram') echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>';
-                                elseif ($platform == 'youtube') echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33 2.78 2.78 0 001.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>';
-                                elseif ($platform == 'linkedin') echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>';
+                                if ($platform == 'facebook')
+                                    echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>';
+                                elseif ($platform == 'instagram')
+                                    echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>';
+                                elseif ($platform == 'youtube')
+                                    echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33 2.78 2.78 0 001.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>';
+                                elseif ($platform == 'linkedin')
+                                    echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>';
                                 ?>
                             </a>
                         <?php endforeach; ?>
@@ -105,17 +109,32 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
         <!-- Brand Logos -->
         <div class="mt-18 pt-10 border-t border-brand-black-100">
-            <div
-                class="flex flex-wrap justify-between items-center gap-12 lg:gap-18 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-brand-black-800">
-                <div class="text-center"><span class="text-lg font-bold tracking-tighter">fusionresorts</span></div>
-                <div class="text-center"><span class="text-lg font-bold tracking-tighter">fusionoriginals</span></div>
-                <div class="text-center"><span class="text-lg font-bold tracking-tighter italic">fusion</span><br><span
-                        class="text-[8px] uppercase tracking-widest">collection</span></div>
-                <div class="text-center"><span class="text-lg font-bold tracking-tighter">fusionsuites</span></div>
-                <div class="text-center border-l border-brand-black-300 pl-4"><span
-                        class="text-lg font-bold tracking-widest">HIIVE</span></div>
-                <div class="text-center pl-4"><span class="text-lg font-bold tracking-[0.4em]">GLOW</span></div>
-            </div>
+            <?php
+            $brand_logos = get_field('footer_brand_logos', 'option');
+            if ($brand_logos):
+                ?>
+                <div
+                    class="flex flex-nowrap justify-between items-center gap-4 lg:gap-4 w-full">
+                    <?php foreach ($brand_logos as $logo_url): ?>
+                        <div class="text-center h-16 lg:h-32 flex items-center justify-center flex-1 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer">
+                            <img src="<?php echo esc_url($logo_url); ?>" alt="Brand Logo"
+                                class="max-h-full max-w-full w-auto object-contain">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <div
+                    class="flex flex-wrap justify-between items-center gap-12 lg:gap-18 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-brand-black-800">
+                    <div class="text-center"><span class="text-lg font-bold tracking-tighter">fusionresorts</span></div>
+                    <div class="text-center"><span class="text-lg font-bold tracking-tighter">fusionoriginals</span></div>
+                    <div class="text-center"><span class="text-lg font-bold tracking-tighter italic">fusion</span><br><span
+                            class="text-[8px] uppercase tracking-widest">collection</span></div>
+                    <div class="text-center"><span class="text-lg font-bold tracking-tighter">fusionsuites</span></div>
+                    <div class="text-center border-l border-brand-black-300 pl-4"><span
+                            class="text-lg font-bold tracking-widest">HIIVE</span></div>
+                    <div class="text-center pl-4"><span class="text-lg font-bold tracking-[0.4em]">GLOW</span></div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -124,13 +143,24 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
         <div class="container mx-auto px-6">
             <ul
                 class="flex flex-wrap justify-between items-center gap-x-12 gap-y-4 text-[10px] font-bold uppercase tracking-widest text-brand-black-700">
-                <li><a href="#" class="hover:text-brand-orange transition-colors">Careers</a></li>
-                <li><a href="#" class="hover:text-brand-orange transition-colors">Our Story</a></li>
-                <li><a href="#" class="hover:text-brand-orange transition-colors">Contact Us</a></li>
-                <li><a href="#" class="hover:text-brand-orange transition-colors">News</a></li>
-                <li><a href="#" class="hover:text-brand-orange transition-colors">General Policy</a></li>
-                <li><a href="#" class="hover:text-brand-orange transition-colors">Privacy Policy</a></li>
-                <li><a href="#" class="hover:text-brand-orange transition-colors">Payment Policy</a></li>
+                <?php 
+                $bottom_nav = get_field('footer_bottom_nav', 'option');
+                if ($bottom_nav): 
+                    foreach ($bottom_nav as $nav_item):
+                ?>
+                    <li><a href="<?php echo esc_url($nav_item['url']); ?>" class="hover:text-brand-orange transition-colors"><?php echo esc_html($nav_item['label']); ?></a></li>
+                <?php 
+                    endforeach;
+                else: 
+                ?>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">Careers</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">Our Story</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">News</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">General Policy</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors">Payment Policy</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

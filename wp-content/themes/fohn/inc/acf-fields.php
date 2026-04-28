@@ -923,6 +923,45 @@ function fohn_register_acf_fields() {
                 'type' => 'text',
                 'default_value' => '© 2026 LÈGACY. All rights reserved.',
             ),
+            array(
+                'key' => 'field_fohn_footer_brands_tab',
+                'label' => 'Brand Logos',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_fohn_footer_brand_logos',
+                'label' => 'Brand Logos Gallery',
+                'name' => 'footer_brand_logos',
+                'type' => 'gallery',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_fohn_footer_bottom_nav_tab',
+                'label' => 'Bottom Navigation',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_fohn_footer_bottom_nav',
+                'label' => 'Bottom Navigation Links',
+                'name' => 'footer_bottom_nav',
+                'type' => 'repeater',
+                'layout' => 'table',
+                'button_label' => 'Add Link',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_fohn_footer_nav_label',
+                        'label' => 'Label',
+                        'name' => 'label',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_fohn_footer_nav_url',
+                        'label' => 'URL',
+                        'name' => 'url',
+                        'type' => 'url',
+                    ),
+                ),
+            ),
         ),
         'location' => array(
             array(
@@ -933,5 +972,37 @@ function fohn_register_acf_fields() {
                 ),
             ),
         ),
+    ));
+
+    /**
+     * Hero Banner Layout Settings (For Pages)
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_fohn_hero_layout',
+        'title' => 'Hero Banner Settings',
+        'fields' => array(
+            array(
+                'key' => 'field_fohn_hero_height',
+                'label' => 'Banner Height',
+                'name' => 'hero_height_type',
+                'type' => 'radio',
+                'choices' => array(
+                    'full' => 'Full Screen (h-screen)',
+                    'fixed' => 'Fixed Height (600px)',
+                ),
+                'default_value' => 'full',
+                'layout' => 'horizontal',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'page',
+                ),
+            ),
+        ),
+        'position' => 'side',
     ));
 }

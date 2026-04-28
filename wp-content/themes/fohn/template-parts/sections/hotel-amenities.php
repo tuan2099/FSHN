@@ -19,7 +19,8 @@ $footer_text = get_field('hotel_footer_text');
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
         <?php endif; ?>
     </div>
-    <div class="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[400px] pointer-events-none select-none scale-x-[-1]">
+    <div
+        class="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[400px] pointer-events-none select-none scale-x-[-1]">
         <?php if (get_field('hotel_flower_right')): ?>
             <img src="<?php echo esc_url(get_field('hotel_flower_right')); ?>" alt="" class="w-full h-auto">
         <?php else: ?>
@@ -35,33 +36,41 @@ $footer_text = get_field('hotel_footer_text');
             </h2>
             <div class="w-24 h-px bg-brand-orange mx-auto mb-10"></div>
             <?php if ($intro_desc): ?>
-                <p class="text-brand-black-700 font-sans text-lg leading-relaxed max-w-[850px] mx-auto">
+                <p class="text-brand-black-700 font-sans text-md leading-relaxed mx-auto">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php else: ?>
-                <p class="text-brand-black-700 font-sans text-lg leading-relaxed max-w-[850px] mx-auto">
-                    Nestled in the heart of Hanoi, just a five-minute walk from West Lake, the hotel seamlessly blends contemporary design with the city’s rich cultural heritage, offering an immersive experience where art, architecture, and storytelling come to life. Designed as a living gallery, the lobby, lounges, restaurants, corridors, and guest rooms are adorned with curated artworks and décor inspired by motifs such as lotus flowers, cranes, and the mountains and forests of Vietnam.
+                <p class="text-brand-black-700 font-sans text-md leading-relaxed mx-auto">
+                    Nestled in the heart of Hanoi, just a five-minute walk from West Lake, the hotel seamlessly blends
+                    contemporary design with the city’s rich cultural heritage, offering an immersive experience where art,
+                    architecture, and storytelling come to life. Designed as a living gallery, the lobby, lounges,
+                    restaurants, corridors, and guest rooms are adorned with curated artworks and décor inspired by motifs
+                    such as lotus flowers, cranes, and the mountains and forests of Vietnam.
                 </p>
             <?php endif; ?>
         </div>
 
         <!-- Amenities Bar -->
-        <div class="bg-brand-blue py-4 mb-15">
+        <div class="bg-brand-blue py-4 mb-15 max-w-[850px] mx-auto">
             <h3 class="text-white font-serif text-xl tracking-[0.3em] text-center uppercase">
                 <?php echo esc_html($amenities_bar_title); ?>
             </h3>
         </div>
 
         <!-- Amenities Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-6 gap-x-8 gap-y-12">
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-x-8 gap-y-12 max-w-[850px] mx-auto">
             <?php if ($amenities_list): ?>
                 <?php foreach ($amenities_list as $item): ?>
                     <div class="flex flex-col items-center text-center group">
                         <div class="mb-5 text-brand-blue transition-transform duration-300 group-hover:scale-110">
                             <?php if ($item['icon']): ?>
-                                <img src="<?php echo esc_url($item['icon']); ?>" alt="<?php echo esc_attr($item['label']); ?>" class="w-10 h-10 object-contain">
+                                <img src="<?php echo esc_url($item['icon']); ?>" alt="<?php echo esc_attr($item['label']); ?>"
+                                    class="w-14 h-14 object-contain">
                             <?php else: ?>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                </svg>
                             <?php endif; ?>
                         </div>
                         <span class="text-brand-black-700 font-sans text-sm font-medium leading-tight">
@@ -71,7 +80,8 @@ $footer_text = get_field('hotel_footer_text');
                 <?php endforeach; ?>
             <?php else: ?>
                 <!-- Fallback to static items if no ACF data -->
-                <p class="col-span-full text-center italic text-brand-black-400">Please add amenities in the page editor.</p>
+                <p class="col-span-full text-center italic text-brand-black-400">Please add amenities in the page editor.
+                </p>
             <?php endif; ?>
         </div>
 

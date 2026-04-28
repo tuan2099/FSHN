@@ -135,7 +135,7 @@ $dining_outlets = get_field('dining_outlets');
                 ?>
                 <div class="container relative z-10 mx-auto px-6 max-w-[1040px] <?php echo $counter > 0 ? 'mt-32' : ''; ?>">
                     <div class="flex flex-col <?php echo $is_even ? 'md:flex-row' : 'md:flex-row-reverse'; ?> items-center">
-                        <div class="w-full md:w-1/2">
+                        <div class="w-full md:w-1/2 mb-12 md:mb-0">
                             <div class="<?php echo $is_even ? 'pr-0 md:pr-12' : 'pl-0 md:pl-12'; ?>">
                                 <h3 class="text-brand-blue font-serif text-3xl tracking-[0.1em] uppercase mb-4">
                                     <?php echo esc_html($name); ?>

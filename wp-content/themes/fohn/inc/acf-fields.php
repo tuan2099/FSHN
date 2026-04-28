@@ -1184,4 +1184,89 @@ function fohn_register_acf_fields() {
             ),
         ),
     ));
+
+    /**
+     * Apartment Page Settings
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_fohn_apartment_settings',
+        'title' => 'Apartment Settings',
+        'fields' => array(
+            array(
+                'key' => 'field_fohn_apartment_list',
+                'label' => 'Apartments List',
+                'name' => 'apartment_list',
+                'type' => 'repeater',
+                'layout' => 'block',
+                'button_label' => 'Add Apartment',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_fohn_apt_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_fohn_apt_gallery',
+                        'label' => 'Gallery',
+                        'name' => 'gallery',
+                        'type' => 'gallery',
+                        'return_format' => 'url',
+                    ),
+                    array(
+                        'key' => 'field_fohn_apt_description',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                    ),
+                    array(
+                        'key' => 'field_fohn_apt_size',
+                        'label' => 'Size',
+                        'name' => 'size',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_fohn_apt_occupancy',
+                        'label' => 'Occupancy',
+                        'name' => 'occupancy',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_fohn_apt_view',
+                        'label' => 'View',
+                        'name' => 'view',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_fohn_apt_bed',
+                        'label' => 'Bed Type',
+                        'name' => 'bed',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_fohn_apt_balcony',
+                        'label' => 'Balcony',
+                        'name' => 'balcony',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_fohn_apt_book_link',
+                        'label' => 'Book Link',
+                        'name' => 'book_link',
+                        'type' => 'url',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-apartment.php',
+                ),
+            ),
+        ),
+    ));
 }

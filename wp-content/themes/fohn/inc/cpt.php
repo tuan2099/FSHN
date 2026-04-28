@@ -46,6 +46,7 @@ function fohn_register_cpts() {
         'description'           => __( 'Manage hotel rooms', 'fohn' ),
         'labels'                => $labels_room,
         'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+        'taxonomies'            => array( 'category' ),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,

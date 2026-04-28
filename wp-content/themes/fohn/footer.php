@@ -176,6 +176,64 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 </footer>
 
 <?php wp_footer(); ?>
+<!-- Logo Switcher & Header Scroll Handler -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const masthead = document.getElementById('masthead');
+    const logoImg = masthead ? masthead.querySelector('.site-logo img') : null;
+    const toggleBtn = masthead ? masthead.querySelector('.menu-toggle') : null;
+    
+    if (masthead && logoImg) {
+        // Cache image sources
+        const whiteLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/Lègacy Logo_white 2.png';
+        const scrollLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/LG_scroll.png';
+        
+        window.addEventListener('scroll', function() {
+            const container = masthead.querySelector('.container');
+            if (window.scrollY > 50) {
+                masthead.classList.add('bg-white', 'shadow-md', 'py-4');
+                masthead.classList.remove('py-6', 'lg:py-8');
+                logoImg.src = scrollLogo;
+                
+                // Make logo smaller when scrolled
+                logoImg.classList.add('h-10', 'md:h-16');
+                logoImg.classList.remove('h-12', 'md:h-28');
+                
+                // Align items: center when scrolled
+                if (container) {
+                    container.classList.add('items-center');
+                    container.classList.remove('items-start');
+                }
+
+                if (toggleBtn) {
+                    toggleBtn.classList.add('text-brand-blue');
+                    toggleBtn.classList.remove('text-white');
+                }
+            } else {
+                masthead.classList.remove('bg-white', 'shadow-md', 'py-4');
+                masthead.classList.add('py-6', 'lg:py-8');
+                logoImg.src = whiteLogo;
+                
+                // Revert to original logo size
+                logoImg.classList.add('h-12', 'md:h-28');
+                logoImg.classList.remove('h-10', 'md:h-16');
+                
+                // Align items: start when at the top
+                if (container) {
+                    container.classList.add('items-start');
+                    container.classList.remove('items-center');
+                }
+
+                if (toggleBtn) {
+                    toggleBtn.classList.add('text-white');
+                    toggleBtn.classList.remove('text-brand-blue');
+                }
+            }
+        });
+    }
+});
+</script>
+
 </body>
 
 </html>

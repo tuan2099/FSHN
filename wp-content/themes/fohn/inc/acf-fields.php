@@ -1005,4 +1005,183 @@ function fohn_register_acf_fields() {
         ),
         'position' => 'side',
     ));
+
+    /**
+     * Features Page Settings
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_fohn_features_settings',
+        'title' => 'Features Page Settings',
+        'fields' => array(
+            // TAB: INTRO
+            array(
+                'key' => 'field_fohn_features_tab_intro',
+                'label' => 'Intro Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_fohn_features_intro_title',
+                'label' => 'Intro Title',
+                'name' => 'features_intro_title',
+                'type' => 'text',
+                'default_value' => 'FEATURES',
+            ),
+            array(
+                'key' => 'field_fohn_features_intro_subtitle',
+                'label' => 'Intro Subtitle',
+                'name' => 'features_intro_subtitle',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_fohn_features_intro_desc',
+                'label' => 'Intro Description',
+                'name' => 'features_intro_desc',
+                'type' => 'textarea',
+            ),
+
+            // TAB: FEATURES LIST
+            array(
+                'key' => 'field_fohn_features_tab_list',
+                'label' => 'Features List',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_fohn_features_list',
+                'label' => 'Features (Alternating Layout)',
+                'name' => 'features_list',
+                'type' => 'repeater',
+                'layout' => 'block',
+                'button_label' => 'Add Feature',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_fohn_feature_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_fohn_feature_desc',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                    ),
+                    array(
+                        'key' => 'field_fohn_feature_image',
+                        'label' => 'Image',
+                        'name' => 'image',
+                        'type' => 'image',
+                        'return_format' => 'url',
+                    ),
+                    array(
+                        'key' => 'field_fohn_feature_link',
+                        'label' => 'Learn More Link (Optional)',
+                        'name' => 'link',
+                        'type' => 'url',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-features.php',
+                ),
+            ),
+        ),
+    ));
+
+    /**
+     * Offers Page Settings
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_fohn_offers_settings',
+        'title' => 'Offers Page Settings',
+        'fields' => array(
+            array(
+                'key' => 'field_fohn_offers_intro_title',
+                'label' => 'Intro Title',
+                'name' => 'offers_intro_title',
+                'type' => 'text',
+                'default_value' => 'EXCLUSIVE OFFERS',
+            ),
+            array(
+                'key' => 'field_fohn_offers_intro_subtitle',
+                'label' => 'Intro Subtitle',
+                'name' => 'offers_intro_subtitle',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_fohn_offers_intro_desc',
+                'label' => 'Intro Description',
+                'name' => 'offers_intro_desc',
+                'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_fohn_offers_flower_left',
+                'label' => 'Left Flower Image',
+                'name' => 'offers_flower_left',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_fohn_offers_flower_right',
+                'label' => 'Right Flower Image',
+                'name' => 'offers_flower_right',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-offers.php',
+                ),
+            ),
+        ),
+    ));
+
+    /**
+     * Offer Single Post Settings
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_fohn_offer_post_settings',
+        'title' => 'Offer Details',
+        'fields' => array(
+            array(
+                'key' => 'field_fohn_offer_book_link',
+                'label' => 'Book Now Link',
+                'name' => 'offer_book_link',
+                'type' => 'url',
+            ),
+            array(
+                'key' => 'field_fohn_offer_benefits',
+                'label' => 'Benefits',
+                'name' => 'offer_benefits',
+                'type' => 'repeater',
+                'layout' => 'table',
+                'button_label' => 'Add Benefit',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_fohn_benefit_text',
+                        'label' => 'Benefit Text',
+                        'name' => 'benefit_text',
+                        'type' => 'text',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'offer',
+                ),
+            ),
+        ),
+    ));
 }

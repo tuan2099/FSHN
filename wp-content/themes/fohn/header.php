@@ -64,28 +64,27 @@
 
             <!-- Menu Grid -->
             <div class="flex-grow">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8 mb-20">
-                    <a href="#"
-                        class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Hotels</a>
-                    <a href="#"
-                        class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Dining</a>
-                    <a href="#"
-                        class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Residences</a>
-                    <a href="#"
-                        class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Yên
-                        Spa & Wellness</a>
-                    <a href="#"
-                        class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Offers</a>
-                    <a href="#"
-                        class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Facilities</a>
-                    <a href="#"
-                        class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Features</a>
-                    <a href="#"
-                        class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Gallery</a>
-                    <a href="#"
-                        class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Contact
-                        Us</a>
-                </div>
+                <?php if (has_nav_menu('primary')): ?>
+                    <?php wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'container' => false,
+                        'menu_class' => 'grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8 mb-20',
+                        'items_wrap' => '<ul id="%1$s" class="%2$s [&_a]:text-sm [&_a]:font-bold [&_a]:text-brand-blue [&_a]:uppercase [&_a]:tracking-widest [&_a]:transition-colors [&_a:hover]:text-brand-orange">%3$s</ul>',
+                    )); ?>
+                <?php else: ?>
+                    <!-- Fallback if no menu is assigned -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8 mb-20">
+                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Hotels</a>
+                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Dining</a>
+                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Residences</a>
+                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Yên Spa & Wellness</a>
+                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Offers</a>
+                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Facilities</a>
+                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Features</a>
+                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Gallery</a>
+                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Contact Us</a>
+                    </div>
+                <?php endif; ?>
 
                 <!-- Language Switcher -->
                 <div class="text-sm font-bold uppercase tracking-widest flex items-center gap-2">

@@ -10,7 +10,7 @@ $main_heading = get_field('faq_main_heading') ?: 'FREQUENTLY ASKED QUESTIONS';
 $faqs = get_field('faq_items');
 
 ?>
-<section class="faq-section py-24 bg-white overflow-hidden">
+<section class="faq-section pb-24 bg-white overflow-hidden">
     <div class="container mx-auto px-6">
         <!-- Subheading -->
         <div class="flex justify-center mb-18">

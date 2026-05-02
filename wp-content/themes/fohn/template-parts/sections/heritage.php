@@ -32,7 +32,7 @@ $acc_desc = get_field('acc_desc');
         <!-- Top Heritage Part -->
         <div class="mx-auto text-center mb-24">
             <h2
-                class="text-4xl lg:text-5xl font-bold text-brand-blue uppercase leading-tight tracking-tighter mb-8 font-serif">
+                class="text-4xl lg:text-5xl font-semibold text-brand-blue uppercase leading-tight tracking-tighter mb-8 font-serif">
                 <?php echo wp_kses_post($heritage_title); ?>
             </h2>
             <div class="text-brand-black-700 text-sm md:text-base leading-relaxed mb-12 mx-auto">

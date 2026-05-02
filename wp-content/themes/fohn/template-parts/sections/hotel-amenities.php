@@ -12,15 +12,14 @@ $footer_text = get_field('hotel_footer_text');
 
 <section class="relative py-24 overflow-hidden bg-white">
     <!-- Decorative Florals -->
-    <div class="absolute left-[-100px] top-1/2 -translate-y-1/2 w-[400px] pointer-events-none select-none">
+    <div class="absolute left-[-100px] top-4 w-[400px] pointer-events-none select-none hidden md:block">
         <?php if (get_field('hotel_flower_left')): ?>
             <img src="<?php echo esc_url(get_field('hotel_flower_left')); ?>" alt="" class="w-full h-auto">
         <?php else: ?>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
         <?php endif; ?>
     </div>
-    <div
-        class="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[400px] pointer-events-none select-none scale-x-[-1]">
+    <div class="absolute right-[-100px] top-4 w-[400px] pointer-events-none select-none scale-x-[-1] hidden md:block">
         <?php if (get_field('hotel_flower_right')): ?>
             <img src="<?php echo esc_url(get_field('hotel_flower_right')); ?>" alt="" class="w-full h-auto">
         <?php else: ?>
@@ -31,7 +30,7 @@ $footer_text = get_field('hotel_footer_text');
     <div class="container relative z-10 mx-auto px-6 max-w-[1040px]">
         <!-- Title & description -->
         <div class="text-center mb-15">
-            <h2 class="text-brand-blue font-serif text-5xl tracking-[0.2em] mb-6 uppercase">
+            <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
                 <?php echo esc_html($intro_title); ?>
             </h2>
             <div class="w-24 h-px bg-brand-orange mx-auto mb-10"></div>

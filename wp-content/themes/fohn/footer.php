@@ -113,26 +113,24 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
             $brand_logos = get_field('footer_brand_logos', 'option');
             if ($brand_logos):
                 ?>
-                <div
-                    class="flex flex-nowrap justify-between items-center gap-4 lg:gap-4 w-full">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between items-center gap-8 lg:gap-4 w-full">
                     <?php foreach ($brand_logos as $logo_url): ?>
-                        <div class="text-center h-16 lg:h-32 flex items-center justify-center flex-1 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer">
+                        <div class="text-center h-16 lg:h-32 w-full flex items-center justify-center lg:flex-1 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer">
                             <img src="<?php echo esc_url($logo_url); ?>" alt="Brand Logo"
-                                class="max-h-full max-w-full w-auto object-contain">
+                                class="max-h-full max-w-[80%] lg:max-w-full w-auto object-contain">
                         </div>
                     <?php endforeach; ?>
                 </div>
             <?php else: ?>
-                <div
-                    class="flex flex-wrap justify-between items-center gap-12 lg:gap-18 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-brand-black-800">
-                    <div class="text-center"><span class="text-lg font-bold tracking-tighter">fusionresorts</span></div>
-                    <div class="text-center"><span class="text-lg font-bold tracking-tighter">fusionoriginals</span></div>
-                    <div class="text-center"><span class="text-lg font-bold tracking-tighter italic">fusion</span><br><span
-                            class="text-[8px] uppercase tracking-widest">collection</span></div>
-                    <div class="text-center"><span class="text-lg font-bold tracking-tighter">fusionsuites</span></div>
-                    <div class="text-center border-l border-brand-black-300 pl-4"><span
-                            class="text-lg font-bold tracking-widest">HIIVE</span></div>
-                    <div class="text-center pl-4"><span class="text-lg font-bold tracking-[0.4em]">GLOW</span></div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between items-center gap-y-10 gap-x-4 lg:gap-18 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-brand-black-800 w-full">
+                    <div class="text-center"><span class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionresorts</span></div>
+                    <div class="text-center"><span class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionoriginals</span></div>
+                    <div class="text-center"><span class="text-[12px] lg:text-lg font-bold tracking-tighter italic">fusion</span><br><span
+                            class="text-[6px] lg:text-[8px] uppercase tracking-widest">collection</span></div>
+                    <div class="text-center"><span class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionsuites</span></div>
+                    <div class="text-center lg:border-l lg:border-brand-black-300 lg:pl-4"><span
+                            class="text-[12px] lg:text-lg font-bold tracking-widest">HIIVE</span></div>
+                    <div class="text-center lg:pl-4"><span class="text-[12px] lg:text-lg font-bold tracking-[0.4em]">GLOW</span></div>
                 </div>
             <?php endif; ?>
         </div>
@@ -141,8 +139,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     <!-- Bottom Navigation -->
     <div class="border-t border-b border-brand-black-100 py-6">
         <div class="container mx-auto px-6">
-            <ul
-                class="flex flex-wrap justify-between items-center gap-x-12 gap-y-4 text-[10px] font-bold uppercase tracking-widest text-brand-black-700">
+            <ul class="flex flex-wrap justify-center lg:justify-between items-center gap-x-12 gap-y-6 text-[10px] font-bold uppercase tracking-widest text-brand-black-700 text-center">
                 <?php 
                 $bottom_nav = get_field('footer_bottom_nav', 'option');
                 if ($bottom_nav): 
@@ -188,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const whiteLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/Lègacy Logo_white 2.png';
         const scrollLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/LG_scroll.png';
         
-        window.addEventListener('scroll', function() {
+        function updateHeaderState() {
             const container = masthead.querySelector('.container');
             if (window.scrollY > 50) {
                 masthead.classList.add('bg-white', 'shadow-md', 'py-4');
@@ -206,8 +203,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 if (toggleBtn) {
-                    toggleBtn.classList.add('text-brand-blue');
                     toggleBtn.classList.remove('text-white');
+                    toggleBtn.classList.add('text-brand-blue');
+                    toggleBtn.style.color = '#2B3C54';
                 }
             } else {
                 masthead.classList.remove('bg-white', 'shadow-md', 'py-4');
@@ -225,11 +223,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
 
                 if (toggleBtn) {
+                    toggleBtn.style.color = '';
                     toggleBtn.classList.add('text-white');
                     toggleBtn.classList.remove('text-brand-blue');
                 }
             }
-        });
+        }
+        
+        window.addEventListener('scroll', updateHeaderState);
+        updateHeaderState(); // Apply state immediately
     }
 });
 </script>

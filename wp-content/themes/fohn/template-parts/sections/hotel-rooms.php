@@ -6,6 +6,7 @@
 $rooms_query = new WP_Query(array(
     'post_type' => 'room',
     'posts_per_page' => -1,
+    'category_name' => 'hotel',
     'order' => 'ASC'
 ));
 ?>
@@ -68,7 +69,7 @@ $rooms_query = new WP_Query(array(
 
                         <!-- Room Content -->
                         <div class="text-center">
-                            <h3 class="text-brand-blue font-serif text-2xl tracking-[0.1em] uppercase mb-2">
+                            <h3 class="text-brand-blue font-serif text-[16px] font-semibold tracking-[0.1em] uppercase mb-2">
                                 <?php the_title(); ?>
                             </h3>
                             <div class="w-16 h-px bg-brand-orange mx-auto mb-8 opacity-50"></div>

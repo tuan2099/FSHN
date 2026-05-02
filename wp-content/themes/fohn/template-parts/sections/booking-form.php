@@ -23,7 +23,7 @@
     </div>
 
     <div class="container mx-auto px-6 h-full flex flex-col justify-center lg:block pt-20 lg:pt-0">
-        <div class="bg-transparent lg:bg-white w-full max-w-lg mx-auto lg:max-w-none shadow-none lg:shadow-2xl flex flex-col lg:flex-row items-stretch relative rounded-none lg:overflow-hidden translate-y-8 lg:translate-y-0 transition-transform duration-500 ease-out gap-4 lg:gap-0" id="booking-form-inner">
+        <div class="bg-transparent lg:bg-white w-full max-w-lg mx-auto lg:max-w-none shadow-none lg:shadow-2xl flex flex-col lg:flex-row items-stretch relative rounded-none lg:overflow-visible translate-y-8 lg:translate-y-0 transition-transform duration-500 ease-out gap-4 lg:gap-0" id="booking-form-inner">
             
             <!-- Arrival -->
             <div id="arrival-trigger" class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors">
@@ -109,6 +109,9 @@
     border: none;
     padding: 10px;
     font-family: 'Outfit', sans-serif;
+    width: 320px !important;
+    max-width: none !important;
+    right: auto !important;
 }
 .flatpickr-month {
     height: 60px;
@@ -158,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dateFormat: "d/m/Y",
         minDate: "today",
         disableMobile: true,
+        appendTo: document.body,
         onChange: function(selectedDates, dateStr) {
             bookingData.arrival = dateStr;
             const display = document.querySelector('.arrival-date-display');
@@ -172,6 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dateFormat: "d/m/Y",
         minDate: "today",
         disableMobile: true,
+        appendTo: document.body,
         onChange: function(selectedDates, dateStr) {
             bookingData.departure = dateStr;
             const display = document.querySelector('.departure-date-display');

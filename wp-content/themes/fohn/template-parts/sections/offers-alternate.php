@@ -4,41 +4,42 @@
  * Data fetched from 'offer' Custom Post Type
  */
 
-// Queries
-$offers_args = array(
-    'post_type' => 'offer',
-    'posts_per_page' => 4,
-    // You can filter by category if you add taxonomies later
-);
-$offers_query = new WP_Query($offers_args);
+// ACF Data
+$block1_heading  = get_field('offers_alt_block1_heading') ?: 'OFFERS';
+$block1_desc     = get_field('offers_alt_block1_desc') ?: 'Discover a collection of seasonal experiences and exclusive stay packages crafted to elevate your time in Hanoi.';
+$block1_btn_text = get_field('offers_alt_block1_btn_text') ?: 'VIEW ALL OFFERS';
+$block1_btn_link = get_field('offers_alt_block1_btn_link') ?: '#';
 
-$dining_args = array(
-    'post_type' => 'offer',
-    'posts_per_page' => 4,
-    'offset' => 4, // Just taking next 4 for demonstration
-);
-$dining_query = new WP_Query($dining_args);
+$block2_heading  = get_field('offers_alt_block2_heading') ?: 'DRINK & DINE';
+$block2_desc     = get_field('offers_alt_block2_desc') ?: 'Savor the tastes of Vietnam in a new light at our 100-seat all-day-dining restaurant MỘC Loft, where authentic flavors meet contemporary reinterpretation. Rise above the city at our 24th-floor bar and VIP Room, the perfect setting for sunset cocktails, skyline views, and stylish gatherings.';
+$block2_btn_text = get_field('offers_alt_block2_btn_text') ?: 'VIEW DETAILS';
+$block2_btn_link = get_field('offers_alt_block2_btn_link') ?: '#';
+
+$block1_items = get_field('offers_alt_block1_list');
+$block2_items = get_field('offers_alt_block2_list');
 ?>
 
 <section class="offers-alternate-section py-24 bg-white overflow-hidden">
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto pb-6">
         
         <!-- Block 1: OFFERS (Text Left, Slider Right) -->
         <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-32">
             <!-- Text Content -->
             <div class="w-full lg:w-5/12 order-2 lg:order-1">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase tracking-widest mb-4">
-                    OFFERS
+                    <?php echo esc_html($block1_heading); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
                 <p class="text-brand-black-600 leading-relaxed mb-10 max-w-md">
-                    Discover a collection of seasonal experiences and exclusive stay packages crafted to elevate your time in Hanoi.
+                    <?php echo wp_kses_post($block1_desc); ?>
                 </p>
                 
-                <a href="#" class="inline-block text-xs font-bold font-serif text-brand-blue uppercase tracking-[0.2em] border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
-                    VIEW ALL OFFERS
+                <?php if ($block1_btn_text): ?>
+                <a href="<?php echo esc_url($block1_btn_link); ?>" class="inline-block text-xs font-bold font-serif text-brand-blue uppercase tracking-[0.2em] border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
+                    <?php echo esc_html($block1_btn_text); ?>
                 </a>
+                <?php endif; ?>
             </div>
             
             <!-- Slider -->
@@ -46,19 +47,36 @@ $dining_query = new WP_Query($dining_args);
                 <div class="offer-slider-container relative" id="offers-block">
                     <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
                         <div class="swiper-wrapper">
-                            <?php if ($offers_query->have_posts()): ?>
-                                <?php while ($offers_query->have_posts()): $offers_query->the_post(); ?>
+                            <?php if ($block1_items): ?>
+                                <?php foreach ($block1_items as $item): ?>
                                     <div class="swiper-slide">
-                                        <?php if (has_post_thumbnail()): ?>
-                                            <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover']); ?>
+                                        <?php if (!empty($item['gallery'])): ?>
+                                            <div class="swiper nested-offers-swiper absolute inset-0 w-full h-full overflow-hidden">
+                                                <div class="nested-wrapper flex w-full h-full relative" style="transition-property: transform;">
+                                                    <?php foreach ($item['gallery'] as $img_data): 
+                                                        $img_src = '';
+                                                        if (is_array($img_data)) {
+                                                            $img_src = $img_data['url'] ?? '';
+                                                        } elseif (is_numeric($img_data)) {
+                                                            $img_src = wp_get_attachment_url($img_data);
+                                                        } else {
+                                                            $img_src = $img_data;
+                                                        }
+                                                    ?>
+                                                        <div class="nested-slide w-full h-full shrink-0 relative">
+                                                            <img src="<?php echo esc_url($img_src); ?>" alt="<?php echo esc_attr(strip_tags($item['title'])); ?>" class="w-full h-full object-cover">
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
                                         <?php else: ?>
                                             <div class="w-full h-full bg-brand-black-300 flex items-center justify-center text-white italic">Offer Image</div>
                                         <?php endif; ?>
                                         
                                         <!-- Post Data for Navigation Label -->
-                                        <div class="hidden post-title"><?php the_title(); ?></div>
+                                        <div class="hidden post-title"><?php echo wp_kses_post($item['title']); ?></div>
                                     </div>
-                                <?php endwhile; wp_reset_postdata(); ?>
+                                <?php endforeach; ?>
                             <?php else: ?>
                                 <!-- Dummy Slides -->
                                 <?php for($i=1; $i<=3; $i++): ?>
@@ -101,17 +119,34 @@ $dining_query = new WP_Query($dining_args);
                 <div class="offer-slider-container relative" id="dining-block">
                     <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
                         <div class="swiper-wrapper">
-                            <?php if ($dining_query->have_posts()): ?>
-                                <?php while ($dining_query->have_posts()): $dining_query->the_post(); ?>
+                            <?php if ($block2_items): ?>
+                                <?php foreach ($block2_items as $item): ?>
                                     <div class="swiper-slide">
-                                        <?php if (has_post_thumbnail()): ?>
-                                            <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover']); ?>
+                                        <?php if (!empty($item['gallery'])): ?>
+                                            <div class="swiper nested-offers-swiper absolute inset-0 w-full h-full overflow-hidden">
+                                                <div class="nested-wrapper flex w-full h-full relative" style="transition-property: transform;">
+                                                    <?php foreach ($item['gallery'] as $img_data): 
+                                                        $img_src = '';
+                                                        if (is_array($img_data)) {
+                                                            $img_src = $img_data['url'] ?? '';
+                                                        } elseif (is_numeric($img_data)) {
+                                                            $img_src = wp_get_attachment_url($img_data);
+                                                        } else {
+                                                            $img_src = $img_data;
+                                                        }
+                                                    ?>
+                                                        <div class="nested-slide w-full h-full shrink-0 relative">
+                                                            <img src="<?php echo esc_url($img_src); ?>" alt="<?php echo esc_attr(strip_tags($item['title'])); ?>" class="w-full h-full object-cover">
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
                                         <?php else: ?>
                                             <div class="w-full h-full bg-brand-black-300 flex items-center justify-center text-white italic">Dining Image</div>
                                         <?php endif; ?>
-                                        <div class="hidden post-title"><?php the_title(); ?></div>
+                                        <div class="hidden post-title"><?php echo wp_kses_post($item['title']); ?></div>
                                     </div>
-                                <?php endwhile; wp_reset_postdata(); ?>
+                                <?php endforeach; ?>
                             <?php else: ?>
                                 <!-- Dummy Slides -->
                                 <?php for($i=1; $i<=3; $i++): ?>
@@ -149,17 +184,19 @@ $dining_query = new WP_Query($dining_args);
             <!-- Text Content -->
             <div class="w-full lg:w-5/12">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase tracking-widest mb-4">
-                    DRINK & DINE
+                    <?php echo esc_html($block2_heading); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
                 <p class="text-brand-black-600 leading-relaxed mb-10">
-                    Savor the tastes of Vietnam in a new light at our 100-seat all-day-dining restaurant MỘC Loft, where authentic flavors meet contemporary reinterpretation. Rise above the city at our 24th-floor bar and VIP Room, the perfect setting for sunset cocktails, skyline views, and stylish gatherings.
+                    <?php echo wp_kses_post($block2_desc); ?>
                 </p>
                 
-                <a href="#" class="inline-block text-xs font-bold font-serif text-brand-blue uppercase tracking-[0.2em] border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
-                    VIEW DETAILS
+                <?php if ($block2_btn_text): ?>
+                <a href="<?php echo esc_url($block2_btn_link); ?>" class="inline-block text-xs font-bold font-serif text-brand-blue uppercase tracking-[0.2em] border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
+                    <?php echo esc_html($block2_btn_text); ?>
                 </a>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -178,6 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
             slidesPerView: 1,
             loop: true,
             speed: 1000,
+            watchOverflow: false, // Force buttons and pagination to stay visible even with 1 slide
             navigation: {
                 nextEl: container.querySelector('.offer-next'),
                 prevEl: container.querySelector('.offer-prev'),
@@ -211,5 +249,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    // Initialize nested gallery swipers
+    const nestedSwipers = document.querySelectorAll('.nested-offers-swiper');
+    nestedSwipers.forEach(swiperEl => {
+        const slideCount = swiperEl.querySelectorAll('.nested-slide').length;
+        if (slideCount > 1) {
+            new Swiper(swiperEl, {
+                wrapperClass: 'nested-wrapper',
+                slideClass: 'nested-slide',
+                slidesPerView: 1,
+                loop: true,
+                speed: 800,
+                autoplay: {
+                    delay: Math.floor(2500 + Math.random() * 2000),
+                    disableOnInteraction: false,
+                },
+                allowTouchMove: false, // Prevent interference with the main outer carousel swipe
+                nested: true,
+                observer: true,
+                observeParents: true,
+            });
+        }
+    });
 });
 </script>

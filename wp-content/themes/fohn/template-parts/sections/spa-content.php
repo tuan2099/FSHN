@@ -12,14 +12,14 @@ $spa_blocks = get_field('spa_blocks');
 
 <section class="relative py-24 overflow-hidden bg-white">
     <!-- Decorative Florals (Reusing from Amenities) -->
-    <div class="absolute left-[-100px] top-[10%] w-[400px] pointer-events-none select-none">
+    <div class="absolute left-[-100px] top-4 w-[400px] pointer-events-none select-none hidden md:block">
         <?php if (get_field('spa_flower_left')): ?>
             <img src="<?php echo esc_url(get_field('spa_flower_left')); ?>" alt="" class="w-full h-auto">
         <?php else: ?>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
         <?php endif; ?>
     </div>
-    <div class="absolute right-[-100px] top-[10%] w-[400px] pointer-events-none select-none scale-x-[-1]">
+    <div class="absolute right-[-100px] top-4 w-[400px] pointer-events-none select-none scale-x-[-1] hidden md:block">
         <?php if (get_field('spa_flower_right')): ?>
             <img src="<?php echo esc_url(get_field('spa_flower_right')); ?>" alt="" class="w-full h-auto">
         <?php else: ?>
@@ -30,16 +30,16 @@ $spa_blocks = get_field('spa_blocks');
     <div class="container relative z-10 mx-auto px-6 max-w-[1040px]">
         <!-- Intro Header -->
         <div class="text-center mb-24">
-            <h2 class="text-brand-blue font-serif text-5xl tracking-[0.2em] mb-6 uppercase">
+            <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
                 <?php echo esc_html($intro_title); ?>
             </h2>
             <div class="w-24 h-px bg-brand-orange mx-auto mb-10"></div>
             <?php if ($intro_desc): ?>
-                <p class="text-brand-black-700 font-sans text-lg leading-relaxed max-w-[850px] mx-auto mb-12">
+                <p class="text-brand-black-700 font-sans text-md leading-relaxed  mx-auto mb-12">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php else: ?>
-                <p class="text-brand-black-700 font-sans text-lg leading-relaxed max-w-[850px] mx-auto mb-12">
+                <p class="text-brand-black-700 font-sans text-md leading-relaxed mx-auto mb-12">
                     Inspired by the Vietnamese word “Yên,” meaning peace and calm, YÊN Spa is a sanctuary of quiet elegance
                     designed to restore balance for body, mind, and soul. Blending cultural rituals with contemporary
                     well-being, our holistic offering invites guests to restore both body and mind through thoughtfully
@@ -47,7 +47,7 @@ $spa_blocks = get_field('spa_blocks');
                 </p>
             <?php endif; ?>
             <a href="<?php echo esc_url($btn_link); ?>"
-                class="inline-block bg-brand-orange text-white px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] hover:bg-brand-blue transition-all">
+                class="inline-block bg-brand-orange text-white px-10 py-4 text-sm font-semibold font-serif uppercase tracking-[0.2em] hover:bg-brand-blue transition-all">
                 <?php echo esc_html($btn_text); ?>
             </a>
         </div>

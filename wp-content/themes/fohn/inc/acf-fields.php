@@ -5,8 +5,10 @@
 
 add_action('init', 'fohn_register_acf_fields', 10);
 
-function fohn_register_acf_fields() {
-    if( !function_exists('acf_add_local_field_group') ) return;
+function fohn_register_acf_fields()
+{
+    if (!function_exists('acf_add_local_field_group'))
+        return;
 
     /**
      * Dining Page Settings
@@ -459,20 +461,20 @@ function fohn_register_acf_fields() {
     /**
      * Register Options Page
      */
-    if( function_exists('acf_add_options_page') ) {
+    if (function_exists('acf_add_options_page')) {
         acf_add_options_page(array(
-            'page_title'    => 'Theme Settings',
-            'menu_title'    => 'Theme Settings',
-            'menu_slug'     => 'theme-settings',
-            'capability'    => 'edit_posts',
-            'redirect'      => false
+            'page_title' => 'Theme Settings',
+            'menu_title' => 'Theme Settings',
+            'menu_slug' => 'theme-settings',
+            'capability' => 'edit_posts',
+            'redirect' => false
         ));
 
         acf_add_options_sub_page(array(
-            'page_title'    => 'Footer Settings',
-            'menu_title'    => 'Footer',
-            'parent_slug'   => 'theme-settings',
-            'menu_slug'     => 'footer-settings',
+            'page_title' => 'Footer Settings',
+            'menu_title' => 'Footer',
+            'parent_slug' => 'theme-settings',
+            'menu_slug' => 'footer-settings',
         ));
     }
 
@@ -647,6 +649,120 @@ function fohn_register_acf_fields() {
                 'name' => 'offers_button_link',
                 'type' => 'url',
                 'default_value' => '#',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block1_heading',
+                'label' => 'Offers Alternate - Block 1 Heading',
+                'name' => 'offers_alt_block1_heading',
+                'type' => 'text',
+                'default_value' => 'OFFERS',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block1_desc',
+                'label' => 'Offers Alternate - Block 1 Description',
+                'name' => 'offers_alt_block1_desc',
+                'type' => 'textarea',
+                'default_value' => 'Discover a collection of seasonal experiences and exclusive stay packages crafted to elevate your time in Hanoi.',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block1_btn_text',
+                'label' => 'Offers Alternate - Block 1 Button Text',
+                'name' => 'offers_alt_block1_btn_text',
+                'type' => 'text',
+                'default_value' => 'VIEW ALL OFFERS',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block1_btn_link',
+                'label' => 'Offers Alternate - Block 1 Button Link',
+                'name' => 'offers_alt_block1_btn_link',
+                'type' => 'url',
+                'default_value' => '#',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block1_list',
+                'label' => 'Offers Alternate - Block 1 (Offers)',
+                'name' => 'offers_alt_block1_list',
+                'type' => 'repeater',
+                'layout' => 'row',
+                'button_label' => 'Add Item',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_fohn_offer_alt1_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'textarea',
+                    ),
+                    array(
+                        'key' => 'field_fohn_offer_alt1_gallery',
+                        'label' => 'Gallery',
+                        'name' => 'gallery',
+                        'type' => 'gallery',
+                        'return_format' => 'url',
+                    ),
+                    array(
+                        'key' => 'field_fohn_offer_alt1_link',
+                        'label' => 'Link',
+                        'name' => 'link',
+                        'type' => 'url',
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block2_heading',
+                'label' => 'Offers Alternate - Block 2 Heading',
+                'name' => 'offers_alt_block2_heading',
+                'type' => 'text',
+                'default_value' => 'DRINK & DINE',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block2_desc',
+                'label' => 'Offers Alternate - Block 2 Description',
+                'name' => 'offers_alt_block2_desc',
+                'type' => 'textarea',
+                'default_value' => 'Savor the tastes of Vietnam in a new light at our 100-seat all-day-dining restaurant MỘC Loft, where authentic flavors meet contemporary reinterpretation. Rise above the city at our 24th-floor bar and VIP Room, the perfect setting for sunset cocktails, skyline views, and stylish gatherings.',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block2_btn_text',
+                'label' => 'Offers Alternate - Block 2 Button Text',
+                'name' => 'offers_alt_block2_btn_text',
+                'type' => 'text',
+                'default_value' => 'VIEW DETAILS',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block2_btn_link',
+                'label' => 'Offers Alternate - Block 2 Button Link',
+                'name' => 'offers_alt_block2_btn_link',
+                'type' => 'url',
+                'default_value' => '#',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block2_list',
+                'label' => 'Offers Alternate - Block 2 (Dining)',
+                'name' => 'offers_alt_block2_list',
+                'type' => 'repeater',
+                'layout' => 'row',
+                'button_label' => 'Add Item',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_fohn_offer_alt2_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'textarea',
+                    ),
+                    array(
+                        'key' => 'field_fohn_offer_alt2_gallery',
+                        'label' => 'Gallery',
+                        'name' => 'gallery',
+                        'type' => 'gallery',
+                        'return_format' => 'url',
+                    ),
+                    array(
+                        'key' => 'field_fohn_offer_alt2_link',
+                        'label' => 'Link',
+                        'name' => 'link',
+                        'type' => 'url',
+                    ),
+                ),
             ),
 
             // TAB: MAP
@@ -1038,6 +1154,20 @@ function fohn_register_acf_fields() {
                 'name' => 'features_intro_desc',
                 'type' => 'textarea',
             ),
+            array(
+                'key' => 'field_fohn_features_flower_left',
+                'label' => 'Left Flower Image',
+                'name' => 'features_flower_left',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_fohn_features_flower_right',
+                'label' => 'Right Flower Image',
+                'name' => 'features_flower_right',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
 
             // TAB: FEATURES LIST
             array(
@@ -1265,6 +1395,91 @@ function fohn_register_acf_fields() {
                     'param' => 'page_template',
                     'operator' => '==',
                     'value' => 'template-apartment.php',
+                ),
+            ),
+        ),
+    ));
+
+    /**
+     * Gallery Page Settings
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_fohn_gallery_settings',
+        'title' => 'Gallery Settings',
+        'fields' => array(
+            array(
+                'key' => 'field_fohn_gallery_intro_title',
+                'label' => 'Intro Title',
+                'name' => 'gallery_intro_title',
+                'type' => 'text',
+                'default_value' => 'Gallery',
+            ),
+            array(
+                'key' => 'field_fohn_gallery_intro_subtitle',
+                'label' => 'Intro Subtitle',
+                'name' => 'gallery_intro_subtitle',
+                'type' => 'text',
+                'default_value' => 'A living canvas of heritage & originality',
+            ),
+            array(
+                'key' => 'field_fohn_gallery_intro_desc',
+                'label' => 'Intro Description',
+                'name' => 'gallery_intro_desc',
+                'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_fohn_gallery_flower_left',
+                'label' => 'Left Flower Image',
+                'name' => 'gallery_flower_left',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_fohn_gallery_flower_right',
+                'label' => 'Right Flower Image',
+                'name' => 'gallery_flower_right',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_fohn_gallery_items',
+                'label' => 'Gallery Items',
+                'name' => 'gallery_items',
+                'type' => 'repeater',
+                'layout' => 'table',
+                'button_label' => 'Add Image',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_fohn_gallery_item_image',
+                        'label' => 'Image',
+                        'name' => 'image',
+                        'type' => 'image',
+                        'return_format' => 'url',
+                        'required' => 1,
+                    ),
+                    array(
+                        'key' => 'field_fohn_gallery_item_category',
+                        'label' => 'Category',
+                        'name' => 'category',
+                        'type' => 'select',
+                        'choices' => array(
+                            'rooms' => 'Rooms',
+                            'dining' => 'Dining',
+                            'spa' => 'Spa',
+                            'facilities' => 'Facilities',
+                            'others' => 'Others',
+                        ),
+                        'required' => 1,
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-gallery.php',
                 ),
             ),
         ),

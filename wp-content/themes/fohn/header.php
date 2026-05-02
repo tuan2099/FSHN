@@ -38,7 +38,7 @@
             <!-- Right: Action Button -->
             <div class="header-right flex-1 flex justify-end">
                 <a href="#"
-                    class="bg-brand-orange text-white px-8 py-2 md:px-10 md:py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-blue transition-all shadow-xl">
+                    class="hidden md:inline-block bg-brand-orange text-white px-8 py-2 md:px-10 md:py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-blue transition-all shadow-xl">
                     BOOK A STAY
                 </a>
             </div>
@@ -69,25 +69,25 @@
                         'theme_location' => 'primary',
                         'container' => false,
                         'menu_class' => 'grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8 mb-20',
-                        'items_wrap' => '<ul id="%1$s" class="%2$s [&_a]:text-sm [&_a]:font-bold [&_a]:text-brand-blue [&_a]:uppercase [&_a]:tracking-widest [&_a]:transition-colors [&_a:hover]:text-brand-orange">%3$s</ul>',
+                        'items_wrap' => '<ul id="%1$s" class="%2$s [&_a]:font-serif [&_a]:text-sm [&_a]:font-bold [&_a]:text-brand-blue [&_a]:uppercase [&_a]:tracking-widest [&_a]:transition-colors [&_a:hover]:text-brand-orange">%3$s</ul>',
                     )); ?>
                 <?php else: ?>
                     <!-- Fallback if no menu is assigned -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8 mb-20">
-                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Hotels</a>
-                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Dining</a>
-                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Residences</a>
-                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Yên Spa & Wellness</a>
-                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Offers</a>
-                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Facilities</a>
-                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Features</a>
-                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Gallery</a>
-                        <a href="#" class="text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Contact Us</a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Hotels</a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Dining</a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Residences</a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Yên Spa & Wellness</a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Offers</a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Facilities</a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Features</a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Gallery</a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Contact Us</a>
                     </div>
                 <?php endif; ?>
 
                 <!-- Language Switcher -->
-                <div class="text-sm font-bold uppercase tracking-widest flex items-center gap-2">
+                <div class="text-sm font-serif font-bold uppercase tracking-widest flex items-center gap-2">
                     <a href="#" class="text-brand-blue">EN</a>
                     <span class="text-brand-black-200">|</span>
                     <a href="#" class="text-brand-black-300 hover:text-brand-blue transition-colors">VI</a>

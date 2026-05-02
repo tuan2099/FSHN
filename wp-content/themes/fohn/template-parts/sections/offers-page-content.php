@@ -18,14 +18,15 @@ $offers_query = new WP_Query(array(
 
 <section class="offers-page-section relative bg-[#FBF9F6] py-24 overflow-hidden">
     <!-- Decorative Florals (Matching Other Templates) -->
-    <div class="absolute left-[-50px] top-[10%] w-[350px] pointer-events-none select-none z-0">
+    <div class="absolute left-[-50px] top-4 w-[350px] pointer-events-none select-none z-0 hidden md:block">
         <?php if (get_field('offers_flower_left')): ?>
             <img src="<?php echo esc_url(get_field('offers_flower_left')); ?>" alt="" class="w-full h-auto">
         <?php else: ?>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
         <?php endif; ?>
     </div>
-    <div class="absolute right-[-50px] top-[10%] w-[350px] pointer-events-none select-none z-0 scale-x-[-1]">
+    <div
+        class="absolute right-[-50px] top-4 w-[350px] pointer-events-none select-none z-0 scale-x-[-1] hidden md:block">
         <?php if (get_field('offers_flower_right')): ?>
             <img src="<?php echo esc_url(get_field('offers_flower_right')); ?>" alt="" class="w-full h-auto">
         <?php else: ?>
@@ -34,7 +35,7 @@ $offers_query = new WP_Query(array(
     </div>
     <!-- Intro Header -->
     <div class="container mx-auto px-6 text-center mb-20 ">
-        <h2 class="text-brand-blue font-serif text-5xl tracking-[0.2em] mb-6 uppercase">
+        <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
             <?php echo esc_html($intro_title); ?>
         </h2>
         <div class="w-24 h-px bg-[#FDB078] mx-auto mb-10"></div>

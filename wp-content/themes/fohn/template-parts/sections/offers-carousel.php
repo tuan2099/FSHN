@@ -14,7 +14,7 @@ $button_text = get_field('offers_button_text') ?: 'EXPLORE MORE OFFERS';
 $button_link = get_field('offers_button_link') ?: '#';
 ?>
 
-<section class="offers-carousel-section py-24 bg-white overflow-hidden">
+<section class="offers-carousel-section pb-24 bg-white overflow-hidden">
     <div class="container mx-auto px-6">
         <!-- Heading -->
         <div class="flex justify-center mb-10">

@@ -63,12 +63,11 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
             <!-- Newsletter -->
             <div class="newsletter-column">
-                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6">Sign up for
-                    Newsletter</h3>
+                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6"><?php pll_e('Sign up for Newsletter'); ?></h3>
                 <div class="relative max-w-sm">
                     <input type="email"
                         class="w-full border-0 border-b border-brand-black-300 py-2 pr-10 focus:ring-0 focus:border-brand-blue text-sm transition-all bg-transparent"
-                        placeholder="Your email address">
+                        placeholder="<?php echo esc_attr(pll__('Your email address')); ?>">
                     <button
                         class="absolute right-0 bottom-2 text-brand-black-500 hover:text-brand-blue transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-45" fill="none"
@@ -82,7 +81,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
             <!-- Social -->
             <div class="social-column">
-                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6">Follow Us</h3>
+                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6"><?php pll_e('Follow Us'); ?></h3>
                 <div class="flex gap-4">
                     <?php if ($footer_socials): ?>
                         <?php foreach ($footer_socials as $social): ?>
@@ -150,13 +149,13 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                     endforeach;
                 else: 
                 ?>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors">Careers</a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors">Our Story</a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors">Contact Us</a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors">News</a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors">General Policy</a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors">Payment Policy</a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Careers'); ?></a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Our Story'); ?></a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Contact Us'); ?></a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('News'); ?></a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('General Policy'); ?></a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Privacy Policy'); ?></a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Payment Policy'); ?></a></li>
                 <?php endif; ?>
             </ul>
         </div>

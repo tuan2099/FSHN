@@ -41,11 +41,11 @@ $acc_desc = get_field('acc_desc');
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#"
                     class="bg-brand-orange text-white px-10 py-3 text-xs font-bold uppercase tracking-widest hover:bg-brand-blue transition-all shadow-lg">
-                    BOOK A STAY
+                    <?php pll_e('BOOK A STAY'); ?>
                 </a>
                 <a href="#"
                     class="bg-brand-orange text-white px-10 py-3 text-xs font-bold uppercase tracking-widest hover:bg-brand-blue transition-all shadow-lg">
-                    SUSTAINABILITY
+                    <?php pll_e('SUSTAINABILITY'); ?>
                 </a>
             </div>
         </div>

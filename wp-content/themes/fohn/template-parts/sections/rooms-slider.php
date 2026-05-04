@@ -82,11 +82,11 @@ $selected_rooms = get_field('home_rooms_list');
                                         <div class="flex items-center justify-between gap-3 mt-auto">
                                             <a href="#"
                                                 class="bg-brand-orange text-[16px] text-white px-5 py-3 font-semibold font-serif uppercase tracking-widest hover:bg-brand-blue transition-all">
-                                                BOOK NOW
+                                                <?php pll_e('BOOK NOW'); ?>
                                             </a>
                                             <a href="<?php echo get_permalink($room_id); ?>"
                                                 class="text-[10px] font-semibold text-[16px] px-3 font-serif text-brand-blue uppercase tracking-widest border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
-                                                FINDING OUT
+                                                <?php pll_e('FINDING OUT'); ?>
                                             </a>
                                         </div>
                                     </div>

@@ -44,7 +44,7 @@ while ( have_posts() ) :
                     <?php if ($benefits): ?>
                         <div class="mb-10">
                             <h4 class="text-brand-black-900 font-sans font-bold text-sm tracking-widest uppercase mb-4">
-                                BENEFITS:
+                                <?php pll_e('BENEFITS:'); ?>
                             </h4>
                             <ul class="list-disc list-inside text-brand-black-700 font-sans text-sm md:text-base space-y-2">
                                 <?php foreach ($benefits as $benefit): ?>
@@ -56,11 +56,11 @@ while ( have_posts() ) :
 
                     <div class="flex items-center gap-6 mt-6">
                         <a href="javascript:history.back()" class="inline-block text-brand-blue font-sans text-xs font-bold uppercase tracking-[0.2em] border-b-2 border-transparent hover:border-brand-blue pb-1 transition-all">
-                            BACK TO OFFER
+                            <?php pll_e('BACK TO OFFER'); ?>
                         </a>
                         
                         <a href="<?php echo esc_url($book_link); ?>" class="inline-block bg-[#FDB078] hover:bg-brand-blue text-white font-sans text-xs font-bold uppercase tracking-[0.2em] px-8 py-3 transition-colors shadow-sm">
-                            BOOK NOW
+                            <?php pll_e('BOOK NOW'); ?>
                         </a>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ while ( have_posts() ) :
                         <?php if ($bg_image_url): ?>
                             <img src="<?php echo esc_url($bg_image_url); ?>" alt="<?php the_title_attribute(); ?>" class="absolute inset-0 w-full h-full object-cover">
                         <?php else: ?>
-                            <div class="absolute inset-0 w-full h-full bg-brand-black-100 flex items-center justify-center text-brand-black-300 italic">Offer Image</div>
+                            <div class="absolute inset-0 w-full h-full bg-brand-black-100 flex items-center justify-center text-brand-black-300 italic"><?php pll_e('Offer Image'); ?></div>
                         <?php endif; ?>
                     </div>
                 </div>

@@ -72,6 +72,7 @@ add_action('wp_enqueue_scripts', 'fohn_scripts');
  * Include separate files
  */
 require get_template_directory() . '/inc/acf-fields.php';
+require get_template_directory() . '/inc/polylang.php';
 
 // Include Custom Post Types
 require get_template_directory() . '/inc/cpt.php';

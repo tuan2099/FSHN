@@ -39,7 +39,7 @@
             <div class="header-right flex-1 flex justify-end">
                 <a href="#"
                     class="hidden md:inline-block bg-brand-orange text-white px-8 py-2 md:px-10 md:py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-blue transition-all shadow-xl">
-                    BOOK A STAY
+                    <?php pll_e('BOOK A STAY'); ?>
                 </a>
             </div>
         </div>
@@ -74,15 +74,15 @@
                 <?php else: ?>
                     <!-- Fallback if no menu is assigned -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8 mb-20">
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Hotels</a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Dining</a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Residences</a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Yên Spa & Wellness</a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Offers</a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Facilities</a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Features</a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Gallery</a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors">Contact Us</a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Hotels'); ?></a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Dining'); ?></a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Residences'); ?></a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Yên Spa & Wellness'); ?></a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Offers'); ?></a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Facilities'); ?></a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Features'); ?></a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Gallery'); ?></a>
+                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Contact Us'); ?></a>
                     </div>
                 <?php endif; ?>
 

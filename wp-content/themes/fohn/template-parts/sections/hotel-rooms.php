@@ -42,7 +42,7 @@ $rooms_query = new WP_Query(array(
                                     <?php else: ?>
                                         <div
                                             class="swiper-slide aspect-[16/10] bg-brand-black-100 flex items-center justify-center italic text-brand-black-300">
-                                            No Images
+                                            <?php pll_e('No Images'); ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -164,7 +164,7 @@ $rooms_query = new WP_Query(array(
 
                             <a href="<?php echo esc_url($book_link); ?>"
                                 class="inline-block bg-[#FDB078] text-white px-12 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-brand-blue transition-all shadow-lg">
-                                BOOK NOW
+                                <?php pll_e('BOOK NOW'); ?>
                             </a>
                         </div>
                     </div>

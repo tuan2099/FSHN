@@ -1484,4 +1484,45 @@ function fohn_register_acf_fields()
             ),
         ),
     ));
+
+    /**
+     * Contact Page Settings
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_fohn_contact_settings',
+        'title' => 'Contact Page Settings',
+        'fields' => array(
+            array(
+                'key' => 'field_fohn_contact_map_bg',
+                'label' => 'Map Background Illustration',
+                'name' => 'contact_map_background',
+                'type' => 'image',
+                'return_format' => 'url',
+                'instructions' => 'The illustrative map shown in the background.',
+            ),
+            array(
+                'key' => 'field_fohn_contact_intro',
+                'label' => 'Contact Intro Text',
+                'name' => 'contact_intro',
+                'type' => 'textarea',
+                'rows' => 3,
+            ),
+            array(
+                'key' => 'field_fohn_contact_form_shortcode',
+                'label' => 'Contact Form 7 Shortcode',
+                'name' => 'contact_form_shortcode',
+                'type' => 'text',
+                'placeholder' => '[contact-form-7 id="..."]',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'template-contact.php',
+                ),
+            ),
+        ),
+    ));
 }

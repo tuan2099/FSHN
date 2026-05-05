@@ -67,4 +67,12 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'General Policy', 'fohn_theme');
     pll_register_string('fohn', 'Privacy Policy', 'fohn_theme');
     pll_register_string('fohn', 'Payment Policy', 'fohn_theme');
+
+    // Contact Page
+    pll_register_string('fohn', 'GET IN TOUCH', 'fohn_theme');
+    pll_register_string('fohn', 'Name:', 'fohn_theme');
+    pll_register_string('fohn', 'Email:', 'fohn_theme');
+    pll_register_string('fohn', 'Phone:', 'fohn_theme');
+    pll_register_string('fohn', 'Write your requries:', 'fohn_theme');
+    pll_register_string('fohn', 'SEND', 'fohn_theme');
 }

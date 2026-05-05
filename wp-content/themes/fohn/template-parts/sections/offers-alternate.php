@@ -94,16 +94,16 @@ $block2_items = get_field('offers_alt_block2_list');
                     <!-- Navigation below image -->
                     <div class="flex justify-between items-center py-4 mt-2">
                         <div class="flex items-center gap-6">
-                            <div class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto"></div>
+                            <div id="offers-block-pagination" class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto"></div>
                             <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase tracking-widest ml-4">
-                                ORIGINAL ROOM
+                                <?php echo $block1_items ? wp_kses_post($block1_items[0]['title']) : 'ORIGINAL ROOM'; ?>
                             </h3>
                         </div>
                         <div class="flex gap-6">
-                            <button class="offer-prev hover:opacity-70 transition-opacity">
+                            <button id="offers-block-prev" class="offer-prev hover:opacity-70 transition-opacity">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png" alt="Prev" class="w-10 h-auto">
                             </button>
-                            <button class="offer-next hover:opacity-70 transition-opacity">
+                            <button id="offers-block-next" class="offer-next hover:opacity-70 transition-opacity">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png" alt="Next" class="w-10 h-auto">
                             </button>
                         </div>
@@ -164,18 +164,18 @@ $block2_items = get_field('offers_alt_block2_list');
                     <!-- Navigation below image -->
                     <div class="flex justify-between items-center py-4 mt-2">
                         <div class="flex gap-6">
-                            <button class="offer-prev hover:opacity-70 transition-opacity">
+                            <button id="dining-block-prev" class="offer-prev hover:opacity-70 transition-opacity">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png" alt="Prev" class="w-10 h-auto">
                             </button>
-                            <button class="offer-next hover:opacity-70 transition-opacity">
+                            <button id="dining-block-next" class="offer-next hover:opacity-70 transition-opacity">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png" alt="Next" class="w-10 h-auto">
                             </button>
                         </div>
                         <div class="flex items-center gap-6">
                             <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase tracking-widest mr-4">
-                                IL PAMPERO
+                                <?php echo $block2_items ? wp_kses_post($block2_items[0]['title']) : 'IL PAMPERO'; ?>
                             </h3>
-                            <div class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto"></div>
+                            <div id="dining-block-pagination" class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto"></div>
                         </div>
                     </div>
                 </div>
@@ -210,67 +210,111 @@ document.addEventListener('DOMContentLoaded', function() {
     offerContainers.forEach(container => {
         const swiperEl = container.querySelector('.offer-inner-swiper');
         const titleEl = container.querySelector('.offer-active-title');
+        const containerId = container.id;
+        const mainSlides = swiperEl.querySelectorAll(':scope > .swiper-wrapper > .swiper-slide');
         
-        const swiper = new Swiper(swiperEl, {
-            slidesPerView: 1,
-            loop: true,
-            speed: 1000,
-            watchOverflow: false, // Force buttons and pagination to stay visible even with 1 slide
-            navigation: {
-                nextEl: container.querySelector('.offer-next'),
-                prevEl: container.querySelector('.offer-prev'),
-            },
-            pagination: {
-                el: container.querySelector('.offer-pagination'),
-                type: 'fraction',
-                renderFraction: function (currentClass, totalClass) {
-                    return '<span class="' + currentClass + '"></span>' +
-                           ' / ' +
-                           '<span class="' + totalClass + '"></span>';
-                }
-            },
-            on: {
-                init: function() {
-                    updateActiveTitle(this, titleEl);
+        // Check if we have only 1 main offer but it has a nested gallery
+        const firstNestedSwiper = swiperEl.querySelector('.nested-offers-swiper');
+        const nestedSlidesCount = firstNestedSwiper ? firstNestedSwiper.querySelectorAll('.nested-slide').length : 0;
+
+        if (mainSlides.length === 1 && nestedSlidesCount > 1) {
+            // CASE 1: Only 1 offer, but multiple images in gallery. 
+            // We link the main buttons/pagination to the NESTED swiper.
+            console.log('Linking main controls to nested gallery for ' + containerId);
+            
+            new Swiper(firstNestedSwiper, {
+                wrapperClass: 'nested-wrapper',
+                slideClass: 'nested-slide',
+                slidesPerView: 1,
+                loop: nestedSlidesCount >= 3,
+                speed: 1000,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
                 },
-                slideChange: function() {
-                    updateActiveTitle(this, titleEl);
+                navigation: {
+                    nextEl: '#' + containerId + '-next',
+                    prevEl: '#' + containerId + '-prev',
+                },
+                pagination: {
+                    el: '#' + containerId + '-pagination',
+                    type: 'fraction',
+                    renderFraction: function (currentClass, totalClass) {
+                        return '<span class="' + currentClass + '"></span>' +
+                               ' / ' +
+                               '<span class="' + totalClass + '"></span>';
+                    }
+                },
+                observer: true,
+                observeParents: true,
+            });
+
+            // The main swiper doesn't need to be initialized as it's just 1 static slide
+        } else {
+            // CASE 2: Normal behavior (Multiple offers, or 1 offer with 1 image)
+            const swiper = new Swiper(swiperEl, {
+                slidesPerView: 1,
+                loop: mainSlides.length >= 3,
+                speed: 1000,
+                watchOverflow: true,
+                observer: true,
+                observeParents: true,
+                navigation: {
+                    nextEl: '#' + containerId + '-next',
+                    prevEl: '#' + containerId + '-prev',
+                },
+                pagination: {
+                    el: '#' + containerId + '-pagination',
+                    type: 'fraction',
+                    renderFraction: function (currentClass, totalClass) {
+                        return '<span class="' + currentClass + '"></span>' +
+                               ' / ' +
+                               '<span class="' + totalClass + '"></span>';
+                    }
+                },
+                on: {
+                    init: function() {
+                        updateActiveTitle(this, titleEl);
+                    },
+                    slideChange: function() {
+                        updateActiveTitle(this, titleEl);
+                    }
                 }
-            }
-        });
+            });
+
+            // Initialize nested galleries for these slides (auto-play only)
+            const nestedGalleries = swiperEl.querySelectorAll('.nested-offers-swiper');
+            nestedGalleries.forEach(nestedEl => {
+                const count = nestedEl.querySelectorAll('.nested-slide').length;
+                if (count > 1) {
+                    new Swiper(nestedEl, {
+                        wrapperClass: 'nested-wrapper',
+                        slideClass: 'nested-slide',
+                        slidesPerView: 1,
+                        loop: count >= 3,
+                        speed: 800,
+                        autoplay: {
+                            delay: Math.floor(3000 + Math.random() * 2000),
+                            disableOnInteraction: false,
+                        },
+                        allowTouchMove: false,
+                        nested: true,
+                        observer: true,
+                        observeParents: true,
+                    });
+                }
+            });
+        }
     });
 
     function updateActiveTitle(swiper, titleEl) {
         const activeSlide = swiper.slides[swiper.activeIndex];
-        if (activeSlide) {
+        if (activeSlide && titleEl) {
             const title = activeSlide.querySelector('.post-title');
-            if (title && titleEl) {
+            if (title) {
                 titleEl.textContent = title.textContent;
             }
         }
     }
-
-    // Initialize nested gallery swipers
-    const nestedSwipers = document.querySelectorAll('.nested-offers-swiper');
-    nestedSwipers.forEach(swiperEl => {
-        const slideCount = swiperEl.querySelectorAll('.nested-slide').length;
-        if (slideCount > 1) {
-            new Swiper(swiperEl, {
-                wrapperClass: 'nested-wrapper',
-                slideClass: 'nested-slide',
-                slidesPerView: 1,
-                loop: true,
-                speed: 800,
-                autoplay: {
-                    delay: Math.floor(2500 + Math.random() * 2000),
-                    disableOnInteraction: false,
-                },
-                allowTouchMove: false, // Prevent interference with the main outer carousel swipe
-                nested: true,
-                observer: true,
-                observeParents: true,
-            });
-        }
-    });
 });
 </script>

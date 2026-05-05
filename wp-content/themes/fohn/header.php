@@ -7,8 +7,6 @@
     <?php wp_head(); ?>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
 </head>
 
 <body <?php body_class(); ?>>
@@ -31,7 +29,7 @@
             <div class="header-center flex-1 flex justify-center">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Lègacy Logo_white 2.png"
-                        alt="<?php bloginfo('name'); ?>" class="h-12 md:h-28 w-auto">
+                        alt="<?php bloginfo('name'); ?>" class="h-16 md:h-40 w-auto">
                 </a>
             </div>
 
@@ -74,15 +72,24 @@
                 <?php else: ?>
                     <!-- Fallback if no menu is assigned -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8 mb-20">
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Hotels'); ?></a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Dining'); ?></a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Residences'); ?></a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Yên Spa & Wellness'); ?></a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Offers'); ?></a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Facilities'); ?></a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Features'); ?></a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Gallery'); ?></a>
-                        <a href="#" class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Contact Us'); ?></a>
+                        <a href="#"
+                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Hotels'); ?></a>
+                        <a href="#"
+                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Dining'); ?></a>
+                        <a href="#"
+                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Residences'); ?></a>
+                        <a href="#"
+                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Yên Spa & Wellness'); ?></a>
+                        <a href="#"
+                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Offers'); ?></a>
+                        <a href="#"
+                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Facilities'); ?></a>
+                        <a href="#"
+                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Features'); ?></a>
+                        <a href="#"
+                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Gallery'); ?></a>
+                        <a href="#"
+                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Contact Us'); ?></a>
                     </div>
                 <?php endif; ?>
 
@@ -112,13 +119,52 @@
             const toggleBtn = document.querySelector('.menu-toggle');
             const closeBtn = document.querySelector('.menu-close');
             const header = document.getElementById('masthead');
+            const logoImg = header.querySelector('.site-logo img');
+            const container = header.querySelector('.container');
+
+            const whiteLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/Lègacy Logo_white 2.png';
+            const scrollLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/LG_scroll.png';
 
             // Scroll Header effect
             function handleScroll() {
                 if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
+                    header.classList.add('bg-brand-blue', 'shadow-md', 'py-4');
+                    header.classList.remove('py-6', 'lg:py-8', 'bg-white');
+                    
+                    if (logoImg) {
+                        logoImg.src = scrollLogo;
+                        logoImg.classList.add('h-10', 'md:h-16');
+                        logoImg.classList.remove('h-16', 'md:h-40');
+                    }
+
+                    if (container) {
+                        container.classList.add('items-center');
+                        container.classList.remove('items-start');
+                    }
+
+                    if (toggleBtn) {
+                        toggleBtn.classList.add('text-white');
+                        toggleBtn.style.color = 'white';
+                    }
                 } else {
-                    header.classList.remove('scrolled');
+                    header.classList.remove('bg-brand-blue', 'shadow-md', 'py-4');
+                    header.classList.add('py-6', 'lg:py-8');
+
+                    if (logoImg) {
+                        logoImg.src = whiteLogo;
+                        logoImg.classList.add('h-16', 'md:h-40');
+                        logoImg.classList.remove('h-10', 'md:h-16');
+                    }
+
+                    if (container) {
+                        container.classList.remove('items-center');
+                        container.classList.add('items-start');
+                    }
+
+                    if (toggleBtn) {
+                        toggleBtn.classList.add('text-white');
+                        toggleBtn.style.color = '';
+                    }
                 }
             }
 

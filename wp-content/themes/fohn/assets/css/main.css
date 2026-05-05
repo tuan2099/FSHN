@@ -1943,6 +1943,11 @@ html {
   background-color: rgb(255 255 255 / 0.4);
 }
 
+.\!bg-brand-blue {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(43 60 84 / var(--tw-bg-opacity, 1)) !important;
+}
+
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -2464,6 +2469,16 @@ html {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.\!text-brand-blue {
+  --tw-text-opacity: 1 !important;
+  color: rgb(43 60 84 / var(--tw-text-opacity, 1)) !important;
+}
+
+.\!text-white {
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1)) !important;
+}
+
 .opacity-0 {
   opacity: 0;
 }
@@ -2872,6 +2887,10 @@ html {
 
   .md\:h-28 {
     height: 7rem;
+  }
+
+  .md\:h-40 {
+    height: 10rem;
   }
 
   .md\:w-1\/2 {

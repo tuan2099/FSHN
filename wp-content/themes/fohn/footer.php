@@ -23,7 +23,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     <div class="bg-brand-blue py-10 lg:py-15">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="text-white max-w-2xl">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-4 tracking-tighter">
+                <h2 class="text-4xl lg:text-5xl font-semibold mb-4 tracking-tighter">
                     <?php echo esc_html($loyalty_title); ?>
                 </h2>
                 <p class="text-brand-black-100/80 text-sm font-medium">
@@ -48,7 +48,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                     <?php if ($footer_logo): ?>
                         <img src="<?php echo esc_url($footer_logo); ?>" alt="Footer Logo" class="h-12 w-auto mb-4">
                     <?php endif; ?>
-                    <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em]">
+                    <h3 class="text-brand-black-500 text-[14px] uppercase font-bold ">
                         <?php echo esc_html($footer_desc); ?>
                     </h3>
                 </div>
@@ -190,68 +190,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 </footer>
 
 <?php wp_footer(); ?>
-<!-- Logo Switcher & Header Scroll Handler -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const masthead = document.getElementById('masthead');
-        const logoImg = masthead ? masthead.querySelector('.site-logo img') : null;
-        const toggleBtn = masthead ? masthead.querySelector('.menu-toggle') : null;
-
-        if (masthead && logoImg) {
-            // Cache image sources
-            const whiteLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/Lègacy Logo_white 2.png';
-            const scrollLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/LG_scroll.png';
-
-            function updateHeaderState() {
-                const container = masthead.querySelector('.container');
-                if (window.scrollY > 50) {
-                    masthead.classList.add('bg-white', 'shadow-md', 'py-4');
-                    masthead.classList.remove('py-6', 'lg:py-8');
-                    logoImg.src = scrollLogo;
-
-                    // Make logo smaller when scrolled
-                    logoImg.classList.add('h-10', 'md:h-16');
-                    logoImg.classList.remove('h-12', 'md:h-28');
-
-                    // Align items: center when scrolled
-                    if (container) {
-                        container.classList.add('items-center');
-                        container.classList.remove('items-start');
-                    }
-
-                    if (toggleBtn) {
-                        toggleBtn.classList.remove('text-white');
-                        toggleBtn.classList.add('text-brand-blue');
-                        toggleBtn.style.color = '#2B3C54';
-                    }
-                } else {
-                    masthead.classList.remove('bg-white', 'shadow-md', 'py-4');
-                    masthead.classList.add('py-6', 'lg:py-8');
-                    logoImg.src = whiteLogo;
-
-                    // Revert to original logo size
-                    logoImg.classList.add('h-12', 'md:h-28');
-                    logoImg.classList.remove('h-10', 'md:h-16');
-
-                    // Align items: start when at the top
-                    if (container) {
-                        container.classList.add('items-start');
-                        container.classList.remove('items-center');
-                    }
-
-                    if (toggleBtn) {
-                        toggleBtn.style.color = '';
-                        toggleBtn.classList.add('text-white');
-                        toggleBtn.classList.remove('text-brand-blue');
-                    }
-                }
-            }
-
-            window.addEventListener('scroll', updateHeaderState);
-            updateHeaderState(); // Apply state immediately
-        }
-    });
-</script>
+<!-- Header Scroll Logic moved to header.php to avoid conflicts -->
 
 </body>
 

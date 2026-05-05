@@ -155,7 +155,7 @@ function fohn_register_acf_fields()
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'template-dining.php',
+                    'value' => 'templates/template-dining.php',
                 ),
             ),
         ),
@@ -262,7 +262,7 @@ function fohn_register_acf_fields()
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'template-spa.php',
+                    'value' => 'templates/template-spa.php',
                 ),
             ),
         ),
@@ -357,7 +357,7 @@ function fohn_register_acf_fields()
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'template-facility.php',
+                    'value' => 'templates/template-facility.php',
                 ),
             ),
         ),
@@ -452,7 +452,7 @@ function fohn_register_acf_fields()
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'template-hotel.php',
+                    'value' => 'templates/template-hotel.php',
                 ),
             ),
         ),
@@ -846,7 +846,7 @@ function fohn_register_acf_fields()
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'template-home.php',
+                    'value' => 'templates/template-home.php',
                 ),
             ),
         ),
@@ -1216,7 +1216,7 @@ function fohn_register_acf_fields()
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'template-features.php',
+                    'value' => 'templates/template-features.php',
                 ),
             ),
         ),
@@ -1268,7 +1268,7 @@ function fohn_register_acf_fields()
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'template-offers.php',
+                    'value' => 'templates/template-offers.php',
                 ),
             ),
         ),
@@ -1394,7 +1394,7 @@ function fohn_register_acf_fields()
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'template-apartment.php',
+                    'value' => 'templates/template-apartment.php',
                 ),
             ),
         ),
@@ -1479,7 +1479,7 @@ function fohn_register_acf_fields()
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'template-gallery.php',
+                    'value' => 'templates/template-gallery.php',
                 ),
             ),
         ),
@@ -1520,7 +1520,7 @@ function fohn_register_acf_fields()
                 array(
                     'param' => 'page_template',
                     'operator' => '==',
-                    'value' => 'template-contact.php',
+                    'value' => 'templates/template-contact.php',
                 ),
             ),
         ),

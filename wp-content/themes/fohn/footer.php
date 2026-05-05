@@ -26,7 +26,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                 <h2 class="text-4xl lg:text-5xl font-bold mb-4 tracking-tighter">
                     <?php echo esc_html($loyalty_title); ?>
                 </h2>
-                <p class="text-brand-black-100/80 text-sm md:text-base font-medium">
+                <p class="text-brand-black-100/80 text-sm font-medium">
                     <?php echo esc_html($loyalty_desc); ?>
                 </p>
             </div>
@@ -63,7 +63,9 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
             <!-- Newsletter -->
             <div class="newsletter-column">
-                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6"><?php pll_e('Sign up for Newsletter'); ?></h3>
+                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6">
+                    <?php pll_e('Sign up for Newsletter'); ?>
+                </h3>
                 <div class="relative max-w-sm">
                     <input type="email"
                         class="w-full border-0 border-b border-brand-black-300 py-2 pr-10 focus:ring-0 focus:border-brand-blue text-sm transition-all bg-transparent"
@@ -81,7 +83,9 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
             <!-- Social -->
             <div class="social-column">
-                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6"><?php pll_e('Follow Us'); ?></h3>
+                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6">
+                    <?php pll_e('Follow Us'); ?>
+                </h3>
                 <div class="flex gap-4">
                     <?php if ($footer_socials): ?>
                         <?php foreach ($footer_socials as $social): ?>
@@ -112,24 +116,32 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
             $brand_logos = get_field('footer_brand_logos', 'option');
             if ($brand_logos):
                 ?>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between items-center gap-8 lg:gap-4 w-full">
+                <div
+                    class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between items-center gap-8 lg:gap-4 w-full">
                     <?php foreach ($brand_logos as $logo_url): ?>
-                        <div class="text-center h-16 lg:h-32 w-full flex items-center justify-center lg:flex-1 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer">
+                        <div
+                            class="text-center h-16 lg:h-32 w-full flex items-center justify-center lg:flex-1 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer">
                             <img src="<?php echo esc_url($logo_url); ?>" alt="Brand Logo"
                                 class="max-h-full max-w-[80%] lg:max-w-full w-auto object-contain">
                         </div>
                     <?php endforeach; ?>
                 </div>
             <?php else: ?>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between items-center gap-y-10 gap-x-4 lg:gap-18 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-brand-black-800 w-full">
-                    <div class="text-center"><span class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionresorts</span></div>
-                    <div class="text-center"><span class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionoriginals</span></div>
-                    <div class="text-center"><span class="text-[12px] lg:text-lg font-bold tracking-tighter italic">fusion</span><br><span
+                <div
+                    class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between items-center gap-y-10 gap-x-4 lg:gap-18 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-brand-black-800 w-full">
+                    <div class="text-center"><span
+                            class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionresorts</span></div>
+                    <div class="text-center"><span
+                            class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionoriginals</span></div>
+                    <div class="text-center"><span
+                            class="text-[12px] lg:text-lg font-bold tracking-tighter italic">fusion</span><br><span
                             class="text-[6px] lg:text-[8px] uppercase tracking-widest">collection</span></div>
-                    <div class="text-center"><span class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionsuites</span></div>
+                    <div class="text-center"><span
+                            class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionsuites</span></div>
                     <div class="text-center lg:border-l lg:border-brand-black-300 lg:pl-4"><span
                             class="text-[12px] lg:text-lg font-bold tracking-widest">HIIVE</span></div>
-                    <div class="text-center lg:pl-4"><span class="text-[12px] lg:text-lg font-bold tracking-[0.4em]">GLOW</span></div>
+                    <div class="text-center lg:pl-4"><span
+                            class="text-[12px] lg:text-lg font-bold tracking-[0.4em]">GLOW</span></div>
                 </div>
             <?php endif; ?>
         </div>
@@ -138,24 +150,30 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     <!-- Bottom Navigation -->
     <div class="border-t border-b border-brand-black-100 py-6">
         <div class="container mx-auto px-6">
-            <ul class="flex flex-wrap justify-center lg:justify-between items-center gap-x-12 gap-y-6 text-[10px] font-bold uppercase tracking-widest text-brand-black-700 text-center">
-                <?php 
+            <ul
+                class="flex flex-wrap justify-center lg:justify-between items-center gap-x-12 gap-y-6 text-[10px] font-bold uppercase tracking-widest text-brand-black-700 text-center">
+                <?php
                 $bottom_nav = get_field('footer_bottom_nav', 'option');
-                if ($bottom_nav): 
+                if ($bottom_nav):
                     foreach ($bottom_nav as $nav_item):
-                ?>
-                    <li><a href="<?php echo esc_url($nav_item['url']); ?>" class="hover:text-brand-orange transition-colors"><?php echo esc_html($nav_item['label']); ?></a></li>
-                <?php 
+                        ?>
+                        <li><a href="<?php echo esc_url($nav_item['url']); ?>"
+                                class="hover:text-brand-orange transition-colors"><?php echo esc_html($nav_item['label']); ?></a>
+                        </li>
+                        <?php
                     endforeach;
-                else: 
-                ?>
+                else:
+                    ?>
                     <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Careers'); ?></a></li>
                     <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Our Story'); ?></a></li>
                     <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Contact Us'); ?></a></li>
                     <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('News'); ?></a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('General Policy'); ?></a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Privacy Policy'); ?></a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Payment Policy'); ?></a></li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('General Policy'); ?></a>
+                    </li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Privacy Policy'); ?></a>
+                    </li>
+                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Payment Policy'); ?></a>
+                    </li>
                 <?php endif; ?>
             </ul>
         </div>
@@ -174,65 +192,65 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 <?php wp_footer(); ?>
 <!-- Logo Switcher & Header Scroll Handler -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const masthead = document.getElementById('masthead');
-    const logoImg = masthead ? masthead.querySelector('.site-logo img') : null;
-    const toggleBtn = masthead ? masthead.querySelector('.menu-toggle') : null;
-    
-    if (masthead && logoImg) {
-        // Cache image sources
-        const whiteLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/Lègacy Logo_white 2.png';
-        const scrollLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/LG_scroll.png';
-        
-        function updateHeaderState() {
-            const container = masthead.querySelector('.container');
-            if (window.scrollY > 50) {
-                masthead.classList.add('bg-white', 'shadow-md', 'py-4');
-                masthead.classList.remove('py-6', 'lg:py-8');
-                logoImg.src = scrollLogo;
-                
-                // Make logo smaller when scrolled
-                logoImg.classList.add('h-10', 'md:h-16');
-                logoImg.classList.remove('h-12', 'md:h-28');
-                
-                // Align items: center when scrolled
-                if (container) {
-                    container.classList.add('items-center');
-                    container.classList.remove('items-start');
-                }
+    document.addEventListener('DOMContentLoaded', function () {
+        const masthead = document.getElementById('masthead');
+        const logoImg = masthead ? masthead.querySelector('.site-logo img') : null;
+        const toggleBtn = masthead ? masthead.querySelector('.menu-toggle') : null;
 
-                if (toggleBtn) {
-                    toggleBtn.classList.remove('text-white');
-                    toggleBtn.classList.add('text-brand-blue');
-                    toggleBtn.style.color = '#2B3C54';
-                }
-            } else {
-                masthead.classList.remove('bg-white', 'shadow-md', 'py-4');
-                masthead.classList.add('py-6', 'lg:py-8');
-                logoImg.src = whiteLogo;
-                
-                // Revert to original logo size
-                logoImg.classList.add('h-12', 'md:h-28');
-                logoImg.classList.remove('h-10', 'md:h-16');
-                
-                // Align items: start when at the top
-                if (container) {
-                    container.classList.add('items-start');
-                    container.classList.remove('items-center');
-                }
+        if (masthead && logoImg) {
+            // Cache image sources
+            const whiteLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/Lègacy Logo_white 2.png';
+            const scrollLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/LG_scroll.png';
 
-                if (toggleBtn) {
-                    toggleBtn.style.color = '';
-                    toggleBtn.classList.add('text-white');
-                    toggleBtn.classList.remove('text-brand-blue');
+            function updateHeaderState() {
+                const container = masthead.querySelector('.container');
+                if (window.scrollY > 50) {
+                    masthead.classList.add('bg-white', 'shadow-md', 'py-4');
+                    masthead.classList.remove('py-6', 'lg:py-8');
+                    logoImg.src = scrollLogo;
+
+                    // Make logo smaller when scrolled
+                    logoImg.classList.add('h-10', 'md:h-16');
+                    logoImg.classList.remove('h-12', 'md:h-28');
+
+                    // Align items: center when scrolled
+                    if (container) {
+                        container.classList.add('items-center');
+                        container.classList.remove('items-start');
+                    }
+
+                    if (toggleBtn) {
+                        toggleBtn.classList.remove('text-white');
+                        toggleBtn.classList.add('text-brand-blue');
+                        toggleBtn.style.color = '#2B3C54';
+                    }
+                } else {
+                    masthead.classList.remove('bg-white', 'shadow-md', 'py-4');
+                    masthead.classList.add('py-6', 'lg:py-8');
+                    logoImg.src = whiteLogo;
+
+                    // Revert to original logo size
+                    logoImg.classList.add('h-12', 'md:h-28');
+                    logoImg.classList.remove('h-10', 'md:h-16');
+
+                    // Align items: start when at the top
+                    if (container) {
+                        container.classList.add('items-start');
+                        container.classList.remove('items-center');
+                    }
+
+                    if (toggleBtn) {
+                        toggleBtn.style.color = '';
+                        toggleBtn.classList.add('text-white');
+                        toggleBtn.classList.remove('text-brand-blue');
+                    }
                 }
             }
+
+            window.addEventListener('scroll', updateHeaderState);
+            updateHeaderState(); // Apply state immediately
         }
-        
-        window.addEventListener('scroll', updateHeaderState);
-        updateHeaderState(); // Apply state immediately
-    }
-});
+    });
 </script>
 
 </body>

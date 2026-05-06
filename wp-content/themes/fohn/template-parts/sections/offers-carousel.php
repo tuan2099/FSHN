@@ -17,7 +17,7 @@ $button_link = get_field('offers_button_link') ?: '#';
 <section class="offers-carousel-section pb-24 bg-white overflow-hidden">
     <div class="container mx-auto px-6">
         <!-- Heading -->
-        <div class="flex justify-center mb-10">
+        <div class="flex justify-center mb-10" data-aos="fade-up">
             <div class="text-center">
                 <h2
                     class="text-2xl lg:text-3xl font-serif font-semibold text-brand-blue uppercase tracking-[0.3em] mb-4">
@@ -28,14 +28,14 @@ $button_link = get_field('offers_button_link') ?: '#';
         </div>
 
         <!-- Slider Wrapper with clipping -->
-        <div class="relative mx-auto py-20 overflow-hidden">
+        <div class="relative mx-auto py-20 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
             <div class="swiper offers-carousel-swiper !overflow-visible">
                 <div class="swiper-wrapper flex items-center">
                     <?php if ($offers_query->have_posts()): ?>
                         <?php $i = 1;
                         while ($offers_query->have_posts()):
                             $offers_query->the_post(); ?>
-                            <div class="swiper-slide !h-auto transition-all duration-700 opacity-20 scale-[0.7]">
+                            <div class="swiper-slide !h-auto transition-all duration-700 opacity-20 scale-[0.7]" data-aos="zoom-in" data-aos-delay="<?php echo $i * 100; ?>">
                                 <div class="relative aspect-square rounded-none overflow-hidden group shadow-xl">
                                     <?php if (has_post_thumbnail()): ?>
                                         <?php the_post_thumbnail('large', ['class' => 'absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110']); ?>

@@ -26,7 +26,7 @@ $height_class = ($hero_height === 'fixed') ? 'h-[500px] lg:h-[600px]' : 'h-scree
     </div>
 
     <!-- Center Content -->
-    <div class="relative z-10 text-center text-white">
+    <div class="relative z-10 text-center text-white" data-aos="fade-up" data-aos-duration="1500">
         <!-- Logo/Text Group -->
         <div class="flex flex-col items-center">
 

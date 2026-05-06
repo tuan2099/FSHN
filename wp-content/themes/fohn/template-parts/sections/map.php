@@ -22,7 +22,7 @@ $embed_code = get_field('map_embed_code');
 
         <!-- Map Container -->
         <div
-            class="map-container relative w-full h-[450px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 border-8 border-white">
+            class="map-container relative w-full h-[450px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 border-8 border-white" data-aos="zoom-in">
             <?php if ($embed_code): ?>
                 <?php echo $embed_code; ?>
             <?php else: ?>

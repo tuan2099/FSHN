@@ -25,7 +25,7 @@ $block2_items = get_field('offers_alt_block2_list');
         <!-- Block 1: OFFERS (Text Left, Slider Right) -->
         <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-32">
             <!-- Text Content -->
-            <div class="w-full lg:w-5/12 order-2 lg:order-1">
+            <div class="w-full lg:w-5/12 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase tracking-widest mb-4">
                     <?php echo esc_html($block1_heading); ?>
                 </h2>
@@ -43,7 +43,7 @@ $block2_items = get_field('offers_alt_block2_list');
             </div>
             
             <!-- Slider -->
-            <div class="w-full lg:w-7/12 order-1 lg:order-2">
+            <div class="w-full lg:w-7/12 order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                 <div class="offer-slider-container relative" id="offers-block">
                     <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
                         <div class="swiper-wrapper">
@@ -115,7 +115,7 @@ $block2_items = get_field('offers_alt_block2_list');
         <!-- Block 2: DRINK & DINE (Slider Left, Text Right) -->
         <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <!-- Slider -->
-            <div class="w-full lg:w-7/12">
+            <div class="w-full lg:w-7/12" data-aos="fade-right" data-aos-duration="1000">
                 <div class="offer-slider-container relative" id="dining-block">
                     <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
                         <div class="swiper-wrapper">
@@ -182,7 +182,7 @@ $block2_items = get_field('offers_alt_block2_list');
             </div>
 
             <!-- Text Content -->
-            <div class="w-full lg:w-5/12">
+            <div class="w-full lg:w-5/12" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase tracking-widest mb-4">
                     <?php echo esc_html($block2_heading); ?>
                 </h2>

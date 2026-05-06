@@ -20,7 +20,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
 <footer id="colophon" class="site-footer bg-white pt-0">
     <!-- Top Dark Bar -->
-    <div class="bg-brand-blue py-10 lg:py-15">
+    <div class="bg-brand-blue py-10 lg:py-15" data-aos="fade-up">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="text-white max-w-2xl">
                 <h2 class="text-4xl lg:text-5xl font-semibold mb-4 tracking-tighter">
@@ -43,7 +43,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     <div class="container mx-auto px-6 pt-15">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-18">
             <!-- Group Info -->
-            <div class="info-column">
+            <div class="info-column" data-aos="fade-up" data-aos-delay="100">
                 <div class="mb-6">
                     <?php if ($footer_logo): ?>
                         <img src="<?php echo esc_url($footer_logo); ?>" alt="Footer Logo" class="h-12 w-auto mb-4">
@@ -62,7 +62,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
             </div>
 
             <!-- Newsletter -->
-            <div class="newsletter-column">
+            <div class="newsletter-column" data-aos="fade-up" data-aos-delay="200">
                 <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6">
                     <?php pll_e('Sign up for Newsletter'); ?>
                 </h3>
@@ -82,7 +82,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
             </div>
 
             <!-- Social -->
-            <div class="social-column">
+            <div class="social-column" data-aos="fade-up" data-aos-delay="300">
                 <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6">
                     <?php pll_e('Follow Us'); ?>
                 </h3>
@@ -190,6 +190,42 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 </footer>
 
 <?php wp_footer(); ?>
+<!-- AOS Initialization & Failsafe -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Function to init AOS
+        function initAOS() {
+            if (typeof AOS !== 'undefined') {
+                console.log('AOS Initializing...');
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    offset: 50,
+                    easing: 'ease-in-out-sine',
+                    disable: 'mobile' // Optional: disable on mobile if it causes issues
+                });
+            } else {
+                console.error('AOS Library not loaded yet.');
+            }
+        }
+
+        // Try to init immediately
+        initAOS();
+
+        // Failsafe: If elements are still invisible after 3 seconds, force them to show
+        setTimeout(function() {
+            const aosElements = document.querySelectorAll('[data-aos]');
+            aosElements.forEach(el => {
+                if (window.getComputedStyle(el).opacity === "0") {
+                    console.warn('AOS Failsafe triggered: Forcing element visibility');
+                    el.style.opacity = "1";
+                    el.style.transform = "none";
+                    el.style.visibility = "visible";
+                }
+            });
+        }, 3000);
+    });
+</script>
 <!-- Header Scroll Logic moved to header.php to avoid conflicts -->
 
 </body>

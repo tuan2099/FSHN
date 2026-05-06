@@ -25,7 +25,7 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
         class="contact-asymmetric-section relative bg-white overflow-hidden min-h-[600px] lg:min-h-[800px] flex items-center">
 
         <!-- Bleeding Background: Left Half -->
-        <div class="absolute left-0 top-0 bottom-0 w-full lg:w-1/2 bg-brand-black-50 z-0">
+        <div class="absolute left-0 top-0 bottom-0 w-full lg:w-1/2 bg-brand-black-50 z-0" data-aos="fade-right" data-aos-duration="1200">
             <?php if ($map_bg): ?>
                 <img src="<?php echo esc_url($map_bg); ?>" alt="Map Illustration" class="w-full h-full object-cover">
             <?php endif; ?>
@@ -39,7 +39,7 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
                 <div class="hidden lg:block"></div>
 
                 <!-- Form Content: Right Half, but narrowed and right-aligned -->
-                <div class="w-full py-16 lg:py-24">
+                <div class="w-full py-16 lg:py-24" data-aos="fade-left" data-aos-delay="200">
                     <div class="w-full lg:max-w-[420px] ml-auto">
 
                         <div class="text-center mb-12">

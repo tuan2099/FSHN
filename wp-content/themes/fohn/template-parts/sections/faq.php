@@ -25,7 +25,7 @@ $faqs = get_field('faq_items');
 
         <div class="flex flex-col lg:flex-row gap-12 lg:gap-24">
             <!-- Left Side: Main Heading -->
-            <div class="lg:w-1/3">
+            <div class="lg:w-1/3" data-aos="fade-right">
                 <h2
                     class=" font-serif text-2xl lg:text-3xl font-bold text-brand-blue uppercase leading-tight tracking-tighter">
                     <?php echo wp_kses_post($main_heading); ?>
@@ -33,7 +33,7 @@ $faqs = get_field('faq_items');
             </div>
 
             <!-- Right Side: Accordion -->
-            <div class="lg:w-2/3">
+            <div class="lg:w-2/3" data-aos="fade-left" data-aos-delay="200">
                 <div class="faq-accordion space-y-0">
                     <?php if ($faqs): ?>
                         <?php foreach ($faqs as $index => $faq): ?>

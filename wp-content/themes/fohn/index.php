@@ -18,10 +18,11 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <?php
+                $i = 1;
                 while ( have_posts() ) :
                     the_post();
                     ?>
-                    <article id="post-<?php the_ID(); ?>" <?php post_class( 'group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2' ); ?>>
+                    <article id="post-<?php the_ID(); ?>" <?php post_class( 'group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2' ); ?> data-aos="fade-up" data-aos-delay="<?php echo ($i % 3) * 100; ?>">
                         <?php if ( has_post_thumbnail() ) : ?>
                             <div class="aspect-video overflow-hidden">
                                 <?php the_post_thumbnail( 'large', array( 'class' => 'w-full h-full object-cover group-hover:scale-110 transition-transform duration-700' ) ); ?>
@@ -61,6 +62,7 @@
                         </div>
                     </article>
                     <?php
+                    $i++;
                 endwhile;
                 ?>
             </div>

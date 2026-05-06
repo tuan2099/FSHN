@@ -59,12 +59,14 @@ function fohn_scripts()
 	// Enqueue Swiper JS
 	wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
 
-	// Enqueue Flatpickr
-	wp_enqueue_style('flatpickr-css', 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css', array(), '4.6.13');
-	wp_enqueue_script('flatpickr-js', 'https://cdn.jsdelivr.net/npm/flatpickr', array(), '4.6.13', true);
+	// Enqueue AOS CSS
+	wp_enqueue_style('aos-css', 'https://unpkg.com/aos@2.3.1/dist/aos.css', array(), '2.3.1');
+
+	// Enqueue AOS JS
+	wp_enqueue_script('aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), '2.3.1', true);
 
 	// Main JS
-	wp_enqueue_script('fohn-script', get_template_directory_uri() . '/assets/js/main.js', array('swiper-js', 'flatpickr-js'), '1.0.0', true);
+	wp_enqueue_script('fohn-script', get_template_directory_uri() . '/assets/js/main.js', array('swiper-js', 'flatpickr-js', 'aos-js'), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'fohn_scripts');
 

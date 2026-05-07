@@ -15,8 +15,7 @@ $faqs = get_field('faq_items');
         <!-- Subheading -->
         <div class="flex justify-center mb-18">
             <div class="text-center">
-                <span
-                    class=" font-serif text-[16px] text-brand-black-500 uppercase font-bold tracking-[0.3em] block mb-2">
+                <span class=" font-serif text-[16px] text-brand-black-500 uppercase font-bold block mb-2">
                     <?php echo esc_html($sub_heading); ?>
                 </span>
                 <div class="w-1/2 h-0.5 bg-brand-orange mx-auto"></div>
@@ -26,8 +25,7 @@ $faqs = get_field('faq_items');
         <div class="flex flex-col lg:flex-row gap-12 lg:gap-24">
             <!-- Left Side: Main Heading -->
             <div class="lg:w-1/3" data-aos="fade-right">
-                <h2
-                    class=" font-serif text-2xl lg:text-3xl font-bold text-brand-blue uppercase leading-tight tracking-tighter">
+                <h2 class=" font-serif text-2xl lg:text-3xl font-bold text-brand-blue uppercase leading-tight ">
                     <?php echo wp_kses_post($main_heading); ?>
                 </h2>
             </div>
@@ -40,7 +38,7 @@ $faqs = get_field('faq_items');
                             <div class="faq-item border-b border-brand-black-300">
                                 <button class="faq-trigger w-full py-6 flex justify-between items-center text-left group">
                                     <span
-                                        class="text-sm font-bold text-brand-black-800 uppercase tracking-widest group-hover:text-brand-orange transition-colors">
+                                        class="text-[16px] text-brand-black-800 uppercase group-hover:text-brand-orange transition-colors">
                                         <?php echo esc_html($faq['question']); ?>
                                     </span>
                                     <span class="faq-icon transform transition-transform duration-300">

@@ -27,7 +27,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo fslife.png"
                         alt="FusionLife Logo" class="h-8 lg:h-10 w-auto">
                 </div>
-                <p class="text-brand-black-100/80 text-sm font-medium">
+                <p class="text-brand-black-100/80 text-sm ">
                     <?php echo esc_html($loyalty_desc); ?>
                 </p>
             </div>

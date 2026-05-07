@@ -78,7 +78,7 @@
                     data-target="dropdown-guests">
                     <div class="flex items-center justify-between pointer-events-none">
                         <span
-                            class="text-[14px] lg:text-[13px] text-brand-black-300 guests-display"><?php pll_e('Guests'); ?></span>
+                            class="text-[14px] font-[300] lg:text-[13px] text-brand-black-300 guests-display"><?php pll_e('Guests'); ?></span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -89,8 +89,8 @@
                 <!-- Action -->
                 <div class="flex-1 lg:flex-none mt-4 lg:mt-0">
                     <button
-                        class="check-availability-btn w-full h-full bg-brand-orange text-white px-10 py-5 text-[14px] lg:text-[13px] font-bold uppercase hover:bg-brand-blue transition-all rounded-xl lg:rounded-none">
-                        <?php pll_e('Check availability'); ?>
+                        class="check-availability-btn w-full h-full font-serif bg-brand-orange text-white px-10 py-3 text-[14px] lg:text-[13px] font-bold hover:bg-brand-blue transition-all rounded-xl lg:rounded-none">
+                        <?php pll_e('Check Availability'); ?>
                     </button>
                 </div>
 

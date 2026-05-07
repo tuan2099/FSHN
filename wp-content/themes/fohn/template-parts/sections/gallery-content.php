@@ -74,51 +74,71 @@ $gallery_items = get_field('gallery_items');
             <?php if ($gallery_items): ?>
                 <?php foreach ($gallery_items as $item): ?>
                     <div class="gallery-item aspect-[4/3] overflow-hidden group" data-category="<?php echo esc_attr($item['category']); ?>">
-                        <img src="<?php echo esc_url($item['image']); ?>" alt=""
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <a href="<?php echo esc_url($item['image']); ?>" class="glightbox block w-full h-full" data-gallery="gallery1">
+                            <img src="<?php echo esc_url($item['image']); ?>" alt=""
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        </a>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
                 <!-- Row 1 -->
                 <div class="gallery-item aspect-[4/3] overflow-hidden group" data-category="others">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery-lobby.png" alt="Lobby"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/images/gallery-lobby.png" class="glightbox block w-full h-full" data-gallery="gallery1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery-lobby.png" alt="Lobby"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </a>
                 </div>
                 <div class="gallery-item aspect-[4/3] overflow-hidden group" data-category="rooms">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dining-main.png" alt="Dining"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/images/dining-main.png" class="glightbox block w-full h-full" data-gallery="gallery1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dining-main.png" alt="Dining"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </a>
                 </div>
                 <div class="gallery-item aspect-[4/3] overflow-hidden group" data-category="facilities">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/facility-pantry.png" alt="Pantry"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/images/facility-pantry.png" class="glightbox block w-full h-full" data-gallery="gallery1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/facility-pantry.png" alt="Pantry"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </a>
                 </div>
 
                 <!-- Row 2 -->
                 <div class="gallery-item aspect-[4/3] overflow-hidden group" data-category="spa">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/spa-interior.png" alt="Spa"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/images/spa-interior.png" class="glightbox block w-full h-full" data-gallery="gallery1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/spa-interior.png" alt="Spa"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </a>
                 </div>
                 <div class="gallery-item aspect-[4/3] overflow-hidden group" data-category="dining">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dining-moc-loft.png" alt="Moc Loft"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/images/dining-moc-loft.png" class="glightbox block w-full h-full" data-gallery="gallery1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dining-moc-loft.png" alt="Moc Loft"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </a>
                 </div>
                 <div class="gallery-item aspect-[4/3] overflow-hidden group" data-category="rooms">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dining-main.png" alt="Dining 2"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/images/dining-main.png" class="glightbox block w-full h-full" data-gallery="gallery1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dining-main.png" alt="Dining 2"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </a>
                 </div>
 
                 <!-- Row 3 -->
                 <div class="gallery-item aspect-[4/3] overflow-hidden group" data-category="others">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery-lobby.png" alt="Lobby 2"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/images/gallery-lobby.png" class="glightbox block w-full h-full" data-gallery="gallery1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery-lobby.png" alt="Lobby 2"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </a>
                 </div>
                 <div class="gallery-item aspect-[4/3] overflow-hidden group" data-category="facilities">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/facility-pantry.png" alt="Pantry 2"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/images/facility-pantry.png" class="glightbox block w-full h-full" data-gallery="gallery1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/facility-pantry.png" alt="Pantry 2"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </a>
                 </div>
                 <div class="gallery-item aspect-[4/3] overflow-hidden group" data-category="spa">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/spa-interior.png" alt="Spa 2"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/images/spa-interior.png" class="glightbox block w-full h-full" data-gallery="gallery1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/spa-interior.png" alt="Spa 2"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </a>
                 </div>
             <?php endif; ?>
         </div>
@@ -127,6 +147,15 @@ $gallery_items = get_field('gallery_items');
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // Initialize GLightbox
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            loop: true,
+            zoomable: true,
+            draggable: true
+        });
+
         const filterBtns = document.querySelectorAll('.gallery-filter-btn');
         const galleryItems = document.querySelectorAll('.gallery-item');
 
@@ -144,10 +173,11 @@ $gallery_items = get_field('gallery_items');
 
                 galleryItems.forEach(item => {
                     const category = item.getAttribute('data-category');
+                    const link = item.querySelector('.glightbox');
 
                     if (target === 'all' || category === target) {
                         item.style.display = 'block';
-                        // Trigger reflow for animation if needed
+                        link.setAttribute('data-glightbox', 'gallery1'); // Ensure it stays in the gallery group
                         setTimeout(() => {
                             item.style.opacity = '1';
                             item.style.transform = 'scale(1)';
@@ -155,15 +185,22 @@ $gallery_items = get_field('gallery_items');
                     } else {
                         item.style.opacity = '0';
                         item.style.transform = 'scale(0.95)';
+                        link.removeAttribute('data-glightbox'); // Remove from group when hidden
                         setTimeout(() => {
                             item.style.display = 'none';
                         }, 300);
                     }
                 });
+
+                // Refresh lightbox to update visible items in the slider
+                setTimeout(() => {
+                    lightbox.reload();
+                }, 350);
             });
         });
     });
 </script>
+
 
 <style>
     .gallery-item {

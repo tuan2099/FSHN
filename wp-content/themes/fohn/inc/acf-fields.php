@@ -764,6 +764,63 @@ function fohn_register_acf_fields()
                     ),
                 ),
             ),
+            array(
+                'key' => 'field_fohn_offers_alt_block3_heading',
+                'label' => 'Offers Alternate - Block 3 Heading',
+                'name' => 'offers_alt_block3_heading',
+                'type' => 'text',
+                'default_value' => 'LOCAL EXPERIENCES',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block3_desc',
+                'label' => 'Offers Alternate - Block 3 Description',
+                'name' => 'offers_alt_block3_desc',
+                'type' => 'textarea',
+                'default_value' => 'Immerse yourself in the vibrant culture of Hanoi with our curated local tours and cultural activities, designed to show you the hidden gems of the capital.',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block3_btn_text',
+                'label' => 'Offers Alternate - Block 3 Button Text',
+                'name' => 'offers_alt_block3_btn_text',
+                'type' => 'text',
+                'default_value' => 'DISCOVER MORE',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block3_btn_link',
+                'label' => 'Offers Alternate - Block 3 Button Link',
+                'name' => 'offers_alt_block3_btn_link',
+                'type' => 'url',
+                'default_value' => '#',
+            ),
+            array(
+                'key' => 'field_fohn_offers_alt_block3_list',
+                'label' => 'Offers Alternate - Block 3 (Experiences)',
+                'name' => 'offers_alt_block3_list',
+                'type' => 'repeater',
+                'layout' => 'row',
+                'button_label' => 'Add Item',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_fohn_offer_alt3_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'textarea',
+                    ),
+                    array(
+                        'key' => 'field_fohn_offer_alt3_gallery',
+                        'label' => 'Gallery',
+                        'name' => 'gallery',
+                        'type' => 'gallery',
+                        'return_format' => 'url',
+                    ),
+                    array(
+                        'key' => 'field_fohn_offer_alt3_link',
+                        'label' => 'Link',
+                        'name' => 'link',
+                        'type' => 'url',
+                    ),
+                ),
+            ),
 
             // TAB: MAP
             array(

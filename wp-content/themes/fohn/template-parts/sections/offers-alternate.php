@@ -15,8 +15,14 @@ $block2_desc     = get_field('offers_alt_block2_desc') ?: 'Savor the tastes of V
 $block2_btn_text = get_field('offers_alt_block2_btn_text') ?: 'VIEW DETAILS';
 $block2_btn_link = get_field('offers_alt_block2_btn_link') ?: '#';
 
+$block3_heading  = get_field('offers_alt_block3_heading') ?: 'LOCAL EXPERIENCES';
+$block3_desc     = get_field('offers_alt_block3_desc') ?: 'Immerse yourself in the vibrant culture of Hanoi with our curated local tours and cultural activities, designed to show you the hidden gems of the capital.';
+$block3_btn_text = get_field('offers_alt_block3_btn_text') ?: 'DISCOVER MORE';
+$block3_btn_link = get_field('offers_alt_block3_btn_link') ?: '#';
+
 $block1_items = get_field('offers_alt_block1_list');
 $block2_items = get_field('offers_alt_block2_list');
+$block3_items = get_field('offers_alt_block3_list');
 ?>
 
 <section class="offers-alternate-section py-24 bg-white overflow-hidden">
@@ -197,6 +203,103 @@ $block2_items = get_field('offers_alt_block2_list');
                     <?php echo esc_html($block2_btn_text); ?>
                 </a>
                 <?php endif; ?>
+            </div>
+        </div>
+
+        <!-- Block 3: LOCAL EXPERIENCES (Text Left, Slider Right) -->
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mt-32">
+            <!-- Text Content -->
+            <div class="w-full lg:w-5/12 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
+                <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
+                    <?php echo esc_html($block3_heading); ?>
+                </h2>
+                <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
+                
+                <p class="text-brand-black-900 leading-relaxed mb-10 max-w-md">
+                    <?php echo wp_kses_post($block3_desc); ?>
+                </p>
+                
+                <?php if ($block3_btn_text): ?>
+                <a href="<?php echo esc_url($block3_btn_link); ?>" class="inline-block text-[16px] font-bold font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
+                    <?php echo esc_html($block3_btn_text); ?>
+                </a>
+                <?php endif; ?>
+            </div>
+            
+            <!-- Slider -->
+            <div class="w-full lg:w-7/12 order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="offer-slider-container relative" id="offers-block-3">
+                    <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
+                        <div class="swiper-wrapper">
+                            <?php if ($block3_items): ?>
+                                <?php foreach ($block3_items as $item): ?>
+                                    <div class="swiper-slide">
+                                        <?php if (!empty($item['gallery'])): ?>
+                                            <div class="swiper nested-offers-swiper absolute inset-0 w-full h-full overflow-hidden">
+                                                <div class="nested-wrapper flex w-full h-full relative" style="transition-property: transform;">
+                                                    <?php foreach ($item['gallery'] as $img_data): 
+                                                        $img_src = '';
+                                                        if (is_array($img_data)) {
+                                                            $img_src = $img_data['url'] ?? '';
+                                                        } elseif (is_numeric($img_data)) {
+                                                            $img_src = wp_get_attachment_url($img_data);
+                                                        } else {
+                                                            $img_src = $img_data;
+                                                        }
+                                                    ?>
+                                                        <div class="nested-slide w-full h-full shrink-0 relative">
+                                                            <img src="<?php echo esc_url($img_src); ?>" alt="<?php echo esc_attr(strip_tags($item['title'])); ?>" class="w-full h-full object-cover">
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                        <?php else: ?>
+                                            <div class="w-full h-full bg-brand-black-300 flex items-center justify-center text-white italic">Experience Image</div>
+                                        <?php endif; ?>
+                                        <div class="hidden post-title"><?php echo wp_kses_post($item['title']); ?></div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <!-- Dummy Slides -->
+                                <?php for($i=1; $i<=3; $i++): ?>
+                                    <div class="swiper-slide">
+                                        <div class="w-full h-full bg-brand-black-200 flex items-center justify-center text-brand-black-400">
+                                            Experience Slide <?php echo $i; ?>
+                                        </div>
+                                        <div class="hidden post-title">HANOI DISCOVERY</div>
+                                    </div>
+                                <?php endfor; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation below image -->
+                    <div class="flex justify-between items-center py-4 mt-2 gap-4">
+                        <div class="flex items-center flex-1 min-w-0">
+                            <div id="offers-block-3-pagination" class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto flex-shrink-0"></div>
+                            <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase ml-4 whitespace-nowrap overflow-hidden text-ellipsis">
+                                <?php echo $block3_items ? wp_kses_post($block3_items[0]['title']) : 'HANOI DISCOVERY'; ?>
+                            </h3>
+                        </div>
+
+                        <div class="flex items-center gap-6">
+                            <div id="offers-block-pagination" class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto"></div>
+                            <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase ml-4">
+                                <?php echo $block3_items ? wp_kses_post($block3_items[0]['title']) : 'ORIGINAL ROOM'; ?>
+                            </h3>
+                        </div>
+
+                        
+                        <div class="flex gap-6">
+                            <button id="offers-block-3-prev" class="offer-prev hover:opacity-70 transition-opacity">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png" alt="Prev" class="w-10 h-auto">
+                            </button>
+                            <button id="offers-block-3-next" class="offer-next hover:opacity-70 transition-opacity">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png" alt="Next" class="w-10 h-auto">
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

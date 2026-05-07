@@ -1223,6 +1223,10 @@ video {
   width: 100%;
 }
 
+.min-w-0 {
+  min-width: 0;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1576,6 +1580,10 @@ video {
 
 .overflow-visible {
   overflow: visible;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
 }
 
 .whitespace-nowrap {

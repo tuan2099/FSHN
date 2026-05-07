@@ -51,7 +51,7 @@ $footer_text = get_field('hotel_footer_text');
 
         <!-- Amenities Bar -->
         <div class="bg-brand-blue py-4 mb-15 max-w-[850px] mx-auto">
-            <h3 class="text-white font-serif text-xl tracking-[0.3em] text-center uppercase">
+            <h3 class="text-white font-serif text-xl text-center uppercase">
                 <?php echo esc_html($amenities_bar_title); ?>
             </h3>
         </div>

@@ -23,20 +23,20 @@ $block2_items = get_field('offers_alt_block2_list');
     <div class="container mx-auto pb-6">
         
         <!-- Block 1: OFFERS (Text Left, Slider Right) -->
-        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-32">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-32">
             <!-- Text Content -->
             <div class="w-full lg:w-5/12 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase tracking-widest mb-4">
+                <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
                     <?php echo esc_html($block1_heading); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="text-brand-black-600 leading-relaxed mb-10 max-w-md">
+                <p class="text-brand-black-900 leading-relaxed mb-10 max-w-md">
                     <?php echo wp_kses_post($block1_desc); ?>
                 </p>
                 
                 <?php if ($block1_btn_text): ?>
-                <a href="<?php echo esc_url($block1_btn_link); ?>" class="inline-block text-xs font-bold font-serif text-brand-blue uppercase tracking-[0.2em] border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
+                <a href="<?php echo esc_url($block1_btn_link); ?>" class="inline-block text-[16px] font-bold font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
                     <?php echo esc_html($block1_btn_text); ?>
                 </a>
                 <?php endif; ?>
@@ -95,7 +95,7 @@ $block2_items = get_field('offers_alt_block2_list');
                     <div class="flex justify-between items-center py-4 mt-2">
                         <div class="flex items-center gap-6">
                             <div id="offers-block-pagination" class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto"></div>
-                            <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase tracking-widest ml-4">
+                            <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase ml-4">
                                 <?php echo $block1_items ? wp_kses_post($block1_items[0]['title']) : 'ORIGINAL ROOM'; ?>
                             </h3>
                         </div>
@@ -113,7 +113,7 @@ $block2_items = get_field('offers_alt_block2_list');
         </div>
 
         <!-- Block 2: DRINK & DINE (Slider Left, Text Right) -->
-        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <!-- Slider -->
             <div class="w-full lg:w-7/12" data-aos="fade-right" data-aos-duration="1000">
                 <div class="offer-slider-container relative" id="dining-block">
@@ -172,7 +172,7 @@ $block2_items = get_field('offers_alt_block2_list');
                             </button>
                         </div>
                         <div class="flex items-center gap-6">
-                            <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase tracking-widest mr-4">
+                            <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase mr-4">
                                 <?php echo $block2_items ? wp_kses_post($block2_items[0]['title']) : 'IL PAMPERO'; ?>
                             </h3>
                             <div id="dining-block-pagination" class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto"></div>
@@ -183,17 +183,17 @@ $block2_items = get_field('offers_alt_block2_list');
 
             <!-- Text Content -->
             <div class="w-full lg:w-5/12" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase tracking-widest mb-4">
+                <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
                     <?php echo esc_html($block2_heading); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="text-brand-black-600 leading-relaxed mb-10">
+                <p class="text-brand-black-900  mb-10">
                     <?php echo wp_kses_post($block2_desc); ?>
                 </p>
                 
                 <?php if ($block2_btn_text): ?>
-                <a href="<?php echo esc_url($block2_btn_link); ?>" class="inline-block text-xs font-bold font-serif text-brand-blue uppercase tracking-[0.2em] border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
+                <a href="<?php echo esc_url($block2_btn_link); ?>" class="inline-block text-[16px] font-bold font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
                     <?php echo esc_html($block2_btn_text); ?>
                 </a>
                 <?php endif; ?>

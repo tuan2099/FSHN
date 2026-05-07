@@ -22,7 +22,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        'sans': ['Gotham', 'Montserrat', 'sans-serif'],
+        'sans': ['SVN-Gotham'],
         'serif': ['IvyMode', 'serif'],
       },
       borderRadius: {

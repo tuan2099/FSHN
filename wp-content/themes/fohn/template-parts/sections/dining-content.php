@@ -60,11 +60,11 @@ $dining_outlets = get_field('dining_outlets');
 
             <div class="flex flex-wrap justify-center gap-12 mt-10">
                 <a href="<?php echo esc_url($menu_link_1 ?: '#'); ?>"
-                    class="text-brand-blue font-serif font-bold text-sm tracking-[0.2em] uppercase border-b border-[#FDB078] pb-1 hover:text-brand-orange transition-colors">
+                    class="text-brand-blue font-serif font-bold text-sm uppercase border-b border-[#FDB078] pb-1 hover:text-brand-orange transition-colors">
                     ALL-DAY DINING MENU
                 </a>
                 <a href="<?php echo esc_url($menu_link_2 ?: '#'); ?>"
-                    class="text-brand-blue font-serif font-bold text-sm tracking-[0.2em] uppercase border-b border-[#FDB078] pb-1 hover:text-brand-orange transition-colors">
+                    class="text-brand-blue font-serif font-bold text-sm uppercase border-b border-[#FDB078] pb-1 hover:text-brand-orange transition-colors">
                     LOUNGE / TERRACE MENU
                 </a>
             </div>
@@ -115,7 +115,7 @@ $dining_outlets = get_field('dining_outlets');
 
         <div class="text-center mt-12 md:mt-20">
             <a href="<?php echo esc_url($main_book_link); ?>"
-                class="inline-block bg-[#FDB078] text-white px-12 py-4 text-sm font-bold font-serif uppercase tracking-[0.2em] hover:bg-brand-blue transition-all">
+                class="inline-block bg-[#FDB078] text-white px-12 py-4 text-sm font-bold font-serif uppercase hover:bg-brand-blue transition-all">
                 MAKE A RESERVATION
             </a>
         </div>
@@ -138,7 +138,7 @@ $dining_outlets = get_field('dining_outlets');
                     <div class="flex flex-col <?php echo $is_even ? 'md:flex-row' : 'md:flex-row-reverse'; ?> items-center">
                         <div class="w-full md:w-1/2 mb-12 md:mb-0">
                             <div class="<?php echo $is_even ? 'pr-0 md:pr-12' : 'pl-0 md:pl-12'; ?>">
-                                <h3 class="text-brand-blue font-serif text-3xl tracking-[0.1em] uppercase mb-4">
+                                <h3 class="text-brand-blue font-serif text-3xl uppercase mb-4">
                                     <?php echo esc_html($name); ?>
                                 </h3>
                                 <p class="text-brand-orange font-serif italic text-xl mb-12"><?php echo esc_html($subtitle); ?>
@@ -150,11 +150,11 @@ $dining_outlets = get_field('dining_outlets');
 
                                 <div class="flex gap-6">
                                     <a href="<?php echo esc_url($book_link); ?>"
-                                        class="bg-brand-orange text-white px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-brand-blue transition-all">
+                                        class="bg-brand-orange text-white px-10 py-4 text-xs font-bold uppercase hover:bg-brand-blue transition-all">
                                         Book Now
                                     </a>
                                     <a href="<?php echo esc_url($menu_link); ?>" target="_blank"
-                                        class="border border-brand-blue text-brand-blue px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-brand-blue hover:text-white transition-all">
+                                        class="border border-brand-blue text-brand-blue px-10 py-4 text-xs font-bold uppercase hover:bg-brand-blue hover:text-white transition-all">
                                         Menu
                                     </a>
                                 </div>
@@ -185,7 +185,7 @@ $dining_outlets = get_field('dining_outlets');
         new Swiper('.dining-main-swiper', {
             slidesPerView: 'auto',
             centeredSlides: true,
-            spaceBetween: 30,
+            spaceBetween: 10,
             loop: true,
             speed: 800,
             navigation: {

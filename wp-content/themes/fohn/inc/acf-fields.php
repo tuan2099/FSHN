@@ -946,6 +946,13 @@ function fohn_register_acf_fields()
                 'default_value' => 'fusionlife',
             ),
             array(
+                'key' => 'field_fohn_footer_loyalty_logo',
+                'label' => 'Loyalty Logo',
+                'name' => 'footer_loyalty_logo',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
                 'key' => 'field_fohn_footer_loyalty_desc',
                 'label' => 'Loyalty Description',
                 'name' => 'footer_loyalty_desc',

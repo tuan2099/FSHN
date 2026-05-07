@@ -20,7 +20,7 @@
                     class="menu-toggle text-white hover:text-brand-orange transition-colors focus:outline-none group">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-10 md:w-10" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h24M4 16h24" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
@@ -36,7 +36,7 @@
             <!-- Right: Action Button -->
             <div class="header-right flex-1 flex justify-end">
                 <a href="#"
-                    class="hidden md:inline-block bg-brand-orange text-white px-8 py-2 md:px-10 md:py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-brand-blue transition-all shadow-xl">
+                    class="hidden md:inline-block bg-brand-orange font-serif text-white px-8 py-2 md:px-10 md:py-3 text-[10px] md:text-xs font-bold uppercase hover:bg-white hover:text-brand-blue transition-all shadow-xl">
                     <?php pll_e('BOOK A STAY'); ?>
                 </a>
             </div>
@@ -130,7 +130,7 @@
                 if (window.scrollY > 50) {
                     header.classList.add('bg-brand-blue', 'shadow-md', 'py-4');
                     header.classList.remove('py-6', 'lg:py-8', 'bg-white');
-                    
+
                     if (logoImg) {
                         logoImg.src = scrollLogo;
                         logoImg.classList.add('h-10', 'md:h-16');

@@ -75,7 +75,8 @@ $selected_rooms = get_field('home_rooms_list');
                                             class="text-xl font-semibold text-brand-blue uppercase tracking-widest mb-4 font-serif">
                                             <?php echo esc_html($room_post->post_title); ?>
                                         </h3>
-                                        <p class="text-brand-black-600 text-[13px] leading-relaxed my-8 line-clamp-4">
+                                        <p
+                                            class="text-brand-black-900 text-[13px] leading-relaxed font-[300] my-8 line-clamp-4">
                                             <?php echo esc_html($excerpt); ?>
                                         </p>
 
@@ -152,7 +153,7 @@ $selected_rooms = get_field('home_rooms_list');
         // Initialize Outer Swiper
         new Swiper('.rooms-outer-swiper', {
             slidesPerView: 1.2,
-            spaceBetween: 30,
+            spaceBetween: 10,
             centeredSlides: false,
             loop: false,
             navigation: {

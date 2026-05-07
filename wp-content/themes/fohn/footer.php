@@ -23,16 +23,17 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     <div class="bg-brand-blue py-10 lg:py-15" data-aos="fade-up">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="text-white max-w-2xl">
-                <h2 class="text-4xl lg:text-5xl font-semibold mb-4 tracking-tighter">
-                    <?php echo esc_html($loyalty_title); ?>
-                </h2>
+                <div class="mb-4">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo fslife.png"
+                        alt="FusionLife Logo" class="h-8 lg:h-10 w-auto">
+                </div>
                 <p class="text-brand-black-100/80 text-sm font-medium">
                     <?php echo esc_html($loyalty_desc); ?>
                 </p>
             </div>
             <div>
                 <a href="<?php echo esc_url($loyalty_btn_link); ?>"
-                    class="bg-white text-brand-blue px-10 py-3 rounded-full font-bold text-sm uppercase tracking-wide hover:bg-brand-orange hover:text-white transition-all shadow-lg active:scale-95">
+                    class="bg-white text-brand-blue px-10 py-3 rounded-full font-bold text-sm uppercase hover:bg-brand-orange hover:text-white transition-all shadow-lg active:scale-95">
                     <?php echo esc_html($loyalty_btn_text); ?>
                 </a>
             </div>
@@ -48,9 +49,9 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                     <?php if ($footer_logo): ?>
                         <img src="<?php echo esc_url($footer_logo); ?>" alt="Footer Logo" class="h-12 w-auto mb-4">
                     <?php endif; ?>
-                    <h3 class="text-brand-black-500 text-[14px] uppercase font-bold ">
+                    <p class="text-xs text-brand-black-400 font-medium uppercase">
                         <?php echo esc_html($footer_desc); ?>
-                    </h3>
+                    </p>
                 </div>
                 <div class="text-brand-black-700 text-sm leading-relaxed space-y-4">
                     <p><?php echo nl2br(esc_html($footer_address)); ?></p>
@@ -63,12 +64,12 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
             <!-- Newsletter -->
             <div class="newsletter-column" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6">
+                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold mb-6">
                     <?php pll_e('Sign up for Newsletter'); ?>
                 </h3>
                 <div class="relative max-w-sm">
                     <input type="email"
-                        class="w-full border-0 border-b border-brand-black-300 py-2 pr-10 focus:ring-0 focus:border-brand-blue text-sm transition-all bg-transparent"
+                        class="w-full bg-transparent border-b border-brand-black-100 py-2 pr-10 focus:outline-none focus:border-brand-orange transition-colors text-sm"
                         placeholder="<?php echo esc_attr(pll__('Your email address')); ?>">
                     <button
                         class="absolute right-0 bottom-2 text-brand-black-500 hover:text-brand-blue transition-colors">
@@ -129,19 +130,19 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
             <?php else: ?>
                 <div
                     class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between items-center gap-y-10 gap-x-4 lg:gap-18 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-brand-black-800 w-full">
+                    <div class="text-center"><span class="text-[14px] lg:text-lg  tracking-tighter">fusionresorts</span>
+                    </div>
+                    <div class="text-center"><span class="text-[14px] lg:text-lg  tracking-tighter">fusionoriginals</span>
+                    </div>
                     <div class="text-center"><span
-                            class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionresorts</span></div>
-                    <div class="text-center"><span
-                            class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionoriginals</span></div>
-                    <div class="text-center"><span
-                            class="text-[12px] lg:text-lg font-bold tracking-tighter italic">fusion</span><br><span
+                            class="text-[14px] lg:text-lg  tracking-tighter italic">fusion</span><br><span
                             class="text-[6px] lg:text-[8px] uppercase tracking-widest">collection</span></div>
-                    <div class="text-center"><span
-                            class="text-[12px] lg:text-lg font-bold tracking-tighter">fusionsuites</span></div>
+                    <div class="text-center"><span class="text-[14px] lg:text-lg  tracking-tighter">fusionsuites</span>
+                    </div>
                     <div class="text-center lg:border-l lg:border-brand-black-300 lg:pl-4"><span
-                            class="text-[12px] lg:text-lg font-bold tracking-widest">HIIVE</span></div>
-                    <div class="text-center lg:pl-4"><span
-                            class="text-[12px] lg:text-lg font-bold tracking-[0.4em]">GLOW</span></div>
+                            class="text-[14px] lg:text-lg  tracking-widest">HIIVE</span></div>
+                    <div class="text-center lg:pl-4"><span class="text-[14px] lg:text-lg  tracking-[0.4em]">GLOW</span>
+                    </div>
                 </div>
             <?php endif; ?>
         </div>
@@ -151,7 +152,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     <div class="border-t border-b border-brand-black-100 py-6">
         <div class="container mx-auto px-6">
             <ul
-                class="flex flex-wrap justify-center lg:justify-between items-center gap-x-12 gap-y-6 text-[10px] font-bold uppercase tracking-widest text-brand-black-700 text-center">
+                class="flex flex-wrap justify-center lg:justify-between items-center gap-x-4 gap-y-4 text-[14px] uppercase tracking-widest text-brand-black-700 text-center">
                 <?php
                 $bottom_nav = get_field('footer_bottom_nav', 'option');
                 if ($bottom_nav):
@@ -182,7 +183,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     <!-- Copyright -->
     <div class="py-8">
         <div class="container mx-auto px-6 text-center">
-            <p class="text-[10px] font-bold uppercase tracking-widest text-brand-black-500">
+            <p class="text-[14px] uppercase tracking-widest text-brand-black-500">
                 <?php echo wp_kses_post($footer_copyright); ?>
             </p>
         </div>
@@ -213,7 +214,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
         initAOS();
 
         // Failsafe: If elements are still invisible after 3 seconds, force them to show
-        setTimeout(function() {
+        setTimeout(function () {
             const aosElements = document.querySelectorAll('[data-aos]');
             aosElements.forEach(el => {
                 if (window.getComputedStyle(el).opacity === "0") {

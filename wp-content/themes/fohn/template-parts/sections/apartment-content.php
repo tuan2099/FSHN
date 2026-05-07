@@ -16,7 +16,8 @@ $apt_query = new WP_Query(array(
         <?php if ($apt_query->have_posts()): ?>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
                 <?php $apt_index = 0;
-                while ($apt_query->have_posts()): $apt_query->the_post();
+                while ($apt_query->have_posts()):
+                    $apt_query->the_post();
                     $gallery = get_field('room_gallery');
                     $description = get_field('room_description');
                     $size = get_field('room_size');
@@ -61,14 +62,14 @@ $apt_query = new WP_Query(array(
                                     </button>
                                 </div>
                                 <div
-                                    class="apt-pagination-<?php echo $apt_index; ?> text-sm font-bold text-brand-black-900 tracking-widest font-serif relative !bottom-auto !left-auto !w-auto text-right flex items-baseline justify-end">
+                                    class="apt-pagination-<?php echo $apt_index; ?> text-sm font-bold text-brand-black-900 font-serif relative !bottom-auto !left-auto !w-auto text-right flex items-baseline justify-end">
                                 </div>
                             </div>
                         </div>
 
                         <!-- Apartment Content -->
                         <div class="text-center">
-                            <h3 class="text-brand-blue font-serif text-2xl tracking-[0.1em] uppercase mb-2">
+                            <h3 class="text-brand-blue font-serif text-2xl uppercase mb-2">
                                 <?php the_title(); ?>
                             </h3>
                             <div class="w-16 h-px bg-brand-orange mx-auto mb-8 opacity-50"></div>
@@ -83,50 +84,64 @@ $apt_query = new WP_Query(array(
                                 <div class="flex flex-wrap justify-center gap-x-8 md:gap-x-16 gap-y-4">
                                     <div class="flex items-center gap-3">
                                         <div class="text-brand-orange flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                                                stroke-linejoin="round">
                                                 <rect width="16" height="16" x="4" y="4" rx="1" />
                                                 <rect width="8" height="8" x="8" y="8" rx="0.5" />
                                             </svg>
                                         </div>
-                                        <span class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($size); ?></span>
+                                        <span
+                                            class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($size); ?></span>
                                     </div>
                                     <div class="flex items-center gap-3">
                                         <div class="text-brand-orange flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                                                stroke-linejoin="round">
                                                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                                                 <circle cx="9" cy="7" r="4" />
                                                 <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
                                                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                                             </svg>
                                         </div>
-                                        <span class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($occupancy); ?></span>
+                                        <span
+                                            class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($occupancy); ?></span>
                                     </div>
                                 </div>
 
                                 <div class="flex flex-wrap justify-center gap-x-6 md:gap-x-8 gap-y-4">
                                     <div class="flex items-center gap-3">
                                         <div class="text-brand-orange flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                                                stroke-linejoin="round">
                                                 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                                                 <circle cx="12" cy="12" r="3" />
                                             </svg>
                                         </div>
-                                        <span class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($view); ?></span>
+                                        <span
+                                            class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($view); ?></span>
                                     </div>
                                     <div class="flex items-center gap-3">
                                         <div class="text-brand-orange flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                                                stroke-linejoin="round">
                                                 <path d="M2 4v16" />
                                                 <path d="M2 8h18a2 2 0 0 1 2 2v10" />
                                                 <path d="M2 17h20" />
                                                 <path d="M6 8v9" />
                                             </svg>
                                         </div>
-                                        <span class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($bed); ?></span>
+                                        <span
+                                            class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($bed); ?></span>
                                     </div>
                                     <div class="flex items-center gap-3">
                                         <div class="text-brand-orange flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                                fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+                                                stroke-linejoin="round">
                                                 <path d="M4 14h16v6H4z" />
                                                 <path d="M2 14h20" />
                                                 <path d="M8 14v6" />
@@ -134,7 +149,8 @@ $apt_query = new WP_Query(array(
                                                 <path d="M6 14v-4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4" />
                                             </svg>
                                         </div>
-                                        <span class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($balcony); ?></span>
+                                        <span
+                                            class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($balcony); ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +161,8 @@ $apt_query = new WP_Query(array(
                             </a>
                         </div>
                     </div>
-                    <?php $apt_index++; endwhile; wp_reset_postdata(); ?>
+                    <?php $apt_index++; endwhile;
+                wp_reset_postdata(); ?>
             </div>
         <?php else: ?>
             <div class="text-center text-brand-black-400 py-20">

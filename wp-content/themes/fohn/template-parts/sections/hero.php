@@ -22,7 +22,8 @@ $height_class = ($hero_height === 'fixed') ? 'h-[500px] lg:h-[600px]' : 'h-scree
             <div class="w-full h-full bg-brand-black-900"></div>
         <?php endif; ?>
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-brand-black-900/30"></div>
+        <!-- Professional Gradient Overlay (Darkened) -->
+        <div class="absolute inset-0 z-10" style="background: linear-gradient(to bottom, rgba(30, 45, 65, 0.85) 0%, rgba(43, 60, 84, 0) 30%, rgba(43, 60, 84, 0) 70%, rgba(20, 30, 45, 1) 100%);"></div>
     </div>
 
     <!-- Center Content -->

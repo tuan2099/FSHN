@@ -22,29 +22,30 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
     <?php get_template_part('template-parts/sections/hero'); ?>
 
     <section
-        class="contact-asymmetric-section relative bg-white overflow-hidden min-h-[600px] lg:min-h-[800px] flex items-center">
+        class="contact-asymmetric-section relative bg-white overflow-hidden lg:min-h-[800px] flex flex-col lg:block">
 
-        <!-- Bleeding Background: Left Half -->
-        <div class="absolute left-0 top-0 bottom-0 w-full lg:w-1/2 bg-brand-black-50 z-0" data-aos="fade-right" data-aos-duration="1200">
+        <!-- Bleeding Background: Left Half on Desktop, Bottom on Mobile -->
+        <div class="relative lg:absolute left-0 top-0 lg:bottom-0 w-full lg:w-1/2 bg-brand-black-50 z-0 aspect-[4/3] md:aspect-video lg:aspect-auto lg:h-full order-2 lg:order-none"
+            data-aos="fade-up" lg:data-aos="fade-right" data-aos-duration="1200">
             <?php if ($map_bg): ?>
                 <img src="<?php echo esc_url($map_bg); ?>" alt="Map Illustration" class="w-full h-full object-cover">
             <?php endif; ?>
         </div>
 
         <!-- Centered Container for Form -->
-        <div class="container mx-auto max-w-[1040px] px-6 relative z-10">
+        <div class="container mx-auto max-w-[1040px] px-6 relative z-10 order-1 lg:order-none">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
                 <!-- Spacer for the Left Bleed area on Desktop -->
                 <div class="hidden lg:block"></div>
 
                 <!-- Form Content: Right Half, but narrowed and right-aligned -->
-                <div class="w-full py-16 lg:py-24" data-aos="fade-left" data-aos-delay="200">
+                <div class="w-full py-16 lg:py-24" data-aos="fade-down" lg:data-aos="fade-left" data-aos-delay="200">
                     <div class="w-full lg:max-w-[420px] ml-auto">
 
                         <div class="text-center mb-12">
                             <h2
-                                class="text-brand-blue font-serif text-3xl md:text-4xl tracking-widest uppercase mb-4 inline-block relative">
+                                class="text-brand-blue font-serif text-3xl md:text-4xl uppercase mb-4 inline-block relative">
                                 <?php pll_e('GET IN TOUCH'); ?>
                                 <div class="w-2/3 h-1 bg-brand-orange mx-auto mt-2 rounded-full"></div>
                             </h2>

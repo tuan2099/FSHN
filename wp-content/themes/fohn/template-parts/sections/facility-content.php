@@ -17,8 +17,7 @@ $facility_blocks = get_field('facilities_blocks');
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
         <?php endif; ?>
     </div>
-    <div
-        class="absolute right-[-100px] top-4 w-[400px] pointer-events-none select-none scale-x-[-1] hidden md:block">
+    <div class="absolute right-[-100px] top-4 w-[400px] pointer-events-none select-none scale-x-[-1] hidden md:block">
         <?php if (get_field('facilities_flower_right')): ?>
             <img src="<?php echo esc_url(get_field('facilities_flower_right')); ?>" alt="" class="w-full h-auto">
         <?php else: ?>
@@ -58,7 +57,7 @@ $facility_blocks = get_field('facilities_blocks');
 
                     $is_reversed = $counter % 2 !== 0;
                     $row_class = $is_reversed ? 'md:flex-row-reverse' : 'md:flex-row';
-                    $overlap_margin = $is_reversed ? 'md:mr-[-120px]' : 'md:ml-[-120px]';
+                    $overlap_margin = $is_reversed ? 'md:mr-[130px]' : 'md:ml-[130px]';
                     $text_padding = $is_reversed ? 'md:pr-28 md:pl-10 lg:pr-36 lg:pl-14' : 'md:pl-28 md:pr-10 lg:pl-36 lg:pr-14';
                     ?>
                     <div
@@ -84,7 +83,12 @@ $facility_blocks = get_field('facilities_blocks');
                             </div>
 
                             <!-- Navigation & Pagination below image -->
-                            <div class="mt-8 flex justify-between items-center pr-4">
+                            <?php
+                            // Adjust navigation alignment to avoid the overlapping blue box
+                            $nav_alignment_class = $is_reversed ? 'md:ml-[120px]' : 'md:mr-[120px]';
+                            ?>
+                            <div
+                                class="mt-8 mb-12 md:mb-0 flex justify-between items-center pr-4 <?php echo $nav_alignment_class; ?>">
                                 <div class="flex gap-10">
                                     <button
                                         class="facility-prev-<?php echo $counter; ?> hover:translate-x-[-4px] transition-transform">

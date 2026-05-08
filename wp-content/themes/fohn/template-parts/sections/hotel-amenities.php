@@ -56,11 +56,11 @@ $footer_text = get_field('hotel_footer_text');
             </h3>
         </div>
 
-        <!-- Amenities Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-6 gap-x-8 gap-y-12 max-w-[850px] mx-auto">
+        <!-- Amenities Grid (Flex for centering last row) -->
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-12 max-w-[900px] mx-auto">
             <?php if ($amenities_list): ?>
                 <?php foreach ($amenities_list as $item): ?>
-                    <div class="flex flex-col items-center text-center group">
+                    <div class="flex flex-col items-center text-center group w-[calc(50%-16px)] md:w-[130px]">
                         <div class="mb-5 text-brand-blue transition-transform duration-300 group-hover:scale-110">
                             <?php if ($item['icon']): ?>
                                 <img src="<?php echo esc_url($item['icon']); ?>" alt="<?php echo esc_attr($item['label']); ?>"

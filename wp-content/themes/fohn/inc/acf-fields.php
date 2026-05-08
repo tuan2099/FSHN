@@ -459,6 +459,101 @@ function fohn_register_acf_fields()
     ));
 
     /**
+     * Apartment Page Settings
+     */
+    acf_add_local_field_group(array(
+        'key' => 'group_fohn_apartment_settings',
+        'title' => 'Apartment Page Settings',
+        'fields' => array(
+            // TAB: INTRO
+            array(
+                'key' => 'field_fohn_apartment_tab_intro',
+                'label' => 'Intro Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_fohn_apartment_flower_left',
+                'label' => 'Flower Left Image',
+                'name' => 'apartment_flower_left',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_fohn_apartment_flower_right',
+                'label' => 'Flower Right Image',
+                'name' => 'apartment_flower_right',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_fohn_apartment_intro_title',
+                'label' => 'Intro Title',
+                'name' => 'apartment_intro_title',
+                'type' => 'text',
+                'default_value' => 'Residences',
+            ),
+            array(
+                'key' => 'field_fohn_apartment_intro_desc',
+                'label' => 'Intro Description',
+                'name' => 'apartment_intro_desc',
+                'type' => 'textarea',
+            ),
+
+            // TAB: AMENITIES
+            array(
+                'key' => 'field_fohn_apartment_tab_amenities',
+                'label' => 'Amenities',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_fohn_apartment_amenities_title',
+                'label' => 'Amenities Bar Title',
+                'name' => 'apartment_amenities_title',
+                'type' => 'text',
+                'default_value' => 'Amenities',
+            ),
+            array(
+                'key' => 'field_fohn_apartment_amenities_list',
+                'label' => 'Amenities List',
+                'name' => 'apartment_amenities_list',
+                'type' => 'repeater',
+                'layout' => 'table',
+                'button_label' => 'Add Amenity',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_fohn_apartment_amenity_icon',
+                        'label' => 'Icon (Image/SVG)',
+                        'name' => 'icon',
+                        'type' => 'image',
+                        'return_format' => 'url',
+                    ),
+                    array(
+                        'key' => 'field_fohn_apartment_amenity_label',
+                        'label' => 'Label',
+                        'name' => 'label',
+                        'type' => 'text',
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_fohn_apartment_footer_text',
+                'label' => 'Footer Quote',
+                'name' => 'apartment_footer_text',
+                'type' => 'textarea',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'templates/template-apartment.php',
+                ),
+            ),
+        ),
+    ));
+
+    /**
      * Register Options Page
      */
     if (function_exists('acf_add_options_page')) {

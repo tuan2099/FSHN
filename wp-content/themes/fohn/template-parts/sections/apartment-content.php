@@ -3,6 +3,16 @@
  * Section: Apartment List
  */
 
+// ACF Data
+$intro_title = get_field('apartment_intro_title') ?: 'Residences';
+$intro_desc = get_field('apartment_intro_desc');
+$flower_left = get_field('apartment_flower_left');
+$flower_right = get_field('apartment_flower_right');
+
+$amenities_title = get_field('apartment_amenities_title') ?: 'Amenities';
+$amenities_list = get_field('apartment_amenities_list');
+$footer_quote = get_field('apartment_footer_text');
+
 $apt_query = new WP_Query(array(
     'post_type' => 'room',
     'posts_per_page' => -1,
@@ -11,8 +21,86 @@ $apt_query = new WP_Query(array(
 ));
 ?>
 
-<section class="py-24 bg-white">
-    <div class="container mx-auto px-6 max-w-[1200px]">
+<section class="relative py-24 overflow-hidden bg-white">
+    <!-- Decorative Florals -->
+    <div class="absolute left-[-100px] top-4 w-[400px] opacity-15 pointer-events-none select-none hidden md:block">
+        <?php if ($flower_left): ?>
+            <img src="<?php echo esc_url($flower_left); ?>" alt="" class="w-full h-auto">
+        <?php else: ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
+        <?php endif; ?>
+    </div>
+    <div class="absolute right-[-100px] top-4 w-[400px] opacity-15 pointer-events-none select-none scale-x-[-1] hidden md:block">
+        <?php if ($flower_right): ?>
+            <img src="<?php echo esc_url($flower_right); ?>" alt="" class="w-full h-auto">
+        <?php else: ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
+        <?php endif; ?>
+    </div>
+
+    <div class="container relative z-10 mx-auto px-6 max-w-[1200px]">
+        <!-- Intro Header -->
+        <div class="text-center mb-24">
+            <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
+                <?php echo esc_html($intro_title); ?>
+            </h2>
+            <div class="w-24 h-px bg-brand-orange mx-auto mb-10"></div>
+            <?php if ($intro_desc): ?>
+                <p class="text-brand-black-700 font-sans text-md leading-relaxed mx-auto max-w-3xl">
+                    <?php echo nl2br(esc_html($intro_desc)); ?>
+                </p>
+            <?php endif; ?>
+        </div>
+
+        <!-- Amenities Section (Moved to Top, Mirroring Hotel Page) -->
+        <div class="mb-32">
+            <!-- Amenities Bar -->
+            <div class="bg-brand-blue py-4 mb-15 max-w-[850px] mx-auto">
+                <h3 class="text-white font-serif text-xl text-center uppercase">
+                    <?php echo esc_html($amenities_title); ?>
+                </h3>
+            </div>
+
+            <!-- Amenities Grid (Flex for centering last row) -->
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-12 max-w-[900px] mx-auto">
+                <?php if ($amenities_list): ?>
+                    <?php foreach ($amenities_list as $item): ?>
+                        <div class="flex flex-col items-center text-center group w-[calc(50%-16px)] md:w-[130px]">
+                            <div class="mb-5 text-brand-blue transition-transform duration-300 group-hover:scale-110">
+                                <?php if ($item['icon']): ?>
+                                    <img src="<?php echo esc_url($item['icon']); ?>" alt="<?php echo esc_attr($item['label']); ?>"
+                                        class="w-14 h-14 object-contain">
+                                <?php else: ?>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                    </svg>
+                                <?php endif; ?>
+                            </div>
+                            <span class="text-brand-black-700 font-sans text-sm font-medium leading-tight">
+                                <?php echo esc_html($item['label']); ?>
+                            </span>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p class="col-span-full text-center italic text-brand-black-400">
+                        <?php pll_e('Please add amenities in the Apartment Page backend.'); ?>
+                    </p>
+                <?php endif; ?>
+            </div>
+
+            <!-- Footer Quote (Short text below amenities) -->
+            <?php if ($footer_quote): ?>
+                <div class="mt-20 text-center">
+                    <p class="text-brand-black-500 font-sans italic text-sm leading-loose max-w-[600px] mx-auto">
+                        <?php echo nl2br(esc_html($footer_quote)); ?>
+                    </p>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <div class="w-full h-px bg-brand-black-50 mb-32"></div>
+
         <?php if ($apt_query->have_posts()): ?>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
                 <?php $apt_index = 0;
@@ -164,11 +252,8 @@ $apt_query = new WP_Query(array(
                     <?php $apt_index++; endwhile;
                 wp_reset_postdata(); ?>
             </div>
-        <?php else: ?>
-            <div class="text-center text-brand-black-400 py-20">
-                <p><?php pll_e('No apartments configured yet. Please add them in the Apartment Page backend.'); ?></p>
-            </div>
         <?php endif; ?>
+
     </div>
 </section>
 

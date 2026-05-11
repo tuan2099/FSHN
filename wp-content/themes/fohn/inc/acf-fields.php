@@ -940,11 +940,33 @@ function fohn_register_acf_fields()
                 'default_value' => 'T: (+84) 28 3622 2265',
             ),
             array(
+                'key' => 'field_fohn_map_lat',
+                'label' => 'Latitude',
+                'name' => 'map_latitude',
+                'type' => 'text',
+                'default_value' => '21.0366',
+            ),
+            array(
+                'key' => 'field_fohn_map_lng',
+                'label' => 'Longitude',
+                'name' => 'map_longitude',
+                'type' => 'text',
+                'default_value' => '105.8155',
+            ),
+            array(
+                'key' => 'field_fohn_map_marker',
+                'label' => 'Custom Map Marker (Logo)',
+                'name' => 'map_marker_icon',
+                'type' => 'image',
+                'return_format' => 'url',
+                'instructions' => 'Upload a small logo/icon to use as the map marker.',
+            ),
+            array(
                 'key' => 'field_fohn_map_embed',
-                'label' => 'Map Embed Code',
+                'label' => 'Map Embed Code (Fallback)',
                 'name' => 'map_embed_code',
                 'type' => 'textarea',
-                'instructions' => 'Paste the Google Maps iframe embed code here.',
+                'instructions' => 'Paste the Google Maps iframe embed code here as a fallback.',
             ),
 
             // TAB: FAQ

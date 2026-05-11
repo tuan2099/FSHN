@@ -73,8 +73,14 @@ function fohn_scripts()
 	wp_enqueue_style('glightbox-css', 'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css', array(), '3.3.0');
 	wp_enqueue_script('glightbox-js', 'https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js', array(), '3.3.0', true);
 
+	// Enqueue Leaflet CSS
+	wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', array(), '1.9.4');
+
+	// Enqueue Leaflet JS
+	wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), '1.9.4', true);
+
 	// Main JS
-	wp_enqueue_script('fohn-script', get_template_directory_uri() . '/assets/js/main.js', array('swiper-js', 'flatpickr-js', 'aos-js', 'glightbox-js'), '1.0.0', true);
+	wp_enqueue_script('fohn-script', get_template_directory_uri() . '/assets/js/main.js', array('swiper-js', 'flatpickr-js', 'aos-js', 'glightbox-js', 'leaflet-js'), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'fohn_scripts');
 

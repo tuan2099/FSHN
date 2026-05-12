@@ -21,14 +21,13 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
 
     <?php get_template_part('template-parts/sections/hero'); ?>
 
-    <section
-        class="contact-asymmetric-section relative bg-white overflow-hidden lg:min-h-[800px] flex flex-col lg:block">
+    <section class="contact-asymmetric-section relative bg-white overflow-hidden flex flex-col lg:block">
 
         <!-- Bleeding Background: Left Half on Desktop, Bottom on Mobile -->
         <div class="relative lg:absolute left-0 top-0 lg:bottom-0 w-full lg:w-1/2 bg-brand-black-50 z-0 aspect-[4/3] md:aspect-video lg:aspect-auto lg:h-full order-2 lg:order-none"
             data-aos="fade-up" lg:data-aos="fade-right" data-aos-duration="1200">
             <?php if ($map_bg): ?>
-                <img src="<?php echo esc_url($map_bg); ?>" alt="Map Illustration" class="w-full h-full object-cover">
+                <img src="<?php echo esc_url($map_bg); ?>" alt="Map Illustration" class="w-full h-full object-fill">
             <?php endif; ?>
         </div>
 
@@ -40,7 +39,7 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
                 <div class="hidden lg:block"></div>
 
                 <!-- Form Content: Right Half, but narrowed and right-aligned -->
-                <div class="w-full py-16 lg:py-24" data-aos="fade-down" lg:data-aos="fade-left" data-aos-delay="200">
+                <div class="w-full py-10 lg:py-12" data-aos="fade-down" lg:data-aos="fade-left" data-aos-delay="200">
                     <div class="w-full lg:max-w-[420px] ml-auto">
 
                         <div class="text-center mb-12">

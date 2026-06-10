@@ -37,7 +37,7 @@ $block3_items = get_field('offers_alt_block3_list');
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="text-brand-black-900 leading-relaxed mb-10 max-w-md">
+                <p class="text-brand-black-700 leading-relaxed mb-10 max-w-md">
                     <?php echo wp_kses_post($block1_desc); ?>
                 </p>
                 
@@ -194,7 +194,7 @@ $block3_items = get_field('offers_alt_block3_list');
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="text-brand-black-900  mb-10">
+                <p class="text-brand-black-700 leading-relaxed mb-10">
                     <?php echo wp_kses_post($block2_desc); ?>
                 </p>
                 
@@ -215,7 +215,7 @@ $block3_items = get_field('offers_alt_block3_list');
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="text-brand-black-900 leading-relaxed mb-10 max-w-md">
+                <p class="text-brand-black-700 leading-relaxed mb-10 max-w-md">
                     <?php echo wp_kses_post($block3_desc); ?>
                 </p>
                 

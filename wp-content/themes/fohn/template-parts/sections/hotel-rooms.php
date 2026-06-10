@@ -135,10 +135,16 @@ $rooms_query = new WP_Query(array(
                                 </div>
                             </div>
 
-                            <a href="<?php echo esc_url($book_link); ?>"
-                                class="inline-block bg-[#FDB078] text-white font-serif px-6 py-2 text-[16px] font-bold uppercase hover:bg-brand-blue transition-all">
-                                <?php pll_e('BOOK NOW'); ?>
-                            </a>
+                            <div class="flex flex-wrap items-center justify-center gap-4">
+                                <a href="<?php echo esc_url($book_link); ?>"
+                                    class="inline-block bg-[#FDB078] text-white font-serif px-6 py-2 text-[16px] font-bold uppercase hover:bg-brand-blue transition-all">
+                                    <?php pll_e('BOOK NOW'); ?>
+                                </a>
+                                <a href="<?php echo esc_url(get_permalink()); ?>"
+                                    class="inline-block border-2 border-brand-orange text-brand-blue font-serif px-6 py-2 text-[16px] font-bold uppercase hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all">
+                                    <?php pll_e('Find Out'); ?>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <?php $room_index++; endwhile;

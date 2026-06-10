@@ -3,7 +3,7 @@
  * Section Component: Booking Form (Flatpickr Integration)
  */
 ?>
-<<!-- Mobile Sticky Trigger -->
+<!-- Mobile Sticky Trigger -->
     <button id="mobile-booking-trigger"
         class="fixed bottom-0 left-0 w-full z-[90] bg-brand-orange text-white py-4 text-sm font-bold uppercase lg:hidden shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
         <?php pll_e('Check Availability'); ?>
@@ -27,22 +27,26 @@
         </div>
 
         <div class="container mx-auto px-6 h-full flex flex-col justify-center lg:block pt-20 lg:pt-0">
-            <div class="bg-transparent lg:bg-white w-full max-w-lg mx-auto lg:max-w-none shadow-none lg:shadow-2xl flex flex-col lg:flex-row items-stretch relative rounded-none lg:overflow-visible translate-y-8 lg:translate-y-0 transition-transform duration-500 ease-out gap-4 lg:gap-0"
-                id="booking-form-inner">
+            <form id="booking-form-inner"
+                action="https://fohn.backhotelite.com/en/bookcore/v4/search-dispo.htm" method="post" target="_blank"
+                class="bg-transparent lg:bg-white w-full max-w-lg mx-auto lg:max-w-none shadow-none lg:shadow-2xl flex flex-col lg:flex-row items-stretch relative rounded-none lg:overflow-visible translate-y-8 lg:translate-y-0 transition-transform duration-500 ease-out gap-4 lg:gap-0">
+                <!-- Hidden fields required by Roiback search-dispo.htm -->
+                <input type="hidden" name="edades" id="edades-input" value="">
+                <input type="hidden" name="sort_occupancy" value="true">
 
                 <!-- Arrival -->
                 <div id="arrival-trigger"
                     class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors">
                     <div class="flex items-center justify-between pointer-events-none">
                         <span
-                            class="text-[14px] lg:text-[13px] text-brand-black-300 arrival-date-display"><?php pll_e('Arrival'); ?></span>
+                            class="text-[14px] lg:text-[13px] text-brand-black-500 arrival-date-display"><?php pll_e('Arrival'); ?></span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v12a2 2 0 00-2 2z" />
                         </svg>
                     </div>
-                    <input type="text" id="arrival-input" class="opacity-0 pointer-events-none absolute">
+                    <input type="text" id="arrival-input" name="entrada" class="opacity-0 pointer-events-none absolute">
                 </div>
 
                 <!-- Departure -->
@@ -50,86 +54,66 @@
                     class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors">
                     <div class="flex items-center justify-between pointer-events-none">
                         <span
-                            class="text-[14px] lg:text-[13px] text-brand-black-300 departure-date-display"><?php pll_e('Departure'); ?></span>
+                            class="text-[14px] lg:text-[13px] text-brand-black-500 departure-date-display"><?php pll_e('Departure'); ?></span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v12a2 2 0 00-2 2z" />
                         </svg>
                     </div>
-                    <input type="text" id="departure-input" class="opacity-0 pointer-events-none absolute">
+                    <input type="text" id="departure-input" name="salida" class="opacity-0 pointer-events-none absolute">
                 </div>
 
-                <!-- Rooms -->
-                <div class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors booking-field"
-                    data-target="dropdown-rooms">
-                    <div class="flex items-center justify-between pointer-events-none">
-                        <span
-                            class="text-[14px] lg:text-[13px] text-brand-black-300 rooms-display"><?php pll_e('Rooms'); ?></span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                <!-- Adults -->
+                <div class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex items-center justify-between gap-2">
+                    <label for="adults-input"
+                        class="text-[14px] lg:text-[13px] text-brand-black-500 cursor-text"><?php pll_e('Adults'); ?></label>
+                    <div class="flex items-center gap-1">
+                        <button type="button"
+                            class="stepper-btn shrink-0 w-5 h-5 flex items-center justify-center rounded-full text-brand-blue hover:bg-brand-black-50 transition-colors text-xs leading-none select-none"
+                            data-stepper="adults" data-action="dec" aria-label="Decrease adults">&minus;</button>
+                        <input type="text" inputmode="numeric" id="adults-input" name="adultos"
+                            class="number-input w-6 text-center bg-transparent text-[16px] font-bold text-brand-blue focus:outline-none"
+                            value="2" data-min="1" data-max="20">
+                        <button type="button"
+                            class="stepper-btn shrink-0 w-5 h-5 flex items-center justify-center rounded-full text-brand-blue hover:bg-brand-black-50 transition-colors text-xs leading-none select-none"
+                            data-stepper="adults" data-action="inc" aria-label="Increase adults">+</button>
                     </div>
                 </div>
 
-                <!-- Guests -->
-                <div class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors booking-field"
-                    data-target="dropdown-guests">
-                    <div class="flex items-center justify-between pointer-events-none">
-                        <span
-                            class="text-[14px] font-[300] lg:text-[13px] text-brand-black-300 guests-display"><?php pll_e('Guests'); ?></span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
+                <!-- Children -->
+                <div class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex items-center justify-between gap-2">
+                    <label for="children-input"
+                        class="text-[14px] lg:text-[13px] text-brand-black-500 cursor-text"><?php pll_e('Children'); ?></label>
+                    <div class="flex items-center gap-1">
+                        <button type="button"
+                            class="stepper-btn shrink-0 w-5 h-5 flex items-center justify-center rounded-full text-brand-blue hover:bg-brand-black-50 transition-colors text-xs leading-none select-none"
+                            data-stepper="children" data-action="dec" aria-label="Decrease children">&minus;</button>
+                        <input type="text" inputmode="numeric" id="children-input" name="ninos"
+                            class="number-input w-6 text-center bg-transparent text-[16px] font-bold text-brand-blue focus:outline-none"
+                            value="0" data-min="0" data-max="20">
+                        <button type="button"
+                            class="stepper-btn shrink-0 w-5 h-5 flex items-center justify-center rounded-full text-brand-blue hover:bg-brand-black-50 transition-colors text-xs leading-none select-none"
+                            data-stepper="children" data-action="inc" aria-label="Increase children">+</button>
                     </div>
+                </div>
+
+                <!-- Promocode -->
+                <div class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center">
+                    <input type="text" id="promocode-input" name="codpromo"
+                        class="promocode-input w-full bg-transparent text-[14px] lg:text-[13px] text-brand-black-500 font-medium focus:outline-none"
+                        placeholder="<?php echo esc_attr(pll__('Promocode')); ?>" autocomplete="off">
                 </div>
 
                 <!-- Action -->
                 <div class="flex-1 lg:flex-none mt-4 lg:mt-0">
-                    <button
+                    <button type="submit"
                         class="check-availability-btn w-full h-full font-serif bg-brand-orange text-white px-10 py-3 text-[14px] lg:text-[13px] font-bold hover:bg-brand-blue transition-all rounded-xl lg:rounded-none">
                         <?php pll_e('Check Availability'); ?>
                     </button>
                 </div>
 
-                <!-- DROPDOWNS -->
-                <!-- Rooms Dropdown -->
-                <div id="dropdown-rooms"
-                    class="booking-popup fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:absolute lg:top-full lg:left-[40%] lg:translate-x-0 lg:translate-y-0 lg:mt-4 bg-white shadow-2xl w-[80%] lg:w-[200px] hidden animate-fade-in z-[110] rounded-xl lg:rounded-none overflow-hidden">
-                    <div class="flex flex-col">
-                        <?php for ($i = 1; $i <= 3; $i++):
-                            $room_label = $i > 1 ? pll__('Rooms') : pll__('Room');
-                            $room_text = $i . ' ' . $room_label;
-                            ?>
-                            <div class="px-8 py-4 border-b border-brand-black-100 last:border-0 hover:bg-brand-black-50 cursor-pointer transition-colors selector-item"
-                                data-value="<?php echo esc_attr($room_text); ?>">
-                                <span
-                                    class="text-[16px] font-bold text-brand-blue"><?php echo esc_html($room_text); ?></span>
-                            </div>
-                        <?php endfor; ?>
-                    </div>
-                </div>
-
-                <!-- Guests Dropdown -->
-                <div id="dropdown-guests"
-                    class="booking-popup fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:absolute lg:top-full lg:left-[60%] lg:translate-x-0 lg:translate-y-0 lg:mt-4 bg-white shadow-2xl w-[80%] lg:w-[200px] hidden animate-fade-in z-[110] rounded-xl lg:rounded-none overflow-hidden">
-                    <div class="flex flex-col">
-                        <?php for ($i = 1; $i <= 4; $i++):
-                            $guest_label = $i > 1 ? pll__('Guests') : pll__('Guest');
-                            $guest_text = $i . ' ' . $guest_label;
-                            ?>
-                            <div class="px-8 py-4 border-b border-brand-black-100 last:border-0 hover:bg-brand-black-50 cursor-pointer transition-colors selector-item"
-                                data-value="<?php echo esc_attr($guest_text); ?>">
-                                <span
-                                    class="text-[16px] font-bold text-brand-blue"><?php echo esc_html($guest_text); ?></span>
-                            </div>
-                        <?php endfor; ?>
-                    </div>
-                </div>
-
-            </div>
+            </form>
         </div>
     </div>
 
@@ -199,11 +183,25 @@
         .animate-fade-in {
             animation: fadeIn 0.3s ease-out forwards;
         }
+
+        /* Promocode placeholder: match the darker label colour */
+        .promocode-input::placeholder {
+            color: rgb(115 115 115);
+            opacity: 1;
+        }
     </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const bookingData = { arrival: '', departure: '', rooms: '1 Room', guests: '2 Guests' };
+            const bookingData = { arrival: '', departure: '', adults: 2, children: 0, promocode: '' };
+
+            // Capture promocode as the user types
+            const promocodeInput = document.getElementById('promocode-input');
+            if (promocodeInput) {
+                promocodeInput.addEventListener('input', function () {
+                    bookingData.promocode = this.value.trim();
+                });
+            }
 
             // Flatpickr Initializations
             const arrivalPicker = flatpickr("#arrival-input", {
@@ -215,7 +213,7 @@
                     bookingData.arrival = dateStr;
                     const display = document.querySelector('.arrival-date-display');
                     display.textContent = dateStr;
-                    display.classList.remove('text-brand-black-300');
+                    display.classList.remove('text-brand-black-500');
                     display.classList.add('text-brand-blue', 'font-bold');
                     departurePicker.set('minDate', dateStr);
                 }
@@ -230,7 +228,7 @@
                     bookingData.departure = dateStr;
                     const display = document.querySelector('.departure-date-display');
                     display.textContent = dateStr;
-                    display.classList.remove('text-brand-black-300');
+                    display.classList.remove('text-brand-black-500');
                     display.classList.add('text-brand-blue', 'font-bold');
                 }
             });
@@ -239,55 +237,75 @@
             document.getElementById('arrival-trigger').addEventListener('click', () => arrivalPicker.open());
             document.getElementById('departure-trigger').addEventListener('click', () => departurePicker.open());
 
-            // Dropdowns
-            const fields = document.querySelectorAll('.booking-field');
-            const popups = document.querySelectorAll('.booking-popup');
+            // Number steppers (Adults / Children) — type a number or use +/- buttons
+            const adultsInput = document.getElementById('adults-input');
+            const childrenInput = document.getElementById('children-input');
 
-            fields.forEach(field => {
-                field.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    const targetId = this.getAttribute('data-target');
-                    const targetPopup = document.getElementById(targetId);
-                    popups.forEach(p => { if (p.id !== targetId) p.classList.add('hidden'); });
-                    if (targetPopup) targetPopup.classList.toggle('hidden');
-                });
-            });
+            function clampInput(input) {
+                const min = parseInt(input.dataset.min, 10);
+                const max = parseInt(input.dataset.max, 10);
+                let n = parseInt(input.value, 10);
+                if (isNaN(n)) n = min;
+                if (n < min) n = min;
+                if (n > max) n = max;
+                input.value = n;
+                return n;
+            }
 
-            document.addEventListener('click', () => popups.forEach(p => p.classList.add('hidden')));
+            function syncStepper(input) {
+                const n = clampInput(input);
+                if (input === adultsInput) bookingData.adults = n;
+                if (input === childrenInput) bookingData.children = n;
+            }
 
-            const items = document.querySelectorAll('.selector-item');
-            items.forEach(item => {
-                item.addEventListener('click', function () {
-                    const value = this.getAttribute('data-value');
-                    const popup = this.closest('.booking-popup');
-                    if (popup.id === 'dropdown-rooms') {
-                        bookingData.rooms = value;
-                        const display = document.querySelector('.rooms-display');
-                        display.textContent = value;
-                        display.classList.remove('text-brand-black-300');
-                        display.classList.add('text-brand-blue', 'font-bold');
-                    } else if (popup.id === 'dropdown-guests') {
-                        bookingData.guests = value;
-                        const display = document.querySelector('.guests-display');
-                        display.textContent = value;
-                        display.classList.remove('text-brand-black-300');
-                        display.classList.add('text-brand-blue', 'font-bold');
+            [adultsInput, childrenInput].forEach(input => {
+                if (!input) return;
+                // Allow digits only while typing
+                input.addEventListener('input', function () {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    const n = parseInt(this.value, 10);
+                    if (!isNaN(n)) {
+                        if (input === adultsInput) bookingData.adults = n;
+                        if (input === childrenInput) bookingData.children = n;
                     }
                 });
+                // Clamp to min/max when leaving the field
+                input.addEventListener('blur', function () { syncStepper(this); });
             });
 
-            // Check Availability
-            document.querySelector('.check-availability-btn').addEventListener('click', function () {
-                if (!bookingData.arrival || !bookingData.departure) {
-                    alert('Please select arrival and departure dates.');
+            // +/- buttons
+            document.querySelectorAll('.stepper-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const target = this.dataset.stepper === 'adults' ? adultsInput : childrenInput;
+                    let n = parseInt(target.value, 10);
+                    if (isNaN(n)) n = parseInt(target.dataset.min, 10);
+                    n += (this.dataset.action === 'inc' ? 1 : -1);
+                    target.value = n;
+                    syncStepper(target);
+                });
+            });
+
+            // Submit -> POST to Roiback (search-dispo.htm). Fields are posted via
+            // their name attributes: entrada, salida (DD/MM/YYYY from Flatpickr),
+            // adultos, ninos, edades, codpromo, sort_occupancy.
+            const bookingForm = document.getElementById('booking-form-inner');
+            const edadesInput = document.getElementById('edades-input');
+
+            bookingForm.addEventListener('submit', function (e) {
+                const entrada = document.getElementById('arrival-input').value;
+                const salida = document.getElementById('departure-input').value;
+                if (!entrada || !salida) {
+                    e.preventDefault();
+                    alert('<?php echo esc_js(pll__('Please select arrival and departure dates.')); ?>');
                     return;
                 }
-                console.log('API CALL:', bookingData);
-                this.textContent = 'Searching...';
-                setTimeout(() => {
-                    alert('Found rooms!');
-                    this.textContent = 'Check availability';
-                }, 1000);
+                // Normalise adults/children to valid numbers
+                clampInput(adultsInput);
+                clampInput(childrenInput);
+                // Roiback expects one age per child (default 4), joined by ';'
+                const childCount = parseInt(childrenInput.value, 10) || 0;
+                edadesInput.value = Array(childCount).fill(4).join(';');
+                // The form then submits normally to search-dispo.htm (target=_blank)
             });
 
             // Mobile Popup Logic

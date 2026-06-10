@@ -56,6 +56,28 @@ $residences_query = new WP_Query([
     }
 </style>
 
+<style>
+    /* Reserve 2 lines for the title so 1-line and 2-line titles stay aligned
+       (no text is cut off — longer titles simply grow). */
+    .rooms-suites-section .room-card-title {
+        min-height: 3.5rem;
+    }
+
+    /* Equal-height cards so the BOOK NOW / FINDING OUT row lines up */
+    .rooms-suites-section .rooms-outer-swiper > .swiper-wrapper {
+        align-items: stretch;
+    }
+
+    .rooms-suites-section .rooms-outer-swiper > .swiper-wrapper > .swiper-slide {
+        height: auto;
+        display: flex;
+    }
+
+    .rooms-suites-section .rooms-outer-swiper > .swiper-wrapper > .swiper-slide > div {
+        width: 100%;
+    }
+</style>
+
 <section class="rooms-suites-section py-24 bg-[#EBEBEB] overflow-hidden">
     <div class="container mx-auto">
         <!-- Header with Tabs -->
@@ -125,7 +147,7 @@ $residences_query = new WP_Query([
                                         <div class="flex flex-col flex-grow">
                                             <span
                                                 class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="text-xl font-semibold text-brand-blue uppercase mb-4 font-serif">
+                                            <h3 class="room-card-title text-xl font-semibold text-brand-blue uppercase mb-4 font-serif">
                                                 <?php the_title(); ?>
                                             </h3>
                                             <p
@@ -198,7 +220,7 @@ $residences_query = new WP_Query([
                                         <div class="flex flex-col flex-grow">
                                             <span
                                                 class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="text-xl font-semibold text-brand-blue uppercase mb-4 font-serif">
+                                            <h3 class="room-card-title text-xl font-semibold text-brand-blue uppercase mb-4 font-serif">
                                                 <?php the_title(); ?>
                                             </h3>
                                             <p

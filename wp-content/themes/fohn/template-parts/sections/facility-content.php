@@ -8,6 +8,32 @@ $intro_desc = get_field('facilities_intro_desc');
 $facility_blocks = get_field('facilities_blocks');
 ?>
 
+<style>
+    @media (min-width: 768px) {
+        /* Slimmer blue box (was min-h 520 + pt/pb 16) */
+        .facility-content-box {
+            min-height: 440px;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+
+        /* Pull the box under the image so the image overlaps it */
+        .facility-content-box.facility-overlap-left {
+            margin-left: -130px;
+        }
+
+        .facility-content-box.facility-overlap-right {
+            margin-right: -130px;
+        }
+    }
+
+    /* Override Swiper's default width:100% on the fraction — only for this section */
+    .facility-blocks-list .swiper-pagination-fraction {
+        position: static;
+        width: auto;
+    }
+</style>
+
 <section class="relative py-24 overflow-hidden bg-white">
     <!-- Decorative Florals -->
     <div class="absolute left-[-100px] top-4 w-[400px] pointer-events-none select-none hidden md:block">
@@ -57,7 +83,8 @@ $facility_blocks = get_field('facilities_blocks');
 
                     $is_reversed = $counter % 2 !== 0;
                     $row_class = $is_reversed ? 'md:flex-row-reverse' : 'md:flex-row';
-                    $overlap_margin = $is_reversed ? 'md:mr-[130px]' : 'md:ml-[130px]';
+                    // Negative overlap so the image sits on top of the blue box (handled in <style> below)
+                    $overlap_margin = $is_reversed ? 'facility-overlap-right' : 'facility-overlap-left';
                     $text_padding = $is_reversed ? 'md:pr-28 md:pl-10 lg:pr-36 lg:pl-14' : 'md:pl-28 md:pr-10 lg:pl-36 lg:pr-14';
                     ?>
                     <div
@@ -84,8 +111,8 @@ $facility_blocks = get_field('facilities_blocks');
 
                             <!-- Navigation & Pagination below image -->
                             <?php
-                            // Adjust navigation alignment to avoid the overlapping blue box
-                            $nav_alignment_class = $is_reversed ? 'md:ml-[120px]' : 'md:mr-[120px]';
+                            // Keep the nav within the visible part of the image (clear the 130px overlap)
+                            $nav_alignment_class = $is_reversed ? 'md:ml-[130px]' : 'md:mr-[130px]';
                             ?>
                             <div
                                 class="mt-8 mb-12 md:mb-0 flex justify-between items-center pr-4 <?php echo $nav_alignment_class; ?>">
@@ -109,7 +136,7 @@ $facility_blocks = get_field('facilities_blocks');
 
                         <!-- Content Side (Overlapping Box) -->
                         <div
-                            class="w-full md:w-[600px] bg-[#2B3B52] p-10 md:pt-16 md:pb-16 <?php echo $text_padding; ?> <?php echo $overlap_margin; ?> z-10 text-white shadow-xl relative min-h-[520px] flex flex-col justify-center">
+                            class="facility-content-box w-full md:w-[600px] bg-[#2B3B52] p-10 <?php echo $text_padding; ?> <?php echo $overlap_margin; ?> z-10 text-white shadow-xl relative flex flex-col justify-center">
                             <div class="relative z-10">
                                 <h3 class="font-serif text-2xl tracking-[0.1em] uppercase mb-6 leading-tight">
                                     <?php echo esc_html($title); ?>

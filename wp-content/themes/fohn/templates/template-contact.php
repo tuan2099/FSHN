@@ -27,7 +27,7 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
         <div class="relative lg:absolute left-0 top-0 lg:bottom-0 w-full lg:w-1/2 bg-brand-black-50 z-0 aspect-[4/3] md:aspect-video lg:aspect-auto lg:h-full order-2 lg:order-none"
             data-aos="fade-up" lg:data-aos="fade-right" data-aos-duration="1200">
             <?php if ($map_bg): ?>
-                <img src="<?php echo esc_url($map_bg); ?>" alt="Map Illustration" class="w-full h-full object-fill">
+                <img src="<?php echo esc_url($map_bg); ?>" alt="Map Illustration" class="map-illustration w-full h-full object-fill object-center">
             <?php endif; ?>
         </div>
 
@@ -114,6 +114,14 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
 </main>
 
 <style>
+    /* Map illustration: stretch to fill (object-fill) by default,
+       but keep aspect ratio (object-cover) on very large screens (>= 1700px). */
+    @media (min-width: 1700px) {
+        .map-illustration {
+            object-fit: cover;
+        }
+    }
+
     /* Styling to match the rounded design in the image */
     .custom-input {
         background-color: #fff;

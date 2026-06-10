@@ -243,10 +243,16 @@ $apt_query = new WP_Query(array(
                                 </div>
                             </div>
 
-                            <a href="<?php echo esc_url($book_link); ?>"
-                                class="inline-block bg-[#FDB078] text-white px-12 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-brand-blue transition-all shadow-lg">
-                                <?php pll_e('BOOK NOW'); ?>
-                            </a>
+                            <div class="flex flex-wrap items-center justify-center gap-4">
+                                <a href="<?php echo esc_url($book_link); ?>"
+                                    class="inline-block bg-[#FDB078] text-white px-12 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-brand-blue transition-all shadow-lg">
+                                    <?php pll_e('BOOK NOW'); ?>
+                                </a>
+                                <a href="<?php echo esc_url(get_permalink()); ?>"
+                                    class="inline-block border-2 border-brand-orange text-brand-blue px-12 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all">
+                                    <?php pll_e('Find Out'); ?>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <?php $apt_index++; endwhile;

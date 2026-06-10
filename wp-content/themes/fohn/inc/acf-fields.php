@@ -940,6 +940,14 @@ function fohn_register_acf_fields()
                 'default_value' => 'T: (+84) 28 3622 2265',
             ),
             array(
+                'key' => 'field_fohn_map_image',
+                'label' => 'Map Image (Upload)',
+                'name' => 'map_image',
+                'type' => 'image',
+                'return_format' => 'url',
+                'instructions' => 'Upload an image to display instead of the interactive map. The whole image will be shown. If empty, the interactive map below is used.',
+            ),
+            array(
                 'key' => 'field_fohn_map_lat',
                 'label' => 'Latitude',
                 'name' => 'map_latitude',

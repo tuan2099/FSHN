@@ -94,11 +94,24 @@
                 <?php endif; ?>
 
                 <!-- Language Switcher -->
-                <div class="text-sm font-serif font-bold uppercase tracking-widest flex items-center gap-2">
-                    <a href="#" class="text-brand-blue">EN</a>
-                    <span class="text-brand-black-200">|</span>
-                    <a href="#" class="text-brand-black-300 hover:text-brand-blue transition-colors">VI</a>
-                </div>
+                <?php if (function_exists('pll_the_languages')) :
+                    $fohn_langs = pll_the_languages(array('raw' => 1, 'hide_if_no_translation' => 0));
+                    if (!empty($fohn_langs)) : ?>
+                    <div class="text-sm font-serif font-bold uppercase tracking-widest flex items-center gap-2">
+                        <?php
+                        $fohn_lang_items = array();
+                        foreach ($fohn_langs as $fohn_lang) {
+                            $fohn_is_active = !empty($fohn_lang['current_lang']);
+                            $fohn_lang_class = $fohn_is_active
+                                ? 'text-brand-blue'
+                                : 'text-brand-black-300 hover:text-brand-blue transition-colors';
+                            $fohn_lang_items[] = '<a href="' . esc_url($fohn_lang['url']) . '" class="' . $fohn_lang_class . '">' . esc_html(strtoupper($fohn_lang['slug'])) . '</a>';
+                        }
+                        echo implode('<span class="text-brand-black-200">|</span>', $fohn_lang_items);
+                        ?>
+                    </div>
+                <?php endif;
+                endif; ?>
             </div>
 
             <!-- Footer Info -->

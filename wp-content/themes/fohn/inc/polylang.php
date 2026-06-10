@@ -38,7 +38,14 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'Check availability', 'fohn_theme'); // Button
     pll_register_string('fohn', 'Room', 'fohn_theme');
     pll_register_string('fohn', 'Guest', 'fohn_theme');
-    
+    pll_register_string('fohn', 'Adults', 'fohn_theme');
+    pll_register_string('fohn', 'Adult', 'fohn_theme');
+    pll_register_string('fohn', 'Children', 'fohn_theme');
+    pll_register_string('fohn', 'Child', 'fohn_theme');
+    pll_register_string('fohn', 'Promocode', 'fohn_theme');
+    pll_register_string('fohn', 'Find Out', 'fohn_theme');
+    pll_register_string('fohn', 'Please select arrival and departure dates.', 'fohn_theme');
+
     // Fallbacks
     pll_register_string('fohn', 'No Images', 'fohn_theme');
     pll_register_string('fohn', 'Offer Image', 'fohn_theme');

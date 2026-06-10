@@ -9,6 +9,7 @@ $lat = get_field('map_latitude') ?: '21.0366';
 $lng = get_field('map_longitude') ?: '105.8155';
 $marker_icon = get_field('map_marker_icon') ?: get_template_directory_uri() . '/assets/images/logo fslife.png';
 $embed_code = get_field('map_embed_code');
+$map_image = get_field('map_image'); // Uploaded image (overrides the interactive map)
 
 ?>
 <section class="map-section pb-24 bg-white">
@@ -24,17 +25,26 @@ $embed_code = get_field('map_embed_code');
         </div>
 
         <!-- Map Container -->
-        <div class="map-container relative w-full h-[450px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 border-8 border-white"
-            data-aos="zoom-in" id="leaflet-map" data-lat="<?php echo esc_attr($lat); ?>"
-            data-lng="<?php echo esc_attr($lng); ?>" data-marker="<?php echo esc_url($marker_icon); ?>"
-            data-address="<?php echo esc_attr($address); ?>">
-            <?php if ($embed_code && empty($lat)): ?>
-                <?php echo $embed_code; ?>
-            <?php endif; ?>
-        </div>
+        <?php if ($map_image): ?>
+            <!-- Uploaded image: shown in full at its natural ratio (no frame, no distortion) -->
+            <div class="map-container w-full" data-aos="zoom-in">
+                <img src="<?php echo esc_url($map_image); ?>" alt="<?php echo esc_attr($address); ?>"
+                    class="w-full h-auto block">
+            </div>
+        <?php else: ?>
+            <div class="map-container relative w-full h-[450px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 border-8 border-white"
+                data-aos="zoom-in" id="leaflet-map" data-lat="<?php echo esc_attr($lat); ?>"
+                data-lng="<?php echo esc_attr($lng); ?>" data-marker="<?php echo esc_url($marker_icon); ?>"
+                data-address="<?php echo esc_attr($address); ?>">
+                <?php if ($embed_code && empty($lat)): ?>
+                    <?php echo $embed_code; ?>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
 
+<?php if (!$map_image): ?>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const mapElement = document.getElementById('leaflet-map');
@@ -79,6 +89,7 @@ $embed_code = get_field('map_embed_code');
             .bindPopup(`<div class="text-center font-bold text-brand-blue">${address}</div>`);
     });
 </script>
+<?php endif; ?>
 
 <style>
     #leaflet-map {

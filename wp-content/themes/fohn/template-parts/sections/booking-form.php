@@ -65,7 +65,8 @@
                 </div>
 
                 <!-- Adults -->
-                <div class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex items-center justify-between gap-2">
+                <div style="flex: 1.4"
+                    class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex items-center justify-between gap-2">
                     <label for="adults-input"
                         class="text-[14px] lg:text-[13px] text-brand-black-500 cursor-text"><?php pll_e('Adults'); ?></label>
                     <div class="flex items-center gap-1">
@@ -99,7 +100,8 @@
                 </div>
 
                 <!-- Promocode -->
-                <div class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center">
+                <div style="flex: 0.7"
+                    class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center">
                     <input type="text" id="promocode-input" name="codpromo"
                         class="promocode-input w-full bg-transparent text-[14px] lg:text-[13px] text-brand-black-500 font-medium focus:outline-none"
                         placeholder="<?php echo esc_attr(pll__('Promocode')); ?>" autocomplete="off">

@@ -82,4 +82,19 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'Phone:', 'fohn_theme');
     pll_register_string('fohn', 'Write your requries:', 'fohn_theme');
     pll_register_string('fohn', 'SEND', 'fohn_theme');
+
+    // Single Room (detail page)
+    pll_register_string('fohn', 'Room Information', 'fohn_theme');
+    pll_register_string('fohn', 'Size', 'fohn_theme');
+    pll_register_string('fohn', 'Occupancy', 'fohn_theme');
+    pll_register_string('fohn', 'Bed Type', 'fohn_theme');
+    pll_register_string('fohn', 'View', 'fohn_theme');
+    pll_register_string('fohn', 'Balcony', 'fohn_theme');
+    pll_register_string('fohn', 'Book This Room', 'fohn_theme');
+    pll_register_string('fohn', 'Best Price Guaranteed for Direct Booking', 'fohn_theme');
+    pll_register_string('fohn', 'Other Accommodations', 'fohn_theme');
+    pll_register_string('fohn', '345 Doi Can, Ngoc Ha Ward, Hanoi City', 'fohn_theme');
+
+    // Apartment
+    pll_register_string('fohn', 'Please add amenities in the Apartment Page backend.', 'fohn_theme');
 }

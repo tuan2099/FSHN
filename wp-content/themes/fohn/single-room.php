@@ -47,7 +47,7 @@ while (have_posts()) :
                     
                     <!-- Description -->
                     <div class="prose prose-lg max-w-none mb-16 text-brand-black-700 leading-relaxed" data-aos="fade-up">
-                        <?php echo wp_kses_post($description); ?>
+                        <?php echo wpautop(wp_kses_post($description)); ?>
                     </div>
 
                     <!-- Room Gallery -->

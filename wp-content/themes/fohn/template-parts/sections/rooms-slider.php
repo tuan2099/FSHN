@@ -81,16 +81,16 @@ $residences_query = new WP_Query([
 <section class="rooms-suites-section py-24 bg-[#EBEBEB] overflow-hidden">
     <div class="container mx-auto">
         <!-- Header with Tabs -->
-        <div class="mb-12 border-b border-brand-black-100 flex justify-start items-end gap-6">
+        <div class="flex items-end justify-start gap-6 mb-12 border-b border-brand-black-100">
             <button
-                class="room-tab-trigger active pb-4 text-2xl font-serif font-bold uppercase transition-all duration-300 border-b-2 border-transparent"
+                class="pb-4 font-serif text-2xl font-bold uppercase transition-all duration-300 border-b-2 border-transparent room-tab-trigger active"
                 data-target="hotel">
-                <span class="tab-label-active text-brand-blue">HOTEL</span>
+                <span class="tab-label-active text-brand-blue"><?php pll_e('HOTEL')?></span>
             </button>
             <button
-                class="room-tab-trigger pb-4 text-2xl font-serif font-normal uppercase text-brand-black-400 transition-all duration-300 border-b-2 border-transparent"
+                class="pb-4 font-serif text-2xl font-normal uppercase transition-all duration-300 border-b-2 border-transparent room-tab-trigger text-brand-black-400"
                 data-target="residences">
-                <span class="tab-label-inactive">RESIDENCES</span>
+                <span class="tab-label-inactive"><?php pll_e('RESIDENCES')?></span>
             </button>
         </div>
 
@@ -98,7 +98,7 @@ $residences_query = new WP_Query([
         <div class="relative group/outer">
 
             <!-- HOTEL TAB CONTENT -->
-            <div id="tab-hotel" class="room-tab-content block">
+            <div id="tab-hotel" class="block room-tab-content">
                 <div class="swiper rooms-outer-swiper hotel-swiper">
                     <div class="swiper-wrapper">
                         <?php if ($hotel_query->have_posts()): ?>
@@ -108,18 +108,18 @@ $residences_query = new WP_Query([
                                 $size = get_field('room_size', $room_id) ?: '290 square feet / 27 square metres';
                                 $gallery = get_field('room_gallery', $room_id);
                                 ?>
-                                <div class="swiper-slide h-auto">
-                                    <div class="bg-transparent flex flex-col h-full">
+                                <div class="h-auto swiper-slide">
+                                    <div class="flex flex-col h-full bg-transparent">
                                         <!-- Gallery slider -->
                                         <div class="relative room-card-gallery">
                                             <div
-                                                class="swiper room-inner-gallery-swiper rounded-none overflow-hidden group/inner">
+                                                class="overflow-hidden rounded-none swiper room-inner-gallery-swiper group/inner">
                                                 <div class="swiper-wrapper">
                                                     <?php if ($gallery): ?>
                                                         <?php foreach ($gallery as $img_url): ?>
                                                             <div class="swiper-slide aspect-[4/3]">
                                                                 <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title(); ?>"
-                                                                    class="w-full h-full object-cover">
+                                                                    class="object-cover w-full h-full">
                                                             </div>
                                                         <?php endforeach; ?>
                                                     <?php else: ?>
@@ -127,13 +127,13 @@ $residences_query = new WP_Query([
                                                     <?php endif; ?>
                                                 </div>
                                             </div>
-                                            <div class="flex justify-between items-center py-6 w-full">
+                                            <div class="flex items-center justify-between w-full py-6">
                                                 <div class="flex gap-5">
-                                                    <button class="inner-prev hover:opacity-70 transition-opacity">
+                                                    <button class="transition-opacity inner-prev hover:opacity-70">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png"
                                                             alt="Prev" class="w-10 h-auto">
                                                     </button>
-                                                    <button class="inner-next hover:opacity-70 transition-opacity">
+                                                    <button class="transition-opacity inner-next hover:opacity-70">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png"
                                                             alt="Next" class="w-10 h-auto">
                                                     </button>
@@ -147,7 +147,7 @@ $residences_query = new WP_Query([
                                         <div class="flex flex-col flex-grow">
                                             <span
                                                 class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="room-card-title text-xl font-semibold text-brand-blue uppercase mb-4 font-serif">
+                                            <h3 class="mb-4 font-serif text-xl font-semibold uppercase room-card-title text-brand-blue">
                                                 <?php the_title(); ?>
                                             </h3>
                                             <p
@@ -171,7 +171,7 @@ $residences_query = new WP_Query([
             </div>
 
             <!-- RESIDENCES TAB CONTENT -->
-            <div id="tab-residences" class="room-tab-content hidden">
+            <div id="tab-residences" class="hidden room-tab-content">
                 <div class="swiper rooms-outer-swiper residences-swiper">
                     <div class="swiper-wrapper">
                         <?php if ($residences_query->have_posts()): ?>
@@ -181,18 +181,18 @@ $residences_query = new WP_Query([
                                 $size = get_field('room_size', $room_id) ?: '290 square feet / 27 square metres';
                                 $gallery = get_field('room_gallery', $room_id);
                                 ?>
-                                <div class="swiper-slide h-auto">
-                                    <div class="bg-transparent flex flex-col h-full">
+                                <div class="h-auto swiper-slide">
+                                    <div class="flex flex-col h-full bg-transparent">
                                         <!-- Gallery slider -->
                                         <div class="relative room-card-gallery">
                                             <div
-                                                class="swiper room-inner-gallery-swiper rounded-none overflow-hidden group/inner">
+                                                class="overflow-hidden rounded-none swiper room-inner-gallery-swiper group/inner">
                                                 <div class="swiper-wrapper">
                                                     <?php if ($gallery): ?>
                                                         <?php foreach ($gallery as $img_url): ?>
                                                             <div class="swiper-slide aspect-[4/3]">
                                                                 <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title(); ?>"
-                                                                    class="w-full h-full object-cover">
+                                                                    class="object-cover w-full h-full">
                                                             </div>
                                                         <?php endforeach; ?>
                                                     <?php else: ?>
@@ -200,13 +200,13 @@ $residences_query = new WP_Query([
                                                     <?php endif; ?>
                                                 </div>
                                             </div>
-                                            <div class="flex justify-between items-center py-6 w-full">
+                                            <div class="flex items-center justify-between w-full py-6">
                                                 <div class="flex gap-5">
-                                                    <button class="inner-prev hover:opacity-70 transition-opacity">
+                                                    <button class="transition-opacity inner-prev hover:opacity-70">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png"
                                                             alt="Prev" class="w-10 h-auto">
                                                     </button>
-                                                    <button class="inner-next hover:opacity-70 transition-opacity">
+                                                    <button class="transition-opacity inner-next hover:opacity-70">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png"
                                                             alt="Next" class="w-10 h-auto">
                                                     </button>
@@ -220,7 +220,7 @@ $residences_query = new WP_Query([
                                         <div class="flex flex-col flex-grow">
                                             <span
                                                 class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="room-card-title text-xl font-semibold text-brand-blue uppercase mb-4 font-serif">
+                                            <h3 class="mb-4 font-serif text-xl font-semibold uppercase room-card-title text-brand-blue">
                                                 <?php the_title(); ?>
                                             </h3>
                                             <p
@@ -246,14 +246,14 @@ $residences_query = new WP_Query([
             <!-- Outer Navigation -->
             <button
                 class="outer-prev absolute left-[-60px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-brand-orange flex items-center justify-center text-brand-orange hover:bg-brand-orange hover:text-white transition-all z-20">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
             </button>
             <button
                 class="outer-next absolute right-[-60px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-brand-orange flex items-center justify-center text-brand-orange hover:bg-brand-orange hover:text-white transition-all z-20">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>

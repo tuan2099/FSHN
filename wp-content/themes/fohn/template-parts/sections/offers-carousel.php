@@ -1,13 +1,10 @@
 <?php
 /**
  * Section: Offers Carousel
- * Data fetched from 'offer' Custom Post Type
+ * Data fetched from the ACF "Offers List" repeater (offers_list).
  */
 
-$offers_query = new WP_Query(array(
-    'post_type' => 'offer',
-    'posts_per_page' => 6,
-));
+$offers = get_field('offers_list');
 
 $heading = get_field('offers_heading') ?: 'OFFERS AT LÈGACY';
 $button_text = get_field('offers_button_text') ?: 'EXPLORE MORE OFFERS';
@@ -30,15 +27,19 @@ $button_link = get_field('offers_button_link') ?: '#';
         <div class="relative mx-auto py-20 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
             <div class="swiper offers-carousel-swiper !overflow-visible">
                 <div class="swiper-wrapper flex items-center">
-                    <?php if ($offers_query->have_posts()): ?>
+                    <?php if ($offers): ?>
                         <?php $i = 1;
-                        while ($offers_query->have_posts()):
-                            $offers_query->the_post(); ?>
+                        foreach ($offers as $offer):
+                            $offer_title = $offer['title'];
+                            $offer_image = $offer['image'];
+                            ?>
                             <div class="swiper-slide !h-auto transition-all duration-700 opacity-20 scale-[0.7]"
                                 data-aos="zoom-in" data-aos-delay="<?php echo $i * 100; ?>">
                                 <div class="relative aspect-square rounded-none overflow-hidden group shadow-xl">
-                                    <?php if (has_post_thumbnail()): ?>
-                                        <?php the_post_thumbnail('large', ['class' => 'absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110']); ?>
+                                    <?php if ($offer_image): ?>
+                                        <img src="<?php echo esc_url($offer_image); ?>"
+                                            alt="<?php echo esc_attr(wp_strip_all_tags($offer_title)); ?>"
+                                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
                                     <?php else: ?>
                                         <div
                                             class="absolute inset-0 bg-brand-black-800 flex items-center justify-center text-white italic">
@@ -57,16 +58,12 @@ $button_link = get_field('offers_button_link') ?: '#';
                                         </span>
                                         <h3
                                             class="text-lg md:text-xl font-serif font-semibold uppercase  leading-snug max-w-[250px]">
-                                            <?php the_title(); ?>
+                                            <?php echo nl2br(esc_html($offer_title)); ?>
                                         </h3>
                                     </div>
-
-                                    <!-- Link -->
-                                    <a href="<?php the_permalink(); ?>" class="absolute inset-0 z-20"></a>
                                 </div>
                             </div>
-                            <?php $i++; endwhile;
-                        wp_reset_postdata(); ?>
+                            <?php $i++; endforeach; ?>
                     <?php else: ?>
                         <!-- Dummy Slides -->
                         <?php for ($j = 1; $j <= 5; $j++): ?>

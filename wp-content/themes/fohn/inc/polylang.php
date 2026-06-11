@@ -97,6 +97,10 @@ if (function_exists('pll_register_string')) {
 
     // Apartment
     pll_register_string('fohn', 'Please add amenities in the Apartment Page backend.', 'fohn_theme');
+
+    // Read more / less toggle
+    pll_register_string('fohn', 'more', 'fohn_theme');
+    pll_register_string('fohn', 'less', 'fohn_theme');
 }
 
 /**

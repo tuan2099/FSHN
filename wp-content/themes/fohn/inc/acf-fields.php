@@ -749,7 +749,9 @@ function fohn_register_acf_fields()
                 'key' => 'field_fohn_offers_alt_block1_heading',
                 'label' => 'Offers Alternate - Block 1 Heading',
                 'name' => 'offers_alt_block1_heading',
-                'type' => 'text',
+                'type' => 'textarea',
+                'rows' => 2,
+                'new_lines' => '',
                 'default_value' => 'OFFERS',
             ),
             array(
@@ -806,7 +808,9 @@ function fohn_register_acf_fields()
                 'key' => 'field_fohn_offers_alt_block2_heading',
                 'label' => 'Offers Alternate - Block 2 Heading',
                 'name' => 'offers_alt_block2_heading',
-                'type' => 'text',
+                'type' => 'textarea',
+                'rows' => 2,
+                'new_lines' => '',
                 'default_value' => 'DRINK & DINE',
             ),
             array(
@@ -863,7 +867,9 @@ function fohn_register_acf_fields()
                 'key' => 'field_fohn_offers_alt_block3_heading',
                 'label' => 'Offers Alternate - Block 3 Heading',
                 'name' => 'offers_alt_block3_heading',
-                'type' => 'text',
+                'type' => 'textarea',
+                'rows' => 2,
+                'new_lines' => '',
                 'default_value' => 'LOCAL EXPERIENCES',
             ),
             array(

@@ -33,11 +33,11 @@ $block3_items = get_field('offers_alt_block3_list');
             <!-- Text Content -->
             <div class="w-full lg:w-5/12 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
-                    <?php echo esc_html($block1_heading); ?>
+                    <?php echo nl2br(esc_html($block1_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="text-brand-black-700 leading-relaxed mb-10 max-w-md">
+                <p class="js-readmore text-brand-black-700 leading-relaxed mb-10 max-w-md" data-limit="160">
                     <?php echo wp_kses_post($block1_desc); ?>
                 </p>
                 
@@ -190,11 +190,11 @@ $block3_items = get_field('offers_alt_block3_list');
             <!-- Text Content -->
             <div class="w-full lg:w-5/12" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
-                    <?php echo esc_html($block2_heading); ?>
+                    <?php echo nl2br(esc_html($block2_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="text-brand-black-700 leading-relaxed mb-10">
+                <p class="js-readmore text-brand-black-700 leading-relaxed mb-10" data-limit="160">
                     <?php echo wp_kses_post($block2_desc); ?>
                 </p>
                 
@@ -211,11 +211,11 @@ $block3_items = get_field('offers_alt_block3_list');
             <!-- Text Content -->
             <div class="w-full lg:w-5/12 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
-                    <?php echo esc_html($block3_heading); ?>
+                    <?php echo nl2br(esc_html($block3_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="text-brand-black-700 leading-relaxed mb-10 max-w-md">
+                <p class="js-readmore text-brand-black-700 leading-relaxed mb-10 max-w-md" data-limit="160">
                     <?php echo wp_kses_post($block3_desc); ?>
                 </p>
                 
@@ -420,4 +420,44 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+</script>
+
+<script>
+    // Read more / less for long descriptions
+    document.addEventListener('DOMContentLoaded', function () {
+        var moreLabel = '<?php echo esc_js(pll__('more')); ?>';
+        var lessLabel = '<?php echo esc_js(pll__('less')); ?>';
+
+        document.querySelectorAll('.js-readmore').forEach(function (el) {
+            var fullHTML = el.innerHTML.trim();
+            var text = el.textContent.trim();
+            var limit = parseInt(el.getAttribute('data-limit') || '160', 10);
+
+            if (text.length <= limit) return; // short enough, leave as is
+
+            // Cut at the last space before the limit (word boundary)
+            var cut = text.lastIndexOf(' ', limit);
+            if (cut < 0) cut = limit;
+            var shortText = text.slice(0, cut).replace(/[\s.,;:]+$/, '');
+
+            var expanded = false;
+
+            function render() {
+                if (expanded) {
+                    el.innerHTML = fullHTML +
+                        ' <a href="#" class="readmore-toggle text-brand-orange font-semibold whitespace-nowrap">' + lessLabel + '</a>';
+                } else {
+                    el.innerHTML = shortText +
+                        '… <a href="#" class="readmore-toggle text-brand-orange font-semibold whitespace-nowrap">' + moreLabel + '</a>';
+                }
+                el.querySelector('.readmore-toggle').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    expanded = !expanded;
+                    render();
+                });
+            }
+
+            render();
+        });
+    });
 </script>

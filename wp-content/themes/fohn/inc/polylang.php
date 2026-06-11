@@ -98,3 +98,31 @@ if (function_exists('pll_register_string')) {
     // Apartment
     pll_register_string('fohn', 'Please add amenities in the Apartment Page backend.', 'fohn_theme');
 }
+
+/**
+ * Register translatable ACF Options (footer) so their values show up in
+ * Polylang > String translations. Runs on init because it needs get_field().
+ * The default here MUST match the default used in footer.php.
+ */
+add_action('init', function () {
+    if (!function_exists('pll_register_string') || !function_exists('get_field')) {
+        return;
+    }
+
+    // key => array(default value, is multiline)
+    $footer_option_strings = array(
+        'footer_loyalty_title'    => array('fusionlife', false),
+        'footer_loyalty_desc'     => array('Join our loyalty program and book direct to take advantage of all our rewards and benefits.', true),
+        'footer_loyalty_btn_text' => array('Join Now', false),
+        'footer_description'      => array('LÈGACY - A FUSION ORIGINAL HA NOI', false),
+        'footer_address'          => array('345 Doi Can, Ngoc Ha Ward, Ba Dinh, Hanoi City', true),
+    );
+
+    foreach ($footer_option_strings as $key => $cfg) {
+        $value = get_field($key, 'option');
+        if (!$value) {
+            $value = $cfg[0];
+        }
+        pll_register_string('fohn_' . $key, $value, 'fohn_theme', $cfg[1]);
+    }
+}, 20);

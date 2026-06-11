@@ -4,14 +4,16 @@
  */
 
 // Footer Options
-$loyalty_title = get_field('footer_loyalty_title', 'option') ?: 'fusionlife';
-$loyalty_desc = get_field('footer_loyalty_desc', 'option') ?: 'Join our loyalty program and book direct to take advantage of all our rewards and benefits.';
-$loyalty_btn_text = get_field('footer_loyalty_btn_text', 'option') ?: 'Join Now';
+// Text values are wrapped in pll__() so they can be translated via
+// Polylang > String translations (registered in inc/polylang.php).
+$loyalty_title = pll__(get_field('footer_loyalty_title', 'option') ?: 'fusionlife');
+$loyalty_desc = pll__(get_field('footer_loyalty_desc', 'option') ?: 'Join our loyalty program and book direct to take advantage of all our rewards and benefits.');
+$loyalty_btn_text = pll__(get_field('footer_loyalty_btn_text', 'option') ?: 'Join Now');
 $loyalty_btn_link = get_field('footer_loyalty_btn_link', 'option') ?: '#';
 
 $footer_logo = get_field('footer_logo', 'option');
-$footer_desc = get_field('footer_description', 'option') ?: 'LÈGACY - A FUSION ORIGINAL HA NOI';
-$footer_address = get_field('footer_address', 'option') ?: '345 Doi Can, Ngoc Ha Ward, Ba Dinh, Hanoi City';
+$footer_desc = pll__(get_field('footer_description', 'option') ?: 'LÈGACY - A FUSION ORIGINAL HA NOI');
+$footer_address = pll__(get_field('footer_address', 'option') ?: '345 Doi Can, Ngoc Ha Ward, Ba Dinh, Hanoi City');
 $footer_phone = get_field('footer_phone', 'option') ?: '+84 283 9101 000';
 $footer_email = get_field('footer_email', 'option') ?: 'info@fusionhotelgroup.com';
 $footer_socials = get_field('footer_socials', 'option');

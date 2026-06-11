@@ -103,7 +103,7 @@ $facility_blocks = get_field('facilities_blocks');
                                     <?php else: ?>
                                         <div
                                             class="swiper-slide aspect-[16/11] bg-brand-black-100 flex items-center justify-center italic text-brand-black-300">
-                                            No Images
+                                            <?php pll_e('No Images'); ?>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -146,7 +146,7 @@ $facility_blocks = get_field('facilities_blocks');
                                     <?php echo nl2br(esc_html($desc)); ?>
                                 </p>
                                 <div class="font-sans font-bold text-lg tracking-wide pt-4">
-                                    Operation Hours: <?php echo esc_html($hours); ?>
+                                    <?php pll_e('Operation Hours:'); ?> <?php echo esc_html(pll__($hours)); ?>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +154,7 @@ $facility_blocks = get_field('facilities_blocks');
                     <?php $counter++; endforeach; ?>
             <?php else: ?>
                 <div class="text-center py-20 bg-brand-black-50 italic text-brand-black-400">
-                    Please add facility blocks in the page editor.
+                    <?php pll_e('Please add facility blocks in the page editor.'); ?>
                 </div>
             <?php endif; ?>
         </div>

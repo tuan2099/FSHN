@@ -101,6 +101,25 @@ if (function_exists('pll_register_string')) {
     // Read more / less toggle
     pll_register_string('fohn', 'more', 'fohn_theme');
     pll_register_string('fohn', 'less', 'fohn_theme');
+
+    // Gallery filters
+    pll_register_string('fohn', 'All', 'fohn_theme');
+    pll_register_string('fohn', 'Spa', 'fohn_theme');
+    pll_register_string('fohn', 'Others', 'fohn_theme');
+
+    // Facilities
+    pll_register_string('fohn', 'Operation Hours:', 'fohn_theme');
+    pll_register_string('fohn', 'All-day', 'fohn_theme');
+    pll_register_string('fohn', 'Please add facility blocks in the page editor.', 'fohn_theme');
+
+    // Dining
+    pll_register_string('fohn', 'ALL-DAY DINING MENU', 'fohn_theme');
+    pll_register_string('fohn', 'LOUNGE / TERRACE MENU', 'fohn_theme');
+    pll_register_string('fohn', 'MAKE A RESERVATION', 'fohn_theme');
+    pll_register_string('fohn', 'Book Now', 'fohn_theme');
+    pll_register_string('fohn', 'Menu', 'fohn_theme');
+    pll_register_string('fohn', 'Dining Image', 'fohn_theme');
+    pll_register_string('fohn', 'No Image', 'fohn_theme');
 }
 
 /**

@@ -61,11 +61,11 @@ $dining_outlets = get_field('dining_outlets');
             <div class="flex flex-wrap justify-center gap-12 mt-10">
                 <a href="<?php echo esc_url($menu_link_1 ?: '#'); ?>"
                     class="text-brand-blue font-serif font-bold text-sm uppercase border-b border-[#FDB078] pb-1 hover:text-brand-orange transition-colors">
-                    ALL-DAY DINING MENU
+                    <?php pll_e('ALL-DAY DINING MENU'); ?>
                 </a>
                 <a href="<?php echo esc_url($menu_link_2 ?: '#'); ?>"
                     class="text-brand-blue font-serif font-bold text-sm uppercase border-b border-[#FDB078] pb-1 hover:text-brand-orange transition-colors">
-                    LOUNGE / TERRACE MENU
+                    <?php pll_e('LOUNGE / TERRACE MENU'); ?>
                 </a>
             </div>
         </div>
@@ -88,7 +88,7 @@ $dining_outlets = get_field('dining_outlets');
                         <?php for ($i = 1; $i <= 3; $i++): ?>
                             <div class="swiper-slide h-auto max-w-[80vw] md:max-w-[700px]">
                                 <div class="relative group aspect-[16/9] bg-brand-black-100 flex items-center justify-center">
-                                    <span class="text-brand-black-300 italic">Dining Image <?php echo $i; ?></span>
+                                    <span class="text-brand-black-300 italic"><?php pll_e('Dining Image'); ?> <?php echo $i; ?></span>
                                 </div>
                             </div>
                         <?php endfor; ?>
@@ -116,7 +116,7 @@ $dining_outlets = get_field('dining_outlets');
         <div class="text-center mt-12 md:mt-20">
             <a href="<?php echo esc_url($main_book_link); ?>"
                 class="inline-block bg-[#FDB078] text-white px-12 py-4 text-sm font-bold font-serif uppercase hover:bg-brand-blue transition-all">
-                MAKE A RESERVATION
+                <?php pll_e('MAKE A RESERVATION'); ?>
             </a>
         </div>
     </div>
@@ -151,11 +151,11 @@ $dining_outlets = get_field('dining_outlets');
                                 <div class="flex gap-6">
                                     <a href="<?php echo esc_url($book_link); ?>"
                                         class="bg-brand-orange text-white px-10 py-4 text-xs font-bold uppercase hover:bg-brand-blue transition-all">
-                                        Book Now
+                                        <?php pll_e('Book Now'); ?>
                                     </a>
                                     <a href="<?php echo esc_url($menu_link); ?>" target="_blank"
                                         class="border border-brand-blue text-brand-blue px-10 py-4 text-xs font-bold uppercase hover:bg-brand-blue hover:text-white transition-all">
-                                        Menu
+                                        <?php pll_e('Menu'); ?>
                                     </a>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ $dining_outlets = get_field('dining_outlets');
                                 <?php else: ?>
                                     <div
                                         class="w-full h-full bg-brand-black-100 flex items-center justify-center italic text-brand-black-300">
-                                        No Image</div>
+                                        <?php pll_e('No Image'); ?></div>
                                 <?php endif; ?>
                             </div>
                         </div>

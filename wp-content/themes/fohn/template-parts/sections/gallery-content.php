@@ -60,13 +60,13 @@ $gallery_items = get_field('gallery_items');
         <div
             class="flex flex-wrap justify-center gap-10 mb-18 font-serif text-sm tracking-[0.2em] uppercase text-brand-blue/60">
             <button class="gallery-filter-btn active text-brand-blue border-b-2 border-brand-orange pb-2 transition-all"
-                data-target="all">All</button>
-            <button class="gallery-filter-btn hover:text-brand-blue transition-all" data-target="rooms">Rooms</button>
-            <button class="gallery-filter-btn hover:text-brand-blue transition-all" data-target="dining">Dining</button>
-            <button class="gallery-filter-btn hover:text-brand-blue transition-all" data-target="spa">Spa</button>
+                data-target="all"><?php pll_e('All'); ?></button>
+            <button class="gallery-filter-btn hover:text-brand-blue transition-all" data-target="rooms"><?php pll_e('Rooms'); ?></button>
+            <button class="gallery-filter-btn hover:text-brand-blue transition-all" data-target="dining"><?php pll_e('Dining'); ?></button>
+            <button class="gallery-filter-btn hover:text-brand-blue transition-all" data-target="spa"><?php pll_e('Spa'); ?></button>
             <button class="gallery-filter-btn hover:text-brand-blue transition-all"
-                data-target="facilities">Facilities</button>
-            <button class="gallery-filter-btn hover:text-brand-blue transition-all" data-target="others">Others</button>
+                data-target="facilities"><?php pll_e('Facilities'); ?></button>
+            <button class="gallery-filter-btn hover:text-brand-blue transition-all" data-target="others"><?php pll_e('Others'); ?></button>
         </div>
 
         <!-- Grid -->

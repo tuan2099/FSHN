@@ -6,6 +6,8 @@
 // Heritage Section Fields
 $heritage_title = get_field('heritage_title') ?: 'WHERE HERITAGE <br> MEETS ORIGINALITY';
 $heritage_desc = get_field('heritage_desc');
+$heritage_btn1_link = get_field('heritage_btn1_link') ?: '#';
+$heritage_btn2_link = get_field('heritage_btn2_link') ?: '#';
 $heritage_flower_left = get_field('heritage_flower_left');
 $heritage_flower_right = get_field('heritage_flower_right');
 
@@ -38,11 +40,11 @@ $acc_desc = get_field('acc_desc');
                 <?php echo wp_kses_post($heritage_desc); ?>
             </div>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#"
+                <a href="<?php echo esc_url($heritage_btn1_link); ?>"
                     class="bg-brand-orange font-serif text-white px-10 py-3 text-xs font-bold uppercase hover:bg-brand-blue transition-all shadow-lg">
                     <?php pll_e('BOOK A STAY'); ?>
                 </a>
-                <a href="#"
+                <a href="<?php echo esc_url($heritage_btn2_link); ?>"
                     class="bg-brand-orange font-serif text-white px-10 py-3 text-xs font-bold uppercase hover:bg-brand-blue transition-all shadow-lg">
                     <?php pll_e('SUSTAINABILITY'); ?>
                 </a>

@@ -67,7 +67,7 @@ $features_list = get_field('features_list');
                         </div>
 
                         <!-- Description -->
-                        <p class="text-brand-black-700 font-sans text-sm leading-relaxed flex-grow px-2 md:px-0">
+                        <p class="js-readmore text-brand-black-700 font-sans text-sm leading-relaxed flex-grow px-2 md:px-0" data-limit="120">
                             <?php echo nl2br(esc_html($desc)); ?>
                         </p>
 
@@ -92,3 +92,41 @@ $features_list = get_field('features_list');
         <?php endif; ?>
     </div>
 </section>
+
+<script>
+    // Read more / less for feature descriptions
+    document.addEventListener('DOMContentLoaded', function () {
+        var moreLabel = '<?php echo esc_js(pll__('more')); ?>';
+        var lessLabel = '<?php echo esc_js(pll__('less')); ?>';
+
+        document.querySelectorAll('.features-section .js-readmore').forEach(function (el) {
+            var fullHTML = el.innerHTML.trim();
+            var text = el.textContent.trim();
+            var limit = parseInt(el.getAttribute('data-limit') || '120', 10);
+
+            if (text.length <= limit) return;
+
+            var cut = text.lastIndexOf(' ', limit);
+            if (cut < 0) cut = limit;
+            var shortText = text.slice(0, cut).replace(/[\s.,;:]+$/, '');
+            var expanded = false;
+
+            function render() {
+                if (expanded) {
+                    el.innerHTML = fullHTML +
+                        ' <a href="#" class="readmore-toggle text-brand-orange font-semibold whitespace-nowrap">' + lessLabel + '</a>';
+                } else {
+                    el.innerHTML = shortText +
+                        '… <a href="#" class="readmore-toggle text-brand-orange font-semibold whitespace-nowrap">' + moreLabel + '</a>';
+                }
+                el.querySelector('.readmore-toggle').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    expanded = !expanded;
+                    render();
+                });
+            }
+
+            render();
+        });
+    });
+</script>

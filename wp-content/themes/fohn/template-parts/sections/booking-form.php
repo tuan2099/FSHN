@@ -191,6 +191,14 @@
             color: rgb(115 115 115);
             opacity: 1;
         }
+
+        /* Uppercase all text in the booking form */
+        #booking-form-wrapper,
+        #booking-form-wrapper input,
+        #booking-form-wrapper input::placeholder,
+        #mobile-booking-trigger {
+            text-transform: uppercase;
+        }
     </style>
 
     <script>

@@ -640,6 +640,18 @@ function fohn_register_acf_fields()
                 'new_lines' => 'br',
             ),
             array(
+                'key' => 'field_fohn_heritage_btn1_link',
+                'label' => 'Button 1 Link (Book a Stay)',
+                'name' => 'heritage_btn1_link',
+                'type' => 'url',
+            ),
+            array(
+                'key' => 'field_fohn_heritage_btn2_link',
+                'label' => 'Button 2 Link (Sustainability)',
+                'name' => 'heritage_btn2_link',
+                'type' => 'url',
+            ),
+            array(
                 'key' => 'field_fohn_heritage_fleft',
                 'label' => 'Flower Left Image',
                 'name' => 'heritage_flower_left',
@@ -1241,10 +1253,26 @@ function fohn_register_acf_fields()
             ),
             array(
                 'key' => 'field_fohn_footer_brand_logos',
-                'label' => 'Brand Logos Gallery',
+                'label' => 'Brand Logos',
                 'name' => 'footer_brand_logos',
-                'type' => 'gallery',
-                'return_format' => 'url',
+                'type' => 'repeater',
+                'layout' => 'table',
+                'button_label' => 'Add Logo',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_fohn_footer_brand_logo_image',
+                        'label' => 'Logo',
+                        'name' => 'image',
+                        'type' => 'image',
+                        'return_format' => 'url',
+                    ),
+                    array(
+                        'key' => 'field_fohn_footer_brand_logo_link',
+                        'label' => 'Link (optional)',
+                        'name' => 'link',
+                        'type' => 'url',
+                    ),
+                ),
             ),
             array(
                 'key' => 'field_fohn_footer_bottom_nav_tab',

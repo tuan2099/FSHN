@@ -96,15 +96,17 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                                 class="w-10 h-10 rounded-full bg-brand-black-400 flex items-center justify-center text-white hover:bg-brand-blue transition-all">
                                 <span class="sr-only"><?php echo esc_html($social['platform']); ?></span>
                                 <?php
-                                $platform = $social['platform'];
+                                $platform = strtolower(trim($social['platform']));
                                 if ($platform == 'facebook')
                                     echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>';
                                 elseif ($platform == 'instagram')
-                                    echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>';
+                                    echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>';
                                 elseif ($platform == 'youtube')
-                                    echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33 2.78 2.78 0 001.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>';
+                                    echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>';
                                 elseif ($platform == 'linkedin')
                                     echo '<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>';
+                                else
+                                    echo '<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"></path></svg>';
                                 ?>
                             </a>
                         <?php endforeach; ?>
@@ -121,12 +123,25 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                 ?>
                 <div
                     class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between items-center gap-8 lg:gap-4 w-full">
-                    <?php foreach ($brand_logos as $logo_url): ?>
-                        <div
-                            class="text-center h-16 lg:h-32 w-full flex items-center justify-center lg:flex-1 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer">
-                            <img src="<?php echo esc_url($logo_url); ?>" alt="Brand Logo"
-                                class="max-h-full max-w-[80%] lg:max-w-full w-auto object-contain">
-                        </div>
+                    <?php foreach ($brand_logos as $logo):
+                        // Repeater row (image + link); fall back to plain URL for legacy gallery data.
+                        $logo_url = is_array($logo) ? (isset($logo['image']) ? $logo['image'] : '') : $logo;
+                        $logo_link = is_array($logo) && !empty($logo['link']) ? $logo['link'] : '';
+                        if (!$logo_url) continue;
+                        $logo_box_class = 'text-center h-16 lg:h-32 w-full flex items-center justify-center lg:flex-1 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer';
+                        ?>
+                        <?php if ($logo_link): ?>
+                            <a href="<?php echo esc_url($logo_link); ?>" target="_blank" rel="noopener"
+                                class="<?php echo $logo_box_class; ?>">
+                                <img src="<?php echo esc_url($logo_url); ?>" alt="Brand Logo"
+                                    class="max-h-full max-w-[80%] lg:max-w-full w-auto object-contain">
+                            </a>
+                        <?php else: ?>
+                            <div class="<?php echo $logo_box_class; ?>">
+                                <img src="<?php echo esc_url($logo_url); ?>" alt="Brand Logo"
+                                    class="max-h-full max-w-[80%] lg:max-w-full w-auto object-contain">
+                            </div>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
             <?php else: ?>

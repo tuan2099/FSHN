@@ -14,101 +14,101 @@
 
         <!-- Mobile Close Button -->
         <button id="mobile-booking-close"
-            class="absolute top-6 right-6 lg:hidden text-brand-black-900 hover:text-brand-orange transition-colors z-50 p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+            class="absolute z-50 p-2 transition-colors top-6 right-6 lg:hidden text-brand-black-900 hover:text-brand-orange">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
 
         <!-- Mobile Header -->
-        <div class="absolute top-8 left-6 lg:hidden text-brand-black-900 font-bold text-lg uppercase">
+        <div class="absolute text-lg font-bold uppercase top-8 left-6 lg:hidden text-brand-black-900">
             <?php pll_e('Book Your Stay'); ?>
         </div>
 
-        <div class="container mx-auto px-6 h-full flex flex-col justify-center lg:block pt-20 lg:pt-0">
+        <div class="container flex flex-col justify-center h-full px-6 pt-20 mx-auto lg:block lg:pt-0">
             <form id="booking-form-inner"
                 action="https://fohn.backhotelite.com/en/bookcore/v4/search-dispo.htm" method="post" target="_blank"
-                class="bg-transparent lg:bg-white w-full max-w-lg mx-auto lg:max-w-none shadow-none lg:shadow-2xl flex flex-col lg:flex-row items-stretch relative rounded-none lg:overflow-visible translate-y-8 lg:translate-y-0 transition-transform duration-500 ease-out gap-4 lg:gap-0">
+                class="relative flex flex-col items-stretch w-full max-w-lg gap-4 mx-auto transition-transform duration-500 ease-out translate-y-8 bg-transparent rounded-none shadow-none lg:bg-white lg:max-w-none lg:shadow-2xl lg:flex-row lg:overflow-visible lg:translate-y-0 lg:gap-0">
                 <!-- Hidden fields required by Roiback search-dispo.htm -->
                 <input type="hidden" name="edades" id="edades-input" value="">
                 <input type="hidden" name="sort_occupancy" value="true">
 
                 <!-- Arrival -->
                 <div id="arrival-trigger"
-                    class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors">
+                    class="flex flex-col justify-center flex-1 p-5 transition-colors border cursor-pointer lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none hover:bg-brand-black-50">
                     <div class="flex items-center justify-between pointer-events-none">
                         <span
-                            class="text-[14px] lg:text-[13px] text-brand-black-500 arrival-date-display"><?php pll_e('Arrival'); ?></span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300"
+                            class="text-[14px] lg:text-[12px] text-brand-black-500 arrival-date-display"><?php pll_e('Arrival'); ?></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 lg:h-4 lg:w-4 text-brand-black-300"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v12a2 2 0 00-2 2z" />
                         </svg>
                     </div>
-                    <input type="text" id="arrival-input" name="entrada" class="opacity-0 pointer-events-none absolute">
+                    <input type="text" id="arrival-input" name="entrada" class="absolute opacity-0 pointer-events-none">
                 </div>
 
                 <!-- Departure -->
                 <div id="departure-trigger"
-                    class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center cursor-pointer hover:bg-brand-black-50 transition-colors">
+                    class="flex flex-col justify-center flex-1 p-5 transition-colors border cursor-pointer lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none hover:bg-brand-black-50">
                     <div class="flex items-center justify-between pointer-events-none">
                         <span
                             class="text-[14px] lg:text-[13px] text-brand-black-500 departure-date-display"><?php pll_e('Departure'); ?></span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-4 lg:w-4 text-brand-black-300"
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 lg:h-4 lg:w-4 text-brand-black-300"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v12a2 2 0 00-2 2z" />
                         </svg>
                     </div>
-                    <input type="text" id="departure-input" name="salida" class="opacity-0 pointer-events-none absolute">
+                    <input type="text" id="departure-input" name="salida" class="absolute opacity-0 pointer-events-none">
                 </div>
 
                 <!-- Adults -->
                 <div style="flex: 1.4"
-                    class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex items-center justify-between gap-2">
+                    class="flex items-center justify-between flex-1 gap-2 p-5 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none">
                     <label for="adults-input"
                         class="text-[14px] lg:text-[13px] text-brand-black-500 cursor-text"><?php pll_e('Adults'); ?></label>
                     <div class="flex items-center gap-1">
                         <button type="button"
-                            class="stepper-btn shrink-0 w-5 h-5 flex items-center justify-center rounded-full text-brand-blue hover:bg-brand-black-50 transition-colors text-xs leading-none select-none"
+                            class="flex items-center justify-center w-5 h-5 text-xs leading-none transition-colors rounded-full select-none stepper-btn shrink-0 text-brand-blue hover:bg-brand-black-50"
                             data-stepper="adults" data-action="dec" aria-label="Decrease adults">&minus;</button>
                         <input type="text" inputmode="numeric" id="adults-input" name="adultos"
                             class="number-input w-6 text-center bg-transparent text-[16px] font-bold text-brand-blue focus:outline-none"
                             value="2" data-min="1" data-max="20">
                         <button type="button"
-                            class="stepper-btn shrink-0 w-5 h-5 flex items-center justify-center rounded-full text-brand-blue hover:bg-brand-black-50 transition-colors text-xs leading-none select-none"
+                            class="flex items-center justify-center w-5 h-5 text-xs leading-none transition-colors rounded-full select-none stepper-btn shrink-0 text-brand-blue hover:bg-brand-black-50"
                             data-stepper="adults" data-action="inc" aria-label="Increase adults">+</button>
                     </div>
                 </div>
 
                 <!-- Children -->
-                <div class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex items-center justify-between gap-2">
+                <div class="flex items-center justify-between flex-1 gap-2 p-5 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none">
                     <label for="children-input"
                         class="text-[14px] lg:text-[13px] text-brand-black-500 cursor-text"><?php pll_e('Children'); ?></label>
                     <div class="flex items-center gap-1">
                         <button type="button"
-                            class="stepper-btn shrink-0 w-5 h-5 flex items-center justify-center rounded-full text-brand-blue hover:bg-brand-black-50 transition-colors text-xs leading-none select-none"
+                            class="flex items-center justify-center w-5 h-5 text-xs leading-none transition-colors rounded-full select-none stepper-btn shrink-0 text-brand-blue hover:bg-brand-black-50"
                             data-stepper="children" data-action="dec" aria-label="Decrease children">&minus;</button>
                         <input type="text" inputmode="numeric" id="children-input" name="ninos"
                             class="number-input w-6 text-center bg-transparent text-[16px] font-bold text-brand-blue focus:outline-none"
                             value="0" data-min="0" data-max="20">
                         <button type="button"
-                            class="stepper-btn shrink-0 w-5 h-5 flex items-center justify-center rounded-full text-brand-blue hover:bg-brand-black-50 transition-colors text-xs leading-none select-none"
+                            class="flex items-center justify-center w-5 h-5 text-xs leading-none transition-colors rounded-full select-none stepper-btn shrink-0 text-brand-blue hover:bg-brand-black-50"
                             data-stepper="children" data-action="inc" aria-label="Increase children">+</button>
                     </div>
                 </div>
 
                 <!-- Promocode -->
                 <div style="flex: 0.7"
-                    class="flex-1 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 p-5 lg:p-4 rounded-xl lg:rounded-none flex flex-col justify-center">
+                    class="flex flex-col justify-center flex-1 p-5 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none">
                     <input type="text" id="promocode-input" name="codpromo"
                         class="promocode-input w-full bg-transparent text-[14px] lg:text-[13px] text-brand-black-500 font-medium focus:outline-none"
                         placeholder="<?php echo esc_attr(pll__('Promocode')); ?>" autocomplete="off">
                 </div>
 
                 <!-- Action -->
-                <div class="flex-1 lg:flex-none mt-4 lg:mt-0">
+                <div class="flex-1 mt-4 lg:flex-none lg:mt-0">
                     <button type="submit"
                         class="check-availability-btn w-full h-full font-serif bg-brand-orange text-white px-10 py-3 text-[14px] lg:text-[13px] font-bold hover:bg-brand-blue transition-all rounded-xl lg:rounded-none">
                         <?php pll_e('Check Availability'); ?>

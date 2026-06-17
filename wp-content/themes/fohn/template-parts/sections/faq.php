@@ -25,7 +25,7 @@ $faqs = get_field('faq_items');
         <div class="flex flex-col gap-12 lg:flex-row lg:gap-24">
             <!-- Left Side: Main Heading -->
             <div class="lg:w-1/3" data-aos="fade-right">
-                <h2 class="font-serif text-2xl font-bold leading-tight uppercase lg:text-3xl text-brand-blue">
+                <h2 class="font-serif text-2xl font-semibold leading-tight uppercase lg:text-3xl text-brand-blue">
                     <?php echo wp_kses_post($main_heading); ?>
                 </h2>
             </div>

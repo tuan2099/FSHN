@@ -15,6 +15,8 @@ get_header(); ?>
     <!-- Apartment Content will go here -->
     <?php get_template_part('template-parts/sections/apartment-content'); ?>
 
+    <?php get_template_part('template-parts/sections/offers-carousel-cpt'); ?>
+
 </main>
 
 <?php get_footer(); ?>

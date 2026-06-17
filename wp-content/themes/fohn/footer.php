@@ -20,22 +20,22 @@ $footer_socials = get_field('footer_socials', 'option');
 $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Group &copy; ' . date('Y');
 ?>
 
-<footer id="colophon" class="site-footer bg-white pt-0">
+<footer id="colophon" class="pt-0 bg-white site-footer">
     <!-- Top Dark Bar -->
-    <div class="bg-brand-blue py-10 lg:py-15" data-aos="fade-up">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-white max-w-2xl">
+    <div class="py-10 bg-brand-blue lg:py-15" data-aos="fade-up">
+        <div class="container flex flex-col items-center justify-between gap-8 px-6 mx-auto md:flex-row">
+            <div class="max-w-2xl text-white">
                 <div class="mb-4">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo fslife.png"
-                        alt="FusionLife Logo" class="h-8 lg:h-10 w-auto">
+                        alt="FusionLife Logo" class="w-auto h-8 lg:h-12">
                 </div>
-                <p class="text-brand-black-100/80 text-sm ">
+                <p class="text-sm text-brand-black-100/80 ">
                     <?php echo esc_html($loyalty_desc); ?>
                 </p>
             </div>
             <div>
                 <a href="<?php echo esc_url($loyalty_btn_link); ?>"
-                    class="bg-white text-brand-blue px-10 py-3 rounded-full font-bold text-sm uppercase hover:bg-brand-orange hover:text-white transition-all shadow-lg active:scale-95">
+                    class="px-10 py-3 text-sm font-bold uppercase transition-all bg-white rounded-full shadow-lg text-brand-blue hover:bg-brand-orange hover:text-white active:scale-95">
                     <?php echo esc_html($loyalty_btn_text); ?>
                 </a>
             </div>
@@ -43,19 +43,19 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     </div>
 
     <!-- Main Footer Info -->
-    <div class="container mx-auto px-6 pt-15">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-18">
+    <div class="container px-6 mx-auto pt-15">
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-18">
             <!-- Group Info -->
             <div class="info-column" data-aos="fade-up" data-aos-delay="100">
                 <div class="mb-6">
                     <?php if ($footer_logo): ?>
-                        <img src="<?php echo esc_url($footer_logo); ?>" alt="Footer Logo" class="h-12 w-auto mb-4">
+                        <img src="<?php echo esc_url($footer_logo); ?>" alt="Footer Logo" class="w-auto h-12 mb-4">
                     <?php endif; ?>
-                    <p class="text-xs text-brand-black-400 font-medium uppercase">
+                    <p class="text-[12px] font-medium uppercase text-brand-black-400">
                         <?php echo esc_html($footer_desc); ?>
                     </p>
                 </div>
-                <div class="text-brand-black-700 text-sm leading-relaxed space-y-4">
+                <div class="space-y-4 text-sm leading-relaxed text-brand-black-700">
                     <p><?php echo nl2br(esc_html($footer_address)); ?></p>
                     <p>
                         T. <?php echo esc_html($footer_phone); ?><br>
@@ -66,16 +66,16 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
             <!-- Newsletter -->
             <div class="newsletter-column" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold mb-6">
+                <h3 class="text-brand-black-500 text-[12px] uppercase font-bold mb-6">
                     <?php pll_e('Sign up for Newsletter'); ?>
                 </h3>
                 <div class="relative max-w-sm">
                     <input type="email"
-                        class="w-full bg-transparent border-b border-brand-black-100 py-2 pr-10 focus:outline-none focus:border-brand-orange transition-colors text-sm"
+                        class="w-full py-2 pr-10 text-sm transition-colors bg-transparent border-b border-brand-black-100 focus:outline-none focus:border-brand-orange"
                         placeholder="<?php echo esc_attr(pll__('Your email address')); ?>">
                     <button
-                        class="absolute right-0 bottom-2 text-brand-black-500 hover:text-brand-blue transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 rotate-45" fill="none"
+                        class="absolute right-0 transition-colors bottom-2 text-brand-black-500 hover:text-brand-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 rotate-45" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -86,14 +86,14 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
             <!-- Social -->
             <div class="social-column" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="text-brand-black-500 text-[10px] uppercase font-bold tracking-[0.2em] mb-6">
+                <h3 class="text-brand-black-500 text-[12px] uppercase font-bold tracking-[0.2em] mb-6">
                     <?php pll_e('Follow Us'); ?>
                 </h3>
                 <div class="flex gap-4">
                     <?php if ($footer_socials): ?>
                         <?php foreach ($footer_socials as $social): ?>
                             <a href="<?php echo esc_url($social['url']); ?>" target="_blank"
-                                class="w-10 h-10 rounded-full bg-brand-black-400 flex items-center justify-center text-white hover:bg-brand-blue transition-all">
+                                class="flex items-center justify-center w-10 h-10 text-white transition-all rounded-full bg-brand-black-400 hover:bg-brand-blue">
                                 <span class="sr-only"><?php echo esc_html($social['platform']); ?></span>
                                 <?php
                                 $platform = strtolower(trim($social['platform']));
@@ -116,13 +116,13 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
         </div>
 
         <!-- Brand Logos -->
-        <div class="mt-18 pt-10 border-t border-brand-black-100">
+        <div class="pt-10 border-brand-black-100">
             <?php
             $brand_logos = get_field('footer_brand_logos', 'option');
             if ($brand_logos):
                 ?>
                 <div
-                    class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between items-center gap-8 lg:gap-4 w-full">
+                    class="grid items-center w-full grid-cols-2 gap-8 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between lg:gap-4">
                     <?php foreach ($brand_logos as $logo):
                         // Repeater row (image + link); fall back to plain URL for legacy gallery data.
                         $logo_url = is_array($logo) ? (isset($logo['image']) ? $logo['image'] : '') : $logo;
@@ -146,7 +146,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                 </div>
             <?php else: ?>
                 <div
-                    class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between items-center gap-y-10 gap-x-4 lg:gap-18 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-brand-black-800 w-full">
+                    class="grid items-center w-full grid-cols-2 transition-all duration-500 md:grid-cols-3 lg:flex lg:flex-nowrap justify-items-center lg:justify-between gap-y-10 gap-x-4 lg:gap-18 opacity-40 grayscale hover:grayscale-0 text-brand-black-800">
                     <div class="text-center"><span class="text-[14px] lg:text-lg  tracking-tighter">fusionresorts</span>
                     </div>
                     <div class="text-center"><span class="text-[14px] lg:text-lg  tracking-tighter">fusionoriginals</span>
@@ -166,31 +166,31 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     </div>
 
     <!-- Bottom Navigation -->
-    <div class="border-t border-b border-brand-black-100 py-6">
-        <div class="container mx-auto px-6">
+    <div class="py-6 border-t border-b border-brand-black-100">
+        <div class="container px-6 mx-auto">
             <ul
-                class="flex flex-wrap justify-center lg:justify-between items-center gap-x-4 gap-y-4 text-[14px] uppercase tracking-widest text-brand-black-700 text-center">
+                class="flex flex-wrap justify-center lg:justify-between items-center gap-x-4 gap-y-4 text-[14px] uppercase tracking-widest text-brand-black-500 text-center">
                 <?php
                 $bottom_nav = get_field('footer_bottom_nav', 'option');
                 if ($bottom_nav):
                     foreach ($bottom_nav as $nav_item):
                         ?>
                         <li><a href="<?php echo esc_url($nav_item['url']); ?>"
-                                class="hover:text-brand-orange transition-colors"><?php echo esc_html($nav_item['label']); ?></a>
+                                class="transition-colors hover:text-brand-orange"><?php echo esc_html($nav_item['label']); ?></a>
                         </li>
                         <?php
                     endforeach;
                 else:
                     ?>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Careers'); ?></a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Our Story'); ?></a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Contact Us'); ?></a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('News'); ?></a></li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('General Policy'); ?></a>
+                    <li><a href="#" class="transition-colors hover:text-brand-orange"><?php pll_e('Careers'); ?></a></li>
+                    <li><a href="#" class="transition-colors hover:text-brand-orange"><?php pll_e('Our Story'); ?></a></li>
+                    <li><a href="#" class="transition-colors hover:text-brand-orange"><?php pll_e('Contact Us'); ?></a></li>
+                    <li><a href="#" class="transition-colors hover:text-brand-orange"><?php pll_e('News'); ?></a></li>
+                    <li><a href="#" class="transition-colors hover:text-brand-orange"><?php pll_e('General Policy'); ?></a>
                     </li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Privacy Policy'); ?></a>
+                    <li><a href="#" class="transition-colors hover:text-brand-orange"><?php pll_e('Privacy Policy'); ?></a>
                     </li>
-                    <li><a href="#" class="hover:text-brand-orange transition-colors"><?php pll_e('Payment Policy'); ?></a>
+                    <li><a href="#" class="transition-colors hover:text-brand-orange"><?php pll_e('Payment Policy'); ?></a>
                     </li>
                 <?php endif; ?>
             </ul>
@@ -199,7 +199,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
     <!-- Copyright -->
     <div class="py-8">
-        <div class="container mx-auto px-6 text-center">
+        <div class="container px-6 mx-auto text-center">
             <p class="text-[14px] uppercase tracking-widest text-brand-black-500">
                 <?php echo wp_kses_post($footer_copyright); ?>
             </p>

@@ -10,7 +10,7 @@ $btn_link = get_field('spa_intro_btn_link') ?: '#';
 $spa_blocks = get_field('spa_blocks');
 ?>
 
-<section class="relative py-24 overflow-hidden bg-white">
+<section class="relative overflow-hidden bg-white" style="padding-top:5rem;padding-bottom:5rem">
     <!-- Decorative Florals (Reusing from Amenities) -->
     <div class="absolute left-[-100px] top-4 w-[400px] pointer-events-none select-none hidden md:block">
         <?php if (get_field('spa_flower_left')): ?>
@@ -29,7 +29,7 @@ $spa_blocks = get_field('spa_blocks');
 
     <div class="container relative z-10 mx-auto px-6 max-w-[1040px]">
         <!-- Intro Header -->
-        <div class="mb-24 text-center">
+        <div class="mb-20 text-center">
             <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
                 <?php echo esc_html($intro_title); ?>
             </h2>
@@ -64,7 +64,7 @@ $spa_blocks = get_field('spa_blocks');
                     $gallery = $block['gallery'];
                     ?>
                     <div
-                        class="flex flex-col gap-5 <?php echo $is_even ? 'md:flex-row' : 'md:flex-row-reverse'; ?> items-start <?php echo $counter < count($spa_blocks) - 1 ? 'mb-30' : ''; ?>">
+                        class="flex flex-col gap-5 <?php echo $is_even ? 'md:flex-row' : 'md:flex-row-reverse'; ?> items-start <?php echo $counter < count($spa_blocks) - 1 ? 'mb-16' : ''; ?>">
                         <div class="w-full md:w-1/2">
                             <div class="relative group">
                                 <!-- Image Slider -->

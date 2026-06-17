@@ -14,7 +14,7 @@ $main_book_link = get_field('dining_main_book_link') ?: '#';
 $dining_outlets = get_field('dining_outlets');
 ?>
 
-<section class="relative py-24 overflow-hidden bg-white">
+<section class="relative overflow-hidden bg-white" style="padding-top:5rem;padding-bottom:5rem">
     <!-- Decorative Florals (Matching Screenshot) -->
     <div class="absolute left-[-50px] top-4 w-[350px] pointer-events-none select-none z-0 hidden md:block">
         <?php if (get_field('dining_flower_left')): ?>
@@ -134,7 +134,7 @@ $dining_outlets = get_field('dining_outlets');
                 $book_link = $outlet['book_link'] ?: '#';
                 $menu_link = $outlet['menu_link'] ?: '#';
                 ?>
-                <div class="container relative z-10 mx-auto px-6 max-w-[1040px] <?php echo $counter > 0 ? 'mt-32' : ''; ?>">
+                <div class="container relative z-10 mx-auto px-6 max-w-[1040px] <?php echo $counter > 0 ? 'mt-16' : ''; ?>">
                     <div class="flex flex-col <?php echo $is_even ? 'md:flex-row' : 'md:flex-row-reverse'; ?> items-center">
                         <div class="w-full mb-12 md:w-1/2 md:mb-0">
                             <div class="<?php echo $is_even ? 'pr-0 md:pr-12' : 'pl-0 md:pl-12'; ?>">

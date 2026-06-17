@@ -21,7 +21,7 @@ $apt_query = new WP_Query(array(
 ));
 ?>
 
-<section class="relative py-24 overflow-hidden bg-white">
+<section class="relative pb-24 overflow-hidden bg-white" style="padding-top:5rem">
     <!-- Decorative Florals -->
     <div class="absolute left-[-100px] top-4 w-[400px] opacity-15 pointer-events-none select-none hidden md:block">
         <?php if ($flower_left): ?>
@@ -40,7 +40,7 @@ $apt_query = new WP_Query(array(
 
     <div class="container relative z-10 mx-auto px-6 max-w-[1200px]">
         <!-- Intro Header -->
-        <div class="mb-24 text-center">
+        <div class="mb-16 text-center">
             <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
                 <?php echo esc_html($intro_title); ?>
             </h2>
@@ -113,7 +113,7 @@ $apt_query = new WP_Query(array(
 
             <!-- Footer Quote (Short text below amenities) -->
             <?php if ($footer_quote): ?>
-                <div class="mt-20 text-center">
+                <div class="mt-12 text-center">
                     <p class="mx-auto font-sans text-sm italic leading-loose text-brand-black-500">
                         <?php echo nl2br(esc_html($footer_quote)); ?>
                     </p>
@@ -121,10 +121,10 @@ $apt_query = new WP_Query(array(
             <?php endif; ?>
         </div>
 
-        <div class="w-full h-px mb-32 bg-brand-black-50"></div>
+        <div class="w-full h-px mb-12 bg-brand-black-50"></div>
 
         <?php if ($apt_query->have_posts()): ?>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12" style="row-gap:4rem">
                 <?php $apt_index = 0;
                 while ($apt_query->have_posts()):
                     $apt_query->the_post();

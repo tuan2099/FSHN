@@ -17,20 +17,23 @@ $acc_sub = get_field('acc_sub') ?: 'Live the rhythm of Hanoi. Heritage, culture,
 $acc_desc = get_field('acc_desc');
 
 ?>
-<section class="heritage-section relative py-24 bg-white overflow-hidden">
-    <div class="container mx-auto relative z-10">
-        <!-- Background Flower Images (anchored to the content container, not the full screen) -->
+<section class="heritage-section relative bg-white overflow-hidden" style="padding-top:5rem;padding-bottom:1rem">
+    <!-- Decorative flower frame: centered & capped, so flowers sit at the screen
+         edges on smaller screens and stay put (don't drift) on very wide screens. -->
+    <div class="absolute inset-0 mx-auto pointer-events-none z-0" style="max-width:1536px">
         <?php if ($heritage_flower_left): ?>
             <img src="<?php echo esc_url($heritage_flower_left); ?>"
-                class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-48 lg:w-72 pointer-events-none select-none z-0"
-                style="margin-left:-120px" alt="Flower Ornament">
+                class="hidden md:block absolute top-1/2 w-48 lg:w-72 select-none"
+                style="left:0;transform:translate(-50%, -50%)" alt="Flower Ornament">
         <?php endif; ?>
         <?php if ($heritage_flower_right): ?>
             <img src="<?php echo esc_url($heritage_flower_right); ?>"
-                class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-48 lg:w-72 pointer-events-none select-none z-0"
-                style="margin-right:-120px" alt="Flower Ornament">
+                class="hidden md:block absolute top-1/2 w-48 lg:w-72 select-none"
+                style="right:0;transform:translate(50%, -50%)" alt="Flower Ornament">
         <?php endif; ?>
+    </div>
 
+    <div class="container mx-auto relative z-10">
         <!-- Top Heritage Part -->
         <div class="mx-auto text-center mb-24" data-aos="fade-up">
             <h2 class="text-4xl lg:text-5xl font-semibold text-brand-blue uppercase leading-tight mb-8 font-serif">

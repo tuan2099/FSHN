@@ -14,7 +14,7 @@ $rooms_query = new WP_Query(array(
 <section class="pb-24 bg-white">
     <div class="container mx-auto">
         <?php if ($rooms_query->have_posts()): ?>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12" style="row-gap:4rem">
                 <?php $room_index = 0;
                 while ($rooms_query->have_posts()):
                     $rooms_query->the_post();

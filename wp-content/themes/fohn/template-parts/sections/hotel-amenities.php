@@ -30,7 +30,7 @@ $footer_text = get_field('hotel_footer_text');
     }
 </style>
 
-<section class="relative py-24 overflow-hidden bg-white">
+<section class="relative pb-24 overflow-hidden bg-white" style="padding-top:5rem">
     <!-- Decorative Florals -->
     <div class="absolute left-[-100px] top-4 w-[400px] pointer-events-none select-none hidden md:block">
         <?php if (get_field('hotel_flower_left')): ?>
@@ -49,7 +49,7 @@ $footer_text = get_field('hotel_footer_text');
 
     <div class="container relative z-10 mx-auto px-6 max-w-[1040px]">
         <!-- Title & description -->
-        <div class="text-center mb-15">
+        <div class="text-center mb-16">
             <h3 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
                 <?php echo esc_html($intro_title); ?>
             </h3>
@@ -106,13 +106,13 @@ $footer_text = get_field('hotel_footer_text');
 
         <!-- Footer Text -->
         <?php if ($footer_text): ?>
-            <div class="mt-24 text-center">
+            <div class="mt-12 text-center">
                 <p class="text-brand-black-500 font-sans italic text-sm leading-loose max-w-[850px] mx-auto">
                     <?php echo nl2br(esc_html($footer_text)); ?>
                 </p>
             </div>
         <?php else: ?>
-            <div class="mt-24 text-center">
+            <div class="mt-12 text-center">
                 <p class="text-brand-black-500 font-sans italic text-sm leading-loose max-w-[850px] mx-auto">
                     We believe that comfort comes from thoughtful details. <br>
                     Our amenities are designed to support your every mood whether you're here to recharge

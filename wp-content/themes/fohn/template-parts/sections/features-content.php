@@ -9,7 +9,7 @@ $intro_desc = get_field('features_intro_desc');
 $features_list = get_field('features_list');
 ?>
 
-<section class="features-section relative bg-[#FBF9F6] py-24 md:py-40 overflow-hidden">
+<section class="features-section relative bg-[#FBF9F6] overflow-hidden" style="padding-top:5rem;padding-bottom:5rem">
     <!-- Decorative Florals (Matching Other Templates) -->
     <div class="absolute left-[-50px] top-4 md:top-20 w-[350px] pointer-events-none select-none z-0 hidden md:block">
         <?php if (get_field('features_flower_left')): ?>
@@ -26,7 +26,7 @@ $features_list = get_field('features_list');
         <?php endif; ?>
     </div>
     <!-- Intro Header -->
-    <div class="container px-6 mx-auto mb-20 text-center md:mb-32">
+    <div class="container px-6 mx-auto mb-16 text-center">
         <h2 class="text-brand-blue font-serif text-[40px] font-semibold  tracking-[0.1em] uppercase mb-6">
             <?php echo esc_html($intro_title); ?>
         </h2>

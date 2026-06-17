@@ -9,7 +9,7 @@ $intro_desc = get_field('gallery_intro_desc');
 $gallery_items = get_field('gallery_items');
 ?>
 
-<section class="relative py-24 overflow-hidden bg-white">
+<section class="relative overflow-hidden bg-white" style="padding-top:5rem;padding-bottom:5rem">
     <!-- Decorative Florals -->
     <div class="absolute left-[-100px] top-4 w-[400px] pointer-events-none select-none hidden md:block">
         <?php if (get_field('gallery_flower_left')): ?>
@@ -58,7 +58,7 @@ $gallery_items = get_field('gallery_items');
 
         <!-- Filters -->
         <div
-            class="flex flex-wrap justify-center gap-10 mb-18 font-serif text-lg tracking-[0.2em] uppercase text-brand-blue">
+            class="flex flex-wrap justify-center gap-10 mb-16 font-serif text-lg tracking-[0.2em] uppercase text-brand-blue">
             <button class="pb-2 transition-all border-b-2 gallery-filter-btn active text-brand-blue border-brand-orange"
                 data-target="all"><?php pll_e('All'); ?></button>
             <button class="transition-all gallery-filter-btn hover:text-brand-blue" data-target="rooms"><?php pll_e('Rooms'); ?></button>

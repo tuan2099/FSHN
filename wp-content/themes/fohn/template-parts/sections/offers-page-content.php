@@ -17,7 +17,7 @@ $offers_query = new WP_Query(array(
 ));
 ?>
 
-<section class="offers-page-section relative bg-[#FBF9F6] py-24 overflow-hidden">
+<section class="offers-page-section relative bg-[#FBF9F6] overflow-hidden" style="padding-top:5rem;padding-bottom:5rem">
     <!-- Decorative Florals (Matching Other Templates) -->
     <div class="absolute left-[-50px] top-4 w-[350px] pointer-events-none select-none z-0 hidden md:block">
         <?php if (get_field('offers_flower_left')): ?>

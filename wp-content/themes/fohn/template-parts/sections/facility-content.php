@@ -35,9 +35,14 @@ $facility_blocks = get_field('facilities_blocks');
         position: static;
         width: auto;
     }
+
+    /* Gap between facility blocks */
+    .facility-block-gap {
+        margin-bottom: 7rem;
+    }
 </style>
 
-<section class="relative py-24 overflow-hidden bg-white">
+<section class="relative overflow-hidden bg-white" style="padding-top:5rem;padding-bottom:5rem">
     <!-- Decorative Florals -->
     <div class="absolute left-[-100px] top-4 w-[400px] pointer-events-none select-none hidden md:block">
         <?php if (get_field('facilities_flower_left')): ?>
@@ -56,7 +61,7 @@ $facility_blocks = get_field('facilities_blocks');
 
     <div class="container relative z-10 px-6 mx-auto">
         <!-- Intro Header -->
-        <div class="mb-24 text-center">
+        <div class="mb-20 text-center">
             <h2 class="text-brand-blue font-serif text-[40px] font-semibold  mb-6 uppercase">
                 <?php echo esc_html($intro_title); ?>
             </h2>
@@ -91,7 +96,7 @@ $facility_blocks = get_field('facilities_blocks');
                     $text_padding = $is_reversed ? 'md:pr-28 md:pl-10 lg:pr-36 lg:pl-14' : 'md:pl-28 md:pr-10 lg:pl-36 lg:pr-14';
                     ?>
                     <div
-                        class="relative flex flex-col <?php echo $row_class; ?> items-center justify-center <?php echo $counter < count($facility_blocks) - 1 ? 'mb-40' : ''; ?>">
+                        class="relative flex flex-col <?php echo $row_class; ?> items-center justify-center <?php echo $counter < count($facility_blocks) - 1 ? 'facility-block-gap' : ''; ?>">
                         <!-- Image Side -->
                         <div class="w-full md:w-[550px] z-20 relative flex-shrink-0" style="margin-top: -70px;">
                             <div class="swiper facility-slider-<?php echo $counter; ?> overflow-hidden shadow-2xl">

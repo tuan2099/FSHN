@@ -29,7 +29,7 @@ $block3_items = get_field('offers_alt_block3_list');
     <div class="container mx-auto pb-6">
         
         <!-- Block 1: OFFERS (Text Left, Slider Right) -->
-        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-32">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-16">
             <!-- Text Content -->
             <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
@@ -207,7 +207,7 @@ $block3_items = get_field('offers_alt_block3_list');
         </div>
 
         <!-- Block 3: LOCAL EXPERIENCES (Text Left, Slider Right) -->
-        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mt-32">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12" style="margin-top:4rem">
             <!-- Text Content -->
             <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">

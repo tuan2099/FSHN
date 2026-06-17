@@ -70,8 +70,18 @@ $residences_query = new WP_Query([
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        min-height: 4.875em;
+        height: 4.875em;
+        position: relative;
         /* 3 lines at leading-relaxed (1.625) */
+    }
+
+    .rooms-suites-section .room-desc__more {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding-left: 32px;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 45%);
+        white-space: nowrap;
     }
 
     /* Equal-height cards so the BOOK NOW / FINDING OUT row lines up */
@@ -94,7 +104,7 @@ $residences_query = new WP_Query([
         <!-- Header with Tabs -->
         <div class="flex items-end justify-start gap-6 mb-12 border-b border-brand-black-100">
             <button
-                class="pb-4 font-serif text-2xl font-bold uppercase transition-all duration-300 border-b-2 border-transparent room-tab-trigger active"
+                class="pb-4 font-serif text-2xl font-semibold uppercase transition-all duration-300 border-b-2 border-transparent room-tab-trigger active"
                 data-target="hotel">
                 <span class="tab-label-active text-brand-blue"><?php pll_e('HOTEL')?></span>
             </button>
@@ -160,20 +170,19 @@ $residences_query = new WP_Query([
                                         <div class="flex flex-col flex-grow">
                                             <span
                                                 class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="mb-4 font-serif text-xl font-semibold uppercase room-card-title">
+                                            <h3 class="mb-2 font-serif text-[16px] font-semibold uppercase room-card-title tracking-wider">
                                                 <a href="<?php the_permalink(); ?>"
                                                     class="transition-colors text-brand-blue hover:text-brand-orange">
                                                     <?php the_title(); ?>
                                                 </a>
                                             </h3>
-                                            <p class="room-desc text-brand-black-900 text-[13px] leading-relaxed font-[300] mt-8 mb-3">
-                                                <?php echo esc_html(get_the_excerpt()); ?>
+                                            <p class="room-desc text-brand-black-900 text-[13px] leading-relaxed font-[300] mt-0 mb-8">
+                                                <?php echo esc_html(get_the_excerpt()); ?><a href="<?php the_permalink(); ?>"
+                                                    class="font-serif font-semibold transition-colors room-desc__more text-brand-orange hover:text-brand-blue"><?php pll_e('more'); ?></a>
                                             </p>
-                                            <a href="<?php the_permalink(); ?>"
-                                                class="inline-block mb-8 text-[13px] font-serif font-semibold text-brand-orange hover:text-brand-blue transition-colors"><?php pll_e('View more'); ?></a>
                                             <div class="flex items-center justify-center gap-3 mt-auto">
                                                 <a href="https://fohn.backhotelite.com/en/"
-                                                    class="bg-brand-orange text-[16px] text-white px-5 py-3 font-semibold font-serif uppercase hover:bg-brand-blue transition-all"><?php pll_e('BOOK NOW'); ?></a>
+                                                    class="bg-brand-orange text-[16px] text-white px-5 py-3 trac font-semibold font-serif uppercase hover:bg-brand-blue transition-all"><?php pll_e('BOOK NOW'); ?></a>
                                             </div>
                                         </div>
                                     </div>
@@ -237,17 +246,16 @@ $residences_query = new WP_Query([
                                         <div class="flex flex-col flex-grow">
                                             <span
                                                 class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="mb-4 font-serif text-xl font-semibold uppercase room-card-title">
+                                            <h3 class="mb-2 font-serif text-[16px] font-semibold uppercase room-card-title tracking-wider">
                                                 <a href="<?php the_permalink(); ?>"
                                                     class="transition-colors text-brand-blue hover:text-brand-orange">
                                                     <?php the_title(); ?>
                                                 </a>
                                             </h3>
-                                            <p class="room-desc text-brand-black-900 text-[13px] leading-relaxed font-[300] mt-8 mb-3">
-                                                <?php echo esc_html(get_the_excerpt()); ?>
+                                            <p class="room-desc text-brand-black-900 text-[13px] leading-relaxed font-[300] mb-8">
+                                                <?php echo esc_html(get_the_excerpt()); ?><a href="<?php the_permalink(); ?>"
+                                                    class="font-serif font-semibold transition-colors room-desc__more text-brand-orange hover:text-brand-blue"><?php pll_e('more'); ?></a>
                                             </p>
-                                            <a href="<?php the_permalink(); ?>"
-                                                class="inline-block mb-8 text-[13px] font-serif font-semibold text-brand-orange hover:text-brand-blue transition-colors"><?php pll_e('View more'); ?></a>
                                             <div class="flex items-center justify-center gap-3 mt-auto">
                                                 <a href="https://fohn.backhotelite.com/en/"
                                                     class="bg-brand-orange text-[16px] text-white px-5 py-3 font-semibold font-serif uppercase hover:bg-brand-blue transition-all"><?php pll_e('BOOK NOW'); ?></a>
@@ -337,11 +345,11 @@ $residences_query = new WP_Query([
 
                 // Update Buttons
                 triggers.forEach(t => {
-                    t.classList.remove('active', 'font-bold');
+                    t.classList.remove('active', 'font-semibold');
                     t.classList.add('font-normal', 'text-brand-black-400');
                     t.querySelector('span').classList.remove('text-brand-blue');
                 });
-                this.classList.add('active', 'font-bold');
+                this.classList.add('active', 'font-semibold');
                 this.classList.remove('font-normal', 'text-brand-black-400');
                 this.querySelector('span').classList.add('text-brand-blue');
 

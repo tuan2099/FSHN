@@ -40,36 +40,58 @@ $apt_query = new WP_Query(array(
 
     <div class="container relative z-10 mx-auto px-6 max-w-[1200px]">
         <!-- Intro Header -->
-        <div class="text-center mb-24">
+        <div class="mb-24 text-center">
             <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
                 <?php echo esc_html($intro_title); ?>
             </h2>
-            <div class="w-24 h-px bg-brand-orange mx-auto mb-10"></div>
+            <div class="w-24 h-px mx-auto mb-10 bg-brand-orange"></div>
             <?php if ($intro_desc): ?>
-                <p class="text-brand-black-700 font-sans text-md leading-relaxed mx-auto max-w-3xl">
+                <p class="mx-auto font-sans leading-relaxed text-brand-black-700 text-md ">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php endif; ?>
         </div>
 
         <!-- Amenities Section (Moved to Top, Mirroring Hotel Page) -->
-        <div class="mb-32">
+        <div class="">
             <!-- Amenities Bar -->
             <div class="bg-brand-blue py-4 mb-15 max-w-[850px] mx-auto">
-                <h3 class="text-white font-serif text-xl text-center uppercase">
+                <h3 class="font-serif text-xl text-center text-white uppercase">
                     <?php echo esc_html($amenities_title); ?>
                 </h3>
             </div>
 
-            <!-- Amenities Grid (Flex for centering last row) -->
-            <div class="flex flex-wrap justify-center gap-x-8 gap-y-12 max-w-[900px] mx-auto">
+            <style>
+                /* 6 per row on desktop; last row auto-centers via justify-content:center */
+                .apartment-amenities {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 3rem 2rem;
+                }
+                .apartment-amenities .amenity-item {
+                    width: calc((100% - 2rem) / 2);
+                }
+                @media (min-width: 768px) {
+                    .apartment-amenities .amenity-item {
+                        width: calc((100% - 4rem) / 3);
+                    }
+                }
+                @media (min-width: 1024px) {
+                    .apartment-amenities .amenity-item {
+                        width: calc((100% - 10rem) / 6);
+                    }
+                }
+            </style>
+            <!-- Amenities Grid: 6 per row, last row centered -->
+            <div class="apartment-amenities max-w-[900px] mx-auto">
                 <?php if ($amenities_list): ?>
                     <?php foreach ($amenities_list as $item): ?>
-                        <div class="flex flex-col items-center text-center group w-[calc(50%-16px)] md:w-[130px]">
-                            <div class="mb-5 text-brand-blue transition-transform duration-300 group-hover:scale-110">
+                        <div class="flex flex-col items-center text-center amenity-item group">
+                            <div class="mb-5 transition-transform duration-300 text-brand-blue group-hover:scale-110">
                                 <?php if ($item['icon']): ?>
                                     <img src="<?php echo esc_url($item['icon']); ?>" alt="<?php echo esc_attr($item['label']); ?>"
-                                        class="w-14 h-14 object-contain">
+                                        class="object-contain w-14 h-14">
                                 <?php else: ?>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -77,13 +99,13 @@ $apt_query = new WP_Query(array(
                                     </svg>
                                 <?php endif; ?>
                             </div>
-                            <span class="text-brand-black-700 font-sans text-sm font-medium leading-tight">
+                            <span class="font-sans text-[13px] leading-tight text-brand-blue">
                                 <?php echo esc_html($item['label']); ?>
                             </span>
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>
-                    <p class="col-span-full text-center italic text-brand-black-400">
+                    <p class="italic text-center col-span-full text-brand-black-400">
                         <?php pll_e('Please add amenities in the Apartment Page backend.'); ?>
                     </p>
                 <?php endif; ?>
@@ -92,14 +114,14 @@ $apt_query = new WP_Query(array(
             <!-- Footer Quote (Short text below amenities) -->
             <?php if ($footer_quote): ?>
                 <div class="mt-20 text-center">
-                    <p class="text-brand-black-500 font-sans italic text-sm leading-loose max-w-[600px] mx-auto">
+                    <p class="mx-auto font-sans text-sm italic leading-loose text-brand-black-500">
                         <?php echo nl2br(esc_html($footer_quote)); ?>
                     </p>
                 </div>
             <?php endif; ?>
         </div>
 
-        <div class="w-full h-px bg-brand-black-50 mb-32"></div>
+        <div class="w-full h-px mb-32 bg-brand-black-50"></div>
 
         <?php if ($apt_query->have_posts()): ?>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
@@ -124,7 +146,7 @@ $apt_query = new WP_Query(array(
                                         <?php foreach ($gallery as $img_url): ?>
                                             <div class="swiper-slide aspect-[16/10]">
                                                 <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>"
-                                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                                    class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105">
                                             </div>
                                         <?php endforeach; ?>
                                     <?php else: ?>
@@ -136,17 +158,17 @@ $apt_query = new WP_Query(array(
                                 </div>
                             </div>
                             <!-- Static Navigation Below Image -->
-                            <div class="mt-6 flex justify-between items-center">
+                            <div class="flex items-center justify-between mt-6">
                                 <div class="flex gap-8">
                                     <button
                                         class="apt-prev-<?php echo $apt_index; ?> hover:translate-x-[-4px] transition-transform">
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png"
-                                            alt="Prev" class="w-10 h-4 object-contain">
+                                            alt="Prev" class="object-contain w-10 h-4">
                                     </button>
                                     <button
                                         class="apt-next-<?php echo $apt_index; ?> hover:translate-x-[4px] transition-transform">
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png"
-                                            alt="Next" class="w-10 h-4 object-contain">
+                                            alt="Next" class="object-contain w-10 h-4">
                                     </button>
                                 </div>
                                 <div
@@ -157,99 +179,79 @@ $apt_query = new WP_Query(array(
 
                         <!-- Apartment Content -->
                         <div class="text-center">
-                            <h3 class="text-brand-blue font-serif text-2xl uppercase mb-2">
+                            <h3 class="text-brand-blue font-serif text-[16px] tracking-[2px] font-semibold uppercase mb-2">
                                 <?php the_title(); ?>
                             </h3>
-                            <div class="w-16 h-px bg-brand-orange mx-auto mb-8 opacity-50"></div>
+                            <div class="w-16 h-px mx-auto mb-8 opacity-50 bg-brand-orange"></div>
 
                             <p class="text-brand-black-600 font-sans text-sm leading-relaxed mb-10 max-w-[470px] mx-auto opacity-80 min-h-[60px] line-clamp-4 text-left md:text-center"
-                                style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;">
+                                style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; font-weight: 200">
                                 <?php echo esc_html($description); ?>
                             </p>
 
-                            <!-- Meta Info -->
-                            <div class="flex flex-col items-center gap-y-6 mb-12 w-full">
+                            <!-- Meta Info: Top 2, Bottom 3 Layout -->
+                            <div class="flex flex-col items-center w-full mb-12 gap-y-6">
+                                <!-- Top Row (2 items) -->
                                 <div class="flex flex-wrap justify-center gap-x-8 md:gap-x-16 gap-y-4">
+                                    <!-- Size -->
                                     <div class="flex items-center gap-3">
-                                        <div class="text-brand-orange flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                                fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <rect width="16" height="16" x="4" y="4" rx="1" />
-                                                <rect width="8" height="8" x="8" y="8" rx="0.5" />
-                                            </svg>
+                                        <div class="flex-shrink-0">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bx_area.png"
+                                                alt="Size" class="object-contain w-7 h-7">
                                         </div>
                                         <span
-                                            class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($size); ?></span>
+                                            class="text-brand-black-700 font-sans text-[13px] whitespace-nowrap" style="font-weight:200"><?php echo esc_html($size); ?></span>
                                     </div>
+                                    <!-- Occupancy -->
                                     <div class="flex items-center gap-3">
-                                        <div class="text-brand-orange flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                                fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                                <circle cx="9" cy="7" r="4" />
-                                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                            </svg>
+                                        <div class="flex-shrink-0">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/wordpress_people.png"
+                                                alt="Occupancy" class="object-contain w-7 h-7">
                                         </div>
                                         <span
-                                            class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($occupancy); ?></span>
+                                            class="text-brand-black-700 font-sans text-[13px] whitespace-nowrap" style="font-weight:200"><?php echo esc_html($occupancy); ?></span>
                                     </div>
                                 </div>
 
-                                <div class="flex flex-wrap justify-center gap-x-6 md:gap-x-8 gap-y-4">
+                                <!-- Bottom Row (3 items) -->
+                                <div class="flex flex-wrap justify-between gap-x-6 md:gap-x-8 gap-y-4 max-w-[470px] w-full mx-auto">
+                                    <!-- View -->
                                     <div class="flex items-center gap-3">
-                                        <div class="text-brand-orange flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                                fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                                                <circle cx="12" cy="12" r="3" />
-                                            </svg>
+                                        <div class="flex-shrink-0">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Group.png"
+                                                alt="View" class="object-contain w-7 h-7">
                                         </div>
                                         <span
-                                            class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($view); ?></span>
+                                            class="text-brand-black-700 font-sans text-[13px] whitespace-nowrap" style="font-weight:200"><?php echo esc_html($view); ?></span>
                                     </div>
+                                    <!-- Bed -->
                                     <div class="flex items-center gap-3">
-                                        <div class="text-brand-orange flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                                fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path d="M2 4v16" />
-                                                <path d="M2 8h18a2 2 0 0 1 2 2v10" />
-                                                <path d="M2 17h20" />
-                                                <path d="M6 8v9" />
-                                            </svg>
+                                        <div class="flex-shrink-0">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/material-symbols_bed-outline.png"
+                                                alt="Bed" class="object-contain w-7 h-7">
                                         </div>
                                         <span
-                                            class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($bed); ?></span>
+                                            class="text-brand-black-700 font-sans text-[13px] whitespace-nowrap" style="font-weight:200"><?php echo esc_html($bed); ?></span>
                                     </div>
+                                    <!-- Balcony -->
                                     <div class="flex items-center gap-3">
-                                        <div class="text-brand-orange flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                                fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <path d="M4 14h16v6H4z" />
-                                                <path d="M2 14h20" />
-                                                <path d="M8 14v6" />
-                                                <path d="M16 14v6" />
-                                                <path d="M6 14v-4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4" />
-                                            </svg>
+                                        <div class="flex-shrink-0">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/cbi_rooms-balcony.png"
+                                                alt="Balcony" class="object-contain w-7 h-7">
                                         </div>
                                         <span
-                                            class="text-brand-black-700 font-sans text-xs font-medium whitespace-nowrap"><?php echo esc_html($balcony); ?></span>
+                                            class="text-brand-black-700 font-sans text-[13px] whitespace-nowrap" style="font-weight:200"><?php echo esc_html($balcony); ?></span>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="flex flex-wrap items-center justify-center gap-4">
                                 <a href="<?php echo esc_url($book_link); ?>"
-                                    class="inline-block bg-[#FDB078] text-white px-12 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-brand-blue transition-all shadow-lg">
+                                    class="inline-block bg-[#FDB078] text-white font-serif px-6 py-2 text-[16px] font-bold uppercase hover:bg-brand-blue transition-all">
                                     <?php pll_e('BOOK NOW'); ?>
                                 </a>
                                 <a href="<?php echo esc_url(get_permalink()); ?>"
-                                    class="inline-block border-2 border-brand-orange text-brand-blue px-12 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all">
+                                    class="inline-block border-2 border-brand-orange text-brand-blue font-serif px-6 py-2 text-[16px] font-bold uppercase hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all">
                                     <?php pll_e('Find Out'); ?>
                                 </a>
                             </div>

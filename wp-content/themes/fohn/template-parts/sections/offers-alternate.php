@@ -31,13 +31,13 @@ $block3_items = get_field('offers_alt_block3_list');
         <!-- Block 1: OFFERS (Text Left, Slider Right) -->
         <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-32">
             <!-- Text Content -->
-            <div class="w-full lg:w-5/12 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
+            <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
                     <?php echo nl2br(esc_html($block1_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="js-readmore text-brand-black-700 leading-relaxed mb-10 max-w-md" data-limit="160">
+                <p class="js-readmore text-brand-black-900 leading-relaxed mb-10 max-w-md" data-limit="160">
                     <?php echo wp_kses_post($block1_desc); ?>
                 </p>
                 
@@ -49,7 +49,7 @@ $block3_items = get_field('offers_alt_block3_list');
             </div>
             
             <!-- Slider -->
-            <div class="w-full lg:w-7/12 order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <div class="w-full lg:w-1/2 order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                 <div class="offer-slider-container relative" id="offers-block">
                     <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
                         <div class="swiper-wrapper">
@@ -121,7 +121,7 @@ $block3_items = get_field('offers_alt_block3_list');
         <!-- Block 2: DRINK & DINE (Slider Left, Text Right) -->
         <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             <!-- Slider -->
-            <div class="w-full lg:w-7/12" data-aos="fade-right" data-aos-duration="1000">
+            <div class="w-full lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
                 <div class="offer-slider-container relative" id="dining-block">
                     <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
                         <div class="swiper-wrapper">
@@ -188,13 +188,13 @@ $block3_items = get_field('offers_alt_block3_list');
             </div>
 
             <!-- Text Content -->
-            <div class="w-full lg:w-5/12" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <div class="w-full lg:w-1/2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
                     <?php echo nl2br(esc_html($block2_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="js-readmore text-brand-black-700 leading-relaxed mb-10" data-limit="160">
+                <p class="js-readmore text-brand-black-900 leading-relaxed mb-10" data-limit="160">
                     <?php echo wp_kses_post($block2_desc); ?>
                 </p>
                 
@@ -209,13 +209,13 @@ $block3_items = get_field('offers_alt_block3_list');
         <!-- Block 3: LOCAL EXPERIENCES (Text Left, Slider Right) -->
         <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mt-32">
             <!-- Text Content -->
-            <div class="w-full lg:w-5/12 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
+            <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
                 <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
                     <?php echo nl2br(esc_html($block3_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="js-readmore text-brand-black-700 leading-relaxed mb-10 max-w-md" data-limit="160">
+                <p class="js-readmore text-brand-black-900 leading-relaxed mb-10 max-w-md" data-limit="160">
                     <?php echo wp_kses_post($block3_desc); ?>
                 </p>
                 
@@ -227,7 +227,7 @@ $block3_items = get_field('offers_alt_block3_list');
             </div>
             
             <!-- Slider -->
-            <div class="w-full lg:w-7/12 order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <div class="w-full lg:w-1/2 order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                 <div class="offer-slider-container relative" id="offers-block-3">
                     <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
                         <div class="swiper-wrapper">
@@ -282,14 +282,6 @@ $block3_items = get_field('offers_alt_block3_list');
                             </h3>
                         </div>
 
-                        <div class="flex items-center gap-6">
-                            <div id="offers-block-pagination" class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto"></div>
-                            <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase ml-4">
-                                <?php echo $block3_items ? wp_kses_post($block3_items[0]['title']) : 'ORIGINAL ROOM'; ?>
-                            </h3>
-                        </div>
-
-                        
                         <div class="flex gap-6">
                             <button id="offers-block-3-prev" class="offer-prev hover:opacity-70 transition-opacity">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png" alt="Prev" class="w-10 h-auto">

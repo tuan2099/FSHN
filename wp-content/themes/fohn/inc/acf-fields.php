@@ -1472,6 +1472,12 @@ function fohn_register_acf_fields()
                 'type' => 'textarea',
             ),
             array(
+                'key' => 'field_fohn_offers_book_link',
+                'label' => 'Book A Stay - CTA Link',
+                'name' => 'offers_book_link',
+                'type' => 'url',
+            ),
+            array(
                 'key' => 'field_fohn_offers_flower_left',
                 'label' => 'Left Flower Image',
                 'name' => 'offers_flower_left',

@@ -158,7 +158,9 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
     }
 
     .cf7-custom-styled .wpcf7-submit {
-        align-self: center;
+        display: block;
+        margin-left: auto !important;
+        margin-right: auto !important;
         background-color: #FDB078 !important;
         color: #fff !important;
         padding: 0.75rem 4rem !important;
@@ -197,7 +199,57 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
     .cf7-custom-styled br {
         display: none;
     }
+
+    /* Phone field with country/flag selector (intl-tel-input) */
+    .cf7-custom-styled .iti {
+        width: 100%;
+        display: block;
+    }
+
+    /* Leave room for the flag/arrow on the left, keep height same as other inputs */
+    .cf7-custom-styled input[type="tel"] {
+        padding-left: 58px !important;
+    }
+
+    .cf7-custom-styled .iti__selected-flag {
+        padding: 0 8px 0 14px;
+    }
+
+    /* Detached dropdown floats above everything */
+    .iti--container {
+        z-index: 99999 !important;
+    }
+
+    .iti__country-list {
+        z-index: 99999;
+    }
 </style>
+
+<!-- Country-code phone selector for the contact form -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var tel = document.querySelector('.cf7-custom-styled input[type="tel"]');
+        if (tel && window.intlTelInput) {
+            var iti = window.intlTelInput(tel, {
+                initialCountry: 'vn',
+                preferredCountries: ['vn', 'us', 'gb', 'au', 'jp', 'kr'],
+                dropdownContainer: document.body, // detach dropdown so it floats above other fields
+                utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js'
+            });
+            // On submit, store the full international number so CF7 receives it
+            var form = tel.closest('form');
+            if (form) {
+                form.addEventListener('submit', function () {
+                    if (tel.value.trim()) {
+                        tel.value = iti.getNumber();
+                    }
+                });
+            }
+        }
+    });
+</script>
 
 <?php
 get_footer();

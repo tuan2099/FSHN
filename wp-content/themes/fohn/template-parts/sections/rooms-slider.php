@@ -63,6 +63,17 @@ $residences_query = new WP_Query([
         min-height: 3.5rem;
     }
 
+    /* Limit description to exactly 3 lines so the "View more" link lines up
+       across all cards (short text still reserves 3 lines). */
+    .rooms-suites-section .room-desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 4.875em;
+        /* 3 lines at leading-relaxed (1.625) */
+    }
+
     /* Equal-height cards so the BOOK NOW / FINDING OUT row lines up */
     .rooms-suites-section .rooms-outer-swiper > .swiper-wrapper {
         align-items: stretch;
@@ -78,7 +89,7 @@ $residences_query = new WP_Query([
     }
 </style>
 
-<section class="rooms-suites-section py-24 bg-[#EBEBEB] overflow-hidden">
+<section class="overflow-hidden rooms-suites-section">
     <div class="container mx-auto">
         <!-- Header with Tabs -->
         <div class="flex items-end justify-start gap-6 mb-12 border-b border-brand-black-100">
@@ -90,7 +101,7 @@ $residences_query = new WP_Query([
             <button
                 class="pb-4 font-serif text-2xl font-normal uppercase transition-all duration-300 border-b-2 border-transparent room-tab-trigger text-brand-black-400"
                 data-target="residences">
-                <span class="tab-label-inactive"><?php pll_e('RESIDENCES')?></span>
+                <span class="tab-label-inactive"><?php pll_e('APARTMENT')?></span>
             </button>
         </div>
 
@@ -118,8 +129,10 @@ $residences_query = new WP_Query([
                                                     <?php if ($gallery): ?>
                                                         <?php foreach ($gallery as $img_url): ?>
                                                             <div class="swiper-slide aspect-[4/3]">
-                                                                <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title(); ?>"
-                                                                    class="object-cover w-full h-full">
+                                                                <a href="<?php the_permalink(); ?>" class="block w-full h-full">
+                                                                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title(); ?>"
+                                                                        class="object-cover w-full h-full">
+                                                                </a>
                                                             </div>
                                                         <?php endforeach; ?>
                                                     <?php else: ?>
@@ -147,18 +160,20 @@ $residences_query = new WP_Query([
                                         <div class="flex flex-col flex-grow">
                                             <span
                                                 class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="mb-4 font-serif text-xl font-semibold uppercase room-card-title text-brand-blue">
-                                                <?php the_title(); ?>
-                                            </h3>
-                                            <p
-                                                class="text-brand-black-900 text-[13px] leading-relaxed font-[300] my-8 line-clamp-4">
-                                                <?php echo get_the_excerpt(); ?>
-                                            </p>
-                                            <div class="flex items-center justify-between gap-3 mt-auto">
-                                                <a href="#"
-                                                    class="bg-brand-orange text-[16px] text-white px-5 py-3 font-semibold font-serif uppercase hover:bg-brand-blue transition-all"><?php pll_e('BOOK NOW'); ?></a>
+                                            <h3 class="mb-4 font-serif text-xl font-semibold uppercase room-card-title">
                                                 <a href="<?php the_permalink(); ?>"
-                                                    class="text-[16px] font-semibold px-3 font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors"><?php pll_e('FINDING OUT'); ?></a>
+                                                    class="transition-colors text-brand-blue hover:text-brand-orange">
+                                                    <?php the_title(); ?>
+                                                </a>
+                                            </h3>
+                                            <p class="room-desc text-brand-black-900 text-[13px] leading-relaxed font-[300] mt-8 mb-3">
+                                                <?php echo esc_html(get_the_excerpt()); ?>
+                                            </p>
+                                            <a href="<?php the_permalink(); ?>"
+                                                class="inline-block mb-8 text-[13px] font-serif font-semibold text-brand-orange hover:text-brand-blue transition-colors"><?php pll_e('View more'); ?></a>
+                                            <div class="flex items-center justify-center gap-3 mt-auto">
+                                                <a href="https://fohn.backhotelite.com/en/"
+                                                    class="bg-brand-orange text-[16px] text-white px-5 py-3 font-semibold font-serif uppercase hover:bg-brand-blue transition-all"><?php pll_e('BOOK NOW'); ?></a>
                                             </div>
                                         </div>
                                     </div>
@@ -191,8 +206,10 @@ $residences_query = new WP_Query([
                                                     <?php if ($gallery): ?>
                                                         <?php foreach ($gallery as $img_url): ?>
                                                             <div class="swiper-slide aspect-[4/3]">
-                                                                <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title(); ?>"
-                                                                    class="object-cover w-full h-full">
+                                                                <a href="<?php the_permalink(); ?>" class="block w-full h-full">
+                                                                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title(); ?>"
+                                                                        class="object-cover w-full h-full">
+                                                                </a>
                                                             </div>
                                                         <?php endforeach; ?>
                                                     <?php else: ?>
@@ -220,18 +237,20 @@ $residences_query = new WP_Query([
                                         <div class="flex flex-col flex-grow">
                                             <span
                                                 class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="mb-4 font-serif text-xl font-semibold uppercase room-card-title text-brand-blue">
-                                                <?php the_title(); ?>
-                                            </h3>
-                                            <p
-                                                class="text-brand-black-900 text-[13px] leading-relaxed font-[300] my-8 line-clamp-4">
-                                                <?php echo get_the_excerpt(); ?>
-                                            </p>
-                                            <div class="flex items-center justify-between gap-3 mt-auto">
-                                                <a href="#"
-                                                    class="bg-brand-orange text-[16px] text-white px-5 py-3 font-semibold font-serif uppercase hover:bg-brand-blue transition-all"><?php pll_e('BOOK NOW'); ?></a>
+                                            <h3 class="mb-4 font-serif text-xl font-semibold uppercase room-card-title">
                                                 <a href="<?php the_permalink(); ?>"
-                                                    class="text-[16px] font-semibold px-3 font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors"><?php pll_e('FINDING OUT'); ?></a>
+                                                    class="transition-colors text-brand-blue hover:text-brand-orange">
+                                                    <?php the_title(); ?>
+                                                </a>
+                                            </h3>
+                                            <p class="room-desc text-brand-black-900 text-[13px] leading-relaxed font-[300] mt-8 mb-3">
+                                                <?php echo esc_html(get_the_excerpt()); ?>
+                                            </p>
+                                            <a href="<?php the_permalink(); ?>"
+                                                class="inline-block mb-8 text-[13px] font-serif font-semibold text-brand-orange hover:text-brand-blue transition-colors"><?php pll_e('View more'); ?></a>
+                                            <div class="flex items-center justify-center gap-3 mt-auto">
+                                                <a href="https://fohn.backhotelite.com/en/"
+                                                    class="bg-brand-orange text-[16px] text-white px-5 py-3 font-semibold font-serif uppercase hover:bg-brand-blue transition-all"><?php pll_e('BOOK NOW'); ?></a>
                                             </div>
                                         </div>
                                     </div>

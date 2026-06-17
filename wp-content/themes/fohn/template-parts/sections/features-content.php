@@ -26,31 +26,55 @@ $features_list = get_field('features_list');
         <?php endif; ?>
     </div>
     <!-- Intro Header -->
-    <div class="container mx-auto px-6 text-center mb-20 md:mb-32">
+    <div class="container px-6 mx-auto mb-20 text-center md:mb-32">
         <h2 class="text-brand-blue font-serif text-[40px] font-semibold  tracking-[0.1em] uppercase mb-6">
             <?php echo esc_html($intro_title); ?>
         </h2>
+        <div class="w-[250px] h-px bg-[#FDB078] mx-auto mb-6"></div>
         <?php if ($intro_desc): ?>
-            <p class="text-brand-black-700 font-sans text-sm md:text-base leading-loose mx-auto">
+            <p class="mx-auto font-sans text-sm leading-loose text-brand-black-700 md:text-base">
                 <?php echo nl2br(esc_html($intro_desc)); ?>
             </p>
         <?php endif; ?>
     </div>
 
+    <style>
+        /* Flex grid so an incomplete last row is centered (1/2/3 per row) */
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem 1rem;
+        }
+        .features-grid .feature-item {
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            .features-grid .feature-item {
+                width: calc((100% - 1rem) / 2);
+            }
+        }
+        @media (min-width: 1024px) {
+            .features-grid .feature-item {
+                width: calc((100% - 2rem) / 3);
+            }
+        }
+    </style>
+
     <!-- Features Grid -->
-    <div class="features-list container mx-auto px-6">
+    <div class="container px-6 mx-auto features-list">
         <?php if ($features_list): ?>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12">
+            <div class="features-grid">
                 <?php foreach ($features_list as $feature):
                     $title = $feature['title'];
                     $desc = $feature['description'];
                     $image = $feature['image'];
                     $link = $feature['link'];
                     ?>
-                    <div class="feature-item text-center flex flex-col">
+                    <div class="flex flex-col text-center feature-item">
 
                         <!-- Title -->
-                        <h3 class="text-brand-blue font-serif italic text-xl font-semibold mb-6 tracking-wide">
+                        <h3 class="mb-6 font-serif text-xl italic font-semibold tracking-wide text-brand-blue">
                             <?php echo esc_html($title); ?>
                         </h3>
 
@@ -58,16 +82,16 @@ $features_list = get_field('features_list');
                         <div class="relative aspect-[16/9] w-full overflow-hidden shadow-md mb-6">
                             <?php if ($image): ?>
                                 <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>"
-                                    class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                    class="object-cover w-full h-full transition-transform duration-700 hover:scale-105">
                             <?php else: ?>
-                                <div class="w-full h-full bg-brand-black-100 flex items-center justify-center">
-                                    <span class="text-brand-black-300 italic">Feature Image</span>
+                                <div class="flex items-center justify-center w-full h-full bg-brand-black-100">
+                                    <span class="italic text-brand-black-300">Feature Image</span>
                                 </div>
                             <?php endif; ?>
                         </div>
 
                         <!-- Description -->
-                        <p class="js-readmore text-brand-black-700 font-sans text-sm leading-relaxed flex-grow px-2 md:px-0" data-limit="120">
+                        <p class="flex-grow px-2 font-sans text-sm leading-relaxed js-readmore text-brand-black-700 md:px-0" data-limit="120">
                             <?php echo nl2br(esc_html($desc)); ?>
                         </p>
 
@@ -86,7 +110,7 @@ $features_list = get_field('features_list');
             </div>
         <?php else: ?>
             <!-- Placeholder if no features added -->
-            <div class="container mx-auto px-6 text-center text-brand-black-400 py-20">
+            <div class="container px-6 py-20 mx-auto text-center text-brand-black-400">
                 <p>Please add features via the WordPress Admin dashboard.</p>
             </div>
         <?php endif; ?>
@@ -114,10 +138,10 @@ $features_list = get_field('features_list');
             function render() {
                 if (expanded) {
                     el.innerHTML = fullHTML +
-                        ' <a href="#" class="readmore-toggle text-brand-orange font-semibold whitespace-nowrap">' + lessLabel + '</a>';
+                        ' <a href="#" class="font-semibold readmore-toggle text-brand-orange whitespace-nowrap">' + lessLabel + '</a>';
                 } else {
                     el.innerHTML = shortText +
-                        '… <a href="#" class="readmore-toggle text-brand-orange font-semibold whitespace-nowrap">' + moreLabel + '</a>';
+                        '… <a href="#" class="font-semibold readmore-toggle text-brand-orange whitespace-nowrap">' + moreLabel + '</a>';
                 }
                 el.querySelector('.readmore-toggle').addEventListener('click', function (e) {
                     e.preventDefault();

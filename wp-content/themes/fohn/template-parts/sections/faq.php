@@ -10,47 +10,47 @@ $main_heading = get_field('faq_main_heading') ?: 'FREQUENTLY ASKED QUESTIONS';
 $faqs = get_field('faq_items');
 
 ?>
-<section class="faq-section pb-24 bg-white overflow-hidden">
-    <div class="container mx-auto px-6">
+<section class="pb-24 overflow-hidden bg-white faq-section">
+    <div class="container px-6 mx-auto">
         <!-- Subheading -->
         <div class="flex justify-center mb-18">
             <div class="text-center">
-                <span class=" font-serif text-[16px] text-brand-black-500 uppercase font-bold block mb-2">
+                <span class=" font-serif text-[16px] text-brand-black-500 uppercase tracking-wider font-semibold block mb-2">
                     <?php echo esc_html($sub_heading); ?>
                 </span>
-                <div class="w-1/2 h-0.5 bg-brand-orange mx-auto"></div>
+                <div class="w-full h-0.5 bg-brand-orange mx-auto"></div>
             </div>
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-12 lg:gap-24">
+        <div class="flex flex-col gap-12 lg:flex-row lg:gap-24">
             <!-- Left Side: Main Heading -->
             <div class="lg:w-1/3" data-aos="fade-right">
-                <h2 class=" font-serif text-2xl lg:text-3xl font-bold text-brand-blue uppercase leading-tight ">
+                <h2 class="font-serif text-2xl font-bold leading-tight uppercase lg:text-3xl text-brand-blue">
                     <?php echo wp_kses_post($main_heading); ?>
                 </h2>
             </div>
 
             <!-- Right Side: Accordion -->
             <div class="lg:w-2/3" data-aos="fade-left" data-aos-delay="200">
-                <div class="faq-accordion space-y-0">
+                <div class="space-y-0 faq-accordion">
                     <?php if ($faqs): ?>
                         <?php foreach ($faqs as $index => $faq): ?>
-                            <div class="faq-item border-b border-brand-black-300">
-                                <button class="faq-trigger w-full py-6 flex justify-between items-center text-left group">
+                            <div class="border-b faq-item border-brand-black-300">
+                                <button class="flex items-center justify-between w-full py-6 text-left faq-trigger group">
                                     <span
                                         class="text-[16px] text-brand-black-800 uppercase group-hover:text-brand-orange transition-colors">
                                         <?php echo esc_html($faq['question']); ?>
                                     </span>
-                                    <span class="faq-icon transform transition-transform duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-blue" fill="none"
+                                    <span class="transition-transform duration-300 transform faq-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-blue" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M19 9l-7 7-7-7" />
                                         </svg>
                                     </span>
                                 </button>
-                                <div class="faq-content hidden overflow-hidden transition-all duration-500">
-                                    <div class="pb-8 text-brand-black-600 text-sm leading-relaxed">
+                                <div class="hidden overflow-hidden transition-all duration-500 faq-content">
+                                    <div class="pb-8 text-sm leading-relaxed text-brand-black-600">
                                         <?php echo wp_kses_post($faq['answer']); ?>
                                     </div>
                                 </div>

@@ -20,10 +20,13 @@ $facility_blocks = get_field('facilities_blocks');
         /* Pull the box under the image so the image overlaps it */
         .facility-content-box.facility-overlap-left {
             margin-left: -130px;
+            /* clear the 130px overlap + extra gap between image and text */
+            padding-left: 185px;
         }
 
         .facility-content-box.facility-overlap-right {
             margin-right: -130px;
+            padding-right: 185px;
         }
     }
 
@@ -51,19 +54,19 @@ $facility_blocks = get_field('facilities_blocks');
         <?php endif; ?>
     </div>
 
-    <div class="container relative z-10 mx-auto px-6">
+    <div class="container relative z-10 px-6 mx-auto">
         <!-- Intro Header -->
-        <div class="text-center mb-24">
+        <div class="mb-24 text-center">
             <h2 class="text-brand-blue font-serif text-[40px] font-semibold  mb-6 uppercase">
                 <?php echo esc_html($intro_title); ?>
             </h2>
-            <div class="w-24 h-px bg-brand-orange mx-auto mb-10"></div>
+            <div class="w-24 h-px mx-auto mb-10 bg-brand-orange"></div>
             <?php if ($intro_desc): ?>
-                <p class="text-brand-black-700 font-sans text-md leading-relaxed  mx-auto">
+                <p class="mx-auto font-sans leading-relaxed text-brand-black-700 text-md">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php else: ?>
-                <p class="text-brand-black-700 font-sans text-md leading-relaxed  mx-auto">
+                <p class="mx-auto font-sans leading-relaxed text-brand-black-700 text-md">
                     Our facilities are crafted to enrich every moment of your stay. Wellness, dining, social spaces, and
                     creative venues come together through thoughtful design and cultural storytelling, offering guests a
                     harmonious blend of comfort, inspiration, and modern Vietnamese hospitality.
@@ -90,14 +93,14 @@ $facility_blocks = get_field('facilities_blocks');
                     <div
                         class="relative flex flex-col <?php echo $row_class; ?> items-center justify-center <?php echo $counter < count($facility_blocks) - 1 ? 'mb-40' : ''; ?>">
                         <!-- Image Side -->
-                        <div class="w-full md:w-[600px] z-20 relative flex-shrink-0">
+                        <div class="w-full md:w-[550px] z-20 relative flex-shrink-0" style="margin-top: -70px;">
                             <div class="swiper facility-slider-<?php echo $counter; ?> overflow-hidden shadow-2xl">
                                 <div class="swiper-wrapper">
                                     <?php if ($gallery): ?>
                                         <?php foreach ($gallery as $img_url): ?>
                                             <div class="swiper-slide aspect-[16/11]">
                                                 <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($title); ?>"
-                                                    class="w-full h-full object-cover">
+                                                    class="object-cover w-full h-full">
                                             </div>
                                         <?php endforeach; ?>
                                     <?php else: ?>
@@ -115,17 +118,17 @@ $facility_blocks = get_field('facilities_blocks');
                             $nav_alignment_class = $is_reversed ? 'md:ml-[130px]' : 'md:mr-[130px]';
                             ?>
                             <div
-                                class="mt-8 mb-12 md:mb-0 flex justify-between items-center pr-4 <?php echo $nav_alignment_class; ?>">
+                                class="mt-4 mb-12 md:mb-0 flex justify-between items-center pr-4 <?php echo $nav_alignment_class; ?>">
                                 <div class="flex gap-10">
                                     <button
                                         class="facility-prev-<?php echo $counter; ?> hover:translate-x-[-4px] transition-transform">
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png"
-                                            alt="Prev" class="w-10 h-5 object-contain">
+                                            alt="Prev" class="object-contain w-10 h-5">
                                     </button>
                                     <button
                                         class="facility-next-<?php echo $counter; ?> hover:translate-x-[4px] transition-transform">
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png"
-                                            alt="Next" class="w-10 h-5 object-contain">
+                                            alt="Next" class="object-contain w-10 h-5">
                                     </button>
                                 </div>
                                 <div
@@ -136,16 +139,16 @@ $facility_blocks = get_field('facilities_blocks');
 
                         <!-- Content Side (Overlapping Box) -->
                         <div
-                            class="facility-content-box w-full md:w-[600px] bg-[#2B3B52] p-10 <?php echo $text_padding; ?> <?php echo $overlap_margin; ?> z-10 text-white shadow-xl relative flex flex-col justify-center">
+                            class="facility-content-box w-full md:w-[550px] bg-[#2B3B52] p-10 <?php echo $text_padding; ?> <?php echo $overlap_margin; ?> z-10 text-white shadow-xl relative flex flex-col justify-center">
                             <div class="relative z-10">
                                 <h3 class="font-serif text-2xl tracking-[0.1em] uppercase mb-6 leading-tight">
                                     <?php echo esc_html($title); ?>
                                 </h3>
-                                <div class="w-16 h-px bg-brand-orange mb-2"></div>
-                                <p class="font-sans text-base leading-loose opacity-90">
+                                <div class="w-16 h-px mb-2 bg-brand-orange"></div>
+                                <p class="font-sans text-base opacity-90">
                                     <?php echo nl2br(esc_html($desc)); ?>
                                 </p>
-                                <div class="font-sans font-bold text-lg tracking-wide pt-4">
+                                <div class="pt-4 font-sans text-lg font-bold tracking-wide">
                                     <?php pll_e('Operation Hours:'); ?> <?php echo esc_html(pll__($hours)); ?>
                                 </div>
                             </div>
@@ -153,7 +156,7 @@ $facility_blocks = get_field('facilities_blocks');
                     </div>
                     <?php $counter++; endforeach; ?>
             <?php else: ?>
-                <div class="text-center py-20 bg-brand-black-50 italic text-brand-black-400">
+                <div class="py-20 italic text-center bg-brand-black-50 text-brand-black-400">
                     <?php pll_e('Please add facility blocks in the page editor.'); ?>
                 </div>
             <?php endif; ?>

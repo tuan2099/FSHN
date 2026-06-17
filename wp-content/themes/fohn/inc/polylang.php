@@ -101,6 +101,7 @@ if (function_exists('pll_register_string')) {
     // Read more / less toggle
     pll_register_string('fohn', 'more', 'fohn_theme');
     pll_register_string('fohn', 'less', 'fohn_theme');
+    pll_register_string('fohn', 'View more', 'fohn_theme');
 
     // Gallery filters
     pll_register_string('fohn', 'All', 'fohn_theme');

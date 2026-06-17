@@ -39,7 +39,7 @@
                     class="flex flex-col justify-center flex-1 p-5 transition-colors border cursor-pointer lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none hover:bg-brand-black-50">
                     <div class="flex items-center justify-between pointer-events-none">
                         <span
-                            class="text-[14px] lg:text-[12px] text-brand-black-500 arrival-date-display"><?php pll_e('Arrival'); ?></span>
+                            class="text-[14px] lg:text-[11px] text-brand-black-500 arrival-date-display"><?php pll_e('Arrival'); ?></span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 lg:h-4 lg:w-4 text-brand-black-300"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -54,7 +54,7 @@
                     class="flex flex-col justify-center flex-1 p-5 transition-colors border cursor-pointer lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none hover:bg-brand-black-50">
                     <div class="flex items-center justify-between pointer-events-none">
                         <span
-                            class="text-[14px] lg:text-[13px] text-brand-black-500 departure-date-display"><?php pll_e('Departure'); ?></span>
+                            class="text-[14px] lg:text-[11px] text-brand-black-500 departure-date-display"><?php pll_e('Departure'); ?></span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 lg:h-4 lg:w-4 text-brand-black-300"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -68,7 +68,7 @@
                 <div style="flex: 1.4"
                     class="flex items-center justify-between flex-1 gap-2 p-5 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none">
                     <label for="adults-input"
-                        class="text-[14px] lg:text-[13px] text-brand-black-500 cursor-text"><?php pll_e('Adults'); ?></label>
+                        class="text-[14px] lg:text-[11px] text-brand-black-500 cursor-text"><?php pll_e('Adults'); ?></label>
                     <div class="flex items-center gap-1">
                         <button type="button"
                             class="flex items-center justify-center w-5 h-5 text-xs leading-none transition-colors rounded-full select-none stepper-btn shrink-0 text-brand-blue hover:bg-brand-black-50"
@@ -85,7 +85,7 @@
                 <!-- Children -->
                 <div class="flex items-center justify-between flex-1 gap-2 p-5 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none">
                     <label for="children-input"
-                        class="text-[14px] lg:text-[13px] text-brand-black-500 cursor-text"><?php pll_e('Children'); ?></label>
+                        class="text-[14px] lg:text-[11px] text-brand-black-500 cursor-text"><?php pll_e('Children'); ?></label>
                     <div class="flex items-center gap-1">
                         <button type="button"
                             class="flex items-center justify-center w-5 h-5 text-xs leading-none transition-colors rounded-full select-none stepper-btn shrink-0 text-brand-blue hover:bg-brand-black-50"
@@ -103,7 +103,7 @@
                 <div style="flex: 0.7"
                     class="flex flex-col justify-center flex-1 p-5 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none">
                     <input type="text" id="promocode-input" name="codpromo"
-                        class="promocode-input w-full bg-transparent text-[14px] lg:text-[13px] text-brand-black-500 font-medium focus:outline-none"
+                        class="promocode-input w-full bg-transparent text-[14px] lg:text-[11px] text-brand-black-500 font-medium focus:outline-none"
                         placeholder="<?php echo esc_attr(pll__('Promocode')); ?>" autocomplete="off">
                 </div>
 

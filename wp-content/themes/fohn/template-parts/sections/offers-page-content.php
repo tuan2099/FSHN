@@ -7,6 +7,7 @@
 $intro_title = get_field('offers_intro_title') ?: 'EXCLUSIVE OFFERS';
 $intro_subtitle = get_field('offers_intro_subtitle') ?: 'Elevate Your Experience at LÈGACY';
 $intro_desc = get_field('offers_intro_desc');
+$book_link = get_field('offers_book_link') ?: '#';
 
 // Query all active offers
 $offers_query = new WP_Query(array(
@@ -34,22 +35,22 @@ $offers_query = new WP_Query(array(
         <?php endif; ?>
     </div>
     <!-- Intro Header -->
-    <div class="container mx-auto px-6 text-center mb-20 ">
-        <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
+    <div class="container px-6 mx-auto mb-20 text-center ">
+        <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-4 uppercase">
             <?php echo esc_html($intro_title); ?>
         </h2>
-        <div class="w-24 h-px bg-[#FDB078] mx-auto mb-10"></div>
-        <p class="font-serif  text-xl mb-8"><?php echo esc_html($intro_subtitle); ?>
+        <div class="w-[150px] h-px bg-[#FDB078] mx-auto mb-6"></div>
+        <p class="mb-8 font-serif text-xl italic font-semibold"><?php echo esc_html($intro_subtitle); ?>
         </p>
         <?php if ($intro_desc): ?>
-            <p class="text-brand-black-700 font-sans text-sm md:text-base leading-loose mx-auto">
+            <p class="mx-auto font-sans text-sm leading-loose text-brand-black-900 md:text-base">
                 <?php echo nl2br(esc_html($intro_desc)); ?>
             </p>
         <?php endif; ?>
     </div>
 
     <!-- Offers Grid -->
-    <div class="container mx-auto px-6">
+    <div class="container px-6 mx-auto">
         <?php if ($offers_query->have_posts()): ?>
             <div class="flex flex-wrap justify-center gap-4 md:gap-6">
                 <?php
@@ -75,17 +76,17 @@ $offers_query = new WP_Query(array(
 
                         if ($bg_image_url): ?>
                             <img src="<?php echo esc_url($bg_image_url); ?>" alt="<?php the_title_attribute(); ?>"
-                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                                class="absolute inset-0 object-cover w-full h-full transition-transform duration-1000 group-hover:scale-110">
                         <?php else: ?>
                             <div class="absolute inset-0 w-full h-full bg-brand-black-900"></div>
                         <?php endif; ?>
 
                         <!-- Overlay -->
-                        <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-500"></div>
+                        <div class="absolute inset-0 transition-colors duration-500 bg-black/60 group-hover:bg-black/40"></div>
 
                         <!-- Content Overlay -->
-                        <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-6 text-center z-10">
-                            <span class="font-serif italic text-sm md:text-base opacity-80 mb-2"><?php echo $num; ?></span>
+                        <div class="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center text-white">
+                            <span class="mb-2 font-serif text-sm italic md:text-base opacity-80"><?php echo $num; ?></span>
                             <h3 class="font-sans font-bold text-base md:text-lg uppercase tracking-[0.1em]">
                                 <?php the_title(); ?>
                             </h3>
@@ -98,9 +99,17 @@ $offers_query = new WP_Query(array(
                 <?php wp_reset_postdata(); ?>
             </div>
         <?php else: ?>
-            <div class="text-center text-brand-black-400 py-20">
+            <div class="py-20 text-center text-brand-black-400">
                 <p>No offers are currently available. Please check back later or add them in the WP Admin.</p>
             </div>
         <?php endif; ?>
+
+        <!-- CTA: Book A Stay -->
+        <div class="mt-20 text-center">
+            <a href="<?php echo esc_url($book_link); ?>"
+                class="inline-block bg-[#FDB078] text-white font-serif px-12 py-4 text-sm font-bold uppercase tracking-[0.1em] hover:bg-brand-blue transition-all shadow-lg">
+                <?php pll_e('BOOK A STAY'); ?>
+            </a>
+        </div>
     </div>
 </section>

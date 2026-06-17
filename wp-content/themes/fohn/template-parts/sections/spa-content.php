@@ -29,17 +29,17 @@ $spa_blocks = get_field('spa_blocks');
 
     <div class="container relative z-10 mx-auto px-6 max-w-[1040px]">
         <!-- Intro Header -->
-        <div class="text-center mb-24">
+        <div class="mb-24 text-center">
             <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
                 <?php echo esc_html($intro_title); ?>
             </h2>
-            <div class="w-24 h-px bg-brand-orange mx-auto mb-10"></div>
+            <div class="w-24 h-px mx-auto mb-10 bg-brand-orange"></div>
             <?php if ($intro_desc): ?>
-                <p class="text-brand-black-700 font-sans text-md leading-relaxed  mx-auto mb-12">
+                <p class="mx-auto mb-12 font-sans leading-relaxed text-brand-black-700 text-md">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php else: ?>
-                <p class="text-brand-black-700 font-sans text-md leading-relaxed mx-auto mb-12">
+                <p class="mx-auto mb-12 font-sans leading-relaxed text-brand-black-700 text-md">
                     Inspired by the Vietnamese word “Yên,” meaning peace and calm, YÊN Spa is a sanctuary of quiet elegance
                     designed to restore balance for body, mind, and soul. Blending cultural rituals with contemporary
                     well-being, our holistic offering invites guests to restore both body and mind through thoughtfully
@@ -64,7 +64,7 @@ $spa_blocks = get_field('spa_blocks');
                     $gallery = $block['gallery'];
                     ?>
                     <div
-                        class="flex flex-col <?php echo $is_even ? 'md:flex-row' : 'md:flex-row-reverse'; ?> items-center <?php echo $counter < count($spa_blocks) - 1 ? 'mb-30' : ''; ?>">
+                        class="flex flex-col gap-5 <?php echo $is_even ? 'md:flex-row' : 'md:flex-row-reverse'; ?> items-start <?php echo $counter < count($spa_blocks) - 1 ? 'mb-30' : ''; ?>">
                         <div class="w-full md:w-1/2">
                             <div class="relative group">
                                 <!-- Image Slider -->
@@ -74,7 +74,7 @@ $spa_blocks = get_field('spa_blocks');
                                             <?php foreach ($gallery as $img_url): ?>
                                                 <div class="swiper-slide aspect-[4/3]">
                                                     <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($title); ?>"
-                                                        class="w-full h-full object-cover">
+                                                        class="object-cover w-full h-full">
                                                 </div>
                                             <?php endforeach; ?>
                                         <?php else: ?>
@@ -87,17 +87,17 @@ $spa_blocks = get_field('spa_blocks');
                                 </div>
 
                                 <!-- Navigation -->
-                                <div class="mt-6 flex justify-between items-center">
+                                <div class="flex items-center justify-between mt-6">
                                     <div class="flex gap-6">
                                         <button
                                             class="spa-prev-<?php echo $counter; ?> text-brand-orange hover:translate-x-[-4px] transition-transform">
                                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png"
-                                                alt="Prev" class="w-12 h-6 object-contain">
+                                                alt="Prev" class="object-contain w-12 h-6">
                                         </button>
                                         <button
                                             class="spa-next-<?php echo $counter; ?> text-brand-orange hover:translate-x-[4px] transition-transform">
                                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png"
-                                                alt="Next" class="w-12 h-6 object-contain">
+                                                alt="Next" class="object-contain w-12 h-6">
                                         </button>
                                     </div>
                                     <div
@@ -112,13 +112,13 @@ $spa_blocks = get_field('spa_blocks');
                                 <h3 class="text-brand-blue font-serif text-3xl tracking-[0.15em] uppercase mb-4">
                                     <?php echo esc_html($title); ?>
                                 </h3>
-                                <div class="w-16 h-px bg-brand-orange mb-8"></div>
+                                <div class="w-16 h-px mb-4 bg-brand-orange"></div>
                                 <?php if ($subtitle): ?>
-                                    <p class="text-brand-black-900 font-sans text-xl font-medium leading-relaxed mb-6">
+                                    <p class="mb-4 font-sans text-xl text-brand-black-900">
                                         <?php echo nl2br(esc_html($subtitle)); ?>
                                     </p>
                                 <?php endif; ?>
-                                <p class="text-brand-black-500 font-sans text-base leading-loose">
+                                <p class="font-sans text-base text-brand-black-500">
                                     <?php echo nl2br(esc_html($desc)); ?>
                                 </p>
                             </div>
@@ -126,7 +126,7 @@ $spa_blocks = get_field('spa_blocks');
                     </div>
                     <?php $counter++; endforeach; ?>
             <?php else: ?>
-                <div class="text-center py-20 bg-brand-black-50 italic text-brand-black-400">
+                <div class="py-20 italic text-center bg-brand-black-50 text-brand-black-400">
                     Please add wellness blocks in the page editor.
                 </div>
             <?php endif; ?>

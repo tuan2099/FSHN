@@ -28,6 +28,7 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'BENEFITS:', 'fohn_theme');
     pll_register_string('fohn', 'Complimentary Inclusions', 'fohn_theme');
     pll_register_string('fohn', 'FINDING OUT', 'fohn_theme');
+    pll_register_string('fohn', 'Find Out', 'fohn_theme');
     
     // Booking Form
     pll_register_string('fohn', 'Check Availability', 'fohn_theme');

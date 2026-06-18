@@ -1,6 +1,10 @@
 # WordPress Core
 wp-config.php
 wp-content/uploads/
+
+# All-in-One WP Migration backups (large .wpress files — never commit)
+wp-content/ai1wm-backups/
+*.wpress
 wp-content/blogs.dir/
 wp-content/upgrade/
 wp-content/backup-db/

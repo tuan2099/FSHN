@@ -2962,6 +2962,11 @@ video {
          column-gap: 32px;
   }
 
+  .md\:gap-x-12 {
+    -moz-column-gap: 48px;
+         column-gap: 48px;
+  }
+
   .md\:p-10 {
     padding: 40px;
   }

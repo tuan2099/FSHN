@@ -201,7 +201,7 @@ $apt_query = new WP_Query(array(
                                 </div>
 
                                 <!-- Bottom Row (3 items) -->
-                                <div class="flex flex-wrap justify-between gap-x-6 md:gap-x-8 gap-y-4 max-w-[470px] w-full mx-auto">
+                                <div class="flex flex-wrap justify-center gap-x-8 md:gap-x-16 gap-y-4 max-w-[470px] w-full mx-auto">
                                     <!-- View -->
                                     <div class="flex items-center gap-3">
                                         <div class="flex-shrink-0">

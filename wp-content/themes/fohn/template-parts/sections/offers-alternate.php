@@ -25,8 +25,8 @@ $block2_items = get_field('offers_alt_block2_list');
 $block3_items = get_field('offers_alt_block3_list');
 ?>
 
-<section class="offers-alternate-section py-24 bg-white overflow-hidden">
-    <div class="container mx-auto pb-6">
+<section class="offers-alternate-section bg-white overflow-hidden" style="padding-top:6rem;padding-bottom:0">
+    <div class="container mx-auto" style="padding-bottom:4rem">
         
         <!-- Block 1: OFFERS (Text Left, Slider Right) -->
         <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-16">
@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var expanded = false;
 
-            function render() {
+            function setContent() {
                 if (expanded) {
                     el.innerHTML = fullHTML +
                         ' <a href="#" class="readmore-toggle text-brand-orange font-semibold whitespace-nowrap">' + lessLabel + '</a>';
@@ -442,14 +442,31 @@ document.addEventListener('DOMContentLoaded', function() {
                     el.innerHTML = shortText +
                         '… <a href="#" class="readmore-toggle text-brand-orange font-semibold whitespace-nowrap">' + moreLabel + '</a>';
                 }
-                el.querySelector('.readmore-toggle').addEventListener('click', function (e) {
-                    e.preventDefault();
-                    expanded = !expanded;
-                    render();
-                });
+                el.querySelector('.readmore-toggle').addEventListener('click', onToggle);
             }
 
-            render();
+            function onToggle(e) {
+                e.preventDefault();
+                var startHeight = el.offsetHeight;   // height before swapping content
+                expanded = !expanded;
+                setContent();                        // swap text -> element jumps to new natural height
+                var endHeight = el.offsetHeight;     // target height
+
+                // Animate height from old -> new for a smooth expand/collapse
+                el.style.overflow = 'hidden';
+                el.style.height = startHeight + 'px';
+                void el.offsetHeight;                // force reflow
+                el.style.transition = 'height 0.4s ease';
+                el.style.height = endHeight + 'px';
+
+                window.setTimeout(function () {
+                    el.style.height = '';
+                    el.style.overflow = '';
+                    el.style.transition = '';
+                }, 420);
+            }
+
+            setContent();
         });
     });
 </script>

@@ -73,6 +73,7 @@ function fohn_scripts()
 	wp_enqueue_style('glightbox-css', 'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css', array(), '3.3.0');
 	wp_enqueue_script('glightbox-js', 'https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js', array(), '3.3.0', true);
 
+	
 	// Enqueue Leaflet CSS
 	wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', array(), '1.9.4');
 
@@ -80,7 +81,7 @@ function fohn_scripts()
 	wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), '1.9.4', true);
 
 	// Main JS
-	wp_enqueue_script('fohn-script', get_template_directory_uri() . '/assets/js/main.js', array('swiper-js', 'flatpickr-js', 'aos-js', 'glightbox-js', 'leaflet-js'), '1.0.0', true);
+	wp_enqueue_script('fohn-script', get_template_directory_uri() . '/assets/js/main.js', array('swiper-js', 'flatpickr-js', 'aos-js', 'glightbox-js'), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'fohn_scripts');
 
@@ -92,3 +93,29 @@ require get_template_directory() . '/inc/polylang.php';
 
 // Include Custom Post Types
 require get_template_directory() . '/inc/cpt.php';
+
+/**
+ * Render the decorative flower ornaments used across content pages.
+ *
+ * Flowers are pinned to the edges of a centered, capped (1536px) frame so they
+ * sit near the screen edges on smaller screens and stay put (don't drift or
+ * stretch) on very wide screens. Pass ACF image URLs; falls back to the bundled
+ * lotus image when empty. This is the single source of the "home heritage" look,
+ * shared by every content section (detail pages excluded).
+ */
+function fohn_render_flowers($left = '', $right = '')
+{
+	$lotus = get_template_directory_uri() . '/assets/images/lotus-bg.png';
+	$left_src = $left ?: $lotus;
+	$right_src = $right ?: $lotus;
+	?>
+	<div class="absolute inset-0 z-0 mx-auto pointer-events-none" style="max-width:1536px">
+		<img src="<?php echo esc_url($left_src); ?>"
+			class="absolute hidden w-48 select-none md:block top-1/2 lg:w-72"
+			style="left:0;transform:translate(-50%, -50%)" alt="">
+		<img src="<?php echo esc_url($right_src); ?>"
+			class="absolute hidden w-48 select-none md:block top-1/2 lg:w-72"
+			style="right:0;transform:translate(50%, -50%) scaleX(-1)" alt="">
+	</div>
+	<?php
+}

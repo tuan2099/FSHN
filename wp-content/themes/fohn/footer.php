@@ -20,10 +20,21 @@ $footer_socials = get_field('footer_socials', 'option');
 $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Group &copy; ' . date('Y');
 ?>
 
+<style>
+    /* fusionlife loyalty bar: stack + left-align up to 1024/tablet,
+       only switch to a side-by-side row on xl (>=1280px) screens. */
+    @media (min-width: 1280px) {
+        .fusionlife-inner {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+</style>
+
 <footer id="colophon" class="pt-0 bg-white site-footer">
     <!-- Top Dark Bar -->
     <div class="py-10 bg-brand-blue lg:py-15" data-aos="fade-up">
-        <div class="container flex flex-col items-center justify-between gap-8 px-6 mx-auto md:flex-row">
+        <div class="container fusionlife-inner flex flex-col items-start justify-between gap-8 px-6 mx-auto">
             <div class="max-w-2xl text-white">
                 <div class="mb-4">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo fslife.png"
@@ -35,7 +46,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
             </div>
             <div>
                 <a href="<?php echo esc_url($loyalty_btn_link); ?>"
-                    class="px-10 py-3 text-sm font-bold uppercase transition-all bg-white rounded-full shadow-lg text-brand-blue hover:bg-brand-orange hover:text-white active:scale-95">
+                    class="inline-block px-10 py-3 text-sm font-bold uppercase whitespace-nowrap transition-all bg-white rounded-full shadow-lg text-brand-blue hover:bg-brand-orange hover:text-white active:scale-95">
                     <?php echo esc_html($loyalty_btn_text); ?>
                 </a>
             </div>

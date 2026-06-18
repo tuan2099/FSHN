@@ -11,21 +11,8 @@ $spa_blocks = get_field('spa_blocks');
 ?>
 
 <section class="relative overflow-hidden bg-white" style="padding-top:5rem;padding-bottom:5rem">
-    <!-- Decorative Florals (Reusing from Amenities) -->
-    <div class="absolute left-[-100px] top-4 w-[400px] pointer-events-none select-none hidden md:block">
-        <?php if (get_field('spa_flower_left')): ?>
-            <img src="<?php echo esc_url(get_field('spa_flower_left')); ?>" alt="" class="w-full h-auto">
-        <?php else: ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
-        <?php endif; ?>
-    </div>
-    <div class="absolute right-[-100px] top-4 w-[400px] pointer-events-none select-none scale-x-[-1] hidden md:block">
-        <?php if (get_field('spa_flower_right')): ?>
-            <img src="<?php echo esc_url(get_field('spa_flower_right')); ?>" alt="" class="w-full h-auto">
-        <?php else: ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
-        <?php endif; ?>
-    </div>
+    <!-- Decorative flower frame (shared helper) -->
+    <?php fohn_render_flowers(get_field('spa_flower_left'), get_field('spa_flower_right')); ?>
 
     <div class="container relative z-10 mx-auto px-6 max-w-[1040px]">
         <!-- Intro Header -->
@@ -109,7 +96,7 @@ $spa_blocks = get_field('spa_blocks');
 
                         <div class="w-full md:w-1/2">
                             <div class="<?php echo $is_even ? 'pl-0 md:pl-8' : 'pr-0 md:pr-8'; ?>">
-                                <h3 class="text-brand-blue font-serif text-3xl tracking-[0.15em] uppercase mb-4">
+                                <h3 class="text-brand-blue font-serif text-3xl font-semibold tracking-[0.15em] uppercase mb-4">
                                     <?php echo esc_html($title); ?>
                                 </h3>
                                 <div class="w-16 h-px mb-4 bg-brand-orange"></div>

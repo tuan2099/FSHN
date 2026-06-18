@@ -130,10 +130,18 @@ function fohn_register_acf_fields()
                     ),
                     array(
                         'key' => 'field_fohn_dining_outlet_image',
-                        'label' => 'Main Image',
+                        'label' => 'Main Image (fallback if Gallery empty)',
                         'name' => 'image',
                         'type' => 'image',
                         'return_format' => 'url',
+                    ),
+                    array(
+                        'key' => 'field_fohn_dining_outlet_gallery',
+                        'label' => 'Image Slider',
+                        'name' => 'gallery',
+                        'type' => 'gallery',
+                        'return_format' => 'url',
+                        'instructions' => 'Add multiple images to show a slider on the right. If empty, the Main Image above is used.',
                     ),
                     array(
                         'key' => 'field_fohn_dining_outlet_book_link',
@@ -730,7 +738,7 @@ function fohn_register_acf_fields()
                 'sub_fields' => array(
                     array(
                         'key' => 'field_fohn_offer_title',
-                        'label' => 'Title',
+                        'label' => 'Title (for accessibility only, not shown)',
                         'name' => 'title',
                         'type' => 'textarea',
                     ),
@@ -740,6 +748,13 @@ function fohn_register_acf_fields()
                         'name' => 'image',
                         'type' => 'image',
                         'return_format' => 'url',
+                    ),
+                    array(
+                        'key' => 'field_fohn_offer_link',
+                        'label' => 'Image Link',
+                        'name' => 'link',
+                        'type' => 'url',
+                        'instructions' => 'Where this image links to. Leave empty to fall back to the Button Link below (e.g. the Gallery page).',
                     ),
                 ),
             ),
@@ -1071,6 +1086,14 @@ function fohn_register_acf_fields()
                 'label' => 'Room Description',
                 'name' => 'room_description',
                 'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_fohn_room_inclusions',
+                'label' => 'Complimentary Inclusions',
+                'name' => 'room_inclusions',
+                'type' => 'textarea',
+                'instructions' => 'One inclusion per line. Each line is shown as a highlighted item with a check icon.',
+                'placeholder' => "Complimentary one-way airport pick-up and drop-off for bookings of 5 nights or more\nComplimentary minibar beverages, refreshed every 3 days\nDaily access to Original Reload Pantry",
             ),
             array(
                 'key' => 'field_fohn_room_size',
@@ -1470,12 +1493,6 @@ function fohn_register_acf_fields()
                 'label' => 'Intro Description',
                 'name' => 'offers_intro_desc',
                 'type' => 'textarea',
-            ),
-            array(
-                'key' => 'field_fohn_offers_book_link',
-                'label' => 'Book A Stay - CTA Link',
-                'name' => 'offers_book_link',
-                'type' => 'url',
             ),
             array(
                 'key' => 'field_fohn_offers_flower_left',

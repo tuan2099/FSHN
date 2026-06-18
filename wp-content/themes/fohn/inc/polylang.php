@@ -26,6 +26,7 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'SUSTAINABILITY', 'fohn_theme');
     pll_register_string('fohn', 'BACK TO OFFER', 'fohn_theme');
     pll_register_string('fohn', 'BENEFITS:', 'fohn_theme');
+    pll_register_string('fohn', 'Complimentary Inclusions', 'fohn_theme');
     pll_register_string('fohn', 'FINDING OUT', 'fohn_theme');
     
     // Booking Form
@@ -38,14 +39,7 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'Check availability', 'fohn_theme'); // Button
     pll_register_string('fohn', 'Room', 'fohn_theme');
     pll_register_string('fohn', 'Guest', 'fohn_theme');
-    pll_register_string('fohn', 'Adults', 'fohn_theme');
-    pll_register_string('fohn', 'Adult', 'fohn_theme');
-    pll_register_string('fohn', 'Children', 'fohn_theme');
-    pll_register_string('fohn', 'Child', 'fohn_theme');
-    pll_register_string('fohn', 'Promocode', 'fohn_theme');
-    pll_register_string('fohn', 'Find Out', 'fohn_theme');
-    pll_register_string('fohn', 'Please select arrival and departure dates.', 'fohn_theme');
-
+    
     // Fallbacks
     pll_register_string('fohn', 'No Images', 'fohn_theme');
     pll_register_string('fohn', 'Offer Image', 'fohn_theme');
@@ -82,7 +76,6 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'Phone:', 'fohn_theme');
     pll_register_string('fohn', 'Write your requries:', 'fohn_theme');
     pll_register_string('fohn', 'SEND', 'fohn_theme');
-
     // Single Room (detail page)
     pll_register_string('fohn', 'Room Information', 'fohn_theme');
     pll_register_string('fohn', 'Size', 'fohn_theme');
@@ -94,16 +87,20 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'Best Price Guaranteed for Direct Booking', 'fohn_theme');
     pll_register_string('fohn', 'Other Accommodations', 'fohn_theme');
     pll_register_string('fohn', '345 Doi Can, Ngoc Ha Ward, Hanoi City', 'fohn_theme');
-
+    pll_register_string('fohn', 'Adults', 'fohn_theme');
+    pll_register_string('fohn', 'Children', 'fohn_theme');
+    pll_register_string('fohn', 'Promocode', 'fohn_theme');
+    pll_register_string('fohn', 'HOTEL', 'fohn_theme');
+    pll_register_string('fohn', 'APARTMENT', 'fohn_theme');
     // Apartment
     pll_register_string('fohn', 'Please add amenities in the Apartment Page backend.', 'fohn_theme');
 
+    
     // Read more / less toggle
     pll_register_string('fohn', 'more', 'fohn_theme');
     pll_register_string('fohn', 'less', 'fohn_theme');
-    pll_register_string('fohn', 'View more', 'fohn_theme');
 
-    // Gallery filters
+        // Gallery filters
     pll_register_string('fohn', 'All', 'fohn_theme');
     pll_register_string('fohn', 'Spa', 'fohn_theme');
     pll_register_string('fohn', 'Others', 'fohn_theme');
@@ -112,15 +109,11 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'Operation Hours:', 'fohn_theme');
     pll_register_string('fohn', 'All-day', 'fohn_theme');
     pll_register_string('fohn', 'Please add facility blocks in the page editor.', 'fohn_theme');
-
-    // Dining
     pll_register_string('fohn', 'ALL-DAY DINING MENU', 'fohn_theme');
     pll_register_string('fohn', 'LOUNGE / TERRACE MENU', 'fohn_theme');
     pll_register_string('fohn', 'MAKE A RESERVATION', 'fohn_theme');
     pll_register_string('fohn', 'Book Now', 'fohn_theme');
     pll_register_string('fohn', 'Menu', 'fohn_theme');
-    pll_register_string('fohn', 'Dining Image', 'fohn_theme');
-    pll_register_string('fohn', 'No Image', 'fohn_theme');
 }
 
 /**

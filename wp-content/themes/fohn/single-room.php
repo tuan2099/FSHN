@@ -11,6 +11,16 @@ while (have_posts()) :
     // ACF Fields
     $gallery = get_field('room_gallery');
     $description = get_field('room_description') ?: get_the_content();
+    $inclusions_raw = get_field('room_inclusions');
+    $inclusions = array();
+    if ($inclusions_raw) {
+        foreach (preg_split('/\r\n|\r|\n/', $inclusions_raw) as $line) {
+            $line = trim($line);
+            if ($line !== '') {
+                $inclusions[] = $line;
+            }
+        }
+    }
     $size = get_field('room_size');
     $occupancy = get_field('room_occupancy');
     $view = get_field('room_view');
@@ -40,15 +50,112 @@ while (have_posts()) :
         </section>
 
         <div class="container mx-auto px-6 py-20">
-            <div class="flex flex-col lg:flex-row gap-16">
-                
+            <div class="">
+
+                <!-- Right Side: Sticky Info Card -->
+                <div class="">
+                    <div class="sticky top-32 bg-brand-black-50 rounded-3xl p-8 md:p-10 border border-brand-black-100" data-aos="fade-left">
+                        <h3 class="text-2xl font-serif font-bold text-brand-blue uppercase mb-8 border-b border-brand-black-200 pb-4">
+                            <?php pll_e('Room Information'); ?>
+                        </h3>
+
+                        <ul class="space-y-6 mb-10">
+                            <?php if ($size): ?>
+                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="<?php echo $images_url; ?>bx_area.png" alt="Size" class="w-5 h-5 object-contain opacity-70">
+                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Size'); ?></span>
+                                    </div>
+                                    <span class="text-xs  text-brand-blue"><?php echo esc_html($size); ?></span>
+                                </li>
+                            <?php endif; ?>
+                            
+                            <?php if ($occupancy): ?>
+                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="<?php echo $images_url; ?>wordpress_people.png" alt="Occupancy" class="w-5 h-5 object-contain opacity-70">
+                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Occupancy'); ?></span>
+                                    </div>
+                                    <div class="text-xs  text-brand-blue"><?php echo esc_html($occupancy); ?></div>
+                                </li>
+                            <?php endif; ?>
+
+                            <?php if ($bed): ?>
+                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="<?php echo $images_url; ?>material-symbols_bed-outline.png" alt="Bed" class="w-5 h-5 object-contain opacity-70">
+                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Bed Type'); ?></span>
+                                    </div>
+                                    <span class="text-xs  text-brand-blue"><?php echo esc_html($bed); ?></span>
+                                </li>
+                            <?php endif; ?>
+
+                            <?php if ($view): ?>
+                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="<?php echo $images_url; ?>Group.png" alt="View" class="w-5 h-5 object-contain opacity-70">
+                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('View'); ?></span>
+                                    </div>
+                                    <span class="text-xs  text-brand-blue"><?php echo esc_html($view); ?></span>
+                                </li>
+                            <?php endif; ?>
+
+                            <?php if ($balcony): ?>
+                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="<?php echo $images_url; ?>cbi_rooms-balcony.png" alt="Balcony" class="w-5 h-5 object-contain opacity-70">
+                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Balcony'); ?></span>
+                                    </div>
+                                    <span class="text-xs  text-brand-blue"><?php echo esc_html($balcony); ?></span>
+                                </li>
+                            <?php endif; ?>
+                        </ul>
+
+                        <div class="mt-auto">
+                            <a href="<?php echo esc_url($book_link); ?>" class="block bg-brand-orange text-white text-center py-2 rounded-full font-bold uppercase hover:bg-brand-blue transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 active:scale-95">
+                                <?php pll_e('Book This Room'); ?>
+                            </a>
+                            <p class="text-center text-[11px] text-brand-black-400 mt-4 font-medium uppercase">
+                                <?php pll_e('Best Price Guaranteed for Direct Booking'); ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                </br>
                 <!-- Left Side: Content & Gallery -->
-                <div class="lg:w-2/3">
+                <div class="">
                     
                     <!-- Description -->
                     <div class="prose prose-lg max-w-none mb-16 text-brand-black-700 leading-relaxed" data-aos="fade-up">
                         <?php echo wpautop(wp_kses_post($description)); ?>
                     </div>
+
+                    <!-- Complimentary Inclusions (Highlight) -->
+                    <?php if ($inclusions): ?>
+                        <div class="room-inclusions mb-16" data-aos="fade-up">
+                            <div class="room-inclusions__card">
+                                <div class="room-inclusions__head">
+                                    <span class="room-inclusions__line"></span>
+                                    <h3 class="room-inclusions__title font-serif"><?php pll_e('Complimentary Inclusions'); ?></h3>
+                                </div>
+                                <ul class="room-inclusions__grid">
+                                    <?php foreach ($inclusions as $item): ?>
+                                        <li class="room-inclusions__item">
+                                            <span class="room-inclusions__icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <polyline points="20 6 9 17 4 12" />
+                                                </svg>
+                                            </span>
+                                            <span class="room-inclusions__text"><?php echo esc_html($item); ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
+                    <?php endif; ?>
 
                     <!-- Room Gallery -->
                     <?php if ($gallery): ?>
@@ -70,75 +177,7 @@ while (have_posts()) :
 
                 </div>
 
-                <!-- Right Side: Sticky Info Card -->
-                <div class="lg:w-1/3">
-                    <div class="sticky top-32 bg-brand-black-50 rounded-3xl p-8 lg:p-10 border border-brand-black-100" data-aos="fade-left">
-                        <h3 class="text-2xl font-serif font-bold text-brand-blue uppercase mb-8 border-b border-brand-black-200 pb-4">
-                            <?php pll_e('Room Information'); ?>
-                        </h3>
-
-                        <ul class="space-y-6 mb-10">
-                            <?php if ($size): ?>
-                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
-                                    <div class="flex items-center gap-3">
-                                        <img src="<?php echo $images_url; ?>bx_area.png" alt="Size" class="w-5 h-5 object-contain opacity-70">
-                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Size'); ?></span>
-                                    </div>
-                                    <span class="text-sm font-bold text-brand-blue"><?php echo esc_html($size); ?></span>
-                                </li>
-                            <?php endif; ?>
-                            
-                            <?php if ($occupancy): ?>
-                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
-                                    <div class="flex items-center gap-3">
-                                        <img src="<?php echo $images_url; ?>wordpress_people.png" alt="Occupancy" class="w-5 h-5 object-contain opacity-70">
-                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Occupancy'); ?></span>
-                                    </div>
-                                    <span class="text-sm font-bold text-brand-blue"><?php echo esc_html($occupancy); ?></span>
-                                </li>
-                            <?php endif; ?>
-
-                            <?php if ($bed): ?>
-                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
-                                    <div class="flex items-center gap-3">
-                                        <img src="<?php echo $images_url; ?>material-symbols_bed-outline.png" alt="Bed" class="w-5 h-5 object-contain opacity-70">
-                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Bed Type'); ?></span>
-                                    </div>
-                                    <span class="text-sm font-bold text-brand-blue"><?php echo esc_html($bed); ?></span>
-                                </li>
-                            <?php endif; ?>
-
-                            <?php if ($view): ?>
-                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
-                                    <div class="flex items-center gap-3">
-                                        <img src="<?php echo $images_url; ?>Group.png" alt="View" class="w-5 h-5 object-contain opacity-70">
-                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('View'); ?></span>
-                                    </div>
-                                    <span class="text-sm font-bold text-brand-blue"><?php echo esc_html($view); ?></span>
-                                </li>
-                            <?php endif; ?>
-
-                            <?php if ($balcony): ?>
-                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
-                                    <div class="flex items-center gap-3">
-                                        <img src="<?php echo $images_url; ?>cbi_rooms-balcony.png" alt="Balcony" class="w-5 h-5 object-contain opacity-70">
-                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Balcony'); ?></span>
-                                    </div>
-                                    <span class="text-sm font-bold text-brand-blue"><?php echo esc_html($balcony); ?></span>
-                                </li>
-                            <?php endif; ?>
-                        </ul>
-
-                        <div class="mt-auto">
-                            <a href="<?php echo esc_url($book_link); ?>" class="block w-full bg-brand-orange text-white text-center py-5 rounded-full font-bold uppercase hover:bg-brand-blue transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 active:scale-95">
-                                <?php pll_e('Book This Room'); ?>
-                            </a>
-                            <p class="text-center text-[11px] text-brand-black-400 mt-4 font-medium uppercase">
-                                <?php pll_e('Best Price Guaranteed for Direct Booking'); ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                
 
             </div>
         </div>
@@ -183,6 +222,98 @@ while (have_posts()) :
         <?php endif; ?>
 
     </main>
+
+    <style>
+        .room-inclusions__card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(253, 176, 120, 0.35);
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 60%);
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px -20px rgba(43, 60, 84, 0.25);
+        }
+
+        .room-inclusions__card::before {
+            content: "";
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(253, 176, 120, 0.08);
+            pointer-events: none;
+        }
+
+        .room-inclusions__head {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .room-inclusions__line {
+            display: inline-block;
+            width: 40px;
+            height: 2px;
+            background: #FDB078;
+        }
+
+        .room-inclusions__title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #2B3C54;
+            margin: 0;
+        }
+
+        .room-inclusions__grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.1rem 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .room-inclusions__grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .room-inclusions__item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.9rem;
+        }
+
+        .room-inclusions__icon {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(253, 176, 120, 0.15);
+            color: #FDB078;
+            transition: background-color .3s ease, color .3s ease;
+        }
+
+        .room-inclusions__item:hover .room-inclusions__icon {
+            background: #FDB078;
+            color: #fff;
+        }
+
+        .room-inclusions__text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #525252;
+            padding-top: 4px;
+        }
+    </style>
 
     <!-- Swiper Initialization for Room Gallery -->
     <script>

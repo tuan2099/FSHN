@@ -25,40 +25,40 @@ $block2_items = get_field('offers_alt_block2_list');
 $block3_items = get_field('offers_alt_block3_list');
 ?>
 
-<section class="offers-alternate-section bg-white overflow-hidden" style="padding-top:6rem;padding-bottom:0">
+<section class="overflow-hidden bg-white offers-alternate-section" style="padding-top:6rem;padding-bottom:0">
     <div class="container mx-auto" style="padding-bottom:4rem">
         
         <!-- Block 1: OFFERS (Text Left, Slider Right) -->
-        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 mb-16">
+        <div class="flex flex-col items-center gap-8 mb-16 lg:flex-row lg:gap-12">
             <!-- Text Content -->
-            <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
+            <div class="order-2 w-full lg:w-1/2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
+                <h2 class="mb-4 font-serif text-3xl font-semibold uppercase text-brand-blue">
                     <?php echo nl2br(esc_html($block1_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="js-readmore text-brand-black-900 leading-relaxed mb-10 max-w-md" data-limit="160">
+                <p class="max-w-md mb-10 leading-relaxed js-readmore text-brand-black-900" data-limit="160">
                     <?php echo wp_kses_post($block1_desc); ?>
                 </p>
                 
                 <?php if ($block1_btn_text): ?>
-                <a href="<?php echo esc_url($block1_btn_link); ?>" class="inline-block text-[16px] font-bold font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
+                <a href="<?php echo esc_url($block1_btn_link); ?>" class="inline-block text-[16px] font-semibold font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
                     <?php echo esc_html($block1_btn_text); ?>
                 </a>
                 <?php endif; ?>
             </div>
             
             <!-- Slider -->
-            <div class="w-full lg:w-1/2 order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <div class="offer-slider-container relative" id="offers-block">
+            <div class="order-1 w-full lg:w-1/2 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="relative offer-slider-container" id="offers-block">
                     <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
                         <div class="swiper-wrapper">
                             <?php if ($block1_items): ?>
                                 <?php foreach ($block1_items as $item): ?>
                                     <div class="swiper-slide">
                                         <?php if (!empty($item['gallery'])): ?>
-                                            <div class="swiper nested-offers-swiper absolute inset-0 w-full h-full overflow-hidden">
-                                                <div class="nested-wrapper flex w-full h-full relative" style="transition-property: transform;">
+                                            <div class="absolute inset-0 w-full h-full overflow-hidden swiper nested-offers-swiper">
+                                                <div class="relative flex w-full h-full nested-wrapper" style="transition-property: transform;">
                                                     <?php foreach ($item['gallery'] as $img_data): 
                                                         $img_src = '';
                                                         if (is_array($img_data)) {
@@ -69,14 +69,14 @@ $block3_items = get_field('offers_alt_block3_list');
                                                             $img_src = $img_data;
                                                         }
                                                     ?>
-                                                        <div class="nested-slide w-full h-full shrink-0 relative">
-                                                            <img src="<?php echo esc_url($img_src); ?>" alt="<?php echo esc_attr(strip_tags($item['title'])); ?>" class="w-full h-full object-cover">
+                                                        <div class="relative w-full h-full nested-slide shrink-0">
+                                                            <img src="<?php echo esc_url($img_src); ?>" alt="<?php echo esc_attr(strip_tags($item['title'])); ?>" class="object-cover w-full h-full">
                                                         </div>
                                                     <?php endforeach; ?>
                                                 </div>
                                             </div>
                                         <?php else: ?>
-                                            <div class="w-full h-full bg-brand-black-300 flex items-center justify-center text-white italic">Offer Image</div>
+                                            <div class="flex items-center justify-center w-full h-full italic text-white bg-brand-black-300">Offer Image</div>
                                         <?php endif; ?>
                                         
                                         <!-- Post Data for Navigation Label -->
@@ -87,7 +87,7 @@ $block3_items = get_field('offers_alt_block3_list');
                                 <!-- Dummy Slides -->
                                 <?php for($i=1; $i<=3; $i++): ?>
                                     <div class="swiper-slide">
-                                        <div class="w-full h-full bg-brand-black-200 flex items-center justify-center text-brand-black-400">
+                                        <div class="flex items-center justify-center w-full h-full bg-brand-black-200 text-brand-black-400">
                                             Offer Slide <?php echo $i; ?>
                                         </div>
                                         <div class="hidden post-title">ORIGINAL ROOM</div>
@@ -98,18 +98,18 @@ $block3_items = get_field('offers_alt_block3_list');
                     </div>
                     
                     <!-- Navigation below image -->
-                    <div class="flex justify-between items-center py-4 mt-2">
+                    <div class="flex items-center justify-between py-4 mt-2">
                         <div class="flex items-center gap-6">
-                            <div id="offers-block-pagination" class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto"></div>
-                            <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase ml-4">
+                            <div id="offers-block-pagination" class="w-auto font-serif text-sm font-semibold offer-pagination text-brand-black-800"></div>
+                            <h3 class="ml-4 font-serif text-sm font-semibold uppercase offer-active-title text-brand-blue">
                                 <?php echo $block1_items ? wp_kses_post($block1_items[0]['title']) : 'ORIGINAL ROOM'; ?>
                             </h3>
                         </div>
                         <div class="flex gap-6">
-                            <button id="offers-block-prev" class="offer-prev hover:opacity-70 transition-opacity">
+                            <button id="offers-block-prev" class="transition-opacity offer-prev hover:opacity-70">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png" alt="Prev" class="w-10 h-auto">
                             </button>
-                            <button id="offers-block-next" class="offer-next hover:opacity-70 transition-opacity">
+                            <button id="offers-block-next" class="transition-opacity offer-next hover:opacity-70">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png" alt="Next" class="w-10 h-auto">
                             </button>
                         </div>
@@ -119,18 +119,18 @@ $block3_items = get_field('offers_alt_block3_list');
         </div>
 
         <!-- Block 2: DRINK & DINE (Slider Left, Text Right) -->
-        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        <div class="flex flex-col items-center gap-8 lg:flex-row lg:gap-12">
             <!-- Slider -->
             <div class="w-full lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
-                <div class="offer-slider-container relative" id="dining-block">
+                <div class="relative offer-slider-container" id="dining-block">
                     <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
                         <div class="swiper-wrapper">
                             <?php if ($block2_items): ?>
                                 <?php foreach ($block2_items as $item): ?>
                                     <div class="swiper-slide">
                                         <?php if (!empty($item['gallery'])): ?>
-                                            <div class="swiper nested-offers-swiper absolute inset-0 w-full h-full overflow-hidden">
-                                                <div class="nested-wrapper flex w-full h-full relative" style="transition-property: transform;">
+                                            <div class="absolute inset-0 w-full h-full overflow-hidden swiper nested-offers-swiper">
+                                                <div class="relative flex w-full h-full nested-wrapper" style="transition-property: transform;">
                                                     <?php foreach ($item['gallery'] as $img_data): 
                                                         $img_src = '';
                                                         if (is_array($img_data)) {
@@ -141,14 +141,14 @@ $block3_items = get_field('offers_alt_block3_list');
                                                             $img_src = $img_data;
                                                         }
                                                     ?>
-                                                        <div class="nested-slide w-full h-full shrink-0 relative">
-                                                            <img src="<?php echo esc_url($img_src); ?>" alt="<?php echo esc_attr(strip_tags($item['title'])); ?>" class="w-full h-full object-cover">
+                                                        <div class="relative w-full h-full nested-slide shrink-0">
+                                                            <img src="<?php echo esc_url($img_src); ?>" alt="<?php echo esc_attr(strip_tags($item['title'])); ?>" class="object-cover w-full h-full">
                                                         </div>
                                                     <?php endforeach; ?>
                                                 </div>
                                             </div>
                                         <?php else: ?>
-                                            <div class="w-full h-full bg-brand-black-300 flex items-center justify-center text-white italic">Dining Image</div>
+                                            <div class="flex items-center justify-center w-full h-full italic text-white bg-brand-black-300">Dining Image</div>
                                         <?php endif; ?>
                                         <div class="hidden post-title"><?php echo wp_kses_post($item['title']); ?></div>
                                     </div>
@@ -157,7 +157,7 @@ $block3_items = get_field('offers_alt_block3_list');
                                 <!-- Dummy Slides -->
                                 <?php for($i=1; $i<=3; $i++): ?>
                                     <div class="swiper-slide">
-                                        <div class="w-full h-full bg-brand-black-200 flex items-center justify-center text-brand-black-400">
+                                        <div class="flex items-center justify-center w-full h-full bg-brand-black-200 text-brand-black-400">
                                             Dining Slide <?php echo $i; ?>
                                         </div>
                                         <div class="hidden post-title">IL PAMPERO</div>
@@ -168,20 +168,20 @@ $block3_items = get_field('offers_alt_block3_list');
                     </div>
                     
                     <!-- Navigation below image -->
-                    <div class="flex justify-between items-center py-4 mt-2">
+                    <div class="flex items-center justify-between py-4 mt-2">
                         <div class="flex gap-6">
-                            <button id="dining-block-prev" class="offer-prev hover:opacity-70 transition-opacity">
+                            <button id="dining-block-prev" class="transition-opacity offer-prev hover:opacity-70">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png" alt="Prev" class="w-10 h-auto">
                             </button>
-                            <button id="dining-block-next" class="offer-next hover:opacity-70 transition-opacity">
+                            <button id="dining-block-next" class="transition-opacity offer-next hover:opacity-70">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png" alt="Next" class="w-10 h-auto">
                             </button>
                         </div>
                         <div class="flex items-center gap-6">
-                            <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase mr-4">
+                            <h3 class="mr-4 font-serif text-sm font-semibold uppercase offer-active-title text-brand-blue">
                                 <?php echo $block2_items ? wp_kses_post($block2_items[0]['title']) : 'IL PAMPERO'; ?>
                             </h3>
-                            <div id="dining-block-pagination" class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto"></div>
+                            <div id="dining-block-pagination" class="w-auto font-serif text-sm font-semibold offer-pagination text-brand-black-800"></div>
                         </div>
                     </div>
                 </div>
@@ -189,17 +189,17 @@ $block3_items = get_field('offers_alt_block3_list');
 
             <!-- Text Content -->
             <div class="w-full lg:w-1/2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
+                <h2 class="mb-4 font-serif text-3xl font-semibold uppercase text-brand-blue">
                     <?php echo nl2br(esc_html($block2_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="js-readmore text-brand-black-900 leading-relaxed mb-10" data-limit="160">
+                <p class="mb-10 leading-relaxed js-readmore text-brand-black-900" data-limit="160">
                     <?php echo wp_kses_post($block2_desc); ?>
                 </p>
                 
                 <?php if ($block2_btn_text): ?>
-                <a href="<?php echo esc_url($block2_btn_link); ?>" class="inline-block text-[16px] font-bold font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
+                <a href="<?php echo esc_url($block2_btn_link); ?>" class="inline-block text-[16px] font-semibold font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
                     <?php echo esc_html($block2_btn_text); ?>
                 </a>
                 <?php endif; ?>
@@ -207,36 +207,36 @@ $block3_items = get_field('offers_alt_block3_list');
         </div>
 
         <!-- Block 3: LOCAL EXPERIENCES (Text Left, Slider Right) -->
-        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12" style="margin-top:4rem">
+        <div class="flex flex-col items-center gap-8 lg:flex-row lg:gap-12" style="margin-top:4rem">
             <!-- Text Content -->
-            <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
+            <div class="order-2 w-full lg:w-1/2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
+                <h2 class="mb-4 font-serif text-3xl font-semibold uppercase text-brand-blue">
                     <?php echo nl2br(esc_html($block3_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="js-readmore text-brand-black-900 leading-relaxed mb-10 max-w-md" data-limit="160">
+                <p class="max-w-md mb-10 leading-relaxed js-readmore text-brand-black-900" data-limit="160">
                     <?php echo wp_kses_post($block3_desc); ?>
                 </p>
                 
                 <?php if ($block3_btn_text): ?>
-                <a href="<?php echo esc_url($block3_btn_link); ?>" class="inline-block text-[16px] font-bold font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
+                <a href="<?php echo esc_url($block3_btn_link); ?>" class="inline-block text-[16px] font-semibold font-serif text-brand-blue uppercase border-b border-brand-orange pb-1 hover:text-brand-orange transition-colors">
                     <?php echo esc_html($block3_btn_text); ?>
                 </a>
                 <?php endif; ?>
             </div>
             
             <!-- Slider -->
-            <div class="w-full lg:w-1/2 order-1 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <div class="offer-slider-container relative" id="offers-block-3">
+            <div class="order-1 w-full lg:w-1/2 lg:order-2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="relative offer-slider-container" id="offers-block-3">
                     <div class="swiper offer-inner-swiper aspect-[16/10] bg-brand-black-100 overflow-hidden">
                         <div class="swiper-wrapper">
                             <?php if ($block3_items): ?>
                                 <?php foreach ($block3_items as $item): ?>
                                     <div class="swiper-slide">
                                         <?php if (!empty($item['gallery'])): ?>
-                                            <div class="swiper nested-offers-swiper absolute inset-0 w-full h-full overflow-hidden">
-                                                <div class="nested-wrapper flex w-full h-full relative" style="transition-property: transform;">
+                                            <div class="absolute inset-0 w-full h-full overflow-hidden swiper nested-offers-swiper">
+                                                <div class="relative flex w-full h-full nested-wrapper" style="transition-property: transform;">
                                                     <?php foreach ($item['gallery'] as $img_data): 
                                                         $img_src = '';
                                                         if (is_array($img_data)) {
@@ -247,14 +247,14 @@ $block3_items = get_field('offers_alt_block3_list');
                                                             $img_src = $img_data;
                                                         }
                                                     ?>
-                                                        <div class="nested-slide w-full h-full shrink-0 relative">
-                                                            <img src="<?php echo esc_url($img_src); ?>" alt="<?php echo esc_attr(strip_tags($item['title'])); ?>" class="w-full h-full object-cover">
+                                                        <div class="relative w-full h-full nested-slide shrink-0">
+                                                            <img src="<?php echo esc_url($img_src); ?>" alt="<?php echo esc_attr(strip_tags($item['title'])); ?>" class="object-cover w-full h-full">
                                                         </div>
                                                     <?php endforeach; ?>
                                                 </div>
                                             </div>
                                         <?php else: ?>
-                                            <div class="w-full h-full bg-brand-black-300 flex items-center justify-center text-white italic">Experience Image</div>
+                                            <div class="flex items-center justify-center w-full h-full italic text-white bg-brand-black-300">Experience Image</div>
                                         <?php endif; ?>
                                         <div class="hidden post-title"><?php echo wp_kses_post($item['title']); ?></div>
                                     </div>
@@ -263,7 +263,7 @@ $block3_items = get_field('offers_alt_block3_list');
                                 <!-- Dummy Slides -->
                                 <?php for($i=1; $i<=3; $i++): ?>
                                     <div class="swiper-slide">
-                                        <div class="w-full h-full bg-brand-black-200 flex items-center justify-center text-brand-black-400">
+                                        <div class="flex items-center justify-center w-full h-full bg-brand-black-200 text-brand-black-400">
                                             Experience Slide <?php echo $i; ?>
                                         </div>
                                         <div class="hidden post-title">HANOI DISCOVERY</div>
@@ -274,19 +274,19 @@ $block3_items = get_field('offers_alt_block3_list');
                     </div>
                     
                     <!-- Navigation below image -->
-                    <div class="flex justify-between items-center py-4 mt-2 gap-4">
+                    <div class="flex items-center justify-between gap-4 py-4 mt-2">
                         <div class="flex items-center flex-1 min-w-0">
-                            <div id="offers-block-3-pagination" class="offer-pagination text-sm font-semibold text-brand-black-800 font-serif w-auto flex-shrink-0"></div>
-                            <h3 class="offer-active-title text-sm font-serif font-semibold text-brand-blue uppercase ml-4 whitespace-nowrap overflow-hidden text-ellipsis">
+                            <div id="offers-block-3-pagination" class="flex-shrink-0 w-auto font-serif text-sm font-semibold offer-pagination text-brand-black-800"></div>
+                            <h3 class="ml-4 overflow-hidden font-serif text-sm font-semibold uppercase offer-active-title text-brand-blue whitespace-nowrap text-ellipsis">
                                 <?php echo $block3_items ? wp_kses_post($block3_items[0]['title']) : 'HANOI DISCOVERY'; ?>
                             </h3>
                         </div>
 
                         <div class="flex gap-6">
-                            <button id="offers-block-3-prev" class="offer-prev hover:opacity-70 transition-opacity">
+                            <button id="offers-block-3-prev" class="transition-opacity offer-prev hover:opacity-70">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (5).png" alt="Prev" class="w-10 h-auto">
                             </button>
-                            <button id="offers-block-3-next" class="offer-next hover:opacity-70 transition-opacity">
+                            <button id="offers-block-3-next" class="transition-opacity offer-next hover:opacity-70">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Vector (6).png" alt="Next" class="w-10 h-auto">
                             </button>
                         </div>
@@ -437,10 +437,10 @@ document.addEventListener('DOMContentLoaded', function() {
             function setContent() {
                 if (expanded) {
                     el.innerHTML = fullHTML +
-                        ' <a href="#" class="readmore-toggle text-brand-orange font-semibold whitespace-nowrap">' + lessLabel + '</a>';
+                        ' <a href="#" class="font-semibold readmore-toggle text-brand-orange whitespace-nowrap">' + lessLabel + '</a>';
                 } else {
                     el.innerHTML = shortText +
-                        '… <a href="#" class="readmore-toggle text-brand-orange font-semibold whitespace-nowrap">' + moreLabel + '</a>';
+                        '… <a href="#" class="font-semibold readmore-toggle text-brand-orange whitespace-nowrap">' + moreLabel + '</a>';
                 }
                 el.querySelector('.readmore-toggle').addEventListener('click', onToggle);
             }

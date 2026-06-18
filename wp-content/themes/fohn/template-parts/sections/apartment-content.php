@@ -22,21 +22,8 @@ $apt_query = new WP_Query(array(
 ?>
 
 <section class="relative pb-24 overflow-hidden bg-white" style="padding-top:5rem">
-    <!-- Decorative Florals -->
-    <div class="absolute left-[-100px] top-4 w-[400px] opacity-15 pointer-events-none select-none hidden md:block">
-        <?php if ($flower_left): ?>
-            <img src="<?php echo esc_url($flower_left); ?>" alt="" class="w-full h-auto">
-        <?php else: ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
-        <?php endif; ?>
-    </div>
-    <div class="absolute right-[-100px] top-4 w-[400px] opacity-15 pointer-events-none select-none scale-x-[-1] hidden md:block">
-        <?php if ($flower_right): ?>
-            <img src="<?php echo esc_url($flower_right); ?>" alt="" class="w-full h-auto">
-        <?php else: ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
-        <?php endif; ?>
-    </div>
+    <!-- Decorative flower frame (shared helper) -->
+    <?php fohn_render_flowers($flower_left, $flower_right); ?>
 
     <div class="container relative z-10 mx-auto px-6 max-w-[1200px]">
         <!-- Intro Header -->
@@ -179,13 +166,13 @@ $apt_query = new WP_Query(array(
 
                         <!-- Apartment Content -->
                         <div class="text-center">
-                            <h3 class="text-brand-blue font-serif text-[16px] tracking-[2px] font-semibold uppercase mb-2">
+                            <h3 class="text-brand-blue font-serif text-2xl tracking-[2px] font-semibold uppercase mb-2">
                                 <?php the_title(); ?>
                             </h3>
                             <div class="w-16 h-px mx-auto mb-8 opacity-50 bg-brand-orange"></div>
 
-                            <p class="text-brand-black-600 font-sans text-sm leading-relaxed mb-10 max-w-[470px] mx-auto opacity-80 min-h-[60px] line-clamp-4 text-left md:text-center"
-                                style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; font-weight: 200">
+                            <p class="js-room-clamp text-brand-black-600 font-sans text-sm leading-relaxed mb-10 max-w-[470px] mx-auto opacity-80 text-left md:text-center"
+                                style="font-weight: 200">
                                 <?php echo esc_html($description); ?>
                             </p>
 
@@ -287,4 +274,96 @@ $apt_query = new WP_Query(array(
             });
         <?php endfor; ?>
     });
+</script>
+
+<style>
+    .js-room-clamp {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .room-clamp-toggle {
+        color: #FDB078;
+        cursor: pointer;
+        white-space: nowrap;
+        text-transform: uppercase;
+    }
+
+    .room-clamp-toggle:hover {
+        color: #2B3C54;
+    }
+</style>
+
+<script>
+    (function () {
+        var MAX_LINES = 4;
+        var MORE = '<?php echo esc_js(pll__('more')); ?>';
+        var LESS = '<?php echo esc_js(pll__('less')); ?>';
+
+        function setup(el) {
+            var full = el.textContent.replace(/\s+/g, ' ').trim();
+            var cs = window.getComputedStyle(el);
+            var lh = parseFloat(cs.lineHeight);
+            if (!lh || isNaN(lh)) lh = parseFloat(cs.fontSize) * 1.6;
+            var maxH = lh * MAX_LINES + 1;
+
+            el.textContent = full;
+            if (el.scrollHeight <= maxH) return; // Already fits within 4 lines
+
+            var words = full.split(' ');
+            var expanded = false;
+
+            function makeToggle(label) {
+                var a = document.createElement('a');
+                a.href = '#';
+                a.className = 'room-clamp-toggle';
+                a.textContent = label;
+                a.addEventListener('click', onToggle);
+                return a;
+            }
+
+            function renderCollapsed(n) {
+                el.innerHTML = '';
+                el.appendChild(document.createTextNode(words.slice(0, n).join(' ') + '… '));
+                el.appendChild(makeToggle(MORE));
+            }
+
+            function renderExpanded() {
+                el.innerHTML = '';
+                el.appendChild(document.createTextNode(full + ' '));
+                el.appendChild(makeToggle(LESS));
+            }
+
+            // Largest word count that still fits within MAX_LINES (with the toggle present)
+            var lo = 1, hi = words.length, best = 1;
+            while (lo <= hi) {
+                var mid = (lo + hi) >> 1;
+                renderCollapsed(mid);
+                if (el.scrollHeight <= maxH) { best = mid; lo = mid + 1; }
+                else { hi = mid - 1; }
+            }
+
+            function onToggle(e) {
+                e.preventDefault();
+                var startH = el.offsetHeight;
+                expanded = !expanded;
+                if (expanded) renderExpanded(); else renderCollapsed(best);
+                var endH = el.offsetHeight;
+                el.style.height = startH + 'px';
+                void el.offsetHeight; // force reflow
+                el.style.transition = 'height 0.4s ease';
+                el.style.height = endH + 'px';
+                window.setTimeout(function () {
+                    el.style.height = '';
+                    el.style.transition = '';
+                }, 430);
+            }
+
+            renderCollapsed(best);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.js-room-clamp').forEach(setup);
+        });
+    })();
 </script>

@@ -43,21 +43,8 @@ $facility_blocks = get_field('facilities_blocks');
 </style>
 
 <section class="relative overflow-hidden bg-white" style="padding-top:5rem;padding-bottom:5rem">
-    <!-- Decorative Florals -->
-    <div class="absolute left-[-100px] top-4 w-[400px] pointer-events-none select-none hidden md:block">
-        <?php if (get_field('facilities_flower_left')): ?>
-            <img src="<?php echo esc_url(get_field('facilities_flower_left')); ?>" alt="" class="w-full h-auto">
-        <?php else: ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
-        <?php endif; ?>
-    </div>
-    <div class="absolute right-[-100px] top-4 w-[400px] pointer-events-none select-none scale-x-[-1] hidden md:block">
-        <?php if (get_field('facilities_flower_right')): ?>
-            <img src="<?php echo esc_url(get_field('facilities_flower_right')); ?>" alt="" class="w-full h-auto">
-        <?php else: ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
-        <?php endif; ?>
-    </div>
+    <!-- Decorative flower frame (shared helper) -->
+    <?php fohn_render_flowers(get_field('facilities_flower_left'), get_field('facilities_flower_right')); ?>
 
     <div class="container relative z-10 px-6 mx-auto">
         <!-- Intro Header -->

@@ -825,20 +825,8 @@ video {
   margin-bottom: 96px;
 }
 
-.mb-30 {
-  margin-bottom: 120px;
-}
-
-.mb-32 {
-  margin-bottom: 8rem;
-}
-
 .mb-4 {
   margin-bottom: 16px;
-}
-
-.mb-40 {
-  margin-bottom: 10rem;
 }
 
 .mb-5 {
@@ -881,20 +869,16 @@ video {
   margin-top: 48px;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .mt-2 {
   margin-top: 8px;
 }
 
 .mt-20 {
   margin-top: 5rem;
-}
-
-.mt-24 {
-  margin-top: 96px;
-}
-
-.mt-32 {
-  margin-top: 8rem;
 }
 
 .mt-4 {
@@ -909,10 +893,6 @@ video {
   margin-top: auto;
 }
 
-.mt-16 {
-  margin-top: 4rem;
-}
-
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -925,13 +905,6 @@ video {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
-}
-
-.line-clamp-4 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
 }
 
 .block {
@@ -1098,10 +1071,6 @@ video {
   min-height: 400px;
 }
 
-.min-h-\[60px\] {
-  min-height: 60px;
-}
-
 .min-h-\[700px\] {
   min-height: 700px;
 }
@@ -1188,10 +1157,6 @@ video {
 
 .w-96 {
   width: 24rem;
-}
-
-.w-\[100px\] {
-  width: 100px;
 }
 
 .w-\[150px\] {
@@ -1292,6 +1257,10 @@ video {
 
 .flex-shrink-0 {
   flex-shrink: 0;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
 }
 
 .shrink-0 {
@@ -1518,10 +1487,6 @@ video {
 
 .gap-y-12 {
   row-gap: 48px;
-}
-
-.gap-y-24 {
-  row-gap: 96px;
 }
 
 .gap-y-4 {
@@ -1986,11 +1951,6 @@ video {
   padding-bottom: 16px;
 }
 
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
 .py-6 {
   padding-top: 24px;
   padding-bottom: 24px;
@@ -2027,10 +1987,6 @@ video {
 
 .pb-4 {
   padding-bottom: 16px;
-}
-
-.pb-6 {
-  padding-bottom: 24px;
 }
 
 .pb-8 {
@@ -2912,10 +2868,6 @@ video {
     margin-bottom: 0;
   }
 
-  .md\:mb-32 {
-    margin-bottom: 8rem;
-  }
-
   .md\:ml-\[130px\] {
     margin-left: 130px;
   }
@@ -3010,24 +2962,13 @@ video {
          column-gap: 32px;
   }
 
+  .md\:p-10 {
+    padding: 40px;
+  }
+
   .md\:px-0 {
     padding-left: 0;
     padding-right: 0;
-  }
-
-  .md\:px-10 {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  .md\:py-3 {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-  }
-
-  .md\:py-40 {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
   }
 
   .md\:pb-40 {
@@ -3345,10 +3286,6 @@ video {
   .lg\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-  }
-
-  .lg\:p-10 {
-    padding: 40px;
   }
 
   .lg\:p-20 {

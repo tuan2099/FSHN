@@ -15,22 +15,8 @@ $dining_outlets = get_field('dining_outlets');
 ?>
 
 <section class="relative overflow-hidden bg-white" style="padding-top:5rem;padding-bottom:5rem">
-    <!-- Decorative Florals (Matching Screenshot) -->
-    <div class="absolute left-[-50px] top-4 w-[350px] pointer-events-none select-none z-0 hidden md:block">
-        <?php if (get_field('dining_flower_left')): ?>
-            <img src="<?php echo esc_url(get_field('dining_flower_left')); ?>" alt="" class="w-full h-auto">
-        <?php else: ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
-        <?php endif; ?>
-    </div>
-    <div
-        class="absolute right-[-50px] top-4 w-[350px] pointer-events-none select-none z-0 scale-x-[-1] hidden md:block">
-        <?php if (get_field('dining_flower_right')): ?>
-            <img src="<?php echo esc_url(get_field('dining_flower_right')); ?>" alt="" class="w-full h-auto">
-        <?php else: ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
-        <?php endif; ?>
-    </div>
+    <!-- Decorative flower frame (shared helper) -->
+    <?php fohn_render_flowers(get_field('dining_flower_left'), get_field('dining_flower_right')); ?>
 
     <div class="container relative z-10 mx-auto px-6 max-w-[1040px] mb-12">
         <!-- Intro Header (New Section from Screenshot) -->
@@ -125,12 +111,15 @@ $dining_outlets = get_field('dining_outlets');
     <div class="dining-outlets-list">
         <?php if ($dining_outlets): ?>
             <?php $counter = 0;
+            $outlet_sliders = array();
             foreach ($dining_outlets as $outlet):
                 $is_even = ($counter % 2 == 0);
                 $name = $outlet['name'];
                 $subtitle = $outlet['subtitle'];
                 $desc = $outlet['description'];
                 $image = $outlet['image'];
+                $gallery = $outlet['gallery'];
+                $images = !empty($gallery) ? $gallery : ($image ? array($image) : array());
                 $book_link = $outlet['book_link'] ?: '#';
                 $menu_link = $outlet['menu_link'] ?: '#';
                 ?>
@@ -138,23 +127,23 @@ $dining_outlets = get_field('dining_outlets');
                     <div class="flex flex-col <?php echo $is_even ? 'md:flex-row' : 'md:flex-row-reverse'; ?> items-center">
                         <div class="w-full mb-12 md:w-1/2 md:mb-0">
                             <div class="<?php echo $is_even ? 'pr-0 md:pr-12' : 'pl-0 md:pl-12'; ?>">
-                                <h3 class="mb-4 font-serif text-3xl uppercase text-brand-blue">
+                                <h3 class="mb-4 font-serif text-3xl font-semibold uppercase text-brand-blue">
                                     <?php echo esc_html($name); ?>
                                 </h3>
-                                <p class="mb-12 font-serif text-xl italic text-brand-orange"><?php echo esc_html($subtitle); ?>
+                                <p class="mb-12 font-sans text-xl text-brand-orange"><?php echo esc_html($subtitle); ?>
                                 </p>
 
-                                <p class="mb-12 font-sans text-base leading-loose text-justify text-brand-black-700">
+                                <p class="mb-12 font-sans text-base text-justify text-brand-black-700">
                                     <?php echo nl2br(esc_html($desc)); ?>
                                 </p>
 
                                 <div class="flex gap-6">
                                     <a href="<?php echo esc_url($book_link); ?>"
-                                        class="px-8 py-2 text-[14px] font-bold text-white uppercase transition-all bg-brand-orange hover:bg-brand-blue">
+                                        class="px-8 py-2 text-[16px] font-serif font-bold text-white uppercase transition-all bg-brand-orange hover:bg-brand-blue">
                                         <?php pll_e('Book Now'); ?>
                                     </a>
                                     <a href="<?php echo esc_url($menu_link); ?>" target="_blank"
-                                        class="px-8 py-2 text-[14px] font-bold uppercase transition-all border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white">
+                                        class="px-8 py-2 text-[16px] font-serif font-bold uppercase transition-all border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white">
                                         <?php pll_e('Menu'); ?>
                                     </a>
                                 </div>
@@ -162,16 +151,54 @@ $dining_outlets = get_field('dining_outlets');
                         </div>
 
                         <div class="w-full md:w-1/2">
-                            <div class="relative aspect-[7/5] overflow-hidden shadow-2xl">
-                                <?php if ($image): ?>
-                                    <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($name); ?>"
+                            <?php if (count($images) > 1): ?>
+                                <?php $outlet_sliders[] = $counter; ?>
+                                <div class="relative outlet-slider-wrapper">
+                                    <div class="swiper outlet-swiper-<?php echo $counter; ?> aspect-[7/5] overflow-hidden shadow-2xl">
+                                        <div class="swiper-wrapper">
+                                            <?php foreach ($images as $g_url): ?>
+                                                <div class="swiper-slide">
+                                                    <div class="relative w-full h-full overflow-hidden group">
+                                                        <img src="<?php echo esc_url($g_url); ?>" alt="<?php echo esc_attr($name); ?>"
+                                                            class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="outlet-prev-<?php echo $counter; ?> absolute z-30 flex items-center justify-center w-10 h-10 transition-all -translate-y-1/2 border rounded-full left-4 top-1/2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white"
+                                        style="background:rgba(255,255,255,0.85)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="m15 18-6-6 6-6" />
+                                        </svg>
+                                    </button>
+                                    <button
+                                        class="outlet-next-<?php echo $counter; ?> absolute z-30 flex items-center justify-center w-10 h-10 transition-all -translate-y-1/2 border rounded-full right-4 top-1/2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white"
+                                        style="background:rgba(255,255,255,0.85)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="m9 18 6-6-6-6" />
+                                        </svg>
+                                    </button>
+                                    <div
+                                        class="outlet-pagination-<?php echo $counter; ?> absolute z-30 px-3 py-1 text-xs font-bold tracking-widest text-white rounded-full right-4 font-sans"
+                                        style="bottom:12px;background:rgba(0,0,0,0.45)">
+                                    </div>
+                                </div>
+                            <?php elseif (count($images) === 1): ?>
+                                <div class="relative aspect-[7/5] overflow-hidden shadow-2xl">
+                                    <img src="<?php echo esc_url($images[0]); ?>" alt="<?php echo esc_attr($name); ?>"
                                         class="object-cover w-full h-full">
-                                <?php else: ?>
+                                </div>
+                            <?php else: ?>
+                                <div class="relative aspect-[7/5] overflow-hidden shadow-2xl">
                                     <div
                                         class="flex items-center justify-center w-full h-full italic bg-brand-black-100 text-brand-black-300">
                                         <?php pll_e('No Image'); ?></div>
-                                <?php endif; ?>
-                            </div>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -193,6 +220,28 @@ $dining_outlets = get_field('dining_outlets');
                 prevEl: '.dining-prev',
             }
         });
+
+        <?php if (!empty($outlet_sliders)): ?>
+            <?php foreach ($outlet_sliders as $idx): ?>
+                new Swiper('.outlet-swiper-<?php echo $idx; ?>', {
+                    loop: true,
+                    speed: 800,
+                    navigation: {
+                        nextEl: '.outlet-next-<?php echo $idx; ?>',
+                        prevEl: '.outlet-prev-<?php echo $idx; ?>',
+                    },
+                    pagination: {
+                        el: '.outlet-pagination-<?php echo $idx; ?>',
+                        type: 'fraction',
+                        renderFraction: function (currentClass, totalClass) {
+                            return '<span class="' + currentClass + '"></span>' +
+                                ' / ' +
+                                '<span class="' + totalClass + '"></span>';
+                        }
+                    }
+                });
+            <?php endforeach; ?>
+        <?php endif; ?>
     });
 </script>
 

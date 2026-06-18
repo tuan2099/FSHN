@@ -32,10 +32,12 @@ $button_link = get_field('offers_button_link') ?: '#';
                         foreach ($offers as $offer):
                             $offer_title = $offer['title'];
                             $offer_image = $offer['image'];
+                            $offer_link = !empty($offer['link']) ? $offer['link'] : $button_link;
                             ?>
                             <div class="swiper-slide !h-auto transition-all duration-700 opacity-20 scale-[0.7]"
                                 data-aos="zoom-in" data-aos-delay="<?php echo $i * 100; ?>">
-                                <div class="relative aspect-square rounded-none overflow-hidden group shadow-xl">
+                                <a href="<?php echo esc_url($offer_link); ?>"
+                                    class="relative block aspect-square rounded-none overflow-hidden group shadow-xl">
                                     <?php if ($offer_image): ?>
                                         <img src="<?php echo esc_url($offer_image); ?>"
                                             alt="<?php echo esc_attr(wp_strip_all_tags($offer_title)); ?>"
@@ -49,19 +51,7 @@ $button_link = get_field('offers_button_link') ?: '#';
                                     <!-- Overlay -->
                                     <div class="offer-overlay absolute inset-0 transition-colors duration-500">
                                     </div>
-
-                                    <!-- Content -->
-                                    <div
-                                        class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 text-white z-10">
-                                        <span class="text-xs italic font-serif mb-4 opacity-90 ">
-                                            <?php echo sprintf('%02d', $i); ?>
-                                        </span>
-                                        <h3
-                                            class="text-lg md:text-xl font-serif font-semibold uppercase  leading-snug max-w-[250px]">
-                                            <?php echo nl2br(esc_html($offer_title)); ?>
-                                        </h3>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                             <?php $i++; endforeach; ?>
                     <?php else: ?>

@@ -60,7 +60,7 @@ $residences_query = new WP_Query([
     /* Reserve 2 lines for the title so 1-line and 2-line titles stay aligned
        (no text is cut off — longer titles simply grow). */
     .rooms-suites-section .room-card-title {
-        min-height: 3.5rem;
+        min-height: 4rem;
     }
 
     /* Limit description to exactly 3 lines so the "View more" link lines up
@@ -170,7 +170,7 @@ $residences_query = new WP_Query([
                                         <div class="flex flex-col flex-grow">
                                             <span
                                                 class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="mb-2 font-serif text-[16px] font-semibold uppercase room-card-title tracking-wider">
+                                            <h3 class="mb-2 font-serif text-2xl font-semibold uppercase room-card-title tracking-wider">
                                                 <a href="<?php the_permalink(); ?>"
                                                     class="transition-colors text-brand-blue hover:text-brand-orange">
                                                     <?php the_title(); ?>
@@ -246,7 +246,7 @@ $residences_query = new WP_Query([
                                         <div class="flex flex-col flex-grow">
                                             <span
                                                 class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="mb-2 font-serif text-[16px] font-semibold uppercase room-card-title tracking-wider">
+                                            <h3 class="mb-2 font-serif text-2xl font-semibold uppercase room-card-title tracking-wider">
                                                 <a href="<?php the_permalink(); ?>"
                                                     class="transition-colors text-brand-blue hover:text-brand-orange">
                                                     <?php the_title(); ?>

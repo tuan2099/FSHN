@@ -10,21 +10,8 @@ $features_list = get_field('features_list');
 ?>
 
 <section class="features-section relative bg-[#FBF9F6] overflow-hidden" style="padding-top:5rem;padding-bottom:5rem">
-    <!-- Decorative Florals (Matching Other Templates) -->
-    <div class="absolute left-[-50px] top-4 md:top-20 w-[350px] pointer-events-none select-none z-0 hidden md:block">
-        <?php if (get_field('features_flower_left')): ?>
-            <img src="<?php echo esc_url(get_field('features_flower_left')); ?>" alt="" class="w-full h-auto">
-        <?php else: ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
-        <?php endif; ?>
-    </div>
-    <div class="absolute right-[-50px] top-4 md:top-20 w-[350px] pointer-events-none select-none z-0 scale-x-[-1] hidden md:block">
-        <?php if (get_field('features_flower_right')): ?>
-            <img src="<?php echo esc_url(get_field('features_flower_right')); ?>" alt="" class="w-full h-auto">
-        <?php else: ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lotus-bg.png" alt="" class="w-full h-auto">
-        <?php endif; ?>
-    </div>
+    <!-- Decorative flower frame (shared helper) -->
+    <?php fohn_render_flowers(get_field('features_flower_left'), get_field('features_flower_right')); ?>
     <!-- Intro Header -->
     <div class="container px-6 mx-auto mb-16 text-center">
         <h2 class="text-brand-blue font-serif text-[40px] font-semibold  tracking-[0.1em] uppercase mb-6">

@@ -116,7 +116,7 @@ $apt_query = new WP_Query(array(
                 while ($apt_query->have_posts()):
                     $apt_query->the_post();
                     $gallery = get_field('room_gallery');
-                    $description = get_field('room_description');
+                    $description = get_the_excerpt();
                     $size = get_field('room_size');
                     $occupancy = get_field('room_occupancy');
                     $view = get_field('room_view');
@@ -171,7 +171,7 @@ $apt_query = new WP_Query(array(
                             </h3>
                             <div class="w-16 h-px mx-auto mb-8 opacity-50 bg-brand-orange"></div>
 
-                            <p class="js-room-clamp text-brand-black-600 font-sans text-sm leading-relaxed mb-10 max-w-[470px] mx-auto opacity-80 text-left md:text-center"
+                            <p class="js-room-clamp text-brand-black-600 font-sans text-sm leading-relaxed mb-10 max-w-[500px] mx-auto opacity-80 text-justify md:text-justify"
                                 style="font-weight: 200">
                                 <?php echo esc_html($description); ?>
                             </p>
@@ -201,7 +201,7 @@ $apt_query = new WP_Query(array(
                                 </div>
 
                                 <!-- Bottom Row (3 items) -->
-                                <div class="flex flex-wrap justify-center gap-x-8 md:gap-x-16 gap-y-4 max-w-[470px] w-full mx-auto">
+                                <div class="flex flex-wrap justify-center gap-x-8 md:gap-x-16 gap-y-4 max-w-[500px] w-full mx-auto">
                                     <!-- View -->
                                     <div class="flex items-center gap-3">
                                         <div class="flex-shrink-0">

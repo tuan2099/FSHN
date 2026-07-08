@@ -12,13 +12,13 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <header id="masthead" class="site-header fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 lg:py-8">
-        <div class="container mx-auto px-6 flex justify-between items-start">
+    <header id="masthead" class="fixed top-0 left-0 z-50 w-full py-6 transition-all duration-500 site-header lg:py-8">
+        <div class="container flex items-start justify-between px-6 mx-auto">
             <!-- Left: Hamburger Menu -->
-            <div class="header-left flex-1">
+            <div class="flex-1 header-left">
                 <button
-                    class="menu-toggle text-white hover:text-brand-orange transition-colors focus:outline-none group">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-10 md:w-10" fill="none"
+                    class="text-white transition-colors menu-toggle hover:text-brand-orange focus:outline-none group">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:h-10 md:w-10" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -26,15 +26,15 @@
             </div>
 
             <!-- Center: Logo -->
-            <div class="header-center flex-1 flex justify-center">
+            <div class="flex justify-center flex-1 header-center">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="site-logo">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Lègacy Logo_white 2.png"
-                        alt="<?php bloginfo('name'); ?>" class="h-16 md:h-40 w-auto">
+                        alt="<?php bloginfo('name'); ?>" class="w-auto h-16 md:h-40">
                 </a>
             </div>
 
             <!-- Right: Action Button -->
-            <div class="header-right flex-1 flex justify-end">
+            <div class="flex justify-end flex-1 header-right">
                 <a href="https://fohn.backhotelite.com/en/"
                     class="hidden md:inline-block bg-brand-orange font-serif text-white px-8 py-2  text-[10px] md:text-[16px] font-bold uppercase hover:bg-white hover:text-brand-blue transition-all shadow-xl">
                     <?php pll_e('BOOK A STAY'); ?>
@@ -46,15 +46,15 @@
     <!-- Off-canvas Menu Overlay -->
     <div id="side-menu" class="fixed inset-0 z-[100] invisible pointer-events-none transition-all duration-500">
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-brand-black-900/50 opacity-0 transition-opacity duration-500 menu-backdrop">
+        <div class="absolute inset-0 transition-opacity duration-500 opacity-0 bg-brand-black-900/50 menu-backdrop">
         </div>
 
         <!-- Menu Content -->
         <div
             class="absolute top-0 left-0 h-full w-full md:w-1/3 bg-white translate-x-[-100%] transition-transform duration-500 shadow-2xl p-12 lg:p-20 flex flex-col menu-content">
             <!-- Close Button -->
-            <button class="menu-close absolute top-8 right-8 text-brand-blue hover:text-brand-orange transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+            <button class="absolute transition-colors menu-close top-8 right-8 text-brand-blue hover:text-brand-orange">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -71,25 +71,25 @@
                     )); ?>
                 <?php else: ?>
                     <!-- Fallback if no menu is assigned -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8 mb-20">
+                    <div class="grid grid-cols-1 mb-20 md:grid-cols-2 gap-y-12 gap-x-8">
                         <a href="#"
-                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Hotels'); ?></a>
+                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Hotels'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Dining'); ?></a>
+                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Dining'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Residences'); ?></a>
+                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Residences'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Yên Spa & Wellness'); ?></a>
+                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Yên Spa & Wellness'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Offers'); ?></a>
+                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Offers'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Facilities'); ?></a>
+                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Facilities'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Features'); ?></a>
+                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Features'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Gallery'); ?></a>
+                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Gallery'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold text-brand-blue uppercase tracking-widest hover:text-brand-orange transition-colors"><?php pll_e('Contact Us'); ?></a>
+                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Contact Us'); ?></a>
                     </div>
                 <?php endif; ?>
 
@@ -97,10 +97,19 @@
                 <?php if (function_exists('pll_the_languages')) :
                     $fohn_langs = pll_the_languages(array('raw' => 1, 'hide_if_no_translation' => 0));
                     if (!empty($fohn_langs)) : ?>
-                    <div class="text-sm font-serif font-bold uppercase tracking-widest flex items-center gap-2">
+                    <div class="flex items-center gap-2 font-serif text-sm font-bold tracking-widest uppercase">
                         <?php
                         $fohn_lang_items = array();
                         foreach ($fohn_langs as $fohn_lang) {
+                            // Hide the in-development language from the public switcher
+                            // (editors/admins still see it to preview).
+                            if (
+                                defined('FOHN_DEV_LANG') && FOHN_DEV_LANG
+                                && isset($fohn_lang['slug']) && $fohn_lang['slug'] === FOHN_DEV_LANG
+                                && function_exists('fohn_can_view_dev_lang') && !fohn_can_view_dev_lang()
+                            ) {
+                                continue;
+                            }
                             $fohn_is_active = !empty($fohn_lang['current_lang']);
                             $fohn_lang_class = $fohn_is_active
                                 ? 'text-brand-blue'
@@ -117,7 +126,7 @@
             <!-- Footer Info -->
             <div class="pt-12 border-t border-brand-black-100">
                 <h4 class="text-[16px] font-bold text-brand-blue uppercase mb-4 font-serif">LÈGACY HANOI - A FUSION ORIGINAL</h4>
-                <p class="text-[10px] text-brand-black-400 font-medium tracking-widest"><?php pll_e('345 Doi Can, Ngoc Ha Ward, Hanoi City'); ?></p>
+                <p class="text-[10px] text-brand-black-400 font-medium tracking-widest"><?php pll_e('349 Doi Can, Ngoc Ha Ward, Hanoi City'); ?></p>
             </div>
         </div>
     </div>

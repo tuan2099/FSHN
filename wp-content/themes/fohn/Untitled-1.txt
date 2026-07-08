@@ -1,0 +1,11 @@
+
+# BỎ QUA login + admin (có /hanoi)
+RewriteCond %{REQUEST_URI} !^/hanoi/wp-login\.php$
+RewriteCond %{REQUEST_URI} !^/hanoi/wp-admin
+RewriteCond %{REQUEST_URI} !^/hanoi/wp-admin/admin-ajax\.php$
+
+# Nếu chưa login WordPress
+RewriteCond %{HTTP_COOKIE} !wordpress_logged_in_ [NC]
+
+# Redirect
+RewriteRule ^(.*)$ https://fusionhotelgroup.com/$1 [R=302,L]

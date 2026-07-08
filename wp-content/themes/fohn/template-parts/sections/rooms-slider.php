@@ -111,7 +111,7 @@ $residences_query = new WP_Query([
             <button
                 class="pb-4 font-serif text-2xl font-normal uppercase transition-all duration-300 border-b-2 border-transparent room-tab-trigger text-brand-black-400"
                 data-target="residences">
-                <span class="tab-label-inactive"><?php pll_e('APARTMENT')?></span>
+                <span class="tab-label-inactive"><?php pll_e('APARTMENTS')?></span>
             </button>
         </div>
 
@@ -168,17 +168,15 @@ $residences_query = new WP_Query([
                                         </div>
                                         <!-- Room Info -->
                                         <div class="flex flex-col flex-grow">
-                                            <span
-                                                class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="mb-2 font-serif text-2xl font-semibold uppercase room-card-title tracking-wider">
+                                            <h3 class="mb-2 font-serif text-2xl font-semibold tracking-wider uppercase room-card-title">
                                                 <a href="<?php the_permalink(); ?>"
                                                     class="transition-colors text-brand-blue hover:text-brand-orange">
                                                     <?php the_title(); ?>
                                                 </a>
                                             </h3>
-                                            <p class="room-desc text-brand-black-900 text-[13px] leading-relaxed font-[300] mt-0 mb-8">
+                                            <p class="room-desc text-justify text-brand-black-900 text-[13px] leading-relaxed font-[300] mt-0 mb-8">
                                                 <?php echo esc_html(get_the_excerpt()); ?><a href="<?php the_permalink(); ?>"
-                                                    class="font-serif font-semibold transition-colors room-desc__more text-brand-orange hover:text-brand-blue"><?php pll_e('more'); ?></a>
+                                                    class="font-serif transition-colors room-desc__more text-brand-orange hover:text-brand-blue"><?php pll_e('more'); ?></a>
                                             </p>
                                             <div class="flex items-center justify-center gap-3 mt-auto">
                                                 <a href="https://fohn.backhotelite.com/en/"
@@ -244,17 +242,15 @@ $residences_query = new WP_Query([
                                         </div>
                                         <!-- Room Info -->
                                         <div class="flex flex-col flex-grow">
-                                            <span
-                                                class="text-[10px] italic text-brand-black-400 mb-2 font-serif opacity-80"><?php echo esc_html($size); ?></span>
-                                            <h3 class="mb-2 font-serif text-2xl font-semibold uppercase room-card-title tracking-wider">
+                                            <h3 class="mb-2 font-serif text-2xl font-semibold tracking-wider uppercase room-card-title">
                                                 <a href="<?php the_permalink(); ?>"
                                                     class="transition-colors text-brand-blue hover:text-brand-orange">
                                                     <?php the_title(); ?>
                                                 </a>
                                             </h3>
-                                            <p class="room-desc text-brand-black-900 text-[13px] leading-relaxed font-[300] mb-8">
+                                            <p class="room-desc text-justify text-brand-black-900 text-[13px] leading-relaxed font-[300] mb-8">
                                                 <?php echo esc_html(get_the_excerpt()); ?><a href="<?php the_permalink(); ?>"
-                                                    class="font-serif font-semibold transition-colors room-desc__more text-brand-orange hover:text-brand-blue"><?php pll_e('more'); ?></a>
+                                                    class="font-serif transition-colors room-desc__more text-brand-orange hover:text-brand-blue"><?php pll_e('more'); ?></a>
                                             </p>
                                             <div class="flex items-center justify-center gap-3 mt-auto">
                                                 <a href="https://fohn.backhotelite.com/en/"

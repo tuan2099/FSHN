@@ -16,22 +16,22 @@ $gallery_items = get_field('gallery_items');
     <div class="container relative z-10 mx-auto px-6 max-w-[1040px]">
         <!-- Intro Header -->
         <div class="text-center mb-18">
-            <h2 class="text-brand-blue font-serif text-[40px] font-semibold mb-6 uppercase">
+            <h2 class="text-brand-blue font-serif text-[40px] tracking-wide font-semibold mb-6 uppercase">
                 <?php echo esc_html($intro_title); ?>
             </h2>
             <div class="w-[250px] h-px mx-auto mb-4 bg-brand-orange"></div>
             <?php if ($intro_subtitle): ?>
-                <p class="mb-8 font-serif text-xl italic text-brand-blue">
+                <p class="mb-8 font-serif text-xl tracking-wide text-brand-blue">
                     <?php echo esc_html($intro_subtitle); ?>
                 </p>
             <?php endif; ?>
             
             <?php if ($intro_desc): ?>
-                <p class="mx-auto mb-8 font-sans leading-relaxed text-brand-black-700 text-md">
+                <p class="mx-auto mb-8 font-sans leading-relaxed text-justify text-brand-black-700 text-md">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php else: ?>
-                <p class="mx-auto mb-8 font-sans leading-relaxed text-brand-black-700 text-md">
+                <p class="mx-auto mb-8 font-sans leading-relaxed text-justify text-brand-black-700 text-md">
                     Discover a collection of exclusive offers designed to elevate your stay at LÈGACY - A Fusion Original
                     Hanoi. Inspired by Hanoi’s heritage, the hotel’s design unfolds through the lobby, corridors, elevators,
                     and custom furnishings, drawing from the flowing Red River and the timeless beauty of the lotus. From

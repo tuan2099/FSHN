@@ -6,7 +6,7 @@
 <!-- Mobile Sticky Trigger -->
     <button id="mobile-booking-trigger"
         class="fixed bottom-0 left-0 w-full z-[90] bg-brand-orange text-white py-4 text-sm font-bold uppercase lg:hidden shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
-        <?php pll_e('Check Availability'); ?>
+        <?php pll_e('CHECK RATES'); ?>
     </button>
 
     <div id="booking-form-wrapper"
@@ -104,14 +104,14 @@
                     class="flex flex-col justify-center flex-1 p-5 border lg:border-0 lg:border-r border-brand-black-200 lg:border-brand-black-100 lg:p-4 rounded-xl lg:rounded-none">
                     <input type="text" id="promocode-input" name="codpromo"
                         class="promocode-input w-full bg-transparent text-[14px] lg:text-[11px] text-brand-black-500 font-medium focus:outline-none"
-                        placeholder="<?php echo esc_attr(pll__('Promocode')); ?>" autocomplete="off">
+                        placeholder="<?php echo esc_attr(pll__('Promo code')); ?>" autocomplete="off">
                 </div>
 
                 <!-- Action -->
                 <div class="flex-1 mt-4 lg:flex-none lg:mt-0">
                     <button type="submit"
-                        class="check-availability-btn w-full h-full font-serif bg-brand-orange text-white px-10 py-3 text-[14px] lg:text-[13px] font-bold hover:bg-brand-blue transition-all rounded-xl lg:rounded-none">
-                        <?php pll_e('Check Availability'); ?>
+                        class="check-availability-btn w-full h-full font-serif tracking-wide bg-brand-orange text-white px-10 py-3 text-[14px] lg:text-[13px] font-semibold hover:bg-brand-blue transition-all rounded-xl lg:rounded-none">
+                        <?php pll_e('CHECK RATES'); ?>
                     </button>
                 </div>
 

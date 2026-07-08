@@ -7,6 +7,80 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+/**
+ * ---------------------------------------------------------------------------
+ * Language "gate": launch one language publicly while another is still being
+ * built. English (en) is live for everyone; Vietnamese (vi) is in development
+ * and only visible to logged-in editors/admins.
+ *
+ * To take Vietnamese live later: set FOHN_DEV_LANG to '' (or remove this block
+ * and the guard in header.php). Verify the slugs in WP Admin > Languages.
+ * ---------------------------------------------------------------------------
+ */
+if (!defined('FOHN_DEV_LANG')) {
+    define('FOHN_DEV_LANG', 'vi'); // language still under development (gated)
+}
+if (!defined('FOHN_LIVE_LANG')) {
+    define('FOHN_LIVE_LANG', 'en'); // public / live language
+}
+
+if (!function_exists('fohn_can_view_dev_lang')) {
+    /**
+     * Who may preview the in-development language.
+     * Logged-in users who can edit content (administrators + editors).
+     * Tighten to current_user_can('manage_options') for administrators only.
+     */
+    function fohn_can_view_dev_lang()
+    {
+        return is_user_logged_in() && current_user_can('edit_posts');
+    }
+}
+
+/**
+ * Redirect public visitors away from the in-development language.
+ * Runs on the front-end main query only (not admin/REST/AJAX/cron).
+ */
+add_action('template_redirect', function () {
+    if (is_admin() || !FOHN_DEV_LANG || !function_exists('pll_current_language')) {
+        return;
+    }
+    if (fohn_can_view_dev_lang()) {
+        return; // editors preview the dev language freely
+    }
+    if (pll_current_language() !== FOHN_DEV_LANG) {
+        return; // only gate the dev language
+    }
+
+    // Resolve the same content in the live language, else fall back to home.
+    $target = '';
+    $qid = get_queried_object_id();
+
+    if ($qid && function_exists('pll_get_post')) {
+        $tr = pll_get_post($qid, FOHN_LIVE_LANG);
+        if ($tr) {
+            $target = get_permalink($tr);
+        }
+    }
+    if (!$target && $qid && function_exists('pll_get_term')) {
+        $tr = pll_get_term($qid, FOHN_LIVE_LANG);
+        if ($tr) {
+            $term_link = get_term_link((int) $tr);
+            if (!is_wp_error($term_link)) {
+                $target = $term_link;
+            }
+        }
+    }
+    if (!$target && function_exists('pll_home_url')) {
+        $target = pll_home_url(FOHN_LIVE_LANG);
+    }
+
+    if ($target && !is_wp_error($target)) {
+        // 302 (temporary) so the future VI URLs are not permanently dropped by search engines.
+        wp_safe_redirect($target, 302);
+        exit;
+    }
+});
+
 if (!function_exists('pll_e')) {
     function pll_e($string) {
         echo esc_html($string);

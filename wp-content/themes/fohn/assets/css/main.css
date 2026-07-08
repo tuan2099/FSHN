@@ -676,14 +676,6 @@ video {
   left: 24px;
 }
 
-.left-\[-100px\] {
-  left: -100px;
-}
-
-.left-\[-50px\] {
-  left: -50px;
-}
-
 .left-\[-60px\] {
   left: -60px;
 }
@@ -704,14 +696,6 @@ video {
   right: 32px;
 }
 
-.right-\[-100px\] {
-  right: -100px;
-}
-
-.right-\[-50px\] {
-  right: -50px;
-}
-
 .right-\[-60px\] {
   right: -60px;
 }
@@ -726,10 +710,6 @@ video {
 
 .top-32 {
   top: 8rem;
-}
-
-.top-4 {
-  top: 16px;
 }
 
 .top-5 {
@@ -891,6 +871,10 @@ video {
 
 .mt-auto {
   margin-top: auto;
+}
+
+.mt-8 {
+  margin-top: 32px;
 }
 
 .line-clamp-2 {
@@ -1167,14 +1151,6 @@ video {
   width: 250px;
 }
 
-.w-\[350px\] {
-  width: 350px;
-}
-
-.w-\[400px\] {
-  width: 400px;
-}
-
 .w-auto {
   width: auto;
 }
@@ -1255,12 +1231,12 @@ video {
   flex: 1 1 0%;
 }
 
-.flex-shrink-0 {
-  flex-shrink: 0;
-}
-
 .flex-shrink {
   flex-shrink: 1;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
 }
 
 .shrink-0 {
@@ -1323,11 +1299,6 @@ video {
 .scale-\[0\.7\] {
   --tw-scale-x: 0.7;
   --tw-scale-y: 0.7;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.scale-x-\[-1\] {
-  --tw-scale-x: -1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1471,11 +1442,6 @@ video {
        column-gap: 16px;
 }
 
-.gap-x-6 {
-  -moz-column-gap: 24px;
-       column-gap: 24px;
-}
-
 .gap-x-8 {
   -moz-column-gap: 32px;
        column-gap: 32px;
@@ -1543,6 +1509,12 @@ video {
 
 .overflow-visible {
   overflow: visible;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .text-ellipsis {
@@ -2230,6 +2202,10 @@ video {
   letter-spacing: 2px;
 }
 
+.tracking-normal {
+  letter-spacing: 0em;
+}
+
 .tracking-tight {
   letter-spacing: -0.025em;
 }
@@ -2328,10 +2304,6 @@ video {
 
 .opacity-100 {
   opacity: 1;
-}
-
-.opacity-15 {
-  opacity: 0.15;
 }
 
 .opacity-20 {
@@ -2860,10 +2832,6 @@ video {
     right: 40px;
   }
 
-  .md\:top-20 {
-    top: 5rem;
-  }
-
   .md\:mb-0 {
     margin-bottom: 0;
   }
@@ -2955,16 +2923,6 @@ video {
   .md\:gap-x-16 {
     -moz-column-gap: 4rem;
          column-gap: 4rem;
-  }
-
-  .md\:gap-x-8 {
-    -moz-column-gap: 32px;
-         column-gap: 32px;
-  }
-
-  .md\:gap-x-12 {
-    -moz-column-gap: 48px;
-         column-gap: 48px;
   }
 
   .md\:p-10 {

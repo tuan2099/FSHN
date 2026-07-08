@@ -6,8 +6,8 @@
 // Heritage Section Fields
 $heritage_title = get_field('heritage_title') ?: 'WHERE HERITAGE <br> MEETS ORIGINALITY';
 $heritage_desc = get_field('heritage_desc');
-$heritage_btn1_link = get_field('heritage_btn1_link') ?: '#';
-$heritage_btn2_link = get_field('heritage_btn2_link') ?: '#';
+$heritage_btn1_link = get_field('heritage_btn1_link');
+$heritage_btn2_link = get_field('heritage_btn2_link');
 $heritage_flower_left = get_field('heritage_flower_left');
 $heritage_flower_right = get_field('heritage_flower_right');
 
@@ -42,16 +42,22 @@ $acc_desc = get_field('acc_desc');
             <div class="mx-auto mb-12 text-sm leading-relaxed text-justify text-brand-black-700 md:text-base">
                 <?php echo wp_kses_post($heritage_desc); ?>
             </div>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="<?php echo esc_url($heritage_btn1_link); ?>"
-                    class="px-10 py-3 font-serif text-xs font-bold text-white uppercase transition-all shadow-lg bg-brand-orange hover:bg-brand-blue">
-                    <?php pll_e('BOOK A STAY'); ?>
-                </a>
-                <a href="<?php echo esc_url($heritage_btn2_link); ?>"
-                    class="px-10 py-3 font-serif text-xs font-bold text-white uppercase transition-all shadow-lg bg-brand-orange hover:bg-brand-blue">
-                    <?php pll_e('SUSTAINABILITY'); ?>
-                </a>
-            </div>
+            <?php if ($heritage_btn1_link || $heritage_btn2_link): ?>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <?php if ($heritage_btn1_link): ?>
+                        <a href="<?php echo esc_url($heritage_btn1_link); ?>"
+                            class="px-10 py-3 font-serif text-xs font-bold text-white uppercase transition-all shadow-lg bg-brand-orange hover:bg-brand-blue">
+                            <?php pll_e('BOOK A STAY'); ?>
+                        </a>
+                    <?php endif; ?>
+                    <?php if ($heritage_btn2_link): ?>
+                        <a href="<?php echo esc_url($heritage_btn2_link); ?>"
+                            class="px-10 py-3 font-serif text-xs font-bold text-white uppercase transition-all shadow-lg bg-brand-orange hover:bg-brand-blue">
+                            <?php pll_e('SUSTAINABILITY'); ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         </div>
 
         <!-- Bottom Accommodations Part -->

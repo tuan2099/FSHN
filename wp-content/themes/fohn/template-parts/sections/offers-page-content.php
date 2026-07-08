@@ -26,7 +26,7 @@ $offers_query = new WP_Query(array(
             <?php echo esc_html($intro_title); ?>
         </h2>
         <div class="w-[150px] h-px bg-[#FDB078] mx-auto mb-6"></div>
-        <p class="mb-4 font-serif text-xl italic font-semibold"><?php echo esc_html($intro_subtitle); ?>
+        <p class="mb-4 font-serif text-xl text-brand-blue"><?php echo esc_html($intro_subtitle); ?>
         </p>
         <?php if ($intro_desc): ?>
             <p class="mx-auto font-sans text-sm leading-loose text-brand-black-900 md:text-base">

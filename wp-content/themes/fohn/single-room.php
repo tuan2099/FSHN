@@ -33,86 +33,86 @@ while (have_posts()) :
     $images_url = get_template_directory_uri() . '/assets/images/';
 ?>
 
-    <main id="primary" class="site-main bg-white">
+    <main id="primary" class="bg-white site-main">
 
         <!-- Room Hero Section -->
         <section class="relative h-[60vh] lg:h-[70vh] flex items-center justify-center overflow-hidden">
             <?php if ($hero_image): ?>
-                <img src="<?php echo esc_url($hero_image); ?>" alt="<?php the_title(); ?>" class="absolute inset-0 w-full h-full object-cover">
+                <img src="<?php echo esc_url($hero_image); ?>" alt="<?php the_title(); ?>" class="absolute inset-0 object-cover w-full h-full">
             <?php endif; ?>
             <div class="absolute inset-0 bg-brand-blue/30"></div>
-            <div class="relative z-10 text-center text-white px-6" data-aos="fade-up">
-                <h1 class="text-4xl lg:text-7xl font-serif font-bold uppercase mb-4">
+            <div class="relative z-10 px-6 text-center text-white" data-aos="fade-up">
+                <h1 class="mb-4 font-serif text-4xl font-bold uppercase lg:text-7xl">
                     <?php the_title(); ?>
                 </h1>
-                <div class="w-24 h-1 bg-brand-orange mx-auto opacity-80"></div>
+                <div class="w-24 h-1 mx-auto bg-brand-orange opacity-80"></div>
             </div>
         </section>
 
-        <div class="container mx-auto px-6 py-20">
+        <div class="container px-6 py-20 mx-auto">
             <div class="">
 
                 <!-- Right Side: Sticky Info Card -->
                 <div class="">
-                    <div class="sticky top-32 bg-brand-black-50 rounded-3xl p-8 md:p-10 border border-brand-black-100" data-aos="fade-left">
-                        <h3 class="text-2xl font-serif font-bold text-brand-blue uppercase mb-8 border-b border-brand-black-200 pb-4">
+                    <div class="sticky p-8 border top-32 bg-brand-black-50 rounded-3xl md:p-10 border-brand-black-100" data-aos="fade-left">
+                        <h3 class="pb-4 mb-8 font-serif text-2xl font-bold uppercase border-b text-brand-blue border-brand-black-200">
                             <?php pll_e('Room Information'); ?>
                         </h3>
 
-                        <ul class="space-y-6 mb-10">
+                        <ul class="mb-10 space-y-6">
                             <?php if ($size): ?>
-                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
+                                <li class="flex items-center justify-between pb-4 border-b border-brand-black-100">
                                     <div class="flex items-center gap-3">
-                                        <img src="<?php echo $images_url; ?>bx_area.png" alt="Size" class="w-5 h-5 object-contain opacity-70">
-                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Size'); ?></span>
+                                        <img src="<?php echo $images_url; ?>bx_area.png" alt="Size" class="object-contain w-5 h-5 opacity-70">
+                                        <span class="text-xs font-bold uppercase text-brand-black-400"><?php pll_e('Size'); ?></span>
                                     </div>
-                                    <span class="text-xs  text-brand-blue"><?php echo esc_html($size); ?></span>
+                                    <span class="text-xs text-brand-blue"><?php echo esc_html($size); ?></span>
                                 </li>
                             <?php endif; ?>
                             
                             <?php if ($occupancy): ?>
-                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
+                                <li class="flex items-center justify-between pb-4 border-b border-brand-black-100">
                                     <div class="flex items-center gap-3">
-                                        <img src="<?php echo $images_url; ?>wordpress_people.png" alt="Occupancy" class="w-5 h-5 object-contain opacity-70">
-                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Occupancy'); ?></span>
+                                        <img src="<?php echo $images_url; ?>wordpress_people.png" alt="Occupancy" class="object-contain w-5 h-5 opacity-70">
+                                        <span class="text-xs font-bold uppercase text-brand-black-400"><?php pll_e('Occupancy'); ?></span>
                                     </div>
-                                    <div class="text-xs  text-brand-blue"><?php echo esc_html($occupancy); ?></div>
+                                    <div class="text-xs text-brand-blue"><?php echo esc_html($occupancy); ?></div>
                                 </li>
                             <?php endif; ?>
 
                             <?php if ($bed): ?>
-                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
+                                <li class="flex items-center justify-between pb-4 border-b border-brand-black-100">
                                     <div class="flex items-center gap-3">
-                                        <img src="<?php echo $images_url; ?>material-symbols_bed-outline.png" alt="Bed" class="w-5 h-5 object-contain opacity-70">
-                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Bed Type'); ?></span>
+                                        <img src="<?php echo $images_url; ?>material-symbols_bed-outline.png" alt="Bed" class="object-contain w-5 h-5 opacity-70">
+                                        <span class="text-xs font-bold uppercase text-brand-black-400"><?php pll_e('Bed Type'); ?></span>
                                     </div>
-                                    <span class="text-xs  text-brand-blue"><?php echo esc_html($bed); ?></span>
+                                    <span class="text-xs text-brand-blue"><?php echo esc_html($bed); ?></span>
                                 </li>
                             <?php endif; ?>
 
                             <?php if ($view): ?>
-                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
+                                <li class="flex items-center justify-between pb-4 border-b border-brand-black-100">
                                     <div class="flex items-center gap-3">
-                                        <img src="<?php echo $images_url; ?>Group.png" alt="View" class="w-5 h-5 object-contain opacity-70">
-                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('View'); ?></span>
+                                        <img src="<?php echo $images_url; ?>Group.png" alt="View" class="object-contain w-5 h-5 opacity-70">
+                                        <span class="text-xs font-bold uppercase text-brand-black-400"><?php pll_e('View'); ?></span>
                                     </div>
-                                    <span class="text-xs  text-brand-blue"><?php echo esc_html($view); ?></span>
+                                    <span class="text-xs text-brand-blue"><?php echo esc_html($view); ?></span>
                                 </li>
                             <?php endif; ?>
 
                             <?php if ($balcony): ?>
-                                <li class="flex justify-between items-center border-b border-brand-black-100 pb-4">
+                                <li class="flex items-center justify-between pb-4 border-b border-brand-black-100">
                                     <div class="flex items-center gap-3">
-                                        <img src="<?php echo $images_url; ?>cbi_rooms-balcony.png" alt="Balcony" class="w-5 h-5 object-contain opacity-70">
-                                        <span class="text-xs font-bold text-brand-black-400 uppercase"><?php pll_e('Balcony'); ?></span>
+                                        <img src="<?php echo $images_url; ?>cbi_rooms-balcony.png" alt="Balcony" class="object-contain w-5 h-5 opacity-70">
+                                        <span class="text-xs font-bold uppercase text-brand-black-400"><?php pll_e('Balcony'); ?></span>
                                     </div>
-                                    <span class="text-xs  text-brand-blue"><?php echo esc_html($balcony); ?></span>
+                                    <span class="text-xs text-brand-blue"><?php echo esc_html($balcony); ?></span>
                                 </li>
                             <?php endif; ?>
                         </ul>
 
                         <div class="mt-auto">
-                            <a href="<?php echo esc_url($book_link); ?>" class="block bg-brand-orange text-white text-center py-2 rounded-full font-bold uppercase hover:bg-brand-blue transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 active:scale-95">
+                            <a href="<?php echo esc_url($book_link); ?>" class="block py-2 font-bold text-center text-white uppercase transition-all transform rounded-full shadow-xl bg-brand-orange hover:bg-brand-blue hover:shadow-2xl hover:-translate-y-1 active:scale-95">
                                 <?php pll_e('Book This Room'); ?>
                             </a>
                             <p class="text-center text-[11px] text-brand-black-400 mt-4 font-medium uppercase">
@@ -127,17 +127,17 @@ while (have_posts()) :
                 <div class="">
                     
                     <!-- Description -->
-                    <div class="prose prose-lg max-w-none mb-16 text-brand-black-700 leading-relaxed" data-aos="fade-up">
+                    <div class="mb-16 leading-relaxed prose prose-lg text-justify max-w-none text-brand-black-700" data-aos="fade-up">
                         <?php echo wpautop(wp_kses_post($description)); ?>
                     </div>
 
                     <!-- Complimentary Inclusions (Highlight) -->
                     <?php if ($inclusions): ?>
-                        <div class="room-inclusions mb-16" data-aos="fade-up">
+                        <div class="mb-16 room-inclusions" data-aos="fade-up">
                             <div class="room-inclusions__card">
                                 <div class="room-inclusions__head">
                                     <span class="room-inclusions__line"></span>
-                                    <h3 class="room-inclusions__title font-serif"><?php pll_e('Complimentary Inclusions'); ?></h3>
+                                    <h3 class="font-serif room-inclusions__title"><?php pll_e('Complimentary Inclusions'); ?></h3>
                                 </div>
                                 <ul class="room-inclusions__grid">
                                     <?php foreach ($inclusions as $item): ?>
@@ -159,12 +159,12 @@ while (have_posts()) :
 
                     <!-- Room Gallery -->
                     <?php if ($gallery): ?>
-                        <div class="room-detail-gallery mb-16" data-aos="fade-up">
-                            <div class="swiper room-gallery-swiper rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="mb-16 room-detail-gallery" data-aos="fade-up">
+                            <div class="overflow-hidden shadow-2xl swiper room-gallery-swiper rounded-2xl">
                                 <div class="swiper-wrapper">
                                     <?php foreach ($gallery as $image_url): ?>
                                         <div class="swiper-slide aspect-video">
-                                            <img src="<?php echo esc_url($image_url); ?>" alt="Room Image" class="w-full h-full object-cover">
+                                            <img src="<?php echo esc_url($image_url); ?>" alt="Room Image" class="object-cover w-full h-full">
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
@@ -191,26 +191,26 @@ while (have_posts()) :
         ));
 
         if ($related_rooms->have_posts()): ?>
-            <section class="bg-brand-black-50 py-24">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-16" data-aos="fade-up">
-                        <h2 class="text-3xl lg:text-4xl font-serif font-bold text-brand-blue uppercase mb-4">
+            <section class="py-24 bg-brand-black-50">
+                <div class="container px-6 mx-auto">
+                    <div class="mb-16 text-center" data-aos="fade-up">
+                        <h2 class="mb-4 font-serif text-3xl font-bold uppercase lg:text-4xl text-brand-blue">
                             <?php pll_e('Other Accommodations'); ?>
                         </h2>
-                        <div class="w-20 h-1 bg-brand-orange mx-auto opacity-60"></div>
+                        <div class="w-20 h-1 mx-auto bg-brand-orange opacity-60"></div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
                         <?php while ($related_rooms->have_posts()): $related_rooms->the_post(); ?>
-                            <a href="<?php the_permalink(); ?>" class="group block bg-white overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 rounded-3xl" data-aos="fade-up">
+                            <a href="<?php the_permalink(); ?>" class="block overflow-hidden transition-all duration-500 bg-white shadow-sm group hover:shadow-2xl rounded-3xl" data-aos="fade-up">
                                 <div class="aspect-[4/3] overflow-hidden">
                                     <?php the_post_thumbnail('large', ['class' => 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110']); ?>
                                 </div>
                                 <div class="p-8">
-                                    <h3 class="text-xl font-bold text-brand-blue uppercase group-hover:text-brand-orange transition-colors mb-2">
+                                    <h3 class="mb-2 text-xl font-bold uppercase transition-colors text-brand-blue group-hover:text-brand-orange">
                                         <?php the_title(); ?>
                                     </h3>
-                                    <p class="text-sm text-brand-black-400 font-medium uppercase">
+                                    <p class="text-sm font-medium uppercase text-brand-black-400">
                                         <?php echo esc_html(get_field('room_size')); ?> | <?php echo esc_html(get_field('room_occupancy')); ?>
                                     </p>
                                 </div>

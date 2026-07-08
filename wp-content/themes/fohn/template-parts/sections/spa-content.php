@@ -49,6 +49,8 @@ $spa_blocks = get_field('spa_blocks');
                     $subtitle = $block['subtitle'];
                     $desc = $block['description'];
                     $gallery = $block['gallery'];
+                    $btn_link = $block['button_link'];
+                    $btn_label = $block['button_text'] ?: 'Learn More';
                     ?>
                     <div
                         class="flex flex-col gap-5 <?php echo $is_even ? 'md:flex-row' : 'md:flex-row-reverse'; ?> items-start <?php echo $counter < count($spa_blocks) - 1 ? 'mb-16' : ''; ?>">
@@ -96,18 +98,24 @@ $spa_blocks = get_field('spa_blocks');
 
                         <div class="w-full md:w-1/2">
                             <div class="<?php echo $is_even ? 'pl-0 md:pl-8' : 'pr-0 md:pr-8'; ?>">
-                                <h3 class="text-brand-blue font-serif text-3xl font-semibold tracking-[0.15em] uppercase mb-4">
+                                <h3 class="mb-4 font-serif text-3xl font-semibold tracking-wide uppercase text-brand-blue">
                                     <?php echo esc_html($title); ?>
                                 </h3>
                                 <div class="w-16 h-px mb-4 bg-brand-orange"></div>
                                 <?php if ($subtitle): ?>
-                                    <p class="mb-4 font-sans text-xl text-brand-black-900">
+                                    <p class="mb-4 font-sans text-xl text-brand-orange">
                                         <?php echo nl2br(esc_html($subtitle)); ?>
                                     </p>
                                 <?php endif; ?>
                                 <p class="font-sans text-base text-brand-black-500">
                                     <?php echo nl2br(esc_html($desc)); ?>
                                 </p>
+                                <?php if ($btn_link): ?>
+                                    <a href="<?php echo esc_url($btn_link); ?>"
+                                        class="inline-block mt-8 bg-brand-orange text-white px-8 py-3 text-sm font-semibold font-serif uppercase tracking-[0.15em] hover:bg-brand-blue transition-all">
+                                        <?php echo esc_html($btn_label); ?>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

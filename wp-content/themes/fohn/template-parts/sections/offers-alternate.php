@@ -37,7 +37,7 @@ $block3_items = get_field('offers_alt_block3_list');
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="max-w-md mb-10 leading-relaxed js-readmore text-brand-black-900" data-limit="160">
+                <p class="max-w-md mb-10 leading-relaxed text-justify text-brand-black-900">
                     <?php echo wp_kses_post($block1_desc); ?>
                 </p>
                 
@@ -101,9 +101,7 @@ $block3_items = get_field('offers_alt_block3_list');
                     <div class="flex items-center justify-between py-4 mt-2">
                         <div class="flex items-center gap-6">
                             <div id="offers-block-pagination" class="w-auto font-serif text-sm font-semibold offer-pagination text-brand-black-800"></div>
-                            <h3 class="ml-4 font-serif text-sm font-semibold uppercase offer-active-title text-brand-blue">
-                                <?php echo $block1_items ? wp_kses_post($block1_items[0]['title']) : 'ORIGINAL ROOM'; ?>
-                            </h3>
+                            
                         </div>
                         <div class="flex gap-6">
                             <button id="offers-block-prev" class="transition-opacity offer-prev hover:opacity-70">
@@ -178,10 +176,7 @@ $block3_items = get_field('offers_alt_block3_list');
                             </button>
                         </div>
                         <div class="flex items-center gap-6">
-                            <h3 class="mr-4 font-serif text-sm font-semibold uppercase offer-active-title text-brand-blue">
-                                <?php echo $block2_items ? wp_kses_post($block2_items[0]['title']) : 'IL PAMPERO'; ?>
-                            </h3>
-                            <div id="dining-block-pagination" class="w-auto font-serif text-sm font-semibold offer-pagination text-brand-black-800"></div>
+                                <div id="dining-block-pagination" class="w-auto font-serif text-sm font-semibold offer-pagination text-brand-black-800"></div>
                         </div>
                     </div>
                 </div>
@@ -194,7 +189,7 @@ $block3_items = get_field('offers_alt_block3_list');
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="mb-10 leading-relaxed js-readmore text-brand-black-900" data-limit="160">
+                <p class="mb-10 leading-relaxed text-justify text-brand-black-900">
                     <?php echo wp_kses_post($block2_desc); ?>
                 </p>
                 
@@ -215,7 +210,7 @@ $block3_items = get_field('offers_alt_block3_list');
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
                 
-                <p class="max-w-md mb-10 leading-relaxed js-readmore text-brand-black-900" data-limit="160">
+                <p class="max-w-md mb-10 leading-relaxed text-justify text-brand-black-900">
                     <?php echo wp_kses_post($block3_desc); ?>
                 </p>
                 
@@ -412,61 +407,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-</script>
-
-<script>
-    // Read more / less for long descriptions
-    document.addEventListener('DOMContentLoaded', function () {
-        var moreLabel = '<?php echo esc_js(pll__('more')); ?>';
-        var lessLabel = '<?php echo esc_js(pll__('less')); ?>';
-
-        document.querySelectorAll('.js-readmore').forEach(function (el) {
-            var fullHTML = el.innerHTML.trim();
-            var text = el.textContent.trim();
-            var limit = parseInt(el.getAttribute('data-limit') || '160', 10);
-
-            if (text.length <= limit) return; // short enough, leave as is
-
-            // Cut at the last space before the limit (word boundary)
-            var cut = text.lastIndexOf(' ', limit);
-            if (cut < 0) cut = limit;
-            var shortText = text.slice(0, cut).replace(/[\s.,;:]+$/, '');
-
-            var expanded = false;
-
-            function setContent() {
-                if (expanded) {
-                    el.innerHTML = fullHTML +
-                        ' <a href="#" class="font-semibold readmore-toggle text-brand-orange whitespace-nowrap">' + lessLabel + '</a>';
-                } else {
-                    el.innerHTML = shortText +
-                        '… <a href="#" class="font-semibold readmore-toggle text-brand-orange whitespace-nowrap">' + moreLabel + '</a>';
-                }
-                el.querySelector('.readmore-toggle').addEventListener('click', onToggle);
-            }
-
-            function onToggle(e) {
-                e.preventDefault();
-                var startHeight = el.offsetHeight;   // height before swapping content
-                expanded = !expanded;
-                setContent();                        // swap text -> element jumps to new natural height
-                var endHeight = el.offsetHeight;     // target height
-
-                // Animate height from old -> new for a smooth expand/collapse
-                el.style.overflow = 'hidden';
-                el.style.height = startHeight + 'px';
-                void el.offsetHeight;                // force reflow
-                el.style.transition = 'height 0.4s ease';
-                el.style.height = endHeight + 'px';
-
-                window.setTimeout(function () {
-                    el.style.height = '';
-                    el.style.overflow = '';
-                    el.style.transition = '';
-                }, 420);
-            }
-
-            setContent();
-        });
-    });
 </script>

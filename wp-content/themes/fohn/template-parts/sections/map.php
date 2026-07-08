@@ -12,14 +12,14 @@ $embed_code = get_field('map_embed_code');
 $map_image = get_field('map_image'); // Uploaded image (overrides the interactive map)
 
 ?>
-<section class="map-section pb-24 bg-white">
-    <div class="container mx-auto px-6">
+<section class="pb-24 bg-white map-section">
+    <div class="container px-6 mx-auto">
         <!-- Header Info -->
-        <div class="text-center mb-12">
-            <h2 class="text-xl md:text-2xl font-bold text-brand-blue mb-2 tracking-tight">
+        <div class="mb-12 text-center">
+            <h2 class="mb-2 text-xl font-bold tracking-tight md:text-2xl text-brand-blue">
                 <?php echo esc_html($address); ?>
             </h2>
-            <p class="text-sm font-medium text-brand-black-600">
+            <p class="text-xl font-medium md:text-2xl text-brand-blue">
                 <?php echo esc_html($phone); ?>
             </p>
         </div>
@@ -27,9 +27,9 @@ $map_image = get_field('map_image'); // Uploaded image (overrides the interactiv
         <!-- Map Container -->
         <?php if ($map_image): ?>
             <!-- Uploaded image: shown in full at its natural ratio (no frame, no distortion) -->
-            <div class="map-container w-full" data-aos="zoom-in">
+            <div class="w-full map-container" data-aos="zoom-in">
                 <img src="<?php echo esc_url($map_image); ?>" alt="<?php echo esc_attr($address); ?>"
-                    class="w-full h-auto block">
+                    class="block w-full h-auto">
             </div>
         <?php else: ?>
             <div class="map-container relative w-full h-[450px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 border-8 border-white"
@@ -86,7 +86,7 @@ $map_image = get_field('map_image'); // Uploaded image (overrides the interactiv
 
         // Add Marker
         L.marker([lat, lng], { icon: customIcon }).addTo(map)
-            .bindPopup(`<div class="text-center font-bold text-brand-blue">${address}</div>`);
+            .bindPopup(`<div class="font-bold text-center text-brand-blue">${address}</div>`);
     });
 </script>
 <?php endif; ?>

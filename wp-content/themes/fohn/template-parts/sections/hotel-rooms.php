@@ -74,7 +74,7 @@ $rooms_query = new WP_Query(array(
                             </h3>
                             <div class="w-16 h-px mx-auto mb-8 opacity-50 bg-brand-orange"></div>
 
-                            <p class="js-room-clamp text-brand-black-600 font-sans text-sm leading-relaxed mb-10 max-w-[470px] mx-auto opacity-80 text-left md:text-center"
+                            <p class="js-room-clamp text-brand-black-600 font-sans text-sm leading-relaxed mb-10 max-w-[470px] mx-auto opacity-80 text-justify md:text-justify"
                                 style="font-weight: 200">
                                 <?php echo esc_html($description); ?>
                             </p>
@@ -269,3 +269,5 @@ $rooms_query = new WP_Query(array(
         });
     })();
 </script>
+
+

@@ -26,7 +26,7 @@ $dining_outlets = get_field('dining_outlets');
             </h2>
             <div class="bg-[#FDB078] mx-auto mb-4" style="width:140px;height:3px"></div>
 
-            <h4 class="mb-4 font-serif text-xl font-bold text-brand-blue" style="letter-spacing:2px">
+            <h4 class="mb-4 font-serif text-xl text-brand-blue" >
                 <?php echo esc_html($intro_subtitle); ?>
             </h4>
 
@@ -137,11 +137,7 @@ $dining_outlets = get_field('dining_outlets');
                                     <?php echo nl2br(esc_html($desc)); ?>
                                 </p>
 
-                                <div class="flex gap-6">
-                                    <a href="<?php echo esc_url($book_link); ?>"
-                                        class="px-8 py-2 text-[16px] font-serif font-bold text-white uppercase transition-all bg-brand-orange hover:bg-brand-blue">
-                                        <?php pll_e('Book Now'); ?>
-                                    </a>
+                                <div class="">
                                     <a href="<?php echo esc_url($menu_link); ?>" target="_blank"
                                         class="px-8 py-2 text-[16px] font-serif font-bold uppercase transition-all border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white">
                                         <?php pll_e('Menu'); ?>

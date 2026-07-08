@@ -14,12 +14,12 @@ $features_list = get_field('features_list');
     <?php fohn_render_flowers(get_field('features_flower_left'), get_field('features_flower_right')); ?>
     <!-- Intro Header -->
     <div class="container px-6 mx-auto mb-16 text-center">
-        <h2 class="text-brand-blue font-serif text-[40px] font-semibold  tracking-[0.1em] uppercase mb-6">
+        <h2 class="text-brand-blue font-serif text-[40px] font-semibold  tracking-wide uppercase mb-6">
             <?php echo esc_html($intro_title); ?>
         </h2>
         <div class="w-[250px] h-px bg-[#FDB078] mx-auto mb-6"></div>
         <?php if ($intro_desc): ?>
-            <p class="mx-auto font-sans text-sm leading-loose text-brand-black-700 md:text-base">
+            <p class="mx-auto font-sans text-sm leading-loose text-justify text-brand-black-700 md:text-base">
                 <?php echo nl2br(esc_html($intro_desc)); ?>
             </p>
         <?php endif; ?>
@@ -61,7 +61,7 @@ $features_list = get_field('features_list');
                     <div class="flex flex-col text-center feature-item">
 
                         <!-- Title -->
-                        <h3 class="mb-6 font-serif text-xl italic font-semibold tracking-wide text-brand-blue">
+                        <h3 class="mb-6 font-serif text-xl font-semibold tracking-wide text-brand-blue">
                             <?php echo esc_html($title); ?>
                         </h3>
 
@@ -77,9 +77,9 @@ $features_list = get_field('features_list');
                             <?php endif; ?>
                         </div>
 
-                        <!-- Description -->
-                        <p class="flex-grow px-2 font-sans text-sm leading-relaxed js-readmore text-brand-black-700 md:px-0" data-limit="120">
-                            <?php echo nl2br(esc_html($desc)); ?>
+                        <!-- Description (clamped to exactly 4 lines) -->
+                        <p class="flex-grow px-2 font-sans text-sm leading-relaxed text-justify feature-desc text-brand-black-700 md:px-0">
+                            <?php echo esc_html($desc); ?>
                         </p>
 
                         <!-- Optional Link -->
@@ -103,41 +103,3 @@ $features_list = get_field('features_list');
         <?php endif; ?>
     </div>
 </section>
-
-<script>
-    // Read more / less for feature descriptions
-    document.addEventListener('DOMContentLoaded', function () {
-        var moreLabel = '<?php echo esc_js(pll__('more')); ?>';
-        var lessLabel = '<?php echo esc_js(pll__('less')); ?>';
-
-        document.querySelectorAll('.features-section .js-readmore').forEach(function (el) {
-            var fullHTML = el.innerHTML.trim();
-            var text = el.textContent.trim();
-            var limit = parseInt(el.getAttribute('data-limit') || '120', 10);
-
-            if (text.length <= limit) return;
-
-            var cut = text.lastIndexOf(' ', limit);
-            if (cut < 0) cut = limit;
-            var shortText = text.slice(0, cut).replace(/[\s.,;:]+$/, '');
-            var expanded = false;
-
-            function render() {
-                if (expanded) {
-                    el.innerHTML = fullHTML +
-                        ' <a href="#" class="font-semibold readmore-toggle text-brand-orange whitespace-nowrap">' + lessLabel + '</a>';
-                } else {
-                    el.innerHTML = shortText +
-                        '… <a href="#" class="font-semibold readmore-toggle text-brand-orange whitespace-nowrap">' + moreLabel + '</a>';
-                }
-                el.querySelector('.readmore-toggle').addEventListener('click', function (e) {
-                    e.preventDefault();
-                    expanded = !expanded;
-                    render();
-                });
-            }
-
-            render();
-        });
-    });
-</script>

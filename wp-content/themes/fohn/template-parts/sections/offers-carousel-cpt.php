@@ -21,7 +21,7 @@ $button_link  = get_post_type_archive_link('offer') ?: '#';
         <!-- Heading -->
         <div class="flex justify-center mb-10" data-aos="fade-up">
             <div class="text-center">
-                <h2 class="text-2xl lg:text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
+                <h2 class="text-[40px] font-serif font-semibold text-brand-blue uppercase mb-4">
                     <?php echo esc_html($heading); ?>
                 </h2>
                 <div class="w-24 h-0.5 bg-brand-orange mx-auto opacity-60"></div>

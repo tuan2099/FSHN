@@ -19,7 +19,7 @@ $features_list = get_field('features_list');
         </h2>
         <div class="w-[250px] h-px bg-[#FDB078] mx-auto mb-6"></div>
         <?php if ($intro_desc): ?>
-            <p class="mx-auto font-sans text-sm leading-loose text-justify text-brand-black-700 md:text-base">
+            <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                 <?php echo nl2br(esc_html($intro_desc)); ?>
             </p>
         <?php endif; ?>
@@ -78,7 +78,7 @@ $features_list = get_field('features_list');
                         </div>
 
                         <!-- Description (clamped to exactly 4 lines) -->
-                        <p class="flex-grow px-2 font-sans text-sm leading-relaxed text-justify feature-desc text-brand-black-700 md:px-0">
+                        <p class="flex-grow px-2 font-sans text-sm leading-relaxed text-justify feature-desc text-brand-black-900 md:px-0">
                             <?php echo esc_html($desc); ?>
                         </p>
 

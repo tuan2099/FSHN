@@ -32,7 +32,7 @@ $block3_items = get_field('offers_alt_block3_list');
         <div class="flex flex-col items-center gap-8 mb-16 lg:flex-row lg:gap-12">
             <!-- Text Content -->
             <div class="order-2 w-full lg:w-1/2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="mb-4 font-serif text-3xl font-semibold uppercase text-brand-blue">
+                <h2 class="mb-4 font-serif text-[32px] font-semibold uppercase text-brand-blue">
                     <?php echo nl2br(esc_html($block1_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
@@ -184,7 +184,7 @@ $block3_items = get_field('offers_alt_block3_list');
 
             <!-- Text Content -->
             <div class="w-full lg:w-1/2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-                <h2 class="mb-4 font-serif text-3xl font-semibold uppercase text-brand-blue">
+                <h2 class="mb-4 font-serif text-[32px] font-semibold uppercase text-brand-blue">
                     <?php echo nl2br(esc_html($block2_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>
@@ -205,7 +205,7 @@ $block3_items = get_field('offers_alt_block3_list');
         <div class="flex flex-col items-center gap-8 lg:flex-row lg:gap-12" style="margin-top:4rem">
             <!-- Text Content -->
             <div class="order-2 w-full lg:w-1/2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
-                <h2 class="mb-4 font-serif text-3xl font-semibold uppercase text-brand-blue">
+                <h2 class="mb-4 font-serif text-[32px] font-semibold uppercase text-brand-blue">
                     <?php echo nl2br(esc_html($block3_heading)); ?>
                 </h2>
                 <div class="w-20 h-0.5 bg-brand-orange mb-8 opacity-60"></div>

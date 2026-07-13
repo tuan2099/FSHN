@@ -66,7 +66,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                         <?php echo esc_html($footer_desc); ?>
                     </p>
                 </div>
-                <div class="space-y-4 text-sm leading-relaxed text-brand-black-700">
+                <div class="space-y-4 text-base leading-relaxed text-brand-black-700">
                     <p><?php echo nl2br(esc_html($footer_address)); ?></p>
                     <p>
                         T. <?php echo esc_html($footer_phone); ?><br>
@@ -77,12 +77,12 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
             <!-- Newsletter -->
             <div class="newsletter-column" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-brand-black-500 text-[12px] uppercase font-bold mb-6">
+                <h3 class="text-brand-black-500 text-base uppercase font-bold mb-6">
                     <?php pll_e('Sign up for Newsletter'); ?>
                 </h3>
                 <div class="relative max-w-sm">
                     <input type="email"
-                        class="w-full py-2 pr-10 text-sm transition-colors bg-transparent border-b border-brand-black-100 focus:outline-none focus:border-brand-orange"
+                        class="w-full py-2 pr-10 text-base transition-colors bg-transparent border-b border-brand-black-100 focus:outline-none focus:border-brand-orange"
                         placeholder="<?php echo esc_attr(pll__('Your email address')); ?>">
                     <button
                         class="absolute right-0 transition-colors bottom-2 text-brand-black-500 hover:text-brand-blue">
@@ -97,7 +97,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
 
             <!-- Social -->
             <div class="social-column" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="text-brand-black-500 text-[12px] uppercase font-bold tracking-[0.2em] mb-6">
+                <h3 class="text-brand-black-500 text-base uppercase font-bold tracking-[0.2em] mb-6">
                     <?php pll_e('Follow Us'); ?>
                 </h3>
                 <div class="flex gap-4">

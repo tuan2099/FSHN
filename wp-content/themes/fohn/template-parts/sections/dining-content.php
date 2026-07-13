@@ -26,16 +26,16 @@ $dining_outlets = get_field('dining_outlets');
             </h2>
             <div class="bg-[#FDB078] mx-auto mb-4" style="width:140px;height:3px"></div>
 
-            <h4 class="mb-4 font-serif text-xl text-brand-blue" >
+            <h4 class="mb-4 font-serif text-[16px] text-brand-black-900 font-semibold" style="letter-spacing:2px" >
                 <?php echo esc_html($intro_subtitle); ?>
             </h4>
 
             <?php if ($intro_desc): ?>
-                <p class="text-brand-black-700 font-sans text-sm leading-loose max-w-[900px] mx-auto mb-12">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php else: ?>
-                <p class="text-brand-black-700 font-sans text-sm leading-loose max-w-[900px] mx-auto mb-12">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     Located on the 24th floor, our dining and social spaces reimagine Vietnamese hospitality through modern
                     flavors, artistic energy, and panoramic views of Hanoi’s skyline. The all-day dining restaurant, bar,
                     and VIP Room create a seamless journey from casual daytime gatherings to vibrant, elevated evenings.
@@ -46,11 +46,11 @@ $dining_outlets = get_field('dining_outlets');
 
             <div class="flex flex-wrap justify-center gap-12 mt-10">
                 <a href="<?php echo esc_url($menu_link_1 ?: '#'); ?>"
-                    class="text-brand-blue font-serif font-bold text-base uppercase border-b border-[#FDB078] pb-1 hover:text-brand-orange transition-colors" style="letter-spacing:2px">
+                    class="text-brand-blue font-serif font-semibold text-base uppercase border-b border-[#FDB078] pb-1 hover:text-brand-orange transition-colors" style="letter-spacing:2px">
                     <?php pll_e('ALL-DAY DINING MENU'); ?>
                 </a>
                 <a href="<?php echo esc_url($menu_link_2 ?: '#'); ?>"
-                    class="text-brand-blue font-serif font-bold text-base uppercase border-b border-[#FDB078] pb-1 hover:text-brand-orange transition-colors" style="letter-spacing:2px">
+                    class="text-brand-blue font-serif font-semibold text-base uppercase border-b border-[#FDB078] pb-1 hover:text-brand-orange transition-colors" style="letter-spacing:2px">
                     <?php pll_e('LOUNGE / TERRACE MENU'); ?>
                 </a>
             </div>
@@ -101,7 +101,7 @@ $dining_outlets = get_field('dining_outlets');
 
         <div class="mt-4 text-center md:mt-12">
             <a href="<?php echo esc_url($main_book_link); ?>"
-                class="inline-block bg-[#FDB078] text-white px-12 py-4 text-sm font-bold font-serif uppercase hover:bg-brand-blue transition-all">
+                class="inline-block bg-[#FDB078] text-white px-12 py-4 text-sm font-semibold font-serif uppercase hover:bg-brand-blue transition-all" style="letter-spacing:2px">
                 <?php pll_e('MAKE A RESERVATION'); ?>
             </a>
         </div>
@@ -127,19 +127,19 @@ $dining_outlets = get_field('dining_outlets');
                     <div class="flex flex-col <?php echo $is_even ? 'md:flex-row' : 'md:flex-row-reverse'; ?> items-center">
                         <div class="w-full mb-12 md:w-1/2 md:mb-0">
                             <div class="<?php echo $is_even ? 'pr-0 md:pr-12' : 'pl-0 md:pl-12'; ?>">
-                                <h3 class="mb-4 font-serif text-3xl font-semibold uppercase text-brand-blue">
+                                <h3 class="mb-4 font-serif text-[32px] font-semibold uppercase text-brand-blue">
                                     <?php echo esc_html($name); ?>
                                 </h3>
                                 <p class="mb-12 font-sans text-xl text-brand-orange"><?php echo esc_html($subtitle); ?>
                                 </p>
 
-                                <p class="mb-12 font-sans text-base text-justify text-brand-black-700">
+                                <p class="mb-12 font-sans leading-relaxed text-justify text-brand-black-700">
                                     <?php echo nl2br(esc_html($desc)); ?>
                                 </p>
 
                                 <div class="">
                                     <a href="<?php echo esc_url($menu_link); ?>" target="_blank"
-                                        class="px-8 py-2 text-[16px] font-serif font-bold uppercase transition-all border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white">
+                                        class="px-8 py-2 text-[16px] font-serif font-semibold uppercase transition-all border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white">
                                         <?php pll_e('Menu'); ?>
                                     </a>
                                 </div>

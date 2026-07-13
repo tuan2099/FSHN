@@ -36,10 +36,10 @@ $acc_desc = get_field('acc_desc');
     <div class="container relative z-10 mx-auto">
         <!-- Top Heritage Part -->
         <div class="mx-auto mb-24 text-center" data-aos="fade-up">
-            <h2 class="mb-8 font-serif text-4xl font-semibold leading-tight uppercase lg:text-5xl text-brand-blue">
+            <h2 class="mb-8 font-serif text-[40px] font-semibold leading-tight uppercase text-brand-blue">
                 <?php echo wp_kses_post($heritage_title); ?>
             </h2>
-            <div class="mx-auto mb-12 text-sm leading-relaxed text-justify text-brand-black-700 md:text-base">
+            <div class="mx-auto mb-12 text-sm leading-tight text-center text-brand-black-700 md:text-base">
                 <?php echo wp_kses_post($heritage_desc); ?>
             </div>
             <?php if ($heritage_btn1_link || $heritage_btn2_link): ?>
@@ -64,7 +64,7 @@ $acc_desc = get_field('acc_desc');
         <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
             <div class="group">
                 <!-- Title on Top -->
-                <h3 class="mb-6 font-serif text-2xl font-semibold uppercase md:text-3xl text-brand-blue">
+                <h3 class="mb-6 font-serif text-[32px] font-semibold uppercase text-brand-blue">
                     <?php echo esc_html($acc_title); ?>
                 </h3>
                 
@@ -74,14 +74,14 @@ $acc_desc = get_field('acc_desc');
                         <div class="absolute top-0 left-0 w-1/4 h-full transition-all duration-1000 bg-brand-orange group-hover:w-full"></div>
                     </div>
                     <?php if ($acc_sub): ?>
-                        <p class="font-serif text-xs italic md:text-sm text-brand-black-500">
+                        <p class="font-sans text-xs italic md:text-sm text-brand-black-900">
                             <?php echo esc_html($acc_sub); ?>
                         </p>
                     <?php endif; ?>
                 </div>
 
                 <!-- Description below -->
-                <div class="max-w-4xl text-sm leading-relaxed text-brand-black-700 md:text-base">
+                <div class="max-w-4xl text-sm leading-relaxed text-brand-black-900 md:text-base">
                     <?php echo wp_kses_post($acc_desc); ?>
                 </div>
             </div>

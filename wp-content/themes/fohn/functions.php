@@ -112,10 +112,10 @@ function fohn_render_flowers($left = '', $right = '')
 	<div class="absolute inset-0 z-0 mx-auto pointer-events-none" style="max-width:1536px">
 		<img src="<?php echo esc_url($left_src); ?>"
 			class="absolute hidden w-48 select-none md:block top-1/2 lg:w-72"
-			style="left:0;transform:translate(-50%, -280%)" alt="">
+			style="left:0;transform:translate(-50%, -50%)" alt="">
 		<img src="<?php echo esc_url($right_src); ?>"
 			class="absolute hidden w-48 select-none md:block top-1/2 lg:w-72"
-			style="right:0;transform:translate(50%, -50%) scaleX(-1)" alt="">
+			style="right:0;transform:translate(50%, -50%)" alt="">
 	</div>
 	<?php
 }

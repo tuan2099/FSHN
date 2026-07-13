@@ -42,11 +42,11 @@ $footer_text = get_field('hotel_footer_text');
             </h3>
             <div class="w-[150px] h-px mx-auto mb-10 bg-brand-orange"></div>
             <?php if ($intro_desc): ?>
-                <p class="mx-auto font-sans leading-relaxed text-brand-black-700 text-md">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php else: ?>
-                <p class="mx-auto font-sans leading-relaxed text-brand-black-900 text-md">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     Nestled in the heart of Hanoi, just a five-minute walk from West Lake, the hotel seamlessly blends
                     contemporary design with the city’s rich cultural heritage, offering an immersive experience where art,
                     architecture, and storytelling come to life. Designed as a living gallery, the lobby, lounges,

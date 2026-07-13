@@ -833,10 +833,6 @@ video {
   margin-right: 8px;
 }
 
-.mr-4 {
-  margin-right: 16px;
-}
-
 .mt-0 {
   margin-top: 0;
 }
@@ -869,12 +865,12 @@ video {
   margin-top: 24px;
 }
 
-.mt-auto {
-  margin-top: auto;
-}
-
 .mt-8 {
   margin-top: 32px;
+}
+
+.mt-auto {
+  margin-top: auto;
 }
 
 .line-clamp-2 {
@@ -1189,6 +1185,10 @@ video {
 
 .max-w-\[470px\] {
   max-width: 470px;
+}
+
+.max-w-\[500px\] {
+  max-width: 500px;
 }
 
 .max-w-\[80\%\] {
@@ -1509,12 +1509,6 @@ video {
 
 .overflow-visible {
   overflow: visible;
-}
-
-.truncate {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .text-ellipsis {
@@ -2089,6 +2083,10 @@ video {
   font-size: 16px;
 }
 
+.text-\[32px\] {
+  font-size: 32px;
+}
+
 .text-\[40px\] {
   font-size: 40px;
 }
@@ -2200,10 +2198,6 @@ video {
 
 .tracking-\[2px\] {
   letter-spacing: 2px;
-}
-
-.tracking-normal {
-  letter-spacing: 0em;
 }
 
 .tracking-tight {
@@ -2628,6 +2622,45 @@ video {
   font-display: swap;
 }
 
+/* Brand body typography: default text colour / size / leading for the whole site. */
+
+body {
+  color: #58595b;
+  font-size: 16px;
+  line-height: 1.2;
+  /* 14.4pt at 16px body; unitless so headings scale instead of clipping */
+}
+
+/* Brand guideline: unify every grey body-text shade to #58595b.
+   Headings (brand-blue) and white text on dark sections keep their own colour. */
+
+.text-brand-black-300,
+.text-brand-black-400,
+.text-brand-black-500,
+.text-brand-black-600,
+.text-brand-black-700,
+.text-brand-black-800,
+.text-brand-black-900 {
+  color: #58595b;
+}
+
+/* Body reading paragraphs use the 16px brand body size.
+   Larger subtitles (text-lg/xl/2xl) and headings keep their own size. */
+
+body p.text-xs,
+body p.text-sm,
+body p[class*="text-[13px]"],
+body p[class*="text-[14px]"],
+body p[class*="text-[12px]"] {
+  font-size: 16px !important;
+}
+
+/* Sub-section (small) heading size = 32px. */
+
+.text-\[32px\] {
+  font-size: 32px;
+}
+
 .after\:\!text-2xl::after {
   content: var(--tw-content);
   font-size: 1.5rem !important;
@@ -2950,18 +2983,13 @@ video {
     padding-top: 10rem;
   }
 
-  .md\:text-center {
-    text-align: center;
+  .md\:text-justify {
+    text-align: justify;
   }
 
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 
   .md\:text-4xl {

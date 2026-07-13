@@ -19,7 +19,7 @@ $rooms_query = new WP_Query(array(
                 while ($rooms_query->have_posts()):
                     $rooms_query->the_post();
                     $gallery = get_field('room_gallery');
-                    $description = get_field('room_description');
+                    $description = get_the_excerpt();
                     $size = get_field('room_size');
                     $occupancy = get_field('room_occupancy');
                     $view = get_field('room_view');
@@ -269,5 +269,3 @@ $rooms_query = new WP_Query(array(
         });
     })();
 </script>
-
-

@@ -11,12 +11,12 @@ $button_text = get_field('offers_button_text') ?: 'EXPLORE MORE OFFERS';
 $button_link = get_field('offers_button_link') ?: '#';
 ?>
 
-<section class="offers-carousel-section pb-24 bg-white overflow-hidden">
-    <div class="container mx-auto px-6">
+<section class="pb-24 overflow-hidden bg-white offers-carousel-section">
+    <div class="container px-6 mx-auto">
         <!-- Heading -->
         <div class="flex justify-center mb-10" data-aos="fade-up">
             <div class="text-center">
-                <h2 class="text-2xl lg:text-3xl font-serif font-semibold text-brand-blue uppercase mb-4">
+                <h2 class="text-[32px] font-serif font-semibold text-brand-blue uppercase mb-4">
                     <?php echo esc_html($heading); ?>
                 </h2>
                 <div class="w-24 h-0.5 bg-brand-orange mx-auto opacity-60"></div>
@@ -24,9 +24,9 @@ $button_link = get_field('offers_button_link') ?: '#';
         </div>
 
         <!-- Slider Wrapper with clipping -->
-        <div class="relative mx-auto py-20 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative py-20 mx-auto overflow-hidden" data-aos="fade-up" data-aos-delay="200">
             <div class="swiper offers-carousel-swiper !overflow-visible">
-                <div class="swiper-wrapper flex items-center">
+                <div class="flex items-center swiper-wrapper">
                     <?php if ($offers): ?>
                         <?php $i = 1;
                         foreach ($offers as $offer):
@@ -37,19 +37,19 @@ $button_link = get_field('offers_button_link') ?: '#';
                             <div class="swiper-slide !h-auto transition-all duration-700 opacity-20 scale-[0.7]"
                                 data-aos="zoom-in" data-aos-delay="<?php echo $i * 100; ?>">
                                 <a href="<?php echo esc_url($offer_link); ?>"
-                                    class="relative block aspect-square rounded-none overflow-hidden group shadow-xl">
+                                    class="relative block overflow-hidden rounded-none shadow-xl aspect-square group">
                                     <?php if ($offer_image): ?>
                                         <img src="<?php echo esc_url($offer_image); ?>"
                                             alt="<?php echo esc_attr(wp_strip_all_tags($offer_title)); ?>"
-                                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                                            class="absolute inset-0 object-cover w-full h-full transition-transform duration-1000 group-hover:scale-110">
                                     <?php else: ?>
                                         <div
-                                            class="absolute inset-0 bg-brand-black-800 flex items-center justify-center text-white italic">
+                                            class="absolute inset-0 flex items-center justify-center italic text-white bg-brand-black-800">
                                             No Image</div>
                                     <?php endif; ?>
 
                                     <!-- Overlay -->
-                                    <div class="offer-overlay absolute inset-0 transition-colors duration-500">
+                                    <div class="absolute inset-0 transition-colors duration-500 offer-overlay">
                                     </div>
                                 </a>
                             </div>
@@ -59,11 +59,11 @@ $button_link = get_field('offers_button_link') ?: '#';
                         <?php for ($j = 1; $j <= 5; $j++): ?>
                             <div class="swiper-slide !h-auto transition-all duration-700 opacity-20 scale-[0.7]">
                                 <div
-                                    class="relative aspect-square bg-brand-black-800 flex items-center justify-center shadow-xl overflow-hidden">
-                                    <div class="offer-overlay absolute inset-0 transition-colors duration-500"></div>
-                                    <div class="relative text-center text-white p-8 z-10">
-                                        <span class="text-xs italic font-serif mb-4 block">0<?php echo $j; ?></span>
-                                        <h3 class="text-lg font-serif font-semibold uppercase ">SAMPLE OFFER
+                                    class="relative flex items-center justify-center overflow-hidden shadow-xl aspect-square bg-brand-black-800">
+                                    <div class="absolute inset-0 transition-colors duration-500 offer-overlay"></div>
+                                    <div class="relative z-10 p-8 text-center text-white">
+                                        <span class="block mb-4 font-serif text-xs italic">0<?php echo $j; ?></span>
+                                        <h3 class="font-serif text-lg font-semibold uppercase ">SAMPLE OFFER
                                             <?php echo $j; ?>
                                         </h3>
                                     </div>
@@ -78,7 +78,7 @@ $button_link = get_field('offers_button_link') ?: '#';
         <!-- Action Button -->
         <div class="mt-10 text-center">
             <a href="<?php echo esc_url($button_link); ?>"
-                class="inline-block bg-brand-orange text-white px-10 py-4 font-serif font-semibold uppercase text-xs hover:bg-brand-blue transition-all shadow-xl active:scale-95">
+                class="inline-block px-10 py-4 font-serif text-xs font-semibold text-white uppercase transition-all shadow-xl bg-brand-orange hover:bg-brand-blue active:scale-95">
                 <?php echo esc_html($button_text); ?>
             </a>
         </div>

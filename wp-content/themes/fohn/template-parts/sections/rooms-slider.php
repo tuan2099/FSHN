@@ -174,7 +174,7 @@ $residences_query = new WP_Query([
                                                     <?php the_title(); ?>
                                                 </a>
                                             </h3>
-                                            <p class="room-desc text-justify text-brand-black-900 text-[13px] leading-relaxed font-[300] mt-0 mb-8">
+                                            <p class="room-desc text-justify text-brand-black-900 text-[13px] leading-t font-[300] mt-0 mb-8 leading-relaxed">
                                                 <?php echo esc_html(get_the_excerpt()); ?><a href="<?php the_permalink(); ?>"
                                                     class="font-serif transition-colors room-desc__more text-brand-orange hover:text-brand-blue"><?php pll_e('more'); ?></a>
                                             </p>

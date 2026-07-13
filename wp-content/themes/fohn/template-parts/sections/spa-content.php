@@ -22,11 +22,11 @@ $spa_blocks = get_field('spa_blocks');
             </h2>
             <div class="w-24 h-px mx-auto mb-10 bg-brand-orange"></div>
             <?php if ($intro_desc): ?>
-                <p class="mx-auto mb-12 font-sans leading-relaxed text-brand-black-700 text-md">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php else: ?>
-                <p class="mx-auto mb-12 font-sans leading-relaxed text-brand-black-700 text-md">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     Inspired by the Vietnamese word “Yên,” meaning peace and calm, YÊN Spa is a sanctuary of quiet elegance
                     designed to restore balance for body, mind, and soul. Blending cultural rituals with contemporary
                     well-being, our holistic offering invites guests to restore both body and mind through thoughtfully
@@ -98,7 +98,7 @@ $spa_blocks = get_field('spa_blocks');
 
                         <div class="w-full md:w-1/2">
                             <div class="<?php echo $is_even ? 'pl-0 md:pl-8' : 'pr-0 md:pr-8'; ?>">
-                                <h3 class="mb-4 font-serif text-3xl font-semibold tracking-wide uppercase text-brand-blue">
+                                <h3 class="mb-4 font-serif text-[32px] font-semibold tracking-wide uppercase text-brand-blue">
                                     <?php echo esc_html($title); ?>
                                 </h3>
                                 <div class="w-16 h-px mb-4 bg-brand-orange"></div>
@@ -107,7 +107,7 @@ $spa_blocks = get_field('spa_blocks');
                                         <?php echo nl2br(esc_html($subtitle)); ?>
                                     </p>
                                 <?php endif; ?>
-                                <p class="font-sans text-base text-brand-black-500">
+                                <p class="font-sans text-base text-brand-black-700">
                                     <?php echo nl2br(esc_html($desc)); ?>
                                 </p>
                                 <?php if ($btn_link): ?>

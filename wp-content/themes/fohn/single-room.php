@@ -64,9 +64,9 @@ while (have_posts()) :
                                 <li class="flex items-center justify-between pb-4 border-b border-brand-black-100">
                                     <div class="flex items-center gap-3">
                                         <img src="<?php echo $images_url; ?>bx_area.png" alt="Size" class="object-contain w-5 h-5 opacity-70">
-                                        <span class="text-xs font-bold uppercase text-brand-black-400"><?php pll_e('Size'); ?></span>
+                                        <span class="text-base font-bold uppercase text-brand-black-400"><?php pll_e('Size'); ?></span>
                                     </div>
-                                    <span class="text-xs text-brand-blue"><?php echo esc_html($size); ?></span>
+                                    <span class="text-base text-brand-black-700"><?php echo esc_html($size); ?></span>
                                 </li>
                             <?php endif; ?>
                             
@@ -74,9 +74,9 @@ while (have_posts()) :
                                 <li class="flex items-center justify-between pb-4 border-b border-brand-black-100">
                                     <div class="flex items-center gap-3">
                                         <img src="<?php echo $images_url; ?>wordpress_people.png" alt="Occupancy" class="object-contain w-5 h-5 opacity-70">
-                                        <span class="text-xs font-bold uppercase text-brand-black-400"><?php pll_e('Occupancy'); ?></span>
+                                        <span class="text-base font-bold uppercase text-brand-black-400"><?php pll_e('Occupancy'); ?></span>
                                     </div>
-                                    <div class="text-xs text-brand-blue"><?php echo esc_html($occupancy); ?></div>
+                                    <div class="text-base text-brand-black-700"><?php echo esc_html($occupancy); ?></div>
                                 </li>
                             <?php endif; ?>
 
@@ -84,9 +84,9 @@ while (have_posts()) :
                                 <li class="flex items-center justify-between pb-4 border-b border-brand-black-100">
                                     <div class="flex items-center gap-3">
                                         <img src="<?php echo $images_url; ?>material-symbols_bed-outline.png" alt="Bed" class="object-contain w-5 h-5 opacity-70">
-                                        <span class="text-xs font-bold uppercase text-brand-black-400"><?php pll_e('Bed Type'); ?></span>
+                                        <span class="text-base font-bold uppercase text-brand-black-400"><?php pll_e('Bed Type'); ?></span>
                                     </div>
-                                    <span class="text-xs text-brand-blue"><?php echo esc_html($bed); ?></span>
+                                    <span class="text-base text-brand-black-700"><?php echo esc_html($bed); ?></span>
                                 </li>
                             <?php endif; ?>
 
@@ -94,9 +94,9 @@ while (have_posts()) :
                                 <li class="flex items-center justify-between pb-4 border-b border-brand-black-100">
                                     <div class="flex items-center gap-3">
                                         <img src="<?php echo $images_url; ?>Group.png" alt="View" class="object-contain w-5 h-5 opacity-70">
-                                        <span class="text-xs font-bold uppercase text-brand-black-400"><?php pll_e('View'); ?></span>
+                                        <span class="text-base font-bold uppercase text-brand-black-400"><?php pll_e('View'); ?></span>
                                     </div>
-                                    <span class="text-xs text-brand-blue"><?php echo esc_html($view); ?></span>
+                                    <span class="text-base text-brand-black-700"><?php echo esc_html($view); ?></span>
                                 </li>
                             <?php endif; ?>
 
@@ -104,9 +104,9 @@ while (have_posts()) :
                                 <li class="flex items-center justify-between pb-4 border-b border-brand-black-100">
                                     <div class="flex items-center gap-3">
                                         <img src="<?php echo $images_url; ?>cbi_rooms-balcony.png" alt="Balcony" class="object-contain w-5 h-5 opacity-70">
-                                        <span class="text-xs font-bold uppercase text-brand-black-400"><?php pll_e('Balcony'); ?></span>
+                                        <span class="text-base font-bold uppercase text-brand-black-400"><?php pll_e('Balcony'); ?></span>
                                     </div>
-                                    <span class="text-xs text-brand-blue"><?php echo esc_html($balcony); ?></span>
+                                    <span class="text-base text-brand-black-700"><?php echo esc_html($balcony); ?></span>
                                 </li>
                             <?php endif; ?>
                         </ul>

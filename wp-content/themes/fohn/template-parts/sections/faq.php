@@ -15,7 +15,7 @@ $faqs = get_field('faq_items');
         <!-- Subheading -->
         <div class="flex justify-center mb-18">
             <div class="text-center">
-                <span class=" font-serif text-[16px] text-brand-black-500 uppercase tracking-wider font-semibold block mb-2">
+                <span class="font-serif text-2xl font-semibold leading-tight uppercase lg:text-3xl text-brand-blue">
                     <?php echo esc_html($sub_heading); ?>
                 </span>
                 <div class="w-full h-0.5 bg-brand-orange mx-auto"></div>
@@ -50,7 +50,7 @@ $faqs = get_field('faq_items');
                                     </span>
                                 </button>
                                 <div class="hidden overflow-hidden transition-all duration-500 faq-content">
-                                    <div class="pb-8 text-sm leading-relaxed text-brand-black-600">
+                                    <div class="pb-8 text-[16px] leading-relaxed text-brand-black-600">
                                         <?php echo wp_kses_post($faq['answer']); ?>
                                     </div>
                                 </div>

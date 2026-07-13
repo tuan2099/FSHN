@@ -26,10 +26,10 @@ $offers_query = new WP_Query(array(
             <?php echo esc_html($intro_title); ?>
         </h2>
         <div class="w-[150px] h-px bg-[#FDB078] mx-auto mb-6"></div>
-        <p class="mb-4 font-serif text-xl text-brand-blue"><?php echo esc_html($intro_subtitle); ?>
+        <p class="mb-4 font-serif text-[16px] text-brand-black-900 font-semibold" style="letter-spacing:2px"><?php echo esc_html($intro_subtitle); ?>
         </p>
         <?php if ($intro_desc): ?>
-            <p class="mx-auto font-sans text-sm leading-loose text-brand-black-900 md:text-base">
+            <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                 <?php echo nl2br(esc_html($intro_desc)); ?>
             </p>
         <?php endif; ?>

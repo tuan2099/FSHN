@@ -27,11 +27,11 @@ $gallery_items = get_field('gallery_items');
             <?php endif; ?>
             
             <?php if ($intro_desc): ?>
-                <p class="mx-auto mb-8 font-sans leading-relaxed text-justify text-brand-black-700 text-md">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php else: ?>
-                <p class="mx-auto mb-8 font-sans leading-relaxed text-justify text-brand-black-700 text-md">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     Discover a collection of exclusive offers designed to elevate your stay at LÈGACY - A Fusion Original
                     Hanoi. Inspired by Hanoi’s heritage, the hotel’s design unfolds through the lobby, corridors, elevators,
                     and custom furnishings, drawing from the flowing Red River and the timeless beauty of the lotus. From

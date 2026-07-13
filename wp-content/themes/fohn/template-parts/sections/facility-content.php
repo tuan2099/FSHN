@@ -54,11 +54,11 @@ $facility_blocks = get_field('facilities_blocks');
             </h2>
             <div class="w-24 h-px mx-auto mb-10 bg-brand-orange"></div>
             <?php if ($intro_desc): ?>
-                <p class="mx-auto font-sans leading-relaxed text-brand-black-700 text-md">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php else: ?>
-                <p class="mx-auto font-sans leading-relaxed text-brand-black-700 text-md">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     Our facilities are crafted to enrich every moment of your stay. Wellness, dining, social spaces, and
                     creative venues come together through thoughtful design and cultural storytelling, offering guests a
                     harmonious blend of comfort, inspiration, and modern Vietnamese hospitality.
@@ -133,14 +133,14 @@ $facility_blocks = get_field('facilities_blocks');
                         <div
                             class="facility-content-box w-full md:w-[550px] bg-[#2B3B52] p-10 <?php echo $text_padding; ?> <?php echo $overlap_margin; ?> z-10 text-white shadow-xl relative flex flex-col justify-center">
                             <div class="relative z-10">
-                                <h3 class="font-serif text-2xl tracking-[0.1em] uppercase mb-6 leading-tight">
+                                <h3 class="font-serif text-[32px] tracking-[0.1em] font-semibold uppercase mb-6 leading-tight">
                                     <?php echo esc_html($title); ?>
                                 </h3>
                                 <div class="w-16 h-px mb-2 bg-brand-orange"></div>
-                                <p class="font-sans text-base opacity-90">
+                                <p class="font-sans opacity-90">
                                     <?php echo nl2br(esc_html($desc)); ?>
                                 </p>
-                                <div class="pt-4 font-sans text-lg font-bold tracking-wide">
+                                <div class="pt-4 font-sans text-lg font-semibold tracking-wide">
                                     <?php pll_e('Operation Hours:'); ?> <?php echo esc_html(pll__($hours)); ?>
                                 </div>
                             </div>

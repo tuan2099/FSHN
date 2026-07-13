@@ -33,7 +33,7 @@ $apt_query = new WP_Query(array(
             </h2>
             <div class="w-24 h-px mx-auto mb-10 bg-brand-orange"></div>
             <?php if ($intro_desc): ?>
-                <p class="mx-auto font-sans leading-relaxed text-brand-black-700 text-md ">
+                <p class="text-brand-black-700 font-sans max-w-[900px] mx-auto mb-12 leading-relaxed">
                     <?php echo nl2br(esc_html($intro_desc)); ?>
                 </p>
             <?php endif; ?>

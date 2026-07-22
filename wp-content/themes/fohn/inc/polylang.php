@@ -25,7 +25,7 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'BOOK A STAY', 'fohn_theme');
     pll_register_string('fohn', 'BOOK NOW', 'fohn_theme');
     pll_register_string('fohn', 'SUSTAINABILITY', 'fohn_theme');
-    pll_register_string('fohn', 'BACK TO OFFER', 'fohn_theme');
+    pll_register_string('fohn', 'BACK TO OFFERS', 'fohn_theme');
     pll_register_string('fohn', 'BENEFITS:', 'fohn_theme');
     pll_register_string('fohn', 'Complimentary Inclusions', 'fohn_theme');
     pll_register_string('fohn', 'FINDING OUT', 'fohn_theme');

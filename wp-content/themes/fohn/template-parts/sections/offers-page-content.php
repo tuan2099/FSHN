@@ -7,7 +7,9 @@
 $intro_title = get_field('offers_intro_title') ?: 'EXCLUSIVE OFFERS';
 $intro_subtitle = get_field('offers_intro_subtitle') ?: 'Elevate Your Experience at LÈGACY';
 $intro_desc = get_field('offers_intro_desc');
-$book_link = get_field('offers_book_link') ?: '#';
+// Falls back to the site-wide booking engine URL (same one used by the header
+// "BOOK A STAY" button and the room BOOK NOW links) when no override is set.
+$book_link = get_field('offers_book_link') ?: 'https://fohn.backhotelite.com/en/';
 
 // Query all active offers
 $offers_query = new WP_Query(array(

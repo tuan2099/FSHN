@@ -171,7 +171,7 @@ $residences_query = new WP_Query([
                                             <h3 class="mb-2 font-serif text-2xl font-semibold tracking-wider uppercase room-card-title">
                                                 <a href="<?php the_permalink(); ?>"
                                                     class="transition-colors text-brand-blue hover:text-brand-orange">
-                                                    <?php the_title(); ?>
+                                                    <?php echo fohn_room_title(); ?>
                                                 </a>
                                             </h3>
                                             <p class="room-desc text-justify text-brand-black-900 text-[13px] leading-relaxed font-[300] mt-0 mb-8">
@@ -245,7 +245,7 @@ $residences_query = new WP_Query([
                                             <h3 class="mb-2 font-serif text-2xl font-semibold tracking-wider uppercase room-card-title">
                                                 <a href="<?php the_permalink(); ?>"
                                                     class="transition-colors text-brand-blue hover:text-brand-orange">
-                                                    <?php the_title(); ?>
+                                                    <?php echo fohn_room_title(); ?>
                                                 </a>
                                             </h3>
                                             <p class="room-desc text-justify text-brand-black-900 text-[13px] leading-relaxed font-[300] mb-8">

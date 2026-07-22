@@ -97,11 +97,15 @@ function fohn_register_cpts() {
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'can_export'            => true,
-        'has_archive'           => true,
+        // No CPT archive: a designed WP Page already lives at /offers/
+        // (template-offers.php). Enabling an archive here would collide with it
+        // and fall back to the generic index.php ("Blog & News") layout.
+        'has_archive'           => false,
         'exclude_from_search'   => false,
         'publicly_queryable'    => true,
         'capability_type'       => 'post',
         'show_in_rest'          => true,
+        'rewrite'               => array( 'slug' => 'offers', 'with_front' => false ),
     );
     register_post_type( 'offer', $args_offer );
 

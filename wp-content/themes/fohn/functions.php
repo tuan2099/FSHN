@@ -98,6 +98,27 @@ require get_template_directory() . '/inc/polylang.php';
 require get_template_directory() . '/inc/cpt.php';
 
 /**
+ * Keep a trailing bedroom count glued to its unit in room titles.
+ *
+ * Vietnamese room titles end in "<n> PHÒNG NGỦ" (e.g. "PREMIUM DELUXE 1 PHÒNG
+ * NGỦ"). Without help the browser can break as "…DELUXE 1" / "PHÒNG NGỦ",
+ * stranding the number. Wrapping "<n> PHÒNG NGỦ" in a nowrap span forces the
+ * wrap to happen *before* the number, so the whole unit drops to the next line.
+ * Titles without that pattern (English names, "CĂN HỘ STUDIO") are untouched.
+ */
+function fohn_room_title($title = null)
+{
+    if ($title === null) {
+        $title = get_the_title();
+    }
+    return preg_replace(
+        '/(\d+\s+PH[ÒO]NG\s+NG[ỦU])\s*$/iu',
+        '<span class="whitespace-nowrap">$1</span>',
+        $title
+    );
+}
+
+/**
  * Render the decorative flower ornaments used across content pages.
  *
  * Flowers are pinned to the edges of a centered, capped (1536px) frame so they

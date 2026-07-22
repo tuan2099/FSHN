@@ -299,12 +299,6 @@ while (have_posts()) :
             border-radius: 50%;
             background: rgba(253, 176, 120, 0.15);
             color: #FDB078;
-            transition: background-color .3s ease, color .3s ease;
-        }
-
-        .room-inclusions__item:hover .room-inclusions__icon {
-            background: #FDB078;
-            color: #fff;
         }
 
         .room-inclusions__text {

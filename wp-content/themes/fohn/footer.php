@@ -57,7 +57,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     <div class="container px-6 mx-auto pt-15">
         <div class="grid grid-cols-1 gap-12 md:grid-cols-3 lg:gap-18">
             <!-- Group Info -->
-            <div class="info-column" data-aos="fade-up" data-aos-delay="100">
+            <div class="info-column text-center md:text-left" data-aos="fade-up" data-aos-delay="100">
                 <div class="mb-6">
                     <?php if ($footer_logo): ?>
                         <img src="<?php echo esc_url($footer_logo); ?>" alt="Footer Logo" class="w-auto h-12 mb-4">
@@ -76,11 +76,11 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
             </div>
 
             <!-- Newsletter -->
-            <div class="newsletter-column" data-aos="fade-up" data-aos-delay="200">
+            <div class="newsletter-column text-center md:text-left" data-aos="fade-up" data-aos-delay="200">
                 <h3 class="text-brand-black-500 text-base uppercase font-bold mb-6">
                     <?php pll_e('Sign up for Newsletter'); ?>
                 </h3>
-                <div class="relative max-w-sm">
+                <div class="relative max-w-sm mx-auto md:mx-0">
                     <input type="email"
                         class="w-full py-2 pr-10 text-base transition-colors bg-transparent border-b border-brand-black-100 focus:outline-none focus:border-brand-orange"
                         placeholder="<?php echo esc_attr(pll__('Your email address')); ?>">
@@ -96,11 +96,11 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
             </div>
 
             <!-- Social -->
-            <div class="social-column" data-aos="fade-up" data-aos-delay="300">
+            <div class="social-column text-center md:text-left" data-aos="fade-up" data-aos-delay="300">
                 <h3 class="text-brand-black-500 text-base uppercase font-bold tracking-[0.2em] mb-6">
                     <?php pll_e('Follow Us'); ?>
                 </h3>
-                <div class="flex gap-4">
+                <div class="flex gap-4 justify-center md:justify-start">
                     <?php if ($footer_socials): ?>
                         <?php foreach ($footer_socials as $social): ?>
                             <a href="<?php echo esc_url($social['url']); ?>" target="_blank"

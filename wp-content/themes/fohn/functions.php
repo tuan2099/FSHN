@@ -50,6 +50,9 @@ add_action('after_setup_theme', 'fohn_setup');
  */
 function fohn_scripts()
 {
+	// Google Font: Cormorant Garamond (temporary replacement for IvyMode serif)
+	wp_enqueue_style('cormorant-garamond', 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap', array(), null);
+
 	// Enqueue Tailwind CSS
 	wp_enqueue_style('fohn-style', get_template_directory_uri() . '/assets/css/main.css', array(), '1.0.0');
 

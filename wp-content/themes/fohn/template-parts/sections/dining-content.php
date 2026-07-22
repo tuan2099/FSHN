@@ -130,7 +130,7 @@ $dining_outlets = get_field('dining_outlets');
                                 <h3 class="mb-4 font-serif text-[32px] font-semibold uppercase text-brand-blue">
                                     <?php echo esc_html($name); ?>
                                 </h3>
-                                <p class="mb-12 font-sans text-xl text-brand-orange"><?php echo esc_html($subtitle); ?>
+                                <p class="mb-12 font-sans  text-xl text-brand-orange"><?php echo esc_html($subtitle); ?>
                                 </p>
 
                                 <p class="mb-12 font-sans leading-relaxed text-justify text-brand-black-700">

@@ -1234,7 +1234,7 @@ function fohn_register_acf_fields()
                 'label' => 'Address',
                 'name' => 'footer_address',
                 'type' => 'text',
-                'default_value' => '345 Doi Can, Ngoc Ha Ward, Ba Dinh, Hanoi City',
+                'default_value' => '349 Doi Can, Ngoc Ha Ward, Hanoi, Vietnam',
             ),
             array(
                 'key' => 'field_fohn_footer_phone',

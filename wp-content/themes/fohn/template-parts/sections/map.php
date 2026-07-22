@@ -19,7 +19,7 @@ $map_image = get_field('map_image'); // Uploaded image (overrides the interactiv
             <h2 class="mb-2 text-xl font-bold tracking-tight md:text-2xl text-brand-blue">
                 <?php echo esc_html($address); ?>
             </h2>
-            <p class="text-xl font-medium md:text-2xl text-brand-blue">
+            <p class="text-xl font-bold tracking-tight md:text-2xl text-brand-blue">
                 <?php echo esc_html($phone); ?>
             </p>
         </div>

@@ -1163,10 +1163,6 @@ video {
   max-width: 42rem;
 }
 
-.max-w-4xl {
-  max-width: 56rem;
-}
-
 .max-w-5xl {
   max-width: 64rem;
 }
@@ -1449,10 +1445,6 @@ video {
 
 .gap-y-10 {
   row-gap: 40px;
-}
-
-.gap-y-12 {
-  row-gap: 48px;
 }
 
 .gap-y-4 {
@@ -1791,11 +1783,6 @@ video {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.object-fill {
-  -o-object-fit: fill;
-     object-fit: fill;
 }
 
 .object-center {
@@ -2504,25 +2491,37 @@ video {
 
 @font-face {
   font-family: 'IvyMode';
+
   src: url('../font/Ivymode2/FS-IvyMode-Regular.ttf') format('truetype');
+
   font-weight: 400;
+
   font-style: normal;
+
   font-display: swap;
 }
 
 @font-face {
   font-family: 'IvyMode';
+
   src: url('../font/Ivymode2/FS IvyMode-SemiBold.ttf') format('truetype');
+
   font-weight: 600;
+
   font-style: normal;
+
   font-display: swap;
 }
 
 @font-face {
   font-family: 'IvyMode';
+
   src: url('../font/Ivymode2/FS IvyMode-SemiBold.ttf') format('truetype');
+
   font-weight: 700;
+
   font-style: normal;
+
   font-display: swap;
 }
 
@@ -3120,6 +3119,11 @@ body p[class*="text-[12px]"] {
     gap: 16px;
   }
 
+  .lg\:gap-x-3 {
+    -moz-column-gap: 0.75rem;
+         column-gap: 0.75rem;
+  }
+
   .lg\:overflow-visible {
     overflow: visible;
   }
@@ -3252,6 +3256,10 @@ body p[class*="text-[12px]"] {
     line-height: 1.75rem;
   }
 
+  .lg\:tracking-wide {
+    letter-spacing: 0.025em;
+  }
+
   .lg\:opacity-100 {
     opacity: 1;
   }
@@ -3272,9 +3280,9 @@ body p[class*="text-[12px]"] {
   font-family: IvyMode, serif;
 }
 
-.\[\&_a\]\:text-sm a {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+.\[\&_a\]\:text-xs a {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .\[\&_a\]\:font-bold a {

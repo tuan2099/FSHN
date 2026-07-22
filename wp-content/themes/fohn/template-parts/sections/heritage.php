@@ -36,7 +36,7 @@ $acc_desc = get_field('acc_desc');
     <div class="container relative z-10 mx-auto">
         <!-- Top Heritage Part -->
         <div class="mx-auto mb-24 text-center" data-aos="fade-up">
-            <h2 class="mb-8 font-serif text-[40px] font-semibold leading-tight uppercase text-brand-blue">
+            <h2 class="mb-8 font-serif text-[40px] font-semibold leading-tight uppercase text-brand-blue" style="letter-spacing:2px">
                 <?php echo wp_kses_post($heritage_title); ?>
             </h2>
             <div class="mx-auto mb-12 text-sm leading-tight text-center text-brand-black-700 md:text-base">
@@ -81,7 +81,7 @@ $acc_desc = get_field('acc_desc');
                 </div>
 
                 <!-- Description below -->
-                <div class="max-w-4xl text-sm leading-relaxed text-brand-black-900 md:text-base">
+                <div class="text-sm leading-relaxed text-brand-black-900 md:text-base">
                     <?php echo wp_kses_post($acc_desc); ?>
                 </div>
             </div>

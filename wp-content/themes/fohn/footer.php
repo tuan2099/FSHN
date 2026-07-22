@@ -13,9 +13,9 @@ $loyalty_btn_link = get_field('footer_loyalty_btn_link', 'option') ?: '#';
 
 $footer_logo = get_field('footer_logo', 'option');
 $footer_desc = pll__(get_field('footer_description', 'option') ?: 'LÈGACY - A FUSION ORIGINAL HA NOI');
-$footer_address = pll__(get_field('footer_address', 'option') ?: '345 Doi Can, Ngoc Ha Ward, Ba Dinh, Hanoi City');
-$footer_phone = get_field('footer_phone', 'option') ?: '+84 283 9101 000';
-$footer_email = get_field('footer_email', 'option') ?: 'info@fusionhotelgroup.com';
+$footer_address = pll__(get_field('footer_address', 'option') ?: '349 Doi Can, Ngoc Ha Ward, Hanoi, Vietnam');
+$footer_phone = pll__(get_field('footer_phone', 'option') ?: '+84 24 3816 5555');
+$footer_email = get_field('footer_email', 'option') ?: 'res.fohn@fusionhotelgroup.com';
 $footer_socials = get_field('footer_socials', 'option');
 $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Group &copy; ' . date('Y');
 ?>
@@ -69,7 +69,7 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
                 <div class="space-y-4 text-base leading-relaxed text-brand-black-700">
                     <p><?php echo nl2br(esc_html($footer_address)); ?></p>
                     <p>
-                        T. <?php echo esc_html($footer_phone); ?><br>
+                        <?php pll_e('T.'); ?> <?php echo esc_html($footer_phone); ?><br>
                         E. <?php echo esc_html($footer_email); ?>
                     </p>
                 </div>
@@ -180,14 +180,14 @@ $footer_copyright = get_field('footer_copyright', 'option') ?: 'Fusion Hotel Gro
     <div class="py-6 border-t border-b border-brand-black-100">
         <div class="container px-6 mx-auto">
             <ul
-                class="flex flex-wrap justify-center lg:justify-between items-center gap-x-4 gap-y-4 text-[14px] uppercase tracking-widest text-brand-black-500 text-center">
+                class="flex flex-wrap lg:flex-nowrap justify-center lg:justify-between items-center gap-x-4 lg:gap-x-3 gap-y-4 text-[14px] lg:text-[13px] uppercase tracking-widest lg:tracking-wide text-brand-black-500 text-center whitespace-nowrap">
                 <?php
                 $bottom_nav = get_field('footer_bottom_nav', 'option');
                 if ($bottom_nav):
                     foreach ($bottom_nav as $nav_item):
                         ?>
                         <li><a href="<?php echo esc_url($nav_item['url']); ?>"
-                                class="transition-colors hover:text-brand-orange"><?php echo esc_html($nav_item['label']); ?></a>
+                                class="transition-colors hover:text-brand-orange"><?php echo esc_html(pll__($nav_item['label'])); ?></a>
                         </li>
                         <?php
                     endforeach;

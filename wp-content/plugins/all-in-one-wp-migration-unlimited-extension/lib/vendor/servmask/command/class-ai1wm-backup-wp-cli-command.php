@@ -82,6 +82,9 @@ if ( class_exists( 'Ai1wm_Backup_WP_CLI_Base' ) && ! class_exists( 'Ai1wm_Backup
 		 * [--exclude-cache]
 		 * : Do not export cache (files)
 		 *
+		 * [--exclude-files[=<comma_separated_paths>]]
+		 * : Do not export the selected files or folders (paths relative to wp-content, e.g. uploads/large-folder,plugins/some-plugin)
+		 *
 		 * [--exclude-database]
 		 * : Do not export database (sql)
 		 *

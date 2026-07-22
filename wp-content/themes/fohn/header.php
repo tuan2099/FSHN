@@ -43,6 +43,17 @@
         </div>
     </header>
 
+    <style>
+        /* Off-canvas menu link size: 10px by default, 12px on very small (<=320px) screens. */
+
+
+        @media (max-width: 320px) {
+            #side-menu .grid a {
+                font-size: 12px;
+            }
+        }
+    </style>
+
     <!-- Off-canvas Menu Overlay -->
     <div id="side-menu" class="fixed inset-0 z-[100] invisible pointer-events-none transition-all duration-500">
         <!-- Backdrop -->
@@ -66,30 +77,30 @@
                     <?php wp_nav_menu(array(
                         'theme_location' => 'primary',
                         'container' => false,
-                        'menu_class' => 'grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8 mb-20',
-                        'items_wrap' => '<ul id="%1$s" class="%2$s [&_a]:font-serif [&_a]:text-sm [&_a]:font-bold [&_a]:text-brand-blue [&_a]:uppercase [&_a]:tracking-widest [&_a]:transition-colors [&_a:hover]:text-brand-orange">%3$s</ul>',
+                        'menu_class' => 'grid grid-cols-2 gap-y-10 gap-x-8 mb-20',
+                        'items_wrap' => '<ul id="%1$s" class="%2$s [&_a]:font-serif [&_a]:text-xs [&_a]:font-bold [&_a]:text-brand-blue [&_a]:uppercase [&_a]:tracking-widest [&_a]:transition-colors [&_a:hover]:text-brand-orange">%3$s</ul>',
                     )); ?>
                 <?php else: ?>
                     <!-- Fallback if no menu is assigned -->
-                    <div class="grid grid-cols-1 mb-20 md:grid-cols-2 gap-y-12 gap-x-8">
+                    <div class="grid grid-cols-2 mb-20 gap-y-10 gap-x-8">
                         <a href="#"
-                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Hotels'); ?></a>
+                            class="font-serif text-xs font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Hotels'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Dining'); ?></a>
+                            class="font-serif text-xs font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Dining'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Residences'); ?></a>
+                            class="font-serif text-xs font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Residences'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Yên Spa & Wellness'); ?></a>
+                            class="font-serif text-xs font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Yên Spa & Wellness'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Offers'); ?></a>
+                            class="font-serif text-xs font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Offers'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Facilities'); ?></a>
+                            class="font-serif text-xs font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Facilities'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Features'); ?></a>
+                            class="font-serif text-xs font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Features'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Gallery'); ?></a>
+                            class="font-serif text-xs font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Gallery'); ?></a>
                         <a href="#"
-                            class="font-serif text-sm font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Contact Us'); ?></a>
+                            class="font-serif text-xs font-bold tracking-widest uppercase transition-colors text-brand-blue hover:text-brand-orange"><?php pll_e('Contact Us'); ?></a>
                     </div>
                 <?php endif; ?>
 
@@ -145,9 +156,14 @@
             const whiteLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/Lègacy Logo_white 2.png';
             const scrollLogo = '<?php echo get_template_directory_uri(); ?>/assets/images/LG_scroll.png';
 
+            /* Pages that open on a light background (no full-bleed hero behind the
+               header) would render the transparent header's white logo on white.
+               Keep those locked in the solid "scrolled" state from the top. */
+            const alwaysSolidHeader = document.body.classList.contains('single-offer');
+
             // Scroll Header effect
             function handleScroll() {
-                if (window.scrollY > 50) {
+                if (alwaysSolidHeader || window.scrollY > 50) {
                     header.classList.add('bg-brand-blue', 'shadow-md', 'py-4');
                     header.classList.remove('py-6', 'lg:py-8', 'bg-white');
 

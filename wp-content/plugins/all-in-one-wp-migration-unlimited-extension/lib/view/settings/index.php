@@ -78,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div>
 
 							<div class="ai1wm-field" id="ai1wmue-backups-path">
-								<folder-browser destination="<?php echo $destination; ?>" dir-separator="<?php echo DIRECTORY_SEPARATOR; ?>">
+								<folder-browser destination="<?php echo esc_attr( $destination ); ?>" dir-separator="<?php echo esc_attr( DIRECTORY_SEPARATOR ); ?>">
 									<h3><?php _e( 'Backups directory', AI1WMUE_PLUGIN_NAME ); ?></h3>
 								</folder-browser>
 							</div>

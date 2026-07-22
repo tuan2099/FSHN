@@ -174,7 +174,7 @@ $residences_query = new WP_Query([
                                                     <?php the_title(); ?>
                                                 </a>
                                             </h3>
-                                            <p class="room-desc text-justify text-brand-black-900 text-[13px] leading-t font-[300] mt-0 mb-8 leading-relaxed">
+                                            <p class="room-desc text-justify text-brand-black-900 text-[13px] leading-relaxed font-[300] mt-0 mb-8">
                                                 <?php echo esc_html(get_the_excerpt()); ?><a href="<?php the_permalink(); ?>"
                                                     class="font-serif transition-colors room-desc__more text-brand-orange hover:text-brand-blue"><?php pll_e('more'); ?></a>
                                             </p>
@@ -298,7 +298,7 @@ $residences_query = new WP_Query([
             document.querySelectorAll('.rooms-outer-swiper').forEach(container => {
                 const s = new Swiper(container, {
                     slidesPerView: 1.2,
-                    spaceBetween: 10,
+                    spaceBetween: 20,
                     navigation: {
                         nextEl: '.outer-next',
                         prevEl: '.outer-prev',

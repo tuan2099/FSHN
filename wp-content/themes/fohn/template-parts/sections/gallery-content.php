@@ -21,9 +21,9 @@ $gallery_items = get_field('gallery_items');
             </h2>
             <div class="w-[250px] h-px mx-auto mb-4 bg-brand-orange"></div>
             <?php if ($intro_subtitle): ?>
-                <p class="mb-8 font-serif text-xl tracking-wide text-brand-blue">
+                <h4 class="mb-4 font-serif text-[16px] text-brand-black-900 font-semibold">
                     <?php echo esc_html($intro_subtitle); ?>
-                </p>
+                </h4>
             <?php endif; ?>
             
             <?php if ($intro_desc): ?>

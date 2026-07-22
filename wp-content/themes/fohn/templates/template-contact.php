@@ -6,9 +6,9 @@
 get_header();
 
 // Get global theme options
-$footer_address = get_field('footer_address', 'option') ?: '345 Doi Can, Ngoc Ha Ward, Ba Dinh, Hanoi City';
-$footer_phone = get_field('footer_phone', 'option') ?: '+84 283 9101 000';
-$footer_email = get_field('footer_email', 'option') ?: 'info@fusionhotelgroup.com';
+$footer_address = get_field('footer_address', 'option') ?: '349 Doi Can, Ngoc Ha Ward, Hanoi, Vietnam';
+$footer_phone = get_field('footer_phone', 'option') ?: '+84 24 3816 5555';
+$footer_email = get_field('footer_email', 'option') ?: 'res.fohn@fusionhotelgroup.com';
 
 // Contact Page Specific Fields
 $contact_intro = get_field('contact_intro');
@@ -27,7 +27,7 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
         <div class="relative lg:absolute left-0 top-0 lg:bottom-0 w-full lg:w-1/2 bg-brand-black-50 z-0 aspect-[4/3] md:aspect-video lg:aspect-auto lg:h-full order-2 lg:order-none"
             data-aos="fade-up" lg:data-aos="fade-right" data-aos-duration="1200">
             <?php if ($map_bg): ?>
-                <img src="<?php echo esc_url($map_bg); ?>" alt="Map Illustration" class="map-illustration w-full h-full object-fill object-center">
+                <img src="<?php echo esc_url($map_bg); ?>" alt="Map Illustration" class="map-illustration w-full h-full object-contain object-center">
             <?php endif; ?>
         </div>
 
@@ -114,14 +114,6 @@ $logo_overlay = get_field('contact_logo_overlay'); // Image URL or ID
 </main>
 
 <style>
-    /* Map illustration: stretch to fill (object-fill) by default,
-       but keep aspect ratio (object-cover) on very large screens (>= 1700px). */
-    @media (min-width: 1700px) {
-        .map-illustration {
-            object-fit: cover;
-        }
-    }
-
     /* Styling to match the rounded design in the image */
     .custom-input {
         background-color: #fff;

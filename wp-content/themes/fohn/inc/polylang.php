@@ -7,79 +7,6 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-/**
- * ---------------------------------------------------------------------------
- * Language "gate": launch one language publicly while another is still being
- * built. English (en) is live for everyone; Vietnamese (vi) is in development
- * and only visible to logged-in editors/admins.
- *
- * To take Vietnamese live later: set FOHN_DEV_LANG to '' (or remove this block
- * and the guard in header.php). Verify the slugs in WP Admin > Languages.
- * ---------------------------------------------------------------------------
- */
-if (!defined('FOHN_DEV_LANG')) {
-    define('FOHN_DEV_LANG', 'vi'); // language still under development (gated)
-}
-if (!defined('FOHN_LIVE_LANG')) {
-    define('FOHN_LIVE_LANG', 'en'); // public / live language
-}
-
-if (!function_exists('fohn_can_view_dev_lang')) {
-    /**
-     * Who may preview the in-development language.
-     * Logged-in users who can edit content (administrators + editors).
-     * Tighten to current_user_can('manage_options') for administrators only.
-     */
-    function fohn_can_view_dev_lang()
-    {
-        return is_user_logged_in() && current_user_can('edit_posts');
-    }
-}
-
-/**
- * Redirect public visitors away from the in-development language.
- * Runs on the front-end main query only (not admin/REST/AJAX/cron).
- */
-add_action('template_redirect', function () {
-    if (is_admin() || !FOHN_DEV_LANG || !function_exists('pll_current_language')) {
-        return;
-    }
-    if (fohn_can_view_dev_lang()) {
-        return; // editors preview the dev language freely
-    }
-    if (pll_current_language() !== FOHN_DEV_LANG) {
-        return; // only gate the dev language
-    }
-
-    // Resolve the same content in the live language, else fall back to home.
-    $target = '';
-    $qid = get_queried_object_id();
-
-    if ($qid && function_exists('pll_get_post')) {
-        $tr = pll_get_post($qid, FOHN_LIVE_LANG);
-        if ($tr) {
-            $target = get_permalink($tr);
-        }
-    }
-    if (!$target && $qid && function_exists('pll_get_term')) {
-        $tr = pll_get_term($qid, FOHN_LIVE_LANG);
-        if ($tr) {
-            $term_link = get_term_link((int) $tr);
-            if (!is_wp_error($term_link)) {
-                $target = $term_link;
-            }
-        }
-    }
-    if (!$target && function_exists('pll_home_url')) {
-        $target = pll_home_url(FOHN_LIVE_LANG);
-    }
-
-    if ($target && !is_wp_error($target)) {
-        // 302 (temporary) so the future VI URLs are not permanently dropped by search engines.
-        wp_safe_redirect($target, 302);
-        exit;
-    }
-});
 
 if (!function_exists('pll_e')) {
     function pll_e($string) {
@@ -161,12 +88,13 @@ if (function_exists('pll_register_string')) {
     pll_register_string('fohn', 'Book This Room', 'fohn_theme');
     pll_register_string('fohn', 'Best Price Guaranteed for Direct Booking', 'fohn_theme');
     pll_register_string('fohn', 'Other Accommodations', 'fohn_theme');
-    pll_register_string('fohn', '345 Doi Can, Ngoc Ha Ward, Hanoi City', 'fohn_theme');
+    pll_register_string('fohn', '349 Doi Can, Ngoc Ha Ward, Hanoi, Vietnam', 'fohn_theme');
+    pll_register_string('fohn', 'T.', 'fohn_theme');
     pll_register_string('fohn', 'Adults', 'fohn_theme');
     pll_register_string('fohn', 'Children', 'fohn_theme');
     pll_register_string('fohn', 'Promocode', 'fohn_theme');
     pll_register_string('fohn', 'HOTEL', 'fohn_theme');
-    pll_register_string('fohn', 'APARTMENT', 'fohn_theme');
+    pll_register_string('fohn', 'APARTMENTS', 'fohn_theme');
     // Apartment
     pll_register_string('fohn', 'Please add amenities in the Apartment Page backend.', 'fohn_theme');
 
@@ -207,7 +135,8 @@ add_action('init', function () {
         'footer_loyalty_desc'     => array('Join our loyalty program and book direct to take advantage of all our rewards and benefits.', true),
         'footer_loyalty_btn_text' => array('Join Now', false),
         'footer_description'      => array('LÈGACY - A FUSION ORIGINAL HA NOI', false),
-        'footer_address'          => array('345 Doi Can, Ngoc Ha Ward, Ba Dinh, Hanoi City', true),
+        'footer_address'          => array('349 Doi Can, Ngoc Ha Ward, Hanoi, Vietnam', true),
+        'footer_phone'            => array('+84 24 3816 5555', false),
     );
 
     foreach ($footer_option_strings as $key => $cfg) {
@@ -216,5 +145,16 @@ add_action('init', function () {
             $value = $cfg[0];
         }
         pll_register_string('fohn_' . $key, $value, 'fohn_theme', $cfg[1]);
+    }
+
+    // Bottom nav labels come from an ACF repeater, so register each label as it
+    // is stored. The URLs stay shared; only the visible text is translated.
+    $bottom_nav = get_field('footer_bottom_nav', 'option');
+    if (is_array($bottom_nav)) {
+        foreach ($bottom_nav as $i => $nav_item) {
+            if (!empty($nav_item['label'])) {
+                pll_register_string('fohn_bottom_nav_' . $i, $nav_item['label'], 'fohn_theme');
+            }
+        }
     }
 }, 20);

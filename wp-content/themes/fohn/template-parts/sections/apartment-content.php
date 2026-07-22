@@ -201,7 +201,7 @@ $apt_query = new WP_Query(array(
                                 </div>
 
                                 <!-- Bottom Row (3 items) -->
-                                <div class="flex flex-wrap justify-center gap-x-8 md:gap-x-16 gap-y-4 max-w-[500px] w-full mx-auto">
+                                <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 max-w-[500px] w-full mx-auto">
                                     <!-- View -->
                                     <div class="flex items-center gap-3">
                                         <div class="flex-shrink-0">
@@ -293,77 +293,3 @@ $apt_query = new WP_Query(array(
         color: #2B3C54;
     }
 </style>
-
-<script>
-    (function () {
-        var MAX_LINES = 4;
-        var MORE = '<?php echo esc_js(pll__('more')); ?>';
-        var LESS = '<?php echo esc_js(pll__('less')); ?>';
-
-        function setup(el) {
-            var full = el.textContent.replace(/\s+/g, ' ').trim();
-            var cs = window.getComputedStyle(el);
-            var lh = parseFloat(cs.lineHeight);
-            if (!lh || isNaN(lh)) lh = parseFloat(cs.fontSize) * 1.6;
-            var maxH = lh * MAX_LINES + 1;
-
-            el.textContent = full;
-            if (el.scrollHeight <= maxH) return; // Already fits within 4 lines
-
-            var words = full.split(' ');
-            var expanded = false;
-
-            function makeToggle(label) {
-                var a = document.createElement('a');
-                a.href = '#';
-                a.className = 'room-clamp-toggle';
-                a.textContent = label;
-                a.addEventListener('click', onToggle);
-                return a;
-            }
-
-            function renderCollapsed(n) {
-                el.innerHTML = '';
-                el.appendChild(document.createTextNode(words.slice(0, n).join(' ') + '… '));
-                el.appendChild(makeToggle(MORE));
-            }
-
-            function renderExpanded() {
-                el.innerHTML = '';
-                el.appendChild(document.createTextNode(full + ' '));
-                el.appendChild(makeToggle(LESS));
-            }
-
-            // Largest word count that still fits within MAX_LINES (with the toggle present)
-            var lo = 1, hi = words.length, best = 1;
-            while (lo <= hi) {
-                var mid = (lo + hi) >> 1;
-                renderCollapsed(mid);
-                if (el.scrollHeight <= maxH) { best = mid; lo = mid + 1; }
-                else { hi = mid - 1; }
-            }
-
-            function onToggle(e) {
-                e.preventDefault();
-                var startH = el.offsetHeight;
-                expanded = !expanded;
-                if (expanded) renderExpanded(); else renderCollapsed(best);
-                var endH = el.offsetHeight;
-                el.style.height = startH + 'px';
-                void el.offsetHeight; // force reflow
-                el.style.transition = 'height 0.4s ease';
-                el.style.height = endH + 'px';
-                window.setTimeout(function () {
-                    el.style.height = '';
-                    el.style.transition = '';
-                }, 430);
-            }
-
-            renderCollapsed(best);
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.js-room-clamp').forEach(setup);
-        });
-    })();
-</script>

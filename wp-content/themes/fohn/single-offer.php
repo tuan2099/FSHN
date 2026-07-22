@@ -69,7 +69,7 @@ while (have_posts()):
 
                 <!-- Right Image -->
                 <div class="w-full lg:w-1/2 min-h-[400px] lg:min-h-0">
-                    <div class="relative w-full h-full min-h-[400px] aspect-[4/5] lg:aspect-auto overflow-hidden">
+                    <div class="relative w-full  min-h-[400px] aspect-[4/5] lg:aspect-auto overflow-hidden">
                         <?php if ($bg_image_url): ?>
                             <img src="<?php echo esc_url($bg_image_url); ?>" alt="<?php the_title_attribute(); ?>"
                                 class="absolute inset-0 w-full h-full object-cover">
